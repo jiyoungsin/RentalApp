@@ -44,3 +44,31 @@ export const data = {
       },
     ]
 };
+
+export const todoData = [
+  {
+      id: 1,
+      name: 'Work remotely',
+      completed: false
+  },
+  {
+      id: 2,
+      name: 'Build tf outta my body',
+      completed: false
+  },
+  {
+      id: 3,
+      name: 'Buy a car',
+      completed: false
+  },
+  {
+      id: 4,
+      name: 'Developer Job',
+      completed: false
+  },
+  {
+      id: 5,
+      name: 'Buy a house',
+      completed: false
+  }
+];
