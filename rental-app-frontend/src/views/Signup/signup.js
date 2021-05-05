@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputForm from '../../components/InputForm';
-
+import Button from 'react-bootstrap/Button';
 
 export default function signup() {
     const UseStyles = makeStyles(theme => ({
@@ -18,7 +18,15 @@ export default function signup() {
             width: '60%',
             height: '100vh',
             margin: 'auto',
-        }
+        },
+        buttonPadding: {
+            padding: "10px",
+            marginTop: "20px",
+            marginBottom: "20px",
+        },
+        labelText: {
+            fontSize: '24px',
+        },
     }));
 
     const classes = UseStyles();
@@ -29,11 +37,12 @@ export default function signup() {
     return (
         <div className={classes.container}>
             <form className={classes.formStyle} onSubmit={onSubmit()}>
-                <label for="id">id</label>
+                <h2>Sign Up</h2>
+                <label className={classes.labelText} for="id">Email</label>
                 <InputForm type="text" placeholder="JohnDoe@gmail.com" id="id" name="id"/>
-                <label for="password">password</label>
+                <label className={classes.labelText} for="password">password</label>
                 <InputForm type="text" placeholder="" id="password" name="password"/>
-                <button>Submit</button>
+                <Button variant="primary" className={classes.buttonPadding}>Submit</Button>
             </form>
         </div>
     )

@@ -47,11 +47,15 @@ export default function Login() {
             <div className={classes.container}>
                 {/* <h3>{state.name}</h3> */}
                 <form className={classes.formStyle} onSubmit={onSubmit()}>
+                    <h2>Log in</h2>
                     <label className={classes.labelText} for="name">Email</label>
                     <InputForm onChange={handleChange} type="text" value={state.name} placeholder="JohnDoe@gmail.com" id="name" name="name"/>
                     <label className={classes.labelText} for="password">Password</label>
                     <InputForm onChange={handleChange} type="text" value={state.name} placeholder="" id="password" name="password"/>
                     <Button variant="primary" className={classes.buttonPadding}>Submit</Button>
+                    <div class="container">
+                        <span class="psw">Dont have an account?<a href="/signup"> Sign Up.</a></span>
+                    </div>
                     <div class="container">
                         <span class="psw">If you have forgotten your password, you can reset it by clicking <a href="/"> Reset Password.</a></span>
                     </div>
