@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Login from '../views/Login/login';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import Signup from '../views/Signup/signup';
 import Profile from '../views/Profile/Profile';
 import Todo from '../views/Todo/Todo';
@@ -33,6 +34,7 @@ export default function Routes() {
                         <Redirect to="/"/>
                     </Route> */}
                 </Switch>
+                <Footer/>
             </Router>
         </div>
     )
