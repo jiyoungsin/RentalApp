@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-
+import Button from 'react-bootstrap/Button';
 
 export default function LandingPage() {
     const useStyles = makeStyles(theme => ({
@@ -11,10 +11,17 @@ export default function LandingPage() {
             padding: "20px",
             margin: "20px",
         },
-        x: {
+        centerItems: {
             display: "flex",
             textAlign: "center",
-            backgroundColor: "blue",
+        },
+        centerText: {
+            textAlign: "center",
+        },
+        imageSize: {
+            width: "200px",
+            height: "150px",
+            padding: "20px",
         }
     }));
 
@@ -23,9 +30,16 @@ export default function LandingPage() {
     return (
         <div class="container pt-2 mt-2">
             <h2>Renting Made Easy.</h2>
-            <div className={classes.x}>
-                <div class="col-6">Rent</div>
-                <div class="col-6">Find Rental</div>
+            <div class="container" className={classes.centerText}>
+                <img className={classes.imageSize} src="https://i.imgur.com/TGdhfQv.jpg" alt="piled up moving boxes"></img>
+            </div>
+            <div className={classes.centerItems}>
+                <div class="col-6">
+                    <Button variant="primary">Rent Property</Button>{' '}
+                </div>
+                <div class="col-6">
+                    <Button variant="primary">Find Property</Button>{' '}
+                </div>
             </div>
 
         </div>
