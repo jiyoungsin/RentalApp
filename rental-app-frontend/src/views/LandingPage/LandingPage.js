@@ -35,10 +35,10 @@ export default function LandingPage() {
             </div>
             <div className={classes.centerItems}>
                 <div class="col-6">
-                    <Button variant="primary">Rent Property</Button>{' '}
+                    <a href="/createRental"><Button variant="primary">Rent Property</Button>{' '}</a>
                 </div>
                 <div class="col-6">
-                    <Button variant="primary">Find Property</Button>{' '}
+                    <a href="/login"><Button variant="primary">Find Property</Button>{' '}</a>
                 </div>
             </div>
 
