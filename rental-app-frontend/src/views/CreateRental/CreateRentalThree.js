@@ -28,6 +28,17 @@ export default function CreateRentalTwo() {
         labelText: {
             fontSize: '24px',
         },
+        checkbox: {
+            display: "flex",
+            marginTop: "10px",
+        },
+        text: {
+            fontSize: '24px',
+            marginRight: "auto"
+        },
+        checkboxStyle: {
+            height: "30px", width: "30px"
+        }
     }));
 
     const classes = useStyles();
@@ -57,12 +68,17 @@ export default function CreateRentalTwo() {
         <div className={classes.container}>
             <form className={classes.formStyle} onSubmit={submitter}>
                 <h2>Create Rental</h2>
-                <label className={classes.labelText} for="title">Title</label>
-                <InputForm onChange={handleChange} type="text" value={state.title} placeholder="Ad title" id="title" name="title"/>
-                <label className={classes.labelText} for="description">Description</label>
-                <InputForm onChange={handleChange} type="text" value={state.description} id="description" name="description"/>
-                <label className={classes.labelText} for="file">Upload Images</label>
-                <InputForm onChange={handleChange} type="file" value={state.file} id="file" name="file"/>
+                <label className={classes.labelText} for="price">price</label>
+                <InputForm onChange={handleChange} type="text" value={state.price} placeholder="Ad price" id="price" name="price"/>
+                <div className={classes.checkbox}>
+                    <label className={classes.text} for="contact">Please Contact</label>
+                    <input className={classes.checkboxStyle} onChange={handleChange} type="checkbox" value={state.contact} id="contact" name="contact"/>
+                </div>
+                <h3>Contact Information</h3>
+                <label className={classes.labelText} for="phoneNum">Phone Number</label>
+                <InputForm onChange={handleChange} type="text" value={state.phoneNum} id="phoneNum" name="phoneNum"/>
+                <label className={classes.labelText} for="email">Email</label>
+                <InputForm onChange={handleChange} type="text" value={state.email} id="email" name="email"/>
 
                 <Button type="submit" variant="primary" className={classes.buttonPadding}>Create Rental</Button>
             </form>

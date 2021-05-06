@@ -6,6 +6,7 @@ import Signup from '../views/Signup/signup';
 import Profile from '../views/Profile/Profile';
 import CreateRental from '../views/CreateRental/CreateRental';
 import CreateRentalTwo from '../views/CreateRental/CreateRentalTwo';
+import CreateRentalThree from '../views/CreateRental/CreateRentalThree';
 import Todo from '../views/Todo/Todo';
 import LandingPage from '../views/LandingPage/LandingPage';
 import { makeStyles } from '@material-ui/core/styles';
@@ -33,6 +34,7 @@ export default function Routes() {
                     <Route exact path="/Profile" component={Profile}/>
                     <Route exact path="/createRental" component={CreateRental}/>
                     <Route exact path="/createRentalTwo" component={CreateRentalTwo}/>
+                    <Route exact path="/createRentalThree" component={CreateRentalThree}/>
                     <Route exact path="/Todo" component={Todo}/>
                     {/* <Route path="*">
                         <Redirect to="/"/>
