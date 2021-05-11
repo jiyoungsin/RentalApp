@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputForm from '../../components/InputForm';
 import Button from 'react-bootstrap/Button';
 
-export default function CreateRentalTwo() {
+export default function CreateRentalTwo({values, handleChange, state }) {
 
     const useStyles = makeStyles(theme => ({
         formStyle: {
@@ -31,40 +31,18 @@ export default function CreateRentalTwo() {
     }));
 
     const classes = useStyles();
-
-    const [state, setState] = useState({
-        description: '',
-    });
-
-    const submitter = (event) =>{
-        // @TODO: save user data using API
-        event.preventDefault();
-        window.location.replace("/CreateRentalThree");
-    }
-
-    const handleChange = (e) => {
-        const {id, value} = e.target;
-        console.log(id)
-        console.log(value)
-        setState((ps)=>({
-            ...ps,
-            [id]: value,
-        }));
-        console.log(state);
-    }
-
     return (
         <div className={classes.container}>
-            <form className={classes.formStyle} onSubmit={submitter}>
+            <form className={classes.formStyle}>
                 <h2>Create Rental</h2>
                 <label className={classes.labelText} for="title">Title</label>
                 <InputForm onChange={handleChange} type="text" value={state.title} placeholder="Ad title" id="title" name="title"/>
+                <label className={classes.labelText} for="category">category</label>
+                <InputForm onChange={handleChange} type="text" value={state.category} placeholder="" id="category" name="category"/>
                 <label className={classes.labelText} for="description">Description</label>
                 <InputForm onChange={handleChange} type="text" value={state.description} id="description" name="description"/>
                 <label className={classes.labelText} for="file">Upload Images</label>
                 <InputForm onChange={handleChange} type="file" value={state.file} id="file" name="file"/>
-
-                <Button type="submit" variant="primary" className={classes.buttonPadding}>Create Rental</Button>
             </form>
         </div>
     )

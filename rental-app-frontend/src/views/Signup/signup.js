@@ -32,7 +32,7 @@ export default function signup() {
     const classes = UseStyles();
     const onSubmit = () =>{
         // saves data to Database Endpoint /signup
-        // signup
+        // send data to backend.  
     }
 
     return (
