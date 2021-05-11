@@ -3,4 +3,4 @@ node_modules
 rental-app-frontend/.eslintcache
 .prettierrc
 .env
-.json
+*.json
