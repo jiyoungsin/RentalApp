@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
 
-export default function signup() {
+export default function Signup() {
     const UseStyles = makeStyles(theme => ({
         formStyle: {
             width: '100%',
@@ -30,26 +31,54 @@ export default function signup() {
     }));
 
     const classes = UseStyles();
+    
+    const [formData, setFormData] = useState({
+        email: '',
+        lastName: '',
+        password: '',
+        firstName: '',
+        phoneNumber: '',
+    });
+
+    const handleChange = (e) => {
+        const {id, value} = e.target;
+        setFormData((ps)=>({
+            ...ps,
+            [id]: value,
+        }));
+    }
+    console.log(formData);
+
     const onSubmit = () =>{
         // saves data to Database Endpoint /signup
-        // send data to backend.  
+        const payload = {...formData}
+        axios.post('http://localhost:5000/signup', payload, { 
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }).then(res => {
+            console.log("Creating Account");
+        }).catch(err => {
+            console.error(err);
+            alert('Error Sending Data to Backend');
+        });
     }
 
     return (
         <div className={classes.container}>
-            <form className={classes.formStyle} onSubmit={onSubmit()}>
+            <form className={classes.formStyle}>
                 <h2>Sign Up</h2>
-                <label className={classes.labelText} for="fname">First Name</label>
-                <InputForm type="text" placeholder="John" id="fname" name="fname"/>
-                <label className={classes.labelText} for="lname">Last Name</label>
-                <InputForm type="text" placeholder="John" id="lname" name="lname"/>
-                <label className={classes.labelText} for="id">Email</label>
-                <InputForm type="text" placeholder="JohnDoe@gmail.com" id="id" name="id"/>
+                <label className={classes.labelText} for="firstName">First Name</label>
+                <InputForm onChange={handleChange} type="text" value={formData.firstName} id="firstName" name="firstName"/>
+                <label className={classes.labelText} for="lastName">Last Name</label>
+                <InputForm onChange={handleChange} type="text" value={formData.lastName} id="lastName" name="lastName"/>
+                <label className={classes.labelText} for="email">Email</label>
+                <InputForm onChange={handleChange} type="text" value={formData.email} id="email" name="email"/>
                 <label className={classes.labelText} for="password">Password</label>
-                <InputForm type="text" placeholder="" id="password" name="password"/>
-                <label className={classes.labelText} for="phoneNum">Phone Number</label>
-                <InputForm type="text" placeholder="" id="phoneNum" name="phoneNum"/>
-                <Button variant="primary" className={classes.buttonPadding}>Submit</Button>
+                <InputForm onChange={handleChange} type="text" value={formData.password} id="password" name="password"/>
+                <label className={classes.labelText} for="phoneNumber">Phone Number</label>
+                <InputForm onChange={handleChange} type="text" value={formData.phoneNumber} id="phoneNumber" name="phoneNumber"/>
+                <Button variant="primary" className={classes.buttonPadding} onClick={()=>{onSubmit()}}>Submit</Button>
             </form>
         </div>
     )

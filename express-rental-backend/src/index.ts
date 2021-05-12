@@ -2,7 +2,7 @@ import path from 'path';
 import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
-import User from '../models/user.model';
+import autoIncrement from 'mongoose-auto-increment';
 import { userInfo } from 'os';
 
 const { check, validationResult } = require('express-validator');
@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.urlencoded({
     extended: true,
 }));
+app.use(express.json());
 
 mongoose.connect("mongodb+srv://admin:admin@cluster0.icaj7.mongodb.net/rentalapp?retryWrites=true&w=majority", {
     useNewUrlParser: true,
@@ -26,6 +27,9 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.icaj7.mongodb.net/rentalapp
     console.log(error);
     console.log("Error occurred connecting to Database");
 });
+autoIncrement.initialize(mongoose.connection);
+
+import User from '../models/user.model';
 
 app.get('/', async (req, res) => {
     console.log("Fetching Data from DB");
@@ -35,17 +39,16 @@ app.get('/', async (req, res) => {
 
 app.post('/signup', async (req, res) => {
     // change to req.body later when not using postman
-    const { uid, password, firstName, lastName, email, phoneNumber } = req.query;
+    const { password, firstName, lastName, email, phoneNumber } = req.body;
     const database = mongoose.connection;
 
     console.log("Post Request to DB");
     database.collection("user").insertOne({
-            uid : `${uid}`,
-            password : `${password}`,
-            firstName : `${firstName}`,
-            lastName : `${lastName}`,
-            email : `${email}`,
-            phoneNumber : `${phoneNumber}`,
+            password : password,
+            firstName : firstName,
+            lastName : lastName,
+            email : email,
+            phoneNumber : phoneNumber,
         });
     res.status(200).json("Saved to Database");
 });
@@ -86,5 +89,5 @@ app.post("/UpdateProfile",(req,res)=> {
 
 
 app.listen(PORT, ()=>{
-    console.log("backend is running");
+    console.log("backend is running on Port : 5000");
 })
