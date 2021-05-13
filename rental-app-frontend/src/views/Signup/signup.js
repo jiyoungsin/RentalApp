@@ -47,7 +47,6 @@ export default function Signup() {
             [id]: value,
         }));
     }
-    console.log(formData);
 
     const onSubmit = () =>{
         // saves data to Database Endpoint /signup

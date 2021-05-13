@@ -1,46 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
+import { useStyles } from './styles';
 import InputForm from '../../components/InputForm';
-import Button from 'react-bootstrap/Button';
 
-export default function CreateRentalTwo({values, handleChange, state}) {
-
-    const useStyles = makeStyles(theme => ({
-        formStyle: {
-            width: '100%',
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            justifyItems : 'center',
-            justifySelf : 'center',
-        },
-        container: {
-            width: '60%',
-            height: '100vh',
-            margin: 'auto',
-        },
-        buttonPadding: {
-            padding: "10px",
-            marginTop: "20px",
-            marginBottom: "20px",
-        },
-        labelText: {
-            fontSize: '24px',
-        },
-        checkbox: {
-            display: "flex",
-            marginTop: "10px",
-        },
-        text: {
-            fontSize: '24px',
-            marginRight: "auto"
-        },
-        checkboxStyle: {
-            height: "30px", width: "30px"
-        }
-    }));
-
+export default function CreateRentalTwo({handleChange, state}) {
     const classes = useStyles();
     return (
         <div className={classes.container}>

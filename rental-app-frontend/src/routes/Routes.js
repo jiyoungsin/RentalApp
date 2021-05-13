@@ -22,22 +22,20 @@ const useStyles = makeStyles(theme => ({
 
 export default function Routes() {
     return (
-        <div>
-            <Router history={history}>
-                <NavBar/>
-                <Switch>
-                    <Route exact path="/" component={LandingPage}/>
-                    <Route exact path="/login" component={Login}/>
-                    <Route exact path="/signup" component={Signup}/>
-                    <Route exact path="/Profile" component={Profile}/>
-                    <Route exact path="/createRental" component={CreateRental}/>
-                    <Route exact path="/Todo" component={Todo}/>
-                    {/* <Route path="*">
-                        <Redirect to="/"/>
-                    </Route> */}
-                </Switch>
-                <Footer/>
-            </Router>
-        </div>
+        <Router history={history}>
+            <NavBar/>
+            <Switch>
+                <Route exact path="/" component={LandingPage}/>
+                <Route exact path="/login" component={Login}/>
+                <Route exact path="/signup" component={Signup}/>
+                <Route exact path="/Profile" component={Profile}/>
+                <Route exact path="/createRental" component={CreateRental}/>
+                <Route exact path="/Todo" component={Todo}/>
+                {/* <Route path="*">
+                    <Redirect to="/"/>
+                </Route> */}
+            </Switch>
+            <Footer/>
+        </Router>
     )
 }

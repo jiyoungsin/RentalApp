@@ -1,14 +1,13 @@
-import path from 'path';
 import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import autoIncrement from 'mongoose-auto-increment';
-import { userInfo } from 'os';
+import dotenv from 'dotenv';
 
 const { check, validationResult } = require('express-validator');
-
+dotenv.config();
 const app = express();
-const PORT = 5000 || process.env.PORT;
+const PORT = process.env.PORT || 5000 ;
 
 app.use(cors());
 app.use(express.urlencoded({
@@ -89,5 +88,5 @@ app.post("/UpdateProfile",(req,res)=> {
 
 
 app.listen(PORT, ()=>{
-    console.log("backend is running on Port : 5000");
+    console.log("backend is running on Port : ", PORT);
 })
