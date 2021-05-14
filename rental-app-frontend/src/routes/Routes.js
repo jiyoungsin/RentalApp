@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
+import Todo from '../views/Todo/Todo';
 import Login from '../views/Login/login';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Signup from '../views/Signup/signup';
+import { createBrowserHistory } from 'history';
 import Profile from '../views/Profile/Profile';
 import CreateRental from '../views/CreateRental';
-import Todo from '../views/Todo/Todo';
 import LandingPage from '../views/LandingPage/LandingPage';
 import { makeStyles } from '@material-ui/core/styles';
-import { createBrowserHistory } from 'history';
 import { Router, Route, Redirect, Switch } from "react-router";
 
 const history = createBrowserHistory();
