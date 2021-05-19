@@ -1,11 +1,11 @@
 import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
-import autoIncrement from 'mongoose-auto-increment';
-import rentalController from '../controllers/rental';
+//import autoIncrement from 'mongoose-auto-increment';
+//import rentalController from '../controllers/rental';
 import dotenv from 'dotenv';
 
-const { check, validationResult } = require('express-validator');
+//const { check, validationResult } = require('express-validator');
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000 ;
@@ -27,14 +27,14 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.icaj7.mongodb.net/rentalapp
     console.log(error);
     console.log("Error occurred connecting to Database");
 });
-autoIncrement.initialize(mongoose.connection);
+//autoIncrement.initialize(mongoose.connection);
 
 
 
 
 
 import User from '../models/user.model';
-app.use('/rentals', rentalController);
+//app.use('/rentals', rentalController);
 
 app.get('/', async (req, res) => {
     console.log("Fetching Data from DB");
@@ -58,25 +58,25 @@ app.post('/signup', async (req, res) => {
     res.status(200).json("Saved to Database");
 });
 
-app.post('createRental', async (req, res) => {
-    // change to req.body later when not using postman
-    const { file, title, email, price, contact, phoneNum, category, description } = req.body;
-    const database = mongoose.connection;
+// app.post('createRental', async (req, res) => {
+//     // change to req.body later when not using postman
+//     const { file, title, email, price, contact, phoneNum, category, description } = req.body;
+//     const database = mongoose.connection;
 
-    console.log("Post Request to DB CreateRental");
-    database.collection("rental").insertOne({
-            file: file,
-            title: title,
-            email: email,
-            price: price,
-            contact: contact,
-            phoneNum: phoneNum,
-            category: category,
-            description: description,
+//     console.log("Post Request to DB CreateRental");
+//     database.collection("rental").insertOne({
+//             file: file,
+//             title: title,
+//             email: email,
+//             price: price,
+//             contact: contact,
+//             phoneNum: phoneNum,
+//             category: category,
+//             description: description,
             
-        });
-    res.status(201).json("Saved to Database");
-});
+//         });
+//     res.status(201).json("Saved to Database");
+// });
 
 app.post('/login', async (req, res) => {
     // change to req.body later when not using postman

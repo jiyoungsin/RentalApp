@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history';
 import Profile from '../views/Profile/Profile';
 import CreateRental from '../views/CreateRental';
 import LandingPage from '../views/LandingPage/LandingPage';
+import findProperty from '../views/FindProperty';
 import { makeStyles } from '@material-ui/core/styles';
 import { Router, Route, Redirect, Switch } from "react-router";
 
@@ -30,6 +31,7 @@ export default function Routes() {
                 <Route exact path="/signup" component={Signup}/>
                 <Route exact path="/Profile" component={Profile}/>
                 <Route exact path="/createRental" component={CreateRental}/>
+                <Route exact path="/findProperty" component={findProperty}/>
                 <Route exact path="/Todo" component={Todo}/>
                 {/* <Route path="*">
                     <Redirect to="/"/>

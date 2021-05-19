@@ -38,7 +38,7 @@ export default function LandingPage() {
                     <a href="/createRental"><Button variant="primary">Rent Property</Button>{' '}</a>
                 </div>
                 <div class="col-6">
-                    <a href="/login"><Button variant="primary">Find Property</Button>{' '}</a>
+                    <a href="/findProperty"><Button variant="primary">Find Property</Button>{' '}</a>
                 </div>
             </div>
 
