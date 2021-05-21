@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import RentalPost from '../../components/RentalPost';
-import { makeStyles, StylesProvider } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     profilePicture: {
@@ -24,6 +25,21 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile() {
     
     const classes = useStyles();
+    
+    const [rentalPost, setRentalPost] = useState({});
+    useEffect(()=>{
+        axios.get("http://localhost:5000/profile/rentals", 
+        ).then(res=>{
+            console.log("Fetching Data from Database");
+            console.log(res.data);
+            setRentalPost(res.data); 
+            //const rentals = res.arryOfRentals;
+        }).catch(err=>{
+            console.log(err);
+            alert("Error while Fetching Rental Units");
+        })
+    },[]);
+
     return (
         <div className={classes.fillPage}>
             <div className={classes.profileHeader}>
@@ -33,7 +49,7 @@ export default function Profile() {
             <RentalPost 
                 src="https://picsum.photos/100/125"
                 address="800 Sunmount Road Basement Apt"
-                desc="Description of the Rental #1 given by the user fetch from Database"
+                desc={rentalPost.description}
                 profilePic="https://picsum.photos/10/10"
                 sendersName="Michael Won"
                 lastMsg="2W"

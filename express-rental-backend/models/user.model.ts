@@ -1,10 +1,13 @@
 import mongoose from "mongoose";
-import autoIncrement from 'mongoose-auto-increment';
 
 const userSchema = new mongoose.Schema(
     {
-        _id: {
-            type: Number,
+        uid: {
+            type: String,
+            required: [true, "Internal Error. Missing uid field."],
+        },
+        userName:{
+            type: String,
             required: true,
         },
         password: {
@@ -36,6 +39,5 @@ const userSchema = new mongoose.Schema(
         },
     },
 );
-userSchema.plugin(autoIncrement.plugin, 'user');
 const User = mongoose.model("user", userSchema);
 export default User;

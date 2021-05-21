@@ -51,19 +51,20 @@ export default function Checkout() {
     }));
 
     const classes = useStyles();
-    const steps = ['Create Title', 'Upload Photos', 'Add Details'];
-    const [activeStep, setActiveStep] = useState(0);
     const [loading, setLoading] = useState(true);
+    const [activeStep, setActiveStep] = useState(0);
+    const steps = ['Create Title', 'Upload Photos', 'Add Details'];
+    const [uploadComplete,setUploadComplete] = useState(false);
 
     const [state, setState] = useState({
-        file: "",
         title: "",
         email: "",
         price: "",
-        contact: "",
+        contact: "true",
         phoneNum: "",
         category: "",
         description: "",
+        unitPictures: "",
     });
 
     const handleChange = (e) => {
@@ -96,11 +97,12 @@ export default function Checkout() {
         } 
       }
     const handleNext = () => {
+        // move user to next page.
         setActiveStep(activeStep + 1);
+        // send data to backend and redirect to root.
         if( activeStep === steps.length - 1){
           sendDetailsToServer(state);
-          
-
+          setUploadComplete(true);
         }
     };
     const handleBack = () => {
@@ -170,6 +172,7 @@ export default function Checkout() {
                 </Paper>
             </main>
         </React.Fragment>
+        {uploadComplete ? <Redirect to="/"/> : null }
     </div>
     );
 }

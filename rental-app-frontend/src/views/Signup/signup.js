@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,7 +11,7 @@ export default function Signup() {
             width: '100%',
             height: '100vh',
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'column',    
             justifyContent: 'center',
             justifyItems : 'center',
             justifySelf : 'center',
@@ -34,11 +35,14 @@ export default function Signup() {
     
     const [formData, setFormData] = useState({
         email: '',
+        userName: '',
         lastName: '',
         password: '',
         firstName: '',
         phoneNumber: '',
     });
+
+    const [signUpSuccessful, setSignUpSuccessful] = useState(false);
 
     const handleChange = (e) => {
         const {id, value} = e.target;
@@ -47,16 +51,17 @@ export default function Signup() {
             [id]: value,
         }));
     }
-
+    console.log(formData);
     const onSubmit = () =>{
         // saves data to Database Endpoint /signup
         const payload = {...formData}
-        axios.post('http://localhost:5000/signup', payload, { 
+        axios.post('http://localhost:5000/users/signup', payload, { 
             headers: {
                 'Content-Type' : 'application/json',
             }
         }).then(res => {
             console.log("Creating Account");
+            setSignUpSuccessful(true);
         }).catch(err => {
             console.error(err);
             alert('Error Sending Data to Backend');
@@ -67,6 +72,8 @@ export default function Signup() {
         <div className={classes.container}>
             <form className={classes.formStyle}>
                 <h2>Sign Up</h2>
+                <label className={classes.labelText} for="userName">User Name</label>
+                <InputForm onChange={handleChange} type="text" value={formData.userName} id="userName" name="userName"/>
                 <label className={classes.labelText} for="firstName">First Name</label>
                 <InputForm onChange={handleChange} type="text" value={formData.firstName} id="firstName" name="firstName"/>
                 <label className={classes.labelText} for="lastName">Last Name</label>
@@ -79,6 +86,7 @@ export default function Signup() {
                 <InputForm onChange={handleChange} type="text" value={formData.phoneNumber} id="phoneNumber" name="phoneNumber"/>
                 <Button variant="primary" className={classes.buttonPadding} onClick={()=>{onSubmit()}}>Submit</Button>
             </form>
+            {signUpSuccessful ? <Redirect to="/login"/> : null }
         </div>
     )
 }

@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 
 const rentalSchema = new mongoose.Schema(
     {
-        file: {
+        uid: {
+            type: String,
+            required: [true, "Internal Error. Missing uid field."],
+        },
+        unitPictures: {
             type: String,
             required: true,
         },
