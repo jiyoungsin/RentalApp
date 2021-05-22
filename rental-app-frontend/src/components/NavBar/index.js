@@ -13,9 +13,9 @@ function adminNavBar(){
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#Search Rental">Find Rental</Nav.Link>
+                    <Nav.Link href="/findProperty">Find Rental</Nav.Link>
                     <Nav.Link href="#bbbbbb">Pricing</Nav.Link>
-                    <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                    <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
                         <NavDropdown.Item href="#ViewAllUsers">View All Users</NavDropdown.Item>
                         <NavDropdown.Item href="#ManageContent">Manage Content</NavDropdown.Item>
                         <NavDropdown.Divider />
@@ -41,7 +41,7 @@ function notLoggedinUserNavBar(){
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#findRental">Find Rental</Nav.Link>
+                    <Nav.Link href="/findProperty">Find Rental</Nav.Link>
                     <Nav.Link href="#eeeeeeeee">Pricing</Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
@@ -61,7 +61,7 @@ function loggedInUserNavBar(){
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#wwwwwwwww">Features</Nav.Link>
+                    <Nav.Link href="/findProperty">Find Rental</Nav.Link>
                     <Nav.Link href="#Favorites">Favorites</Nav.Link>
                     <Nav.Link href="#eeeeeeeee">Pricing</Nav.Link>
                 </Nav>
