@@ -49,6 +49,7 @@ export default function Profile() {
             <RentalPost 
                 src="https://picsum.photos/100/125"
                 address="800 Sunmount Road Basement Apt"
+                title={rentalPost.title}
                 desc={rentalPost.description}
                 profilePic="https://picsum.photos/10/10"
                 sendersName="Michael Won"

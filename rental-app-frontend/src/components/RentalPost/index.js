@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function RentalPost({src, address, desc, sendersName, profilePic, lastMsg}) {
+export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg}) {
 
     const classes = useStyles();
     return (
@@ -47,7 +47,8 @@ export default function RentalPost({src, address, desc, sendersName, profilePic,
             <div className={classes.container}>
                 <img src={src} alt="Picture Of Rental"/>
                 <div className={classes.rentalCard}>
-                    <h5>{address}</h5>
+                    <h5>{title}</h5>
+                    <div>{address}</div>
                     <div>{desc}</div>
                     <div style={{padding: "10px"}}>
                         <img className={classes.messagedProfilePicture} src={profilePic} alt="Person that messaged Profile Picture"/>

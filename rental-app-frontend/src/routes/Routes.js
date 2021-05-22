@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Todo from '../views/Todo/Todo';
 import Login from '../views/Login/login';
 import NavBar from '../components/NavBar';
@@ -10,7 +10,7 @@ import CreateRental from '../views/CreateRental';
 import LandingPage from '../views/LandingPage/LandingPage';
 import findProperty from '../views/FindProperty';
 import { makeStyles } from '@material-ui/core/styles';
-import { Router, Route, Redirect, Switch } from "react-router";
+import { Router, Route , Switch } from "react-router";
 
 const history = createBrowserHistory();
 const useStyles = makeStyles(theme => ({
@@ -33,9 +33,6 @@ export default function Routes() {
                 <Route exact path="/createRental" component={CreateRental}/>
                 <Route exact path="/findProperty" component={findProperty}/>
                 <Route exact path="/Todo" component={Todo}/>
-                {/* <Route path="*">
-                    <Redirect to="/"/>
-                </Route> */}
             </Switch>
             <Footer/>
         </Router>

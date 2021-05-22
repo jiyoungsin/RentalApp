@@ -17,6 +17,8 @@ export default function CreateRentalTwo({handleChange, state}) {
                 <h3>Contact Information</h3>
                 <label className={classes.labelText} for="phoneNum">Phone Number</label>
                 <InputForm onChange={handleChange} type="text" value={state.phoneNum} id="phoneNum" name="phoneNum"/>
+                <label className={classes.labelText} for="address">Address</label>
+                <InputForm onChange={handleChange} type="text" value={state.address} id="address" name="address"/>
                 <label className={classes.labelText} for="email">Email</label>
                 <InputForm onChange={handleChange} type="text" value={state.email} id="email" name="email"/>
             </form>

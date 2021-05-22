@@ -61,6 +61,7 @@ export default function Checkout() {
         email: "",
         price: "",
         contact: "true",
+        address : "",
         phoneNum: "",
         category: "",
         description: "",

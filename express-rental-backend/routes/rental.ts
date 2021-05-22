@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 const app = express.Router(); 
 
 app.post("/createrental", async (req, res) => {
-    const { unitPictures, title, email, price, contact, phoneNum, category, description } = req.body;
+    const { address, unitPictures, title, email, price, contact, phoneNum, category, description } = req.body;
     const database = mongoose.connection;
 
     console.log("Post Request to DB CreateRental");
@@ -13,6 +13,7 @@ app.post("/createrental", async (req, res) => {
             email: email,
             price: price,
             contact: contact,
+            address : address,
             phoneNum: phoneNum,
             category: category,
             description: description,
