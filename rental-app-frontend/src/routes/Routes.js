@@ -6,8 +6,9 @@ import Signup from '../views/Signup/signup';
 import { createBrowserHistory } from 'history';
 import Profile from '../views/Profile/Profile';
 import CreateRental from '../views/CreateRental';
-import LandingPage from '../views/LandingPage/LandingPage';
 import findProperty from '../views/FindProperty';
+import EditRental from '../views/CreateRental/EditRental';
+import LandingPage from '../views/LandingPage/LandingPage';
 import { Router, Route , Switch } from "react-router";
 
 const history = createBrowserHistory();
@@ -21,6 +22,7 @@ export default function Routes() {
                 <Route exact path="/signup" component={Signup}/>
                 <Route exact path="/Profile" component={Profile}/>
                 <Route exact path="/createRental" component={CreateRental}/>
+                <Route exact path="/rentalUnit/:id" component={EditRental}/>
                 <Route exact path="/findProperty" component={findProperty}/>
             </Switch>
             <Footer/>

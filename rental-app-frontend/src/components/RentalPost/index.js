@@ -56,7 +56,13 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
                     </div>
                 </div>
                 <div className={classes.lastTalked}>
-                    {lastMsg}
+                    <div>
+                        <Link to="/rentalUnit/:id">Edit</Link>
+                    </div>
+                    <div>
+                        Delete
+                    </div>
+                    <div>{lastMsg}</div>
                 </div>
             </div>
             <Link className={classes.addLink} to="/createRental">
