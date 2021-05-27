@@ -9,6 +9,10 @@ During the next 12 weeks the Vroom Development ream will be creating a house ren
 # Front End Instructions :books:
 The front end of our application is React.
 
+```sh
+npm start
+```
+
 # Back End Instructions :open_book:
 The back end of our application is Express and MongoDB. We decided on using typescript as the language of choice instead of javascript. However, typescript will transpile this into javascript for us. This file will be generated in the "dist" inside the express-rental-backend directory. Change directories to express-rental-backend and run the command below.
 
