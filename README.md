@@ -7,7 +7,7 @@
 During the next 12 weeks the Vroom Development ream will be creating a house rental application. We will be documenting the experience so that others learn from our experiences.
 
 # Front End Instructions :books:
-The front end of our application is React.
+The front end of our application is React. You can start the webapp by changing the directory to rental-app-frontend and running the command below.
 
 ```sh
 npm start
