@@ -6,9 +6,9 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: [true, "Internal Error. Missing uid field."],
         },
-        unitPictures: {
-            type: String,
-            required: true,
+        image: {
+            data: Buffer,
+            contentType: String,
         },
         title: {
             type: String,

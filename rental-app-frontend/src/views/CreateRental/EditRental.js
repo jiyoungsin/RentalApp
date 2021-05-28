@@ -1,12 +1,13 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
 import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from 'react-bootstrap/Button';
+
 
 export default function EditRental({match}) {
     const id = match.params.id;
-    const UseStyles = makeStyles(theme => ({
+    const UseStyles = makeStyles(() => ({
         formStyle: {
             width: '100%',
             height: '100vh',
@@ -45,7 +46,6 @@ export default function EditRental({match}) {
     const [loading,setLoading] = useState(false);
     
     useEffect(()=>{
-        
         axios.get(`http://localhost:5000/rentalUnit/${id}`, { 
             headers: {
                 'Content-Type' : 'application/json',
@@ -69,9 +69,6 @@ export default function EditRental({match}) {
             ...ps,
             [id]: value,
         }));
-        // setState({
-        //     [id]: value,
-        // });
     }
 
     const onSubmit = () =>{

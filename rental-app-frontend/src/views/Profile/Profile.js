@@ -33,7 +33,6 @@ export default function Profile() {
             console.log("Fetching Data from Database");
             console.log(res.data);
             setRentalPost(res.data); 
-            //const rentals = res.arryOfRentals;
         }).catch(err=>{
             console.log(err);
             alert("Error while Fetching Rental Units");
@@ -54,6 +53,7 @@ export default function Profile() {
                 profilePic="https://picsum.photos/10/10"
                 sendersName="Michael Won"
                 lastMsg="2W"
+                rentalPostId="60a831f5668268df28437543"
             />            
         </div>
     )

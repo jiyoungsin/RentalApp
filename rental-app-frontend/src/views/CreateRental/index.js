@@ -57,6 +57,7 @@ export default function Checkout() {
     const [uploadComplete,setUploadComplete] = useState(false);
 
     const [state, setState] = useState({
+        file: "",
         title: "",
         email: "",
         price: "",
@@ -65,7 +66,6 @@ export default function Checkout() {
         phoneNum: "",
         category: "",
         description: "",
-        unitPictures: "",
     });
 
     const handleChange = (e) => {

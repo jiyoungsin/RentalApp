@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { Redirect } from 'react-router'
 
 const useStyles = makeStyles((theme) => ({
     messagedProfilePicture:{
@@ -39,10 +41,25 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg}) {
+export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg, rentalPostId}) {
+
+    const [requestDelete, setRequestDelete] = useState(false);
+    useEffect(()=>{
+        axios.delete(`http://localhost:5000/rentalUnit/delete/${rentalPostId}`, 
+        ).then(res=>{
+            console.log("Deleting Data from Database");
+            console.log(res.data);
+            Window.location.reload();
+            //const rentals = res.arryOfRentals;
+        }).catch(err=>{
+            console.log(err);
+            alert("Error while Deleting Rental Unit");
+        })
+    },[requestDelete])
 
     const classes = useStyles();
     return (
+        requestDelete === false ? 
         <>
             <div className={classes.container}>
                 <img src={src} alt="Picture Of Rental"/>
@@ -60,7 +77,7 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
                         <Link to="/rentalUnit/:id">Edit</Link>
                     </div>
                     <div>
-                        Delete
+                        <a href="" onClick={()=>setRequestDelete(true)}>Delete</a>
                     </div>
                     <div>{lastMsg}</div>
                 </div>
@@ -68,6 +85,6 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
             <Link className={classes.addLink} to="/createRental">
                 <AddCircleIcon/>
             </Link>
-        </>
+        </> : <Redirect to="/"/>
     )
 }
