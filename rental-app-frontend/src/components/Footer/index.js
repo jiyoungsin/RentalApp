@@ -59,7 +59,7 @@ export default function Footer() {
           {/* 
             Gmail ---
             Email - rentvroom@gmail.com
-            Pass - vroom123
+            Pass - vroom123!        //(This is the updated pass - latest)
 
             Instagram ---
             Username - rentvroom
@@ -85,6 +85,9 @@ export default function Footer() {
             </li>
             <li>
               <a href="/">Luxurious Rentals</a>
+            </li>
+            <li>
+              <a href="https://drive.google.com/file/d/1JSrdlWUPT_HR88jOU1J9lKApJLVLHxVh/view?usp=sharing">Tenant-Landlord Term Agreement by Vroom</a>
             </li>
           </ul>
         </div>
