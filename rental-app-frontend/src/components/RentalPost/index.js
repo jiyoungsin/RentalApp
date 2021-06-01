@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+
 export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg, rentalPostId}) {
 
     const [requestDelete, setRequestDelete] = useState(false);
@@ -56,6 +57,7 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
             alert("Error while Deleting Rental Unit");
         })
     },[requestDelete])
+
 
     const classes = useStyles();
     const link = `/rentalUnit/${_id}`
