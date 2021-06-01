@@ -57,6 +57,7 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
         })
     },[requestDelete])
 
+
     const classes = useStyles();
     const link = `/rentalUnit/${_id}`
     console.log(link);
