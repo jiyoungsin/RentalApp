@@ -54,6 +54,7 @@ export default function Profile() {
                 profilePic="https://picsum.photos/10/10"
                 sendersName="Michael Won"
                 lastMsg="2W"
+                _id={rentalPost._id}
             />            
         </div>
     )

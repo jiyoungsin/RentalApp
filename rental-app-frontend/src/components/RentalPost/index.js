@@ -39,9 +39,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg}) {
+export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg, _id}) {
 
     const classes = useStyles();
+    const link = `/rentalUnit/${_id}`
+    console.log(link);
     return (
         <>
             <div className={classes.container}>
@@ -57,7 +59,7 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
                 </div>
                 <div className={classes.lastTalked}>
                     <div>
-                        <Link to="/rentalUnit/:id">Edit</Link>
+                        <Link to={link}>Edit</Link>
                     </div>
                     <div>
                         Delete
