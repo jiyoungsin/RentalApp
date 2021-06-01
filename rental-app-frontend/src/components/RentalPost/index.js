@@ -41,11 +41,15 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg, rentalPostId}) {
+export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg, _id}) {
+    const classes = useStyles();
+    const link = `/rentalUnit/${_id}`
 
     const [requestDelete, setRequestDelete] = useState(false);
+
     useEffect(()=>{
-        axios.delete(`http://localhost:5000/rentalUnit/delete/${rentalPostId}`, 
+        
+        axios.delete(`http://localhost:5000/rentalUnit/delete/${_id}`, 
         ).then(res=>{
             console.log("Deleting Data from Database");
             console.log(res.data);
@@ -57,10 +61,6 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
         })
     },[requestDelete])
 
-
-    const classes = useStyles();
-    const link = `/rentalUnit/${_id}`
-    console.log(link);
     return (
         requestDelete === false ? 
         <>

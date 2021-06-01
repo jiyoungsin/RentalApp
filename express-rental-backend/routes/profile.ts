@@ -13,7 +13,7 @@ app.post("/Update",(req,res)=> {
 });
 
 app.get("/rentals",async (req,res)=>{
-    const payload = await Rental.findOne({_id: "60b66728a6003f61e1a24342"});
+    const payload = await Rental.findOne({_id: "60b6719124f0216b3ec5ec91"});
     res.status(200).json(payload);
 });
 
