@@ -45,7 +45,6 @@ export default function EditRental({match}) {
     const [loading,setLoading] = useState(false);
     
     useEffect(()=>{
-        
         axios.get(`http://localhost:5000/rentalUnit/${id}`, { 
             headers: {
                 'Content-Type' : 'application/json',
@@ -69,13 +68,10 @@ export default function EditRental({match}) {
             ...ps,
             [id]: value,
         }));
-        // setState({
-        //     [id]: value,
-        // });
     }
 
     const onSubmit = () =>{
-        // do something.
+        // do something. 
     }
 
     return (
