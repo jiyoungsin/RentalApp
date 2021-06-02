@@ -12,7 +12,8 @@ import LandingPage from '../views/LandingPage/LandingPage';
 import { Router, Route , Switch } from "react-router";
 
 const history = createBrowserHistory();
-export default function Routes() {
+
+function Routes() {
     return (
         <Router history={history}>
             <NavBar/>
@@ -29,3 +30,13 @@ export default function Routes() {
         </Router>
     )
 }
+
+// const RouteRegistration = ({component: Component, ...rest}) => {
+//     return ( <Route {...rest} render={(props)=>{ <Component {...props} /> }} /> )
+// }
+
+// const RouteRegisteration = ({component: Component, ...rest}) => {
+//     return ( <Route {...rest} render={(props)=>{ <Component {...props} /> }} /> )
+// }
+
+export default Routes;
