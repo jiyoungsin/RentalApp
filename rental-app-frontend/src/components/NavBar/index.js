@@ -2,9 +2,9 @@ import React, {useState } from 'react';
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
-//const [role, setRole] = useState("");
+// const [role, setRole] = useState("");
 // get the users role to determine navbar
-const role = 'admin';
+const role = '';
 
 function adminNavBar(){
     return (

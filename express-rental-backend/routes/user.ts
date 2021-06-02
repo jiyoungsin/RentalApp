@@ -1,5 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import * as userController from '../models/controllers/userController';
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 const app = express.Router();
 
@@ -7,25 +11,25 @@ app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;
     const database = mongoose.connection;
     console.log("Post Request to DB");
-    database.collection("user").insertOne({
+    const hash = bcrypt.hashSync(password, saltRounds);
+
+    try{
+        database.collection("user").insertOne({
             email : email,
-            password : password,
+            password : hash,
             lastName : lastName,
             userName : userName,
             firstName : firstName,
             phoneNumber : phoneNumber,
-        });
-    res.status(200).json("Saved to Database");
+        })
+        res.status(200).json("Saved to Database");
+    }catch{
+        console.log("ERROR: Did not Create User.")
+    }
 });
 
 
-app.post('/login', async (req, res) => {
-    // change to req.body later when not using postman
-    let email = req.query.userName;
-    let password = req.query.password;
-
-    res.status(200).json("Successful login");
-});
-
+app.get('/login', userController.allUsers);
+app.post('/login', userController.find);
 
 module.exports = app;

@@ -1,4 +1,6 @@
 import React, {useState}  from "react";
+import axios from 'axios';
+import {Redirect} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import InputForm from '../../components/InputForm';
 import Button from 'react-bootstrap/Button';
@@ -30,31 +32,42 @@ export default function Login() {
     }));
     
     const classes = UseStyles();
-    const [state, setState] = useState({
+    const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
 
-    const onSubmit = () =>{
-        // do something.
+
+    const onSubmit = () => {
+        const payload = {...formData}
+        axios.post('http://localhost:5000/users/login', payload, { 
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }).then(res => {
+            console.log("Logging in user");
+            <Redirect to="/profile"/>
+        }).catch(err => {
+            console.error(err);
+            alert('ERROR: Logging in');
+        });
     }
     const handleChange = (e) => {
         const {id,value} = e.target;
-        setState((ps)=>({
+        setFormData((ps)=>({
             ...ps,
             [id]: value,
         }));
     }
-
     return (
         <div className={classes.container}>
-            <form className={classes.formStyle} onSubmit={onSubmit()}>
+            <form className={classes.formStyle} onSubmit={onSubmit}>
                 <h2>Log in</h2>
                 <label className={classes.labelText} for="email">Email</label>
-                <InputForm onChange={handleChange} type="text" value={state.email} placeholder="JohnDoe@gmail.com" id="email" name="email"/>
+                <InputForm onChange={handleChange} type="text" value={formData.email} placeholder="JohnDoe@gmail.com" id="email" name="email"/>
                 <label className={classes.labelText} for="password">Password</label>
-                <InputForm onChange={handleChange} type="text" value={state.password} placeholder="" id="password" name="password"/>
-                <Button variant="primary" className={classes.buttonPadding}>Submit</Button>
+                <InputForm onChange={handleChange} type="text" value={formData.password} placeholder="" id="password" name="password"/>
+                <Button type="submit" variant="primary" className={classes.buttonPadding}>Submit</Button>
                 <div class="container">
                     <span class="psw">Don't have an account?<a href="/signup"> Sign Up.</a></span>
                 </div>
