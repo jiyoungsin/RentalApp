@@ -28,7 +28,6 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-
 app.get('/login', userController.allUsers);
 app.post('/login', userController.find);
 

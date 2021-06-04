@@ -66,7 +66,7 @@ export default function Login() {
                 <label className={classes.labelText} for="email">Email</label>
                 <InputForm onChange={handleChange} type="text" value={formData.email} placeholder="JohnDoe@gmail.com" id="email" name="email"/>
                 <label className={classes.labelText} for="password">Password</label>
-                <InputForm onChange={handleChange} type="text" value={formData.password} placeholder="" id="password" name="password"/>
+                <InputForm onChange={handleChange} type="password" value={formData.password} placeholder="" id="password" name="password"/>
                 <Button type="submit" variant="primary" className={classes.buttonPadding}>Submit</Button>
                 <div class="container">
                     <span class="psw">Don't have an account?<a href="/signup"> Sign Up.</a></span>
