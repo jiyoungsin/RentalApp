@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema(
         phoneNumber: {
             type: String,
         },
+        rentals: {
+            type: String,
+        }
     },
     {
         collection: "user",

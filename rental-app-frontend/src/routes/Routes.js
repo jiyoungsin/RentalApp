@@ -21,7 +21,7 @@ function Routes() {
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/signup" component={Signup}/>
-                <Route exact path="/Profile" component={Profile}/>
+                <Route exact path="/Profile/:id" component={Profile}/>
                 <Route exact path="/createRental" component={CreateRental}/>
                 <Route exact path="/rentalUnit/:id" component={EditRental}/>
                 <Route exact path="/findProperty" component={findProperty}/>
@@ -30,13 +30,4 @@ function Routes() {
         </Router>
     )
 }
-
-// const RouteRegistration = ({component: Component, ...rest}) => {
-//     return ( <Route {...rest} render={(props)=>{ <Component {...props} /> }} /> )
-// }
-
-// const RouteRegisteration = ({component: Component, ...rest}) => {
-//     return ( <Route {...rest} render={(props)=>{ <Component {...props} /> }} /> )
-// }
-
 export default Routes;

@@ -19,6 +19,7 @@
     "@types/jasmine": "^3.7.6",
     "@types/mongoose": "^5.11.41",
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "connect-mongo": "^4.4.1",
     "connect-mongodb-session": "^2.4.1",
     "cookie-parser": "^1.4.5",

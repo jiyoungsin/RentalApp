@@ -32,7 +32,6 @@ export default function Signup() {
     }));
 
     const classes = UseStyles();
-    
     const [formData, setFormData] = useState({
         email: '',
         userName: '',
