@@ -1,6 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import User from "../models/user.model";
+
+import * as userController from '../models/controllers/userController';
+import  User from '../models/user.model';
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 
 const app = express.Router();
 const bcrypt = require('bcrypt');
@@ -10,45 +16,46 @@ app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;
     const database = mongoose.connection;
     console.log("Post Request to DB");
-    database.collection("user").insertOne({
+    const hash = bcrypt.hashSync(password, saltRounds);
+
+    try{
+        database.collection("user").insertOne({
             email : email,
-            password : bcrypt.hashSync(password, saltRounds),
+            password : hash,
             lastName : lastName,
             userName : userName,
             firstName : firstName,
             phoneNumber : phoneNumber,
-        });
-    res.status(200).json("Saved to Database");
+
+        })
+        res.status(200).json("Saved to Database");
+    }catch{
+        console.log("ERROR: Did not Create User.")
+    }
 });
 
-
-app.post('/login', async (req, res) => {
-    // change to req.body later when not using postman
-    const database = mongoose.connection;
-    let uemail = req.query.userName;
-    let password = req.query.password;
-    let success : boolean = false;
-
-    //not sure if this is going to work. Will need to research passwords and how to manage logins
-    let logUser: string;
-    database.collection("user").findOne({ userName:(uemail) })
-    .then( (user) => {
-        logUser = user.password;
-    });
-
-    success = bcrypt.compareSync(password, logUser);
-
-    if (success)
-    {
-        console.log("Password Accepted");
+app.post('/login', async (req, res)=>{
+    try{
+        // const { email, password} = req.body.data;
+        // can replace req.body.data.email with email and req.body.data.password with password. 
+        await User.findOne({email: req.body.data.email}, (err: any, user: any)=>{ 
+            if(err){
+                res.send(err);
+            }else{
+                let passwordAttempt = req.body.data.password
+                if (bcrypt.compareSync(passwordAttempt, user.password)){
+                    return res.status(200).json(user);
+                }
+                else{
+                    console.log(err);
+                    console.log("Incorrect Password")
+                    res.send("Incorrect Password");
+                };
+            }
+        })
+    }catch{
+        console.log("ERROR: loggin in")
     }
-    else
-    {
-        console.log("Wrong Password");
-    }
-
-    res.status(200).json("Successful login");
-});
-
+})
 
 module.exports = app;

@@ -5,17 +5,7 @@ import Rental from '../models/rental.model';
 const app = express.Router();
 
 app.get("/",(req,res)=>{
-    /*Rental.find(function(err,docs){ 
-        let rowNeeded = [];
-        for(let i=0; i< docs.length; i++){
-                rowNeeded.push(docs[i]); 
-        }
-        res.render("Rental/dashboard",{
-            title: "dashboard",
-            pageHeader: "dashboard",
-            units: rowNeeded,
-        });
-    });*/
+
 })
 
 app.get("/:id",async (req,res)=>{

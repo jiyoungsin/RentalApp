@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,7 +32,6 @@ export default function Signup() {
     }));
 
     const classes = UseStyles();
-    
     const [formData, setFormData] = useState({
         email: '',
         userName: '',
