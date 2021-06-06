@@ -22,18 +22,14 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Profile() {
-    
+export default function Profile(req,res) {
+    const { rentals } = req.user;
     const classes = useStyles();
-    
     const [rentalPost, setRentalPost] = useState({});
     useEffect(()=>{
-        axios.get("http://localhost:5000/profile/rentals", 
+        axios.get(`http://localhost:5000/profile/` + rentals,
         ).then(res=>{
-            console.log("Fetching Data from Database");
-            console.log(res.data);
             setRentalPost(res.data); 
-            //const rentals = res.arryOfRentals;
         }).catch(err=>{
             console.log(err);
             alert("Error while Fetching Rental Units");
