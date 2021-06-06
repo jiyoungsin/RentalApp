@@ -1,12 +1,16 @@
 import express from 'express';
 import mongoose from 'mongoose';
+
 import * as userController from '../models/controllers/userController';
 import  User from '../models/user.model';
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+
 const app = express.Router();
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;
@@ -22,6 +26,7 @@ app.post('/signup', async (req, res) => {
             userName : userName,
             firstName : firstName,
             phoneNumber : phoneNumber,
+
         })
         res.status(200).json("Saved to Database");
     }catch{
@@ -29,9 +34,10 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-//app.get('/login', userController.allUsers);
 app.post('/login', async (req, res)=>{
     try{
+        // const { email, password} = req.body.data;
+        // can replace req.body.data.email with email and req.body.data.password with password. 
         await User.findOne({email: req.body.data.email}, (err: any, user: any)=>{ 
             if(err){
                 res.send(err);

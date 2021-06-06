@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import axios from 'axios';  //allows us to talk to back end
 import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
 
+//CSS Styles
 const useStyles = makeStyles((theme) => ({
     profilePicture: {
         width: "175px",
