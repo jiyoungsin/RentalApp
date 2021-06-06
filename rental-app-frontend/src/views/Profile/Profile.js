@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import axios from 'axios';  //allows us to talk to back end
 import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
 
+//CSS Styles
 const useStyles = makeStyles((theme) => ({
     profilePicture: {
         width: "175px",
@@ -22,18 +23,14 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Profile() {
-    
+export default function Profile(req,res) {
+    const { rentals } = req.user;
     const classes = useStyles();
-    
     const [rentalPost, setRentalPost] = useState({});
     useEffect(()=>{
-        axios.get("http://localhost:5000/profile/rentals", 
+        axios.get(`http://localhost:5000/profile/` + rentals,
         ).then(res=>{
-            console.log("Fetching Data from Database");
-            console.log(res.data);
             setRentalPost(res.data); 
-            //const rentals = res.arryOfRentals;
         }).catch(err=>{
             console.log(err);
             alert("Error while Fetching Rental Units");

@@ -1,20 +1,25 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Rental from '../models/rental.model';
+import User from '../models/user.model';
 
 const app = express.Router(); 
-
-app.get("/",(req,res)=>{
-
-});
 
 app.post("/Update",(req,res)=> {
 
 });
 
-app.get("/rentals",async (req,res)=>{
-    const payload = await Rental.findOne({_id: "60b6719124f0216b3ec5ec91"});
-    res.status(200).json(payload);
+
+app.get("/:rentals", async (req,res)=>{
+    const { rentals } = req.params;
+    const payload = await Rental.find({_id: rentals})
+    .then((pay)=>{
+        res.status(200).json(pay);
+    })
+    .catch((err)=>{
+        console.log(err);
+        res.send(err);
+    });
 });
 
 module.exports = app;

@@ -12,7 +12,8 @@ import LandingPage from '../views/LandingPage/LandingPage';
 import { Router, Route , Switch } from "react-router";
 
 const history = createBrowserHistory();
-export default function Routes() {
+
+function Routes() {
     return (
         <Router history={history}>
             <NavBar/>
@@ -20,7 +21,7 @@ export default function Routes() {
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/login" component={Login}/>
                 <Route exact path="/signup" component={Signup}/>
-                <Route exact path="/Profile" component={Profile}/>
+                <Route exact path="/Profile/:id" component={Profile}/>
                 <Route exact path="/createRental" component={CreateRental}/>
                 <Route exact path="/rentalUnit/:id" component={EditRental}/>
                 <Route exact path="/findProperty" component={findProperty}/>
@@ -29,3 +30,4 @@ export default function Routes() {
         </Router>
     )
 }
+export default Routes;
