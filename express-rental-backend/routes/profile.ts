@@ -1,7 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import Rental from '../models/rental.model';
-import User from '../models/user.model';
 
 const app = express.Router(); 
 

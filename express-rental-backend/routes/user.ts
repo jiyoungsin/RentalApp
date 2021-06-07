@@ -6,12 +6,9 @@ import  User from '../models/user.model';
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
-
 const app = express.Router();
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
 
+// route to sign up.
 app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;
     const database = mongoose.connection;
@@ -34,27 +31,25 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+// Checks if the users cred are correct
 app.post('/login', async (req, res)=>{
     try{
-        // const { email, password} = req.body.data;
-        // can replace req.body.data.email with email and req.body.data.password with password. 
-        await User.findOne({email: req.body.data.email}, (err: any, user: any)=>{ 
+        const { email, password } = req.body.data;
+        await User.findOne({email: email}, (err: any, user: any)=>{ 
             if(err){
                 res.send(err);
             }else{
-                let passwordAttempt = req.body.data.password
-                if (bcrypt.compareSync(passwordAttempt, user.password)){
+                if (bcrypt.compareSync(password, user.password)){
                     return res.status(200).json(user);
                 }
                 else{
                     console.log(err);
-                    console.log("Incorrect Password")
                     res.send("Incorrect Password");
                 };
             }
         })
     }catch{
-        console.log("ERROR: loggin in")
+        console.log("ERROR: login in")
     }
 })
 

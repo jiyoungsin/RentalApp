@@ -1,11 +1,11 @@
 import React, { useState, useEffect} from 'react'
-import axios from 'axios';
 import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 export default function EditRental({match}) {
-    const id = match.params.id;
+    const { id } = match.params;
     const UseStyles = makeStyles(theme => ({
         formStyle: {
             width: '100%',
@@ -51,8 +51,6 @@ export default function EditRental({match}) {
             }
         }).then(res => {
             console.log("Fetching Data from Database");
-            console.log(res);
-            // save in state
             setState(res.data);
             setLoading(true);
         }).catch(err => {
@@ -61,7 +59,8 @@ export default function EditRental({match}) {
         });
         // eslint-disable-next-line 
     },[loading]);
-
+    
+    // updating user input.
     const handleChange = (e) => {
         const {id,value} = e.target;
         setState((ps)=>({
@@ -70,6 +69,7 @@ export default function EditRental({match}) {
         }));
     }
 
+    {/* TODO: make end point for edit/update rental. */}
     const onSubmit = () =>{
         // do something. 
     }

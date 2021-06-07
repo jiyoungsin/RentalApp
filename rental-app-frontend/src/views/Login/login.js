@@ -1,12 +1,12 @@
 import React, { useState }  from "react";
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import InputForm from '../../components/InputForm';
 import Button from 'react-bootstrap/Button';
 import Profile from '../Profile/Profile';
 
 export default function Login() {
+    // css needed for our components.
     const UseStyles = makeStyles(theme => ({
         formStyle: {
             width: '100%',
@@ -48,6 +48,7 @@ export default function Login() {
         phoneNumber: '',
     });
 
+    // this function updates the state every input.
     const handleChange = (e) => {
         const {id,value} = e.target;
         setFormData((ps)=>({
@@ -56,6 +57,7 @@ export default function Login() {
         }));
     }
     
+    // submits the data for validation
     const onSubmit = () => {
         // checks data by using Database Endpoint /login
         const payload = {...formData}
@@ -75,6 +77,7 @@ export default function Login() {
         });
     }
 
+    // re-routing user to their profile page.
     const theirProfile = (user) => {
         return <Profile user={user}/>;
     }

@@ -6,6 +6,7 @@ import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
 
 export default function Signup() {
+    // CSS for our components.
     const UseStyles = makeStyles(theme => ({
         formStyle: {
             width: '100%',
@@ -40,9 +41,9 @@ export default function Signup() {
         firstName: '',
         phoneNumber: '',
     });
-
+    // boolean to stop page from rendering every 1 second.
     const [signUpSuccessful, setSignUpSuccessful] = useState(false);
-
+    // updates every user input.
     const handleChange = (e) => {
         const {id, value} = e.target;
         setFormData((ps)=>({
@@ -50,7 +51,7 @@ export default function Signup() {
             [id]: value,
         }));
     }
-    console.log(formData);
+    // sends sign up data to backend.
     const onSubmit = () =>{
         // saves data to Database Endpoint /signup
         const payload = {...formData}
@@ -67,6 +68,7 @@ export default function Signup() {
         });
     }
 
+    // form for user sign up page.
     return (
         <div className={classes.container}>
             <form className={classes.formStyle}>

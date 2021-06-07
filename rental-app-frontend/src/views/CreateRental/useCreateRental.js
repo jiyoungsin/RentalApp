@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+// modulating axios call.
+// index was too crowded.
 const sendDetailsToServer = (state) => {
     const payload = {...state}
     axios.post('http://localhost:5000/rentals/createRental', payload, { 
