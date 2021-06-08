@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStyles } from './styles';
-
 import InputForm from '../../components/InputForm';
 
 export default function CreateRentalTwo({handleChange, state }) {

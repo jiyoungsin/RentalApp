@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+// CSS used in all three create rental posts
 const useStyles = makeStyles(theme => ({
     formStyle: {
         width: '100%',

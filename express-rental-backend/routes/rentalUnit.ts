@@ -10,6 +10,7 @@ app.get("/:id",async (req,res)=>{
     res.status(200).json(payload);
 })
 
+// this route will remove the rental from users array
 app.delete("/delete/:id",async (req,res)=>{
     let id = req.params.id;
     const payload = await Rental.deleteOne({_id: id});
@@ -33,5 +34,4 @@ app.put("/editRental/:id",async (req,res)=>{
     });
     res.status(204);
 })
-
 module.exports = app;
