@@ -30,7 +30,7 @@ export default function Profile(req,res) {
     useEffect(()=>{
         axios.get(`http://localhost:5000/profile/` + rentals,
         ).then(res=>{
-            setRentalPost(res.data); 
+            setRentalPost(res.data[0]); 
         }).catch(err=>{
             console.log(err);
             alert("Error while Fetching Rental Units");
