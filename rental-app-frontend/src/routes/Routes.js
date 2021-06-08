@@ -26,7 +26,7 @@ function Routes() {
                 <Route exact path="/createRental" component={CreateRental}/>
                 <Route exact path="/rentalUnit/:id" component={EditRental}/>
                 <Route exact path="/findProperty" component={findProperty}/>
-                <Route exact path="/Maintenance" component={Maintenance}/>
+                <Route exact path="/maintenance" component={Maintenance}/>
             </Switch>
             <Footer/>
         </Router>
