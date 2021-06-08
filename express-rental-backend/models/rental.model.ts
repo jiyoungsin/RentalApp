@@ -42,6 +42,63 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        parking: {
+            type: Number,
+        },
+        room: {
+            type: Number,
+        },
+        bathroom: {
+            type: Number,
+        },
+        pet: {
+            type: Boolean,
+        },
+        size: {
+            type: Number,
+        },
+        balcony: {
+            type: Number,
+        },
+        airConditioning: {
+            type: Boolean,
+        },
+        gym: {
+            type: Boolean,
+        },
+        dishwasher: {
+            type: Boolean,
+        },
+        hydro: {
+            type: Boolean,
+        },
+        wifi: {
+            type: Boolean,
+        },
+        water: {
+            type: Boolean,
+        },
+        nearFacility: {
+            type: String,
+        },
+        nearSubway: {
+            type: String,
+        },
+        roommate: {
+            type: Boolean,
+        },
+        availability: {
+            type: Boolean,
+        },
+        floorNumber: {
+            type: Boolean,
+        },
+        additionalInfo: {
+            type: String,
+        },
+        Review: {
+            type: [],
+        },
     },
     {
         collection: "rental",
