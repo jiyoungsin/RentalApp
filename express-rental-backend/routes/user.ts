@@ -4,10 +4,6 @@ import mongoose from 'mongoose';
 import * as userController from '../models/controllers/userController';
 import  User from '../models/user.model';
 
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-
-
 const app = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
