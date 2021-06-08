@@ -48,7 +48,6 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
     const [requestDelete, setRequestDelete] = useState(false);
 
     useEffect(()=>{
-        
         axios.delete(`http://localhost:5000/rentalUnit/delete/${_id}`, 
         ).then(res=>{
             console.log("Deleting Data from Database");

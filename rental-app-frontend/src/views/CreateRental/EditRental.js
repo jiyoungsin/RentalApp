@@ -71,14 +71,27 @@ export default function EditRental({match}) {
 
     {/* TODO: make end point for edit/update rental. */}
     const onSubmit = () =>{
-        // do something. 
+          // updates data to the backend
+          const payload = {...state}
+          axios.put(`http://localhost:5000/rentalUnit/editRental/${id}`, {
+              data: payload,
+              headers: {
+                  'Content-Type' : 'application/json',
+              }
+          }).then(res => {
+              console.log(res)
+              console.log("Updated Rental Successfully");
+          }).catch(err => {
+              console.error(err);
+              alert('ERROR: Updating Rental');
+          });
     }
 
     return (
         loading === true ? 
         <div className={classes.container}>
             <h1>Edit Profile</h1>
-            <form className={classes.formStyle} onSubmit={onSubmit()}>
+            <form className={classes.formStyle} onSubmit={onSubmit}>
                 <label className={classes.labelText} for="title">title</label>
                 <InputForm onChange={handleChange} type="text" id="title"  name="title" value={state.title} />
                 <label className={classes.labelText} for="email">email</label>
@@ -93,7 +106,7 @@ export default function EditRental({match}) {
                 <InputForm onChange={handleChange} type="text" id="category"  name="category" value={state.category} />
                 <label className={classes.labelText} for="description">description</label>
                 <InputForm onChange={handleChange} type="text" id="description"  name="description" value={state.description} />
-                <Button variant="primary" className={classes.buttonPadding}>Submit</Button>
+                <Button type="submit" variant="primary" className={classes.buttonPadding}>Submit</Button>
             </form>
         </div>
         : null
