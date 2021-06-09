@@ -5,9 +5,19 @@
    },
    "scripts": {
       "prettier": "prettier --write \"./**/*.{md,jsx,json,html,css,js,yml,ts}\"",
-      "prettier-check": "prettier --check \"./**/*.{md,jsx,json,html,css,js,yml,ts}\""
+      "prettier-check": "prettier --check \"./**/*.{md,jsx,json,html,css,js,yml,ts}\"",
+      "eslint-fix": "eslint --fix --ignore-path .gitignore .",
+      "eslint": "eslint --ignore-path .gitignore ."
    },
    "devDependencies": {
+      "@typescript-eslint/eslint-plugin": "^4.26.1",
+      "@typescript-eslint/parser": "^4.26.1",
+      "eslint": "^7.28.0",
+      "eslint-config-standard": "^16.0.3",
+      "eslint-plugin-import": "^2.23.4",
+      "eslint-plugin-node": "^11.1.0",
+      "eslint-plugin-promise": "^5.1.0",
+      "eslint-plugin-react": "^7.24.0",
       "prettier": "2.3.1"
    }
 }
