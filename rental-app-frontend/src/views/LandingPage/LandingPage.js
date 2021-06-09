@@ -34,14 +34,17 @@ export default function LandingPage() {
                 <img className={classes.imageSize} src="https://i.imgur.com/TGdhfQv.jpg" alt="piled up moving boxes"></img>
             </div>
             <div className={classes.centerItems}>
-                <div class="col-4">
+                <div class="col-3">
                     <a href="/createRental"><Button variant="primary">Rent Property</Button>{' '}</a>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <a href="/findProperty"><Button variant="primary">Find Property</Button>{' '}</a>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <a href="/Maintenance"><Button variant="primary">Maintenance</Button>{' '}</a>
+                </div>
+                <div class="col-3">
+                    <a href="/MapSearch"><Button variant="primary">Map's Functionality</Button>{' '}</a>
                 </div>
             </div>
 
