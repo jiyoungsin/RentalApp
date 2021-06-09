@@ -7,13 +7,23 @@ const reviewSchema = new mongoose.Schema(
             required: [true, "Internal Error. Missing uid field."],
         },
         user: {
-            type: [],
+            type: String,
+            required: true,
+        },
+        score: {
+            type: Number,
             required: true,
         },
         description: {
             type: String,
             required: true,
         },
+        timeCreated: {
+            type: Date,
+            createdAt: "timeCreated",
+            currentTime: () => Date.now(),
+        },
+
     },
     {
         collection: "rental",

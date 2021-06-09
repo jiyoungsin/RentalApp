@@ -10,8 +10,12 @@ const contractSchema = new mongoose.Schema(
             type: [],
             required: true,
         },
-        usersInvolved: {
-            type: [],
+        Tenant: {
+            type: String,
+            required: true,
+        },
+        Landlord: {
+            type: String,
             required: true,
         },
         fromDate: { 
