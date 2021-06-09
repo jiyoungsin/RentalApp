@@ -4,7 +4,9 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
+import dotenv from 'dotenv';
 
+dotenv.config();
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +39,12 @@ export class MapContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div  style={{"position": 'relative'},  {"height": '650px'}}> 
+      {/* This is not thhe correct way, but answeers whats needed for now. */}
         <div>
           <h2>Map Integration</h2>
         </div>
+        
         <PlacesAutocomplete
           value={this.state.address}
           onChange={this.handleChange}
@@ -65,7 +69,6 @@ export class MapContainer extends Component {
                   const className = suggestion.active
                     ? "suggestion-item--active"
                     : "suggestion-item";
-                  // inline style for demonstration purpose
                   const style = suggestion.active
                     ? { backgroundColor: "#fafafa", cursor: "pointer" }
                     : { backgroundColor: "#ffffff", cursor: "pointer" };
