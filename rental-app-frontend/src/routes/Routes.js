@@ -11,27 +11,27 @@ import EditRental from '../views/CreateRental/EditRental';
 import LandingPage from '../views/LandingPage/LandingPage';
 import Maintenance from '../views/Maintenance/Maintenance';
 import MapSearch from '../views/MapSearch/MapSearch';
-import { Router, Route , Switch } from "react-router";
+import { Router, Route, Switch } from 'react-router';
 
 const history = createBrowserHistory();
 
 function Routes() {
-    return (
-        <Router history={history}>
-            <NavBar/>
-            <Switch>
-                <Route exact path="/" component={LandingPage}/>
-                <Route exact path="/login" component={Login}/>
-                <Route exact path="/signup" component={Signup}/>
-                <Route exact path="/Profile/:id" component={Profile}/>
-                <Route exact path="/createRental" component={CreateRental}/>
-                <Route exact path="/rentalUnit/:id" component={EditRental}/>
-                <Route exact path="/findProperty" component={findProperty}/>
-                <Route exact path="/maintenance" component={Maintenance}/>
-                <Route exact path="/MapSearch" component={MapSearch}/>
-            </Switch>
-            <Footer/>
-        </Router>
-    )
+   return (
+      <Router history={history}>
+         <NavBar />
+         <Switch>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/Profile/:id" component={Profile} />
+            <Route exact path="/createRental" component={CreateRental} />
+            <Route exact path="/rentalUnit/:id" component={EditRental} />
+            <Route exact path="/findProperty" component={findProperty} />
+            <Route exact path="/maintenance" component={Maintenance} />
+            <Route exact path="/MapSearch" component={MapSearch} />
+         </Switch>
+         <Footer />
+      </Router>
+   );
 }
 export default Routes;

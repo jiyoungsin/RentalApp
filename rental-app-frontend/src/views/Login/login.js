@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import InputForm from '../../components/InputForm';
@@ -6,102 +6,132 @@ import Button from 'react-bootstrap/Button';
 import Profile from '../Profile/Profile';
 
 export default function Login() {
-    // css needed for our components.
-    const UseStyles = makeStyles(theme => ({
-        formStyle: {
-            width: '100%',
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            justifyItems : 'center',
-            justifySelf : 'center',
-        },
-        container: {
-            width: '60%',
-            height: '100vh',
-            margin: 'auto',
-        },
-        buttonPadding: {
-            padding: "10px",
-            marginTop: "20px",
-            marginBottom: "20px",
-        },
-        labelText: {
-            fontSize: '24px',
-        },
-    }));
-    
-    const classes = UseStyles();
-    const [formData, setFormData] = useState({
-        email: '',
-        password: ''
-    });
-    const [signInSuccessful, setSignInSuccessful] = useState(false);
-    const [user, setUser] = useState({
-        _id: '',
-        userName: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-    });
+   // css needed for our components.
+   const UseStyles = makeStyles((theme) => ({
+      formStyle: {
+         width: '100%',
+         height: '100vh',
+         display: 'flex',
+         flexDirection: 'column',
+         justifyContent: 'center',
+         justifyItems: 'center',
+         justifySelf: 'center',
+      },
+      container: {
+         width: '60%',
+         height: '100vh',
+         margin: 'auto',
+      },
+      buttonPadding: {
+         padding: '10px',
+         marginTop: '20px',
+         marginBottom: '20px',
+      },
+      labelText: {
+         fontSize: '24px',
+      },
+   }));
 
-    // this function updates the state every input.
-    const handleChange = (e) => {
-        const {id,value} = e.target;
-        setFormData((ps)=>({
-            ...ps,
-            [id]: value,
-        }));
-    }
-    
-    // submits the data for validation
-    const onSubmit = () => {
-        // checks data by using Database Endpoint /login
-        const payload = {...formData}
-        axios.post('http://localhost:5000/users/login', {
+   const classes = UseStyles();
+   const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+   });
+   const [signInSuccessful, setSignInSuccessful] = useState(false);
+   const [user, setUser] = useState({
+      _id: '',
+      userName: '',
+      password: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+   });
+
+   // this function updates the state every input.
+   const handleChange = (e) => {
+      const { id, value } = e.target;
+      setFormData((ps) => ({
+         ...ps,
+         [id]: value,
+      }));
+   };
+
+   // submits the data for validation
+   const onSubmit = () => {
+      // checks data by using Database Endpoint /login
+      const payload = { ...formData };
+      axios
+         .post('http://localhost:5000/users/login', {
             data: payload,
             headers: {
-                'Content-Type' : 'application/json',
-            }
-        }).then(res => {
-            console.log("Logging in user");
-            const the_User = res.data
-            setUser(the_User)
+               'Content-Type': 'application/json',
+            },
+         })
+         .then((res) => {
+            console.log('Logging in user');
+            const the_User = res.data;
+            setUser(the_User);
             setSignInSuccessful(true);
-        }).catch(err => {
+         })
+         .catch((err) => {
             console.error(err);
             alert('ERROR: Logging in');
-        });
-    }
+         });
+   };
 
-    // re-routing user to their profile page.
-    const theirProfile = (user) => {
-        return <Profile user={user}/>;
-    }
+   // re-routing user to their profile page.
+   const theirProfile = (user) => {
+      return <Profile user={user} />;
+   };
 
-    return (
-        <>        
-        {signInSuccessful ? theirProfile(user) : 
+   return (
+      <>
+         {signInSuccessful ? (
+            theirProfile(user)
+         ) : (
             <div className={classes.container}>
-                <form className={classes.formStyle}>
-                    <h2>Log in</h2>
-                    <label className={classes.labelText} for="email">Email</label>
-                    <InputForm onChange={handleChange} type="text" value={formData.email} placeholder="JohnDoe@gmail.com" id="email" name="email"/>
-                    <label className={classes.labelText} for="password">Password</label>
-                    <InputForm onChange={handleChange} type="text" value={formData.password} placeholder="" id="password" name="password"/>
-                    <Button variant="primary" className={classes.buttonPadding} onClick={onSubmit}>Submit</Button>
-                    <div class="container">
-                        <span class="psw">Don't have an account?<a href="/signup"> Sign Up.</a></span>
-                    </div>
-                    <div class="container">
-                        <span class="psw">If you have forgotten your password, you can reset it by clicking <a href="/"> Reset Password.</a></span>
-                    </div>
-                </form>
+               <form className={classes.formStyle}>
+                  <h2>Log in</h2>
+                  <label className={classes.labelText} for="email">
+                     Email
+                  </label>
+                  <InputForm
+                     onChange={handleChange}
+                     type="text"
+                     value={formData.email}
+                     placeholder="JohnDoe@gmail.com"
+                     id="email"
+                     name="email"
+                  />
+                  <label className={classes.labelText} for="password">
+                     Password
+                  </label>
+                  <InputForm
+                     onChange={handleChange}
+                     type="text"
+                     value={formData.password}
+                     placeholder=""
+                     id="password"
+                     name="password"
+                  />
+                  <Button variant="primary" className={classes.buttonPadding} onClick={onSubmit}>
+                     Submit
+                  </Button>
+                  <div class="container">
+                     <span class="psw">
+                        Don't have an account?<a href="/signup"> Sign Up.</a>
+                     </span>
+                  </div>
+                  <div class="container">
+                     <span class="psw">
+                        If you have forgotten your password, you can reset it by clicking{' '}
+                        <a href="/"> Reset Password.</a>
+                     </span>
+                  </div>
+               </form>
             </div>
-            }
-        </>
-    )
+         )}
+      </>
+   );
 }
