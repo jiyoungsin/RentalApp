@@ -4,5 +4,4 @@ rental-app-frontend/.eslintcache
 .prettierrc
 .env
 rental-app-frontend/package-lock.json
-*.json
 */dist/*

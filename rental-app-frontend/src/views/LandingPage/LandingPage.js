@@ -22,14 +22,15 @@ export default function LandingPage() {
             width: "200px",
             height: "150px",
             padding: "20px",
-        }
+        },
+        
     }));
 
     const classes = useStyles();
 
     return (
         <div class="container pt-2 mt-2">
-            <h2>Renting Made Easy.</h2>
+            <h2 class="heading-title">Renting Made Easy.</h2>
             <div class="container" className={classes.centerText}>
                 <img className={classes.imageSize} src="https://i.imgur.com/TGdhfQv.jpg" alt="piled up moving boxes"></img>
             </div>
