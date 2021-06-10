@@ -20,6 +20,16 @@ The back end of our application is Express and MongoDB. We decided on using type
 npm run dev
 ```
 
+# Source Code Design Instructions
+We have implemented both the Prettier and ESLint to our app. You can use them by typing in any of the command below.
+
+```sh
+npm run prettier        // Formats the Source Code 
+npm run prettier-check  // Checks if the Source Code is formattable or not
+npm run eslint-fix      // Finds and Fixes Javascript problems automatically
+npm run eslint          // Just Finds the problems and let you know where it is from
+```
+
 # Additional Information :books:
 Scripts can be found in package.json. :closed_book:
 Typescript configurations can be found in tsconfig.ts :green_book:
