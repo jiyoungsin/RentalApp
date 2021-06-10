@@ -5,9 +5,8 @@ export default function MapSearch() {
   
 
     return (
-       
         <div >
-        <GoogleMap />
+            <GoogleMap />
         </div>
     )
    
