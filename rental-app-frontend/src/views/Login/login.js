@@ -69,6 +69,7 @@ export default function Login() {
         }).then(res => {
             console.log("Logging in user");
             const the_User = res.data
+            // set something here.
             setUser(the_User)
             setSignInSuccessful(true);
         }).catch(err => {

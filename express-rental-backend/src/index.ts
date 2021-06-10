@@ -11,6 +11,7 @@ const userController = require('../routes/user');
 const rentalController = require('../routes/rental');
 const profileController = require('../routes/profile');
 const rentalUnitController = require('../routes/rentalUnit');
+const maintenanceController = require('../routes/maintenance');
 const session = require('express-session');
 // const MongoStore = require('connect-mongo');
 
@@ -51,7 +52,7 @@ app.use('/users', userController);
 app.use('/rentals', rentalController);
 app.use('/profile', profileController);
 app.use('/rentalUnit', rentalUnitController);
-
+app.use ('/maintenance', maintenanceController);
 app.listen(PORT, ()=>{
     console.log("backend is running on Port :", PORT);
 })

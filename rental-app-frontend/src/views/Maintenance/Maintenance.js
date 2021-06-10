@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import {Redirect} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -54,7 +55,25 @@ export default function Maintenance() {
     const onSubmit = () =>{
         // TO DO
         console.log("Backend stuffs needed to be added");
+        const payload = {...formData}
+        console.log("payload")
+        console.log(payload)
+        axios.post('http://localhost:5000/maintenance/create', {
+            data: payload,
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }).then(res => {
+            console.log("Creating new Maintenance");
+            const the_User = res.data
+            console.log(the_User)
+            // set something here.
+        }).catch(err => {
+            console.error(err);
+            alert('ERROR: Logging in');
+        });
     }
+    console.log(formData)
 
     return (
         // Shouln't be a <br> here but added it for now.
