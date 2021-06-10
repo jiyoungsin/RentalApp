@@ -11,7 +11,6 @@ const app = express.Router();
 app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;
     const database = mongoose.connection;
-    console.log("Post Request to DB");
     const hash = bcrypt.hashSync(password, saltRounds);
 
     try{
@@ -51,5 +50,6 @@ app.post('/login', async (req, res)=>{
         console.log("ERROR: login in")
     }
 })
+
 
 module.exports = app;

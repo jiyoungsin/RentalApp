@@ -7,7 +7,7 @@ const rentalSchema = new mongoose.Schema(
             required: [true, "Internal Error. Missing uid field."],
         },
         unitPictures: {
-            type: String,
+            type: [],
             required: true,
         },
         title: {
@@ -19,7 +19,7 @@ const rentalSchema = new mongoose.Schema(
             required: true,
         },
         price: { 
-            type: String,
+            type: Number,
             required: true,
         },
         contact: {
@@ -41,6 +41,63 @@ const rentalSchema = new mongoose.Schema(
         description: {
             type: String,
             required: true,
+        },
+        parking: {
+            type: Number,
+        },
+        room: {
+            type: Number,
+        },
+        bathroom: {
+            type: Number,
+        },
+        pet: {
+            type: Boolean,
+        },
+        size: {
+            type: Number,
+        },
+        balcony: {
+            type: Number,
+        },
+        airConditioning: {
+            type: Boolean,
+        },
+        gym: {
+            type: Boolean,
+        },
+        dishwasher: {
+            type: Boolean,
+        },
+        hydro: {
+            type: Boolean,
+        },
+        wifi: {
+            type: Boolean,
+        },
+        water: {
+            type: Boolean,
+        },
+        nearFacility: {
+            type: String,
+        },
+        nearSubway: {
+            type: String,
+        },
+        roommate: {
+            type: Boolean,
+        },
+        availability: {
+            type: Boolean,
+        },
+        floorNumber: {
+            type: Number,
+        },
+        additionalInfo: {
+            type: String,
+        },
+        Review: {
+            type: [],
         },
     },
     {
