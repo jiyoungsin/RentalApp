@@ -38,6 +38,7 @@ app.post('/login', async (req, res)=>{
                 res.send(err);
             }else{
                 if (bcrypt.compareSync(password, user.password)){
+                    req.cookies.user = user;
                     return res.status(200).json(user);
                 }
                 else{

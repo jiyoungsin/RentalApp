@@ -27,7 +27,7 @@ export default function LandingPage() {
     }));
 
     const classes = useStyles();
-
+    
     return (
         <div class="container pt-2 mt-2">
             <h2 class="heading-title">Renting Made Easy.</h2>

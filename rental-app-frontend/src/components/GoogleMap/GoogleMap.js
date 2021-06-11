@@ -4,9 +4,9 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
@@ -112,5 +112,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.GOOGLE_API_KEY,
+  apiKey: "AIzaSyB9vQOdH8h64XBi-s1kCAVhZ1kgNpnlWUs"
 })(MapContainer);

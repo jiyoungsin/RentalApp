@@ -1,9 +1,11 @@
-import React, { useState }  from "react";
+import React, { useState, useContext }  from "react";
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import InputForm from '../../components/InputForm';
 import Button from 'react-bootstrap/Button';
 import Profile from '../Profile/Profile';
+import {userSessionContext} from "../../contextFile";
+import {Redirect} from 'react-router-dom';
 
 export default function Login() {
     // css needed for our components.
@@ -31,22 +33,22 @@ export default function Login() {
             fontSize: '24px',
         },
     }));
-    
+    const {user, setUser} = useContext(userSessionContext)
     const classes = UseStyles();
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
     const [signInSuccessful, setSignInSuccessful] = useState(false);
-    const [user, setUser] = useState({
-        _id: '',
-        userName: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-    });
+    // const [user, setUser] = useState({
+    //     _id: '',
+    //     userName: '',
+    //     password: '',
+    //     firstName: '',
+    //     lastName: '',
+    //     email: '',
+    //     phoneNumber: '',
+    // });
 
     // this function updates the state every input.
     const handleChange = (e) => {
@@ -65,11 +67,12 @@ export default function Login() {
             data: payload,
             headers: {
                 'Content-Type' : 'application/json',
-            }
+            },
+            // credentials: ""
         }).then(res => {
+            
             console.log("Logging in user");
             const the_User = res.data
-            // set something here.
             setUser(the_User)
             setSignInSuccessful(true);
         }).catch(err => {
@@ -78,14 +81,9 @@ export default function Login() {
         });
     }
 
-    // re-routing user to their profile page.
-    const theirProfile = (user) => {
-        return <Profile user={user}/>;
-    }
-
     return (
         <>        
-        {signInSuccessful ? theirProfile(user) : 
+        {signInSuccessful ? <Redirect to="/"/> : 
             <div className={classes.container}>
                 <form className={classes.formStyle}>
                     <h2>Log in</h2>

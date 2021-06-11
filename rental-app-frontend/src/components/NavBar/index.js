@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import {userSessionContext} from "../../contextFile";
 
-// const [role, setRole] = useState("");
 // get the users role to determine navbar
-const role = '';
+
 
 function adminNavBar(){
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="/">Vroom Vroom</Navbar.Brand>
+            <Link to="/">Vroom</Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -37,7 +37,7 @@ function adminNavBar(){
 function notLoggedinUserNavBar(){
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="/">Vroom Vroom</Navbar.Brand>
+            <Link to="/">Vroom</Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -57,7 +57,7 @@ function notLoggedinUserNavBar(){
 function loggedInUserNavBar(){
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="/">Vroom Vroom</Navbar.Brand>
+            <Link to="/">Vroom</Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -76,5 +76,7 @@ function loggedInUserNavBar(){
 }
 
 export default function NavBar() {
-    return role === 'admin' ? adminNavBar() : role === 'user' ? loggedInUserNavBar() :notLoggedinUserNavBar()
+    const {user, setUser} = useContext(userSessionContext)
+    const role = user.userName;
+    return role === 'sins0113' ? adminNavBar() : role === 'user' ? loggedInUserNavBar() :notLoggedinUserNavBar()
 }
