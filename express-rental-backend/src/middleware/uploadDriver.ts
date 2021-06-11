@@ -1,8 +1,9 @@
 import multer from 'multer';
+const path = require('path');
 
 const ourStorage = multer.diskStorage({
     destination: (req, res, cb)=>{
-        cb(null, "uploads/");
+        cb(null, path.join(__dirname, '/uploads/'));
     },
 });
 

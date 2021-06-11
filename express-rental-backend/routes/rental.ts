@@ -14,7 +14,7 @@ app.post("/createRental", uploadMiddleware.single(`file`), async (req, res) => {
     console.log(req);
     database.collection("rental").insertOne({
             image: {
-                data: fs.readFileSync(req.file.path),
+                data: fs.readFileSync(req.body.file.path),
                 contentType : "image/jpeg",
             },
             title: title,

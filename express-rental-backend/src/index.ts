@@ -18,6 +18,7 @@ app.use(express.urlencoded({
     extended: true,
 }));
 app.use(express.json());
+app.use(express.static(__dirname));
 
 mongoose.connect(process.env.MONGO_DB_URI, {
     useNewUrlParser: true,
