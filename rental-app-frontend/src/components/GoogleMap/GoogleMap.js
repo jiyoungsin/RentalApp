@@ -4,8 +4,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
-// import dotenv from 'dotenv';
-
+import dotenv from 'dotenv';
 
 dotenv.config();
 export class MapContainer extends Component {
