@@ -7,7 +7,6 @@ import PlacesAutocomplete, {
 import dotenv from 'dotenv';
 
 dotenv.config();
-
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
@@ -113,5 +112,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyB9vQOdH8h64XBi-s1kCAVhZ1kgNpnlWUs",
+  apiKey: "AIzaSyB9vQOdH8h64XBi-s1kCAVhZ1kgNpnlWUs"
 })(MapContainer);

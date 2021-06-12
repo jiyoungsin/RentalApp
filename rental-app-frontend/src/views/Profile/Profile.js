@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';  //allows us to talk to back end
 import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
+import {userSessionContext} from '../../contextFile';
 
 //CSS Styles
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Profile(req,res) {
-    const { rentals } = req.user;
+    const {user, setUser} = useContext(userSessionContext)
+
+    const { rentals } = user;
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState({});
     useEffect(()=>{
