@@ -6,7 +6,8 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 // import dotenv from 'dotenv';
 
-// dotenv.config();
+
+dotenv.config();
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
