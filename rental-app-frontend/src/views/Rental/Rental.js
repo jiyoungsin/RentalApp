@@ -31,7 +31,7 @@ export default function Rental() {
     console.log(rentalPost)
 
     return ( <> { loaded ?
-        <div className="container">
+        <div className="container border borderSecondary p-5 mt-5">
             <span>{user.userName}</span>
             <span> > </span>
             <span>{rentalPost.category}</span>

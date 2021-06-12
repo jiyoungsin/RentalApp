@@ -41,7 +41,18 @@ const useStyles = makeStyles((theme) => ({
         alignSelf: "center",
         display: "flex",
         flexDirection: "column",
-    }
+    },
+    textDecoration: {
+        textDecoration: 'none',
+    },
+    boxHead :{
+        color: "#000",
+        textDecoration: "none",
+    },
+    backgroundColor: "#FFF",
+    '&:hover': {
+        background: 'none',
+    },
 }));
 
 export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg, _id}) {
@@ -66,7 +77,7 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
     return (
         requestDelete === false ? 
         <>
-            <Link to={RentalLink}>
+            <Link to={RentalLink} style={{ textDecoration: 'none', color: "black"}}>
                 <div className={classes.container}>
                     <img src={src} alt="Picture Of Rental"/>
                     <div className={classes.rentalCard}>
