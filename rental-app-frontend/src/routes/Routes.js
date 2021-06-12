@@ -11,6 +11,7 @@ import EditRental from '../views/CreateRental/EditRental';
 import LandingPage from '../views/LandingPage/LandingPage';
 import Maintenance from '../views/Maintenance/Maintenance';
 import MapSearch from '../views/MapSearch/MapSearch';
+import Rental from '../views/Rental/Rental';
 import { BrowserRouter, Router, Route, Switch } from "react-router-dom";
 import {UserSessionContextProvider} from "../contextFile";
 
@@ -28,6 +29,7 @@ function Routes() {
                         <Route exact path="/login" component={Login}/>
                         <Route exact path="/Profile/:id" component={Profile}/>
                         <Route exact path="/createRental" component={CreateRental}/>
+                        <Route exact path="/rental/:id" component={Rental}/>
                         <Route exact path="/rentalUnit/:id" component={EditRental}/>
                         <Route exact path="/findProperty" component={findProperty}/>
                         <Route exact path="/maintenance" component={Maintenance}/>

@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile(req,res) {
     const {user, setUser} = useContext(userSessionContext)
-
     const { rentals } = user;
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState({});

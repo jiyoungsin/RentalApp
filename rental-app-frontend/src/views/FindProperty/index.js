@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 
-
 export default function FindProperty() {
     const useStyles = makeStyles(theme => ({
         container:{
@@ -14,7 +13,6 @@ export default function FindProperty() {
         },
     }));
     const [state,setState] = useState('');
-
     const handleChange = (e) => {
         const {id,value} = e.target;
         setState((ps)=>({

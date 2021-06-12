@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import GoogleMap from '../../components/GoogleMap/GoogleMap'
 
 export default function MapSearch() {

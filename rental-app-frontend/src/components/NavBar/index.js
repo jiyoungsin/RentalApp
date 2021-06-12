@@ -83,6 +83,6 @@ function notLoggedInUserNavBar(){
 }
 export default function NavBar() {
     const {user, setUser} = useContext(userSessionContext)
-    const role = user.userName;
-    return role === 'sins0113' ? adminNavBar(user) : role === 'user' ? loggedInUserNavBar(user) :notLoggedInUserNavBar(user)
+    const role = user.role;
+    return role === 'Admin' ? adminNavBar(user) : role === 'user' ? loggedInUserNavBar(user) :notLoggedInUserNavBar(user)
 }

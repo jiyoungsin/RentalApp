@@ -69,7 +69,6 @@ export default function EditRental({match}) {
         }));
     }
 
-    {/* TODO: make end point for edit/update rental. */}
     const onSubmit = () =>{
           // updates data to the backend
           const payload = {...state}

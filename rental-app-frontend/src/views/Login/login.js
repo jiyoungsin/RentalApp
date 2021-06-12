@@ -3,7 +3,6 @@ import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import InputForm from '../../components/InputForm';
 import Button from 'react-bootstrap/Button';
-import Profile from '../Profile/Profile';
 import {userSessionContext} from "../../contextFile";
 import {Redirect} from 'react-router-dom';
 
@@ -40,15 +39,6 @@ export default function Login() {
         password: ''
     });
     const [signInSuccessful, setSignInSuccessful] = useState(false);
-    // const [user, setUser] = useState({
-    //     _id: '',
-    //     userName: '',
-    //     password: '',
-    //     firstName: '',
-    //     lastName: '',
-    //     email: '',
-    //     phoneNumber: '',
-    // });
 
     // this function updates the state every input.
     const handleChange = (e) => {

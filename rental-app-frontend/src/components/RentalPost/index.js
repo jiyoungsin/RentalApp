@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios';
 import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     messagedProfilePicture:{
@@ -38,17 +39,19 @@ const useStyles = makeStyles((theme) => ({
     },
     lastTalked:{
         alignSelf: "center",
+        display: "flex",
+        flexDirection: "column",
     }
 }));
 
 export default function RentalPost({title, src, address, desc, sendersName, profilePic, lastMsg, _id}) {
     const classes = useStyles();
-    const link = `/rentalUnit/${_id}`
+    const EditLink = `/rentalUnit/${_id}`
+    const RentalLink = `/rental/${_id}`
 
     const [requestDelete, setRequestDelete] = useState(false);
-
-    useEffect(()=>{
-        axios.delete(`http://localhost:5000/rentalUnit/delete/${_id}`, 
+    const buttonPushed = () => {
+        axios.delete(`http://localhost:5000/rentalUnit/delete/${_id}` 
         ).then(res=>{
             console.log("Deleting Data from Database");
             console.log(res.data);
@@ -58,32 +61,34 @@ export default function RentalPost({title, src, address, desc, sendersName, prof
             console.log(err);
             alert("Error while Deleting Rental Unit");
         })
-    },[requestDelete])
+    }
 
     return (
         requestDelete === false ? 
         <>
-            <div className={classes.container}>
-                <img src={src} alt="Picture Of Rental"/>
-                <div className={classes.rentalCard}>
-                    <h5>{title}</h5>
-                    <div>{address}</div>
-                    <div>{desc}</div>
-                    <div style={{padding: "10px"}}>
-                        <img className={classes.messagedProfilePicture} src={profilePic} alt="Person that messaged Profile Picture"/>
-                        {sendersName}
+            <Link to={RentalLink}>
+                <div className={classes.container}>
+                    <img src={src} alt="Picture Of Rental"/>
+                    <div className={classes.rentalCard}>
+                        <h5>{title}</h5>
+                        <div>{address}</div>
+                        <div>{desc}</div>
+                        <div style={{padding: "10px"}}>
+                            <img className={classes.messagedProfilePicture} src={profilePic} alt="Person that messaged Profile Picture"/>
+                            {sendersName}
+                        </div>
+                    </div>
+                    <div className={classes.lastTalked}>
+                        <Button>
+                            <Link style={{color: "#000"}} to={EditLink}>Edit</Link>
+                        </Button>
+                        <Button onClick={()=>buttonPushed} style={{color: "#000"}}>
+                            Delete
+                        </Button>
+                        <Button style={{color: "#000"}} disabled>{lastMsg}</Button>
                     </div>
                 </div>
-                <div className={classes.lastTalked}>
-                    <div>
-                        <Link to={link}>Edit</Link>
-                    </div>
-                    <div>
-                        <a href="" onClick={()=>setRequestDelete(true)}>Delete</a>
-                    </div>
-                    <div>{lastMsg}</div>
-                </div>
-            </div>
+            </Link>
             <Link className={classes.addLink} to="/createRental">
                 <AddCircleIcon/>
             </Link>
