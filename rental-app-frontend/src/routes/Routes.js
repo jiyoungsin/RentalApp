@@ -18,27 +18,27 @@ import { UserSessionContextProvider } from '../contextFile';
 const history = createBrowserHistory();
 
 function Routes() {
-   return (
-      <BrowserRouter>
-         <Router history={history}>
-            <Switch>
-               <Route exact path="/signup" component={Signup} />
-               <UserSessionContextProvider>
-                  <NavBar />
-                  <Route exact path="/" component={LandingPage} />
-                  <Route exact path="/login" component={Login} />
-                  <Route exact path="/Profile/:id" component={Profile} />
-                  <Route exact path="/createRental" component={CreateRental} />
-                  <Route exact path="/rental/:id" component={Rental} />
-                  <Route exact path="/rentalUnit/:id" component={EditRental} />
-                  <Route exact path="/findProperty" component={findProperty} />
-                  <Route exact path="/maintenance" component={Maintenance} />
-                  <Route exact path="/MapSearch" component={MapSearch} />
-               </UserSessionContextProvider>
-            </Switch>
-            <Footer />
-         </Router>
-      </BrowserRouter>
-   );
+    return (
+        <BrowserRouter>
+            <Router history={history}>
+                <Switch>
+                    <Route exact path="/signup" component={Signup} />
+                    <UserSessionContextProvider>
+                        <NavBar />
+                        <Route exact path="/" component={LandingPage} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/Profile/:id" component={Profile} />
+                        <Route exact path="/createRental" component={CreateRental} />
+                        <Route exact path="/rental/:id" component={Rental} />
+                        <Route exact path="/rentalUnit/:id" component={EditRental} />
+                        <Route exact path="/findProperty" component={findProperty} />
+                        <Route exact path="/maintenance" component={Maintenance} />
+                        <Route exact path="/MapSearch" component={MapSearch} />
+                    </UserSessionContextProvider>
+                </Switch>
+                <Footer />
+            </Router>
+        </BrowserRouter>
+    );
 }
 export default Routes;

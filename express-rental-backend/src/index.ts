@@ -16,43 +16,43 @@ const session = require('express-session');
 // const MongoStore = require('connect-mongo');
 
 app.use(
-   cors({
-      origin: 'http://localhost:3000',
-   })
+    cors({
+        origin: 'http://localhost:3000',
+    })
 );
 app.use(cookieParser());
 app.use(
-   express.urlencoded({
-      extended: true,
-   })
+    express.urlencoded({
+        extended: true,
+    })
 );
 app.use(express.json());
 app.use(
-   session({
-      secret: process.env.SESSION_SECRET,
-      saveUninitialized: true,
-      resave: false,
-      cookie: {
-         httpOnly: true,
-         maxAge: parseInt(process.env.SESSION_MAX_AGE),
-      },
-   })
+    session({
+        secret: process.env.SESSION_SECRET,
+        saveUninitialized: true,
+        resave: false,
+        cookie: {
+            httpOnly: true,
+            maxAge: parseInt(process.env.SESSION_MAX_AGE),
+        },
+    })
 );
 
 mongoose
-   .connect(process.env.MONGO_DB_URI, {
-      useNewUrlParser: true,
-      useFindAndModify: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-   })
-   .then(() => {
-      console.log('connected to Mongo database');
-   })
-   .catch((error) => {
-      console.log(error);
-      console.log('Error occurred connecting to Database');
-   });
+    .connect(process.env.MONGO_DB_URI, {
+        useNewUrlParser: true,
+        useFindAndModify: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+    })
+    .then(() => {
+        console.log('connected to Mongo database');
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log('Error occurred connecting to Database');
+    });
 
 // Modulating routes
 // MAPs EXPRESS TO ALL OUR  ROUTER OBJECTS
@@ -62,5 +62,5 @@ app.use('/profile', profileController);
 app.use('/rentalUnit', rentalUnitController);
 app.use('/maintenance', maintenanceController);
 app.listen(PORT, () => {
-   console.log('backend is running on Port :', PORT);
+    console.log('backend is running on Port :', PORT);
 });
