@@ -6,20 +6,21 @@ const app = express.Router();
 // this route is used when creating a Rental.
 // we will need to append the new rentals to the users array of rentals.
 app.post('/createrental', async (req, res) => {
-    const { address, unitPictures, title, email, price, contact, phoneNum, category, description } =
+    const { address, unitPictures, title, price, category, description, parking, rooms, bathrooms, pet } =
         req.body;
     const database = mongoose.connection;
     console.log('Post Request to DB CreateRental');
-    database.collection('rental').insertOne({
+    database.collection('rentUnit').insertOne({
         title: title,
-        email: email,
         price: price,
-        contact: contact,
         address: address,
-        phoneNum: phoneNum,
         category: category,
         description: description,
         unitPictures: unitPictures,
+        parking: parking,
+        room: rooms,
+        bathroom: bathrooms,
+        pet: pet,
     });
     res.status(200).json('Saved to Database');
 });

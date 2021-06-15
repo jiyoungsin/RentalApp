@@ -19,30 +19,6 @@ export default function CreateRentalTwo({ handleChange, state }) {
                     id="price"
                     name="price"
                 />
-                <div className={classes.checkbox}>
-                    <label className={classes.text} for="contact">
-                        Please Contact
-                    </label>
-                    <input
-                        className={classes.checkboxStyle}
-                        onChange={handleChange}
-                        type="checkbox"
-                        value={state.contact}
-                        id="contact"
-                        name="contact"
-                    />
-                </div>
-                <h3>Contact Information</h3>
-                <label className={classes.labelText} for="phoneNum">
-                    Phone Number
-                </label>
-                <InputForm
-                    onChange={handleChange}
-                    type="text"
-                    value={state.phoneNum}
-                    id="phoneNum"
-                    name="phoneNum"
-                />
                 <label className={classes.labelText} for="address">
                     Address
                 </label>
@@ -53,16 +29,50 @@ export default function CreateRentalTwo({ handleChange, state }) {
                     id="address"
                     name="address"
                 />
-                <label className={classes.labelText} for="email">
-                    Email
+                <h3 style={{ paddingTop: 20 }}>Details</h3>
+                <label className={classes.labelText} for="parking">
+                    Parking
                 </label>
                 <InputForm
                     onChange={handleChange}
-                    type="text"
-                    value={state.email}
-                    id="email"
-                    name="email"
+                    type="number"
+                    value={state.parking}
+                    id="parking"
+                    name="parking"
                 />
+                <label className={classes.labelText} for="room">
+                    Rooms
+                </label>
+                <InputForm
+                    onChange={handleChange}
+                    type="number"
+                    value={state.room}
+                    id="rooms"
+                    name="rooms"
+                />
+                <label className={classes.labelText} for="bathroom">
+                    Bathrooms
+                </label>
+                <InputForm
+                    onChange={handleChange}
+                    type="number"
+                    value={state.bathroom}
+                    id="bathrooms"
+                    name="bathrooms"
+                />
+                <div className={classes.checkbox}>
+                    <label className={classes.text} for="pet">
+                        Pet
+                    </label>
+                    <input
+                        className={classes.checkboxStyle}
+                        onChange={handleChange}
+                        type="checkbox"
+                        value={state.pet}
+                        id="pet"
+                        name="pet"
+                    />
+                </div>
             </form>
         </div>
     );

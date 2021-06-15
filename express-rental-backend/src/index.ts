@@ -29,7 +29,7 @@ app.use(
 app.use(express.json());
 app.use(
     session({
-        secret: process.env.SESSION_SECRET,
+        secret: "Appie",
         saveUninitialized: true,
         resave: false,
         cookie: {
