@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema(
     {
         uid: {
             type: String,
-            required: [true, "Internal Error. Missing uid field."],
+            required: [true, 'Internal Error. Missing uid field.'],
         },
         userName: {
             type: String,
@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
         firstName: {
             type: String,
         },
-        lastName: { 
+        lastName: {
             type: String,
         },
         email: {
@@ -26,16 +26,16 @@ const userSchema = new mongoose.Schema(
         },
         rentals: {
             type: String,
-        }
-    },
-    {
-        collection: "user",
-        timestamps: {
-            currentTime: () => Date.now(),
-            createdAt: "timeCreated",
         },
     },
+    {
+        collection: 'user',
+        timestamps: {
+            currentTime: () => Date.now(),
+            createdAt: 'timeCreated',
+        },
+    }
 );
-const User = mongoose.model("user", userSchema);
+const User = mongoose.model('user', userSchema);
 
 export default User;

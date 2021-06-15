@@ -1,7 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
+
 import sgMail from '@sendgrid/mail';
 import  User from '../models/user.model';
+
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -54,31 +56,30 @@ app.post('/signup', async (req, res) => {
 
     }catch{
         console.log("ERROR: Did not Create User.")
+
     }
 });
 
 // Checks if the users cred are correct
-app.post('/login', async (req, res)=>{
-    try{
+app.post('/login', async (req, res) => {
+    try {
         const { email, password } = req.body.data;
-        await User.findOne({email: email}, (err: any, user: any)=>{ 
-            if(err){
+        await User.findOne({ email: email }, (err: any, user: any) => {
+            if (err) {
                 res.send(err);
-            }else{
-                if (bcrypt.compareSync(password, user.password)){
+            } else {
+                if (bcrypt.compareSync(password, user.password)) {
                     req.cookies.user = user;
                     return res.status(200).json(user);
-                }
-                else{
+                } else {
                     console.log(err);
-                    res.send("Incorrect Password");
-                };
+                    res.send('Incorrect Password');
+                }
             }
-        })
-    }catch{
-        console.log("ERROR: login in")
+        });
+    } catch {
+        console.log('ERROR: login in');
     }
-})
-
+});
 
 module.exports = app;

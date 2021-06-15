@@ -1,47 +1,68 @@
-import React, {useContext} from 'react';
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import {userSessionContext} from "../../contextFile";
+import { userSessionContext } from '../../contextFile';
 
 // get the users role to determine navbar
 
-
-function adminNavBar(user){
+function adminNavBar(user) {
     const users = user;
-    const profileLink = '/profile/' + users._id
+    const profileLink = '/profile/' + users._id;
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Link to="/">Vroom</Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link><Link to="/findProperty">Find Rental</Link></Nav.Link>
-                    <Nav.Link><Link to="/">Pricing</Link></Nav.Link>
+                    <Nav.Link>
+                        <Link to="/findProperty">Find Rental</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/">Pricing</Link>
+                    </Nav.Link>
                     <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-                        <NavDropdown.Item><Link to="/">View All Users</Link></NavDropdown.Item>
-                        <NavDropdown.Item><Link to="/">Manage Content</Link></NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <Link to="/">View All Users</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <Link to="/">Manage Content</Link>
+                        </NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="https://cloud.mongodb.com/v2/5f8263f40ca4614ab1bade00#clusters">Database</NavDropdown.Item>
-                        <NavDropdown.Item href="https://github.com/jiyoungsin/RentalApp">Github repo</NavDropdown.Item>
+                        <NavDropdown.Item href="https://cloud.mongodb.com/v2/5f8263f40ca4614ab1bade00#clusters">
+                            Database
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="https://github.com/jiyoungsin/RentalApp">
+                            Github repo
+                        </NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="https://www.facebook.com/rentvroom/">Facebook </NavDropdown.Item>
-                        <NavDropdown.Item href="https://www.instagram.com/rentvroom/">Instagram </NavDropdown.Item>
-                        <NavDropdown.Item href="https://twitter.com/Vroomrent">Twitter </NavDropdown.Item>
+                        <NavDropdown.Item href="https://www.facebook.com/rentvroom/">
+                            Facebook{' '}
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="https://www.instagram.com/rentvroom/">
+                            Instagram{' '}
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="https://twitter.com/Vroomrent">
+                            Twitter{' '}
+                        </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
-                    <Nav.Link><Link to={profileLink} >Profile</Link></Nav.Link>
-                    <Nav.Link><Link to="/logout" >Log out</Link></Nav.Link>
+                    <Nav.Link>
+                        <Link to={profileLink}>Profile</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/logout">Log out</Link>
+                    </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
-    )
+    );
 }
 
-function loggedInUserNavBar(user){
+function loggedInUserNavBar(user) {
     const users = user;
-    const profileLink = '/profile/' + users._id
+    const profileLink = '/profile/' + users._id;
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Link to="/">Vroom</Link>
@@ -54,15 +75,19 @@ function loggedInUserNavBar(user){
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
-                    <Link to={profileLink} style={{'paddingTop': '10px', 'paddingRight': '10px' }}>Profile</Link>
-                    <Link to="/logout" style={{'paddingTop': '10px' }}>Log out</Link>
+                    <Link to={profileLink} style={{ paddingTop: '10px', paddingRight: '10px' }}>
+                        Profile
+                    </Link>
+                    <Link to="/logout" style={{ paddingTop: '10px' }}>
+                        Log out
+                    </Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
-    )
+    );
 }
 
-function notLoggedInUserNavBar(){
+function notLoggedInUserNavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Link to="/">Vroom</Link>
@@ -74,15 +99,23 @@ function notLoggedInUserNavBar(){
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
-                    <Nav.Link><Link to="/signup">Sign Up</Link></Nav.Link>
-                    <Nav.Link><Link to="/login">Log in</Link></Nav.Link>
+                    <Nav.Link>
+                        <Link to="/signup">Sign Up</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/login">Log in</Link>
+                    </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
-    )
+    );
 }
 export default function NavBar() {
-    const {user, setUser} = useContext(userSessionContext)
+    const { user, setUser } = useContext(userSessionContext);
     const role = user.role;
-    return role === 'Admin' ? adminNavBar(user) : role === 'user' ? loggedInUserNavBar(user) :notLoggedInUserNavBar(user)
+    return role === 'Admin'
+        ? adminNavBar(user)
+        : role === 'user'
+        ? loggedInUserNavBar(user)
+        : notLoggedInUserNavBar(user);
 }

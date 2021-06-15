@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const reviewSchema = new mongoose.Schema(
     {
         uid: {
             type: String,
-            required: [true, "Internal Error. Missing uid field."],
+            required: [true, 'Internal Error. Missing uid field.'],
         },
         user: {
             type: String,
@@ -20,18 +20,17 @@ const reviewSchema = new mongoose.Schema(
         },
         timeCreated: {
             type: Date,
-            createdAt: "timeCreated",
+            createdAt: 'timeCreated',
             currentTime: () => Date.now(),
         },
-
     },
     {
-        collection: "rental",
+        collection: 'rental',
         timestamps: {
             currentTime: () => Date.now(),
-            createdAt: "timeCreated",
+            createdAt: 'timeCreated',
         },
-    },
+    }
 );
-const Review = mongoose.model("rental", reviewSchema);
+const Review = mongoose.model('rental', reviewSchema);
 export default Review;

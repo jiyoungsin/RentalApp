@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const rentalSchema = new mongoose.Schema(
     {
         uid: {
             type: String,
-            required: [true, "Internal Error. Missing uid field."],
+            required: [true, 'Internal Error. Missing uid field.'],
         },
         unitPictures: {
             type: [],
@@ -18,7 +18,7 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        price: { 
+        price: {
             type: Number,
             required: true,
         },
@@ -34,7 +34,7 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        address:{
+        address: {
             type: String,
             required: true,
         },
@@ -101,12 +101,12 @@ const rentalSchema = new mongoose.Schema(
         },
     },
     {
-        collection: "rental",
+        collection: 'rental',
         timestamps: {
             currentTime: () => Date.now(),
-            createdAt: "timeCreated",
+            createdAt: 'timeCreated',
         },
-    },
+    }
 );
-const Rental = mongoose.model("rental", rentalSchema);
+const Rental = mongoose.model('rental', rentalSchema);
 export default Rental;

@@ -1,1 +1,1 @@
-export const IP = "http://localhost:4000/";
+export const IP = 'http://localhost:4000/';

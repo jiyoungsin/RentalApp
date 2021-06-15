@@ -1,37 +1,37 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const maintenanceSchema = new mongoose.Schema(
     {
         _id: {
             type: String,
-            required: [true, "Internal Error. Missing uid field."],
+            required: [true, 'Internal Error. Missing uid field.'],
         },
         email: {
-            type: String
+            type: String,
         },
         maintenanceIssue: {
-            type: String
+            type: String,
         },
         tenantName: {
-            type: String
+            type: String,
         },
         landlordName: {
-            type: String
+            type: String,
         },
         tenantPhoneNumber: {
-            type: String
+            type: String,
         },
         landlordPhoneNumber: {
-            type: String
+            type: String,
         },
     },
     {
-        collection: "contact",
+        collection: 'contact',
         timestamps: {
             currentTime: () => Date.now(),
-            createdAt: "timeCreated",
+            createdAt: 'timeCreated',
         },
-    },
+    }
 );
-const Maintenance = mongoose.model("maintenance", maintenanceSchema);
+const Maintenance = mongoose.model('maintenance', maintenanceSchema);
 export default Maintenance;

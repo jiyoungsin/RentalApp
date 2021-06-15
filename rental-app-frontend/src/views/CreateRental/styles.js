@@ -1,15 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 // CSS used in all three create rental posts
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     formStyle: {
         width: '100%',
         height: '60%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        justifyItems : 'center',
-        justifySelf : 'center',
+        justifyItems: 'center',
+        justifySelf: 'center',
     },
     container: {
         width: '60%',
@@ -17,24 +17,25 @@ const useStyles = makeStyles(theme => ({
         margin: 'auto',
     },
     buttonPadding: {
-        padding: "10px",
-        marginTop: "20px",
-        marginBottom: "20px",
+        padding: '10px',
+        marginTop: '20px',
+        marginBottom: '20px',
     },
     labelText: {
         fontSize: '24px',
     },
     checkbox: {
-        display: "flex",
-        marginTop: "10px",
+        display: 'flex',
+        marginTop: '10px',
     },
     text: {
         fontSize: '24px',
-        marginRight: "auto"
+        marginRight: 'auto',
     },
     checkboxStyle: {
-        height: "30px", width: "30px"
-    }
+        height: '30px',
+        width: '30px',
+    },
 }));
 
 export { useStyles };
