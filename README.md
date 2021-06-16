@@ -10,7 +10,7 @@ During the next 12 weeks the Vroom Development ream will be creating a house ren
 
 # Before you run/start the app
 
-Before everything else, try running the command ```npm i``` first inorder to get all the required packages before you run the app. 
+Before everything else, try running the command `npm i` first inorder to get all the required packages before you run the app.
 
 # Front End Instructions :books:
 
