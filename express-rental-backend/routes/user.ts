@@ -49,5 +49,20 @@ app.post('/login', async (req, res) => {
         console.log('ERROR: login in');
     }
 });
+app.get('/usernames', async (req, res) => {
+    try {
+        await User.find({}, (err: any, userName: any) => {
+            if (err) {
+                res.send(err);
+            } else {
+                return res.json(userName);
+            }
+
+        });
+    } catch {
+        console.log("Failed to load usernames");
+    }
+});
+
 
 module.exports = app;

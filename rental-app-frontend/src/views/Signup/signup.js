@@ -38,6 +38,7 @@ export default function Signup() {
         userName: '',
         lastName: '',
         password: '',
+        rePassword: '',
         firstName: '',
         phoneNumber: '',
     });
@@ -51,6 +52,138 @@ export default function Signup() {
             [id]: value,
         }));
     };
+    const validateText = (e)=>{
+        const { id, value } = e.target;
+        let error;
+        if(/\d/.test(value)){
+            error ="THIS FEILD SHOULD ONLY CONTAIN CHARACTERS"
+        }else{
+            error = "";
+        }
+        document.getElementById(`${id}Error`).innerHTML = error;
+        setFormData((ps) => ({
+            ...ps,
+            [id]: value,
+        }));
+    }
+    const validateEmail = (e) =>{
+        const {id, value} = e.target;
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let error;
+        if(!re.test(String(value).toLowerCase())){
+            error="EMAIL ADDRESS MUST BE VALID";
+        } else{
+            error ="";
+        }
+
+        document.getElementById(`${id}Error`).innerHTML = error;
+
+        setFormData((ps) => ({
+            ...ps,
+            [id]: value,
+        }));
+    }
+
+    const validatePhone = (e) =>{
+        let {id, value} = e.target;
+        let error;
+        if(isNaN(value))
+            error = "PHONE NUMBER SHOULD ONLY CONTAIN NUMBERS";
+        else if(value.length != 9)
+           error = "PHONE NUMBER SHOULD BE 9 DIGITS";
+        else   
+            error = "";
+        
+        document.getElementById(`${id}Error`).innerText = error;
+
+        setFormData((ps) => ({
+            ...ps,
+            [id]: value,
+        }));
+    }
+
+    //fetch all username in Mongo to check for duplicate username
+    const validateUserName = (id,value) =>{
+        let userNames;
+        let error ="";
+        axios
+        .get('http://localhost:5000/users/usernames')
+        .then((res) => { 
+            userNames = res.data;
+            for(let i = 0; i < userNames.length; i ++){
+                console.log(userNames[i].userName);
+                if(userNames[i].userName == value){
+                    error = "USER NAME IS BEING USED"
+                    document.getElementById(`${id}Error`).innerText = error;
+                }
+            }
+        })
+        .catch((err) => {
+            console.error(err);
+            alert('Error Sending Data to Backend');
+        });
+    }
+
+    const validatePassword = (e) => {
+        let {id, value} = e.target;
+        let error;
+        var re = /^(?=.*[0-9])(?=.*[!@#$%^&*])/;
+
+        if(!re.test(value))
+            error = "PASSWORD MUST CONTAIN AT LEAST ONE DIGIT & ONE SPECIAL CHARACTER";
+        else  if(value.length < 6)
+            error = "PASSWORD MUST BE LONGER THAN 6 CHARACTERS";
+        else    
+            error = "";
+        
+        document.getElementById(`${id}Error`).innerHTML = error;
+        setFormData((ps) => ({
+            ...ps,
+            [id]: value,
+        }));
+    }
+    const validatePasswordMatch = (e) => {
+        let {id, value} = e.target;
+        let  password = formData.password;
+        let error;
+        
+        if(value !== password)
+            error = "PASSWORD MUST MATCH";
+        else    
+            error = "";
+        
+        document.getElementById(`${id}Error`).innerHTML = error;
+        setFormData((ps) => ({
+            ...ps,
+            [id]: value,
+        }));
+    }
+
+    const validateSubmit = () =>{
+        let isOkay = true;
+        const payload = { ...formData };
+     //   validateUserName(payload.email);
+        validateUserName("userName",payload.userName)
+        for(const i in payload){
+            if(`${payload[i]}` == ""){
+                isOkay = false;
+                document.getElementById(`${i}Error`).innerHTML = "THIS FIELD IS REQUIRED";
+            }else{
+                if(document.getElementById(`${i}Error`).innerHTML == "THIS FIELD IS REQUIRED"){
+                    document.getElementById(`${i}Error`).innerHTML = "";
+                }
+            }
+            if(document.getElementById(`${i}Error`).innerHTML != ""){
+                isOkay= false;
+            }
+        }
+
+        if(isOkay==true){
+            onSubmit();
+        }
+    }
+
+
     // sends sign up data to backend.
     const onSubmit = () => {
         // saves data to Database Endpoint /signup
@@ -86,61 +219,86 @@ export default function Signup() {
                     id="userName"
                     name="userName"
                 />
+                <p id="userNameError" style={{color: "red" }}></p>
+
                 <label className={classes.labelText} for="firstName">
                     First Name
                 </label>
                 <InputForm
-                    onChange={handleChange}
+                    onChange={validateText}
                     type="text"
                     value={formData.firstName}
                     id="firstName"
                     name="firstName"
                 />
+                <p id="firstNameError" style={{color: "red" }}></p>
+
                 <label className={classes.labelText} for="lastName">
                     Last Name
                 </label>
                 <InputForm
-                    onChange={handleChange}
+                    onChange={validateText}
                     type="text"
                     value={formData.lastName}
                     id="lastName"
                     name="lastName"
                 />
+                <p id="lastNameError" style={{color: "red" }}></p>
+
                 <label className={classes.labelText} for="email">
                     Email
                 </label>
                 <InputForm
-                    onChange={handleChange}
+                    onChange={validateEmail}
                     type="text"
                     value={formData.email}
                     id="email"
                     name="email"
                 />
+                <p id="emailError" style={{color: "red" }}></p>
+
                 <label className={classes.labelText} for="password">
                     Password
                 </label>
                 <InputForm
-                    onChange={handleChange}
-                    type="text"
+                    onChange={validatePassword}
+                    type="password"
                     value={formData.password}
                     id="password"
                     name="password"
                 />
+                <p id="passwordError" style={{color: "red" }}></p>
+
+                <label className={classes.labelText} for="rePassword">
+                    Re-Password
+                </label>
+                <InputForm
+                    onChange={validatePasswordMatch}
+                    type="password"
+                    value={formData.rePassword}
+                    id="rePassword"
+                    name="rePassword"
+                />
+                <p id="rePasswordError" style={{color: "red" }}></p>
+
+
                 <label className={classes.labelText} for="phoneNumber">
                     Phone Number
                 </label>
                 <InputForm
-                    onChange={handleChange}
+                    onChange={validatePhone}
                     type="text"
                     value={formData.phoneNumber}
                     id="phoneNumber"
                     name="phoneNumber"
                 />
+                <p id="phoneNumberError" style={{color: "red" }}></p>
+
                 <Button
                     variant="primary"
                     className={classes.buttonPadding}
                     onClick={() => {
-                        onSubmit();
+                        validateSubmit();
                     }}
                 >
                     Submit
