@@ -47,8 +47,8 @@ export default function CreateRentalTwo({ handleChange, state }) {
                     onChange={handleChange}
                     type="number"
                     value={state.room}
-                    id="rooms"
-                    name="rooms"
+                    id="room"
+                    name="room"
                 />
                 <label className={classes.labelText} for="bathroom">
                     Bathrooms
@@ -57,8 +57,8 @@ export default function CreateRentalTwo({ handleChange, state }) {
                     onChange={handleChange}
                     type="number"
                     value={state.bathroom}
-                    id="bathrooms"
-                    name="bathrooms"
+                    id="bathroom"
+                    name="bathroom"
                 />
                 <div className={classes.checkbox}>
                     <label className={classes.text} for="pet">
