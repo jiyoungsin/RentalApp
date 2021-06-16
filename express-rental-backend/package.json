@@ -12,6 +12,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@sendgrid/mail": "^7.4.4",
         "@types/bcrypt": "^5.0.0",
         "@types/connect-mongodb-session": "^2.4.0",
         "@types/cors": "^2.8.10",

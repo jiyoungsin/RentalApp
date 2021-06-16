@@ -41,6 +41,10 @@ export default function EditRental({ match }) {
         phoneNum: '',
         category: '',
         description: '',
+        parking: '',
+        room: '',
+        bathroom: '',
+        pet: ''
     });
     const [loading, setLoading] = useState(false);
 
@@ -106,16 +110,6 @@ export default function EditRental({ match }) {
                     name="title"
                     value={state.title}
                 />
-                <label className={classes.labelText} for="email">
-                    email
-                </label>
-                <InputForm
-                    onChange={handleChange}
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={state.email}
-                />
                 <label className={classes.labelText} for="price">
                     price
                 </label>
@@ -135,16 +129,6 @@ export default function EditRental({ match }) {
                     id="contact"
                     name="contact"
                     value={state.contact}
-                />
-                <label className={classes.labelText} for="phoneNum">
-                    phoneNum
-                </label>
-                <InputForm
-                    onChange={handleChange}
-                    type="text"
-                    id="phoneNum"
-                    name="phoneNum"
-                    value={state.phoneNum}
                 />
                 <label className={classes.labelText} for="category">
                     category
@@ -166,6 +150,49 @@ export default function EditRental({ match }) {
                     name="description"
                     value={state.description}
                 />
+                <label className={classes.labelText} for="parking">
+                    Parking
+                </label>
+                <InputForm
+                    onChange={handleChange}
+                    type="number"
+                    value={state.parking}
+                    id="parking"
+                    name="parking"
+                />
+                <label className={classes.labelText} for="room">
+                    Rooms
+                </label>
+                <InputForm
+                    onChange={handleChange}
+                    type="number"
+                    value={state.room}
+                    id="room"
+                    name="room"
+                />
+                <label className={classes.labelText} for="bathroom">
+                    Bathrooms
+                </label>
+                <InputForm
+                    onChange={handleChange}
+                    type="number"
+                    value={state.bathroom}
+                    id="bathroom"
+                    name="bathroom"
+                />
+                <div className={classes.checkbox}>
+                    <label className={classes.text} for="pet">
+                        Pet
+                    </label>
+                    <input
+                        className={classes.checkboxStyle}
+                        onChange={handleChange}
+                        type="checkbox"
+                        value={state.pet}
+                        id="pet"
+                        name="pet"
+                    />
+                </div>
                 <Button type="submit" variant="primary" className={classes.buttonPadding}>
                     Submit
                 </Button>

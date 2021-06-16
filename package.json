@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "google-maps-react": "^2.0.6",
+        "mongoose": "^5.12.13",
         "react-places-autocomplete": "^7.3.0"
     },
     "devDependencies": {
