@@ -14,20 +14,8 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        email: {
-            type: String,
-            required: true,
-        },
         price: {
             type: Number,
-            required: true,
-        },
-        contact: {
-            type: String,
-            required: true,
-        },
-        phoneNum: {
-            type: String,
             required: true,
         },
         category: {
@@ -101,12 +89,12 @@ const rentalSchema = new mongoose.Schema(
         },
     },
     {
-        collection: 'rental',
+        collection: 'rentUnit',
         timestamps: {
             currentTime: () => Date.now(),
             createdAt: 'timeCreated',
         },
     }
 );
-const Rental = mongoose.model('rental', rentalSchema);
+const Rental = mongoose.model('rentUnit', rentalSchema);
 export default Rental;
