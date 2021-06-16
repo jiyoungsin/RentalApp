@@ -27,17 +27,6 @@ app.use(
     })
 );
 app.use(express.json());
-app.use(
-    session({
-        secret: process.env.SESSION_SECRET,
-        saveUninitialized: true,
-        resave: false,
-        cookie: {
-            httpOnly: true,
-            maxAge: parseInt(process.env.SESSION_MAX_AGE),
-        },
-    })
-);
 
 mongoose
     .connect(process.env.MONGO_DB_URI, {
