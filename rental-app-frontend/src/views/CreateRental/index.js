@@ -56,14 +56,16 @@ export default function Checkout() {
 
     const [state, setState] = useState({
         title: '',
-        email: '',
         price: '',
-        contact: 'true',
         address: '',
-        phoneNum: '',
         category: '',
         description: '',
         unitPictures: '',
+        parking: '',
+        // data fields exist, however added in handlechange()
+        // room: '',
+        // bathroom: '',
+        pet: 'false'
     });
 
     const handleChange = (e) => {
