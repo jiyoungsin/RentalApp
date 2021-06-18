@@ -95,7 +95,7 @@ function notLoggedInUserNavBar() {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link href="/findProperty">Find Rental</Nav.Link>
-                    <Nav.Link href="#eeeeeeeee">Pricing</Nav.Link>
+                    <Nav.Link href="/maintenance">maintenance</Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>

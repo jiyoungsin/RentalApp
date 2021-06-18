@@ -123,7 +123,7 @@ export default function LandingPage() {
                     </Link>
                 </div>
                 <div class="col-3">
-                    <Link to="/Maintenance">
+                    <Link to="/CreateMaintenance">
                         <Button variant="primary">Maintenance</Button>{' '}
                     </Link>
                 </div>
