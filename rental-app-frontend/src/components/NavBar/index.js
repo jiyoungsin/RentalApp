@@ -72,6 +72,9 @@ function loggedInUserNavBar(user) {
                     <Nav.Link href="/findProperty">Find Rental</Nav.Link>
                     <Nav.Link href="#Favorites">Favorites</Nav.Link>
                     <Nav.Link href="#eeeeeeeee">Pricing</Nav.Link>
+                    <Nav.Link href="/aboutus">About</Nav.Link>
+                    <Nav.Link href="/faq">FAQs</Nav.Link>
+                    <Nav.Link href="/contactus">Contact Us</Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
@@ -96,6 +99,9 @@ function notLoggedInUserNavBar() {
                 <Nav className="mr-auto">
                     <Nav.Link href="/findProperty">Find Rental</Nav.Link>
                     <Nav.Link href="/maintenance">Maintenance</Nav.Link>
+                    <Nav.Link href="/aboutus">About</Nav.Link>
+                    <Nav.Link href="/faq">FAQs</Nav.Link>
+                    <Nav.Link href="/contactus">Contact Us</Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
