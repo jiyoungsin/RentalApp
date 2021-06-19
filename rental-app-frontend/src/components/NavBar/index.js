@@ -22,6 +22,15 @@ function adminNavBar(user) {
                     <Nav.Link>
                         <Link to="/">Pricing</Link>
                     </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/aboutus">About</Link>
+                    </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/faq">FAQs</Link>
+                    </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/contactus">Contact Us</Link>
+                    </Nav.Link>
                     <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
                         <NavDropdown.Item>
                             <Link to="/">View All Users</Link>
@@ -77,12 +86,24 @@ function loggedInUserNavBar(user) {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/findProperty">Find Rental</Nav.Link>
-                    <Nav.Link href="#Favorites">Favorites</Nav.Link>
-                    <Nav.Link href="#eeeeeeeee">Pricing</Nav.Link>
-                    <Nav.Link href="/aboutus">About</Nav.Link>
-                    <Nav.Link href="/faq">FAQs</Nav.Link>
-                    <Nav.Link href="/contactus">Contact Us</Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/findProperty">Find Rental</Link>
+                    </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="#Favorites">Favorites</Link>
+                    </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/">Pricing</Link>
+                    </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/aboutus">About</Link>
+                    </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/faq">FAQs</Link>
+                    </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/contactus">Contact Us</Link>
+                    </Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
@@ -111,11 +132,18 @@ function notLoggedInUserNavBar() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/findProperty">Find Rental</Nav.Link>
-                    <Nav.Link href="/maintenance">Maintenance</Nav.Link>
-                    <Nav.Link href="/aboutus">About</Nav.Link>
-                    <Nav.Link href="/faq">FAQs</Nav.Link>
-                    <Nav.Link href="/contactus">Contact Us</Nav.Link>
+                    <Nav.Link>
+                        <Link to="/findProperty">Find Rental</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/aboutus">About</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/faq">FAQs</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/contactus">Contact Us</Link>
+                    </Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
