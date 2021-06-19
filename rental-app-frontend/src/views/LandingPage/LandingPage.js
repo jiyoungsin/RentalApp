@@ -69,10 +69,13 @@ export default function LandingPage() {
         },
         JumboTron: {
             padding: '20px',
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://picsum.photos/1650/800)`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://picsum.photos/1600/800)`,
             marginBottom: '5vh',
         },
-        mainTitle: {},
+        mainTitle: {
+            fontFamily: "cursive",
+            fontSize: "5vh"
+        },
     }));
 
     const classes = useStyles();
@@ -95,7 +98,7 @@ export default function LandingPage() {
             <div className={classes.JumboTron}>
                 <div className={classes.topBox}>
                     <Typography className={classes.mainTitle}>Vroom</Typography>
-                    <Typography>The Worlds First Digital Rental Company</Typography>
+                    <Typography className={classes.mainTitle}>The Worlds First Digital Rental Company</Typography>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <p>A web application to help you find a new rental unit.</p>
                     </div>

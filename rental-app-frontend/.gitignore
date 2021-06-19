@@ -6,3 +6,4 @@ rental-app-frontend/.eslintcache
 .vscode
 rental-app-frontend/package-lock.json
 */dist/*
+../package-lock.json

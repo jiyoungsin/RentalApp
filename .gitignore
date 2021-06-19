@@ -3,5 +3,7 @@ node_modules
 rental-app-frontend/.eslintcache
 .prettierrc
 .env
+.vscode
 rental-app-frontend/package-lock.json
 */dist/*
+../package-lock.json

@@ -51,12 +51,12 @@ function adminNavBar(user) {
                 {/* Linking the routes using Link component */}
                 <Nav>
                     <Nav.Link>
-                        <Link id="navbar-sign-logo" to={profileLink}>
+                        <Link to={profileLink}>
                             Profile
                         </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link id="navbar-sign-logo" to="/logout">
+                        <Link to="/logout">
                             Log out
                         </Link>
                     </Nav.Link>
@@ -71,7 +71,7 @@ function loggedInUserNavBar(user) {
     const profileLink = '/profile/' + users._id;
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Link to="/" id="navbar-main-logo">
+            <Link to="/" id="navbar-main-logo   ">
                 Vroom
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
