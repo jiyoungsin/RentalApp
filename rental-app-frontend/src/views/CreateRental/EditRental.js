@@ -44,7 +44,7 @@ export default function EditRental({ match }) {
         parking: '',
         room: '',
         bathroom: '',
-        pet: ''
+        pet: '',
     });
     const [loading, setLoading] = useState(false);
 

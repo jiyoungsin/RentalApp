@@ -1,5 +1,5 @@
 import React from 'react';
-import { TiSocialTwitter, TiSocialInstagram, TiSocialFacebook } from "react-icons/ti";
+import { TiSocialTwitter, TiSocialInstagram, TiSocialFacebook } from 'react-icons/ti';
 
 export default function Footer() {
     return (
@@ -47,13 +47,22 @@ export default function Footer() {
                     <span class="h3 d-block primary-color">Social Media</span>
                     <ul>
                         <li>
-                            <a href="https://www.instagram.com/rentvroom/"><TiSocialInstagram />Instagram</a>
+                            <a href="https://www.instagram.com/rentvroom/">
+                                <TiSocialInstagram />
+                                Instagram
+                            </a>
                         </li>
                         <li>
-                            <a href="https://www.facebook.com/rentvroom/"><TiSocialFacebook />Facebook</a>
+                            <a href="https://www.facebook.com/rentvroom/">
+                                <TiSocialFacebook />
+                                Facebook
+                            </a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/Vroomrent"><TiSocialTwitter />Twitter</a>
+                            <a href="https://twitter.com/Vroomrent">
+                                <TiSocialTwitter />
+                                Twitter
+                            </a>
                         </li>
                     </ul>
 

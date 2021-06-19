@@ -2,8 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import sgMail from '@sendgrid/mail';
-import  User from '../models/user.model';
-
+import User from '../models/user.model';
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -14,49 +13,43 @@ app.post('/signup', async (req, res) => {
     const database = mongoose.connection;
     const hash = bcrypt.hashSync(password, saltRounds);
 
-    sgMail.setApiKey("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");
+    sgMail.setApiKey('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');
 
-    try{
-        database.collection("user").insertOne({
-            email : email,
-            password : hash,
-            lastName : lastName,
-            userName : userName,
-            firstName : firstName,
-            phoneNumber : phoneNumber,
-
+    try {
+        database.collection('user').insertOne({
+            email: email,
+            password: hash,
+            lastName: lastName,
+            userName: userName,
+            firstName: firstName,
+            phoneNumber: phoneNumber,
         });
 
-        const message = 
-        {
+        const message = {
             to: email,
             from: 'VroomInc@officalbase.com',
             subject: 'Welcome to Vroom',
             text: 'Hello world',
-            html: 
-            `
+            html: `
                 <h1>Welcome to Vroom</h1>
                 <p> Thanks for Signing Up! Now let's find you a home!</p>
-            `
+            `,
         };
-        
+
         (async () => {
             try {
-              await sgMail.send(message);
+                await sgMail.send(message);
             } catch (error) {
-              console.error(error);
-          
-              if (error.response) {
-                console.error(error.response.body)
-              }
+                console.error(error);
+
+                if (error.response) {
+                    console.error(error.response.body);
+                }
             }
-          })();
-        res.status(200).json("Saved to Database");
-        
-
-    }catch{
-        console.log("ERROR: Did not Create User.")
-
+        })();
+        res.status(200).json('Saved to Database');
+    } catch {
+        console.log('ERROR: Did not Create User.');
     }
 });
 
@@ -89,12 +82,10 @@ app.get('/usernames', async (req, res) => {
             } else {
                 return res.json(userName);
             }
-
         });
     } catch {
-        console.log("Failed to load usernames");
+        console.log('Failed to load usernames');
     }
 });
-
 
 module.exports = app;

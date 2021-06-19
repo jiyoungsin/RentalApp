@@ -6,7 +6,18 @@ const app = express.Router();
 // this route is used when creating a Rental.
 // we will need to append the new rentals to the users array of rentals.
 app.post('/createrental', async (req, res) => {
-    const { address, unitPictures, title, price, category, description, parking, room, bathroom, pet } = req.body;
+    const {
+        address,
+        unitPictures,
+        title,
+        price,
+        category,
+        description,
+        parking,
+        room,
+        bathroom,
+        pet,
+    } = req.body;
     const database = mongoose.connection;
     console.log('Post Request to DB CreateRental');
     database.collection('rentUnit').insertOne({
@@ -32,9 +43,9 @@ app.get('/rentals', async (req, res) => {
             } else {
                 return res.json(rental);
             }
-        }).limit(3)
+        }).limit(3);
     } catch {
-        console.log("Failed to load rental");
+        console.log('Failed to load rental');
     }
 });
 

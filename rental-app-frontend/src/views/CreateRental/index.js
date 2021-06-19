@@ -65,7 +65,7 @@ export default function Checkout() {
         // data fields exist, however added in handlechange()
         // room: '',
         // bathroom: '',
-        pet: 'false'
+        pet: 'false',
     });
 
     const handleChange = (e) => {

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Maintenance() {
-    
     const [maintenance, setMaintenance] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/maintenance/maintenance`)
+        axios
+            .get(`http://localhost:5000/maintenance/maintenance`)
             .then((res) => {
                 setMaintenance(res.data);
             })
@@ -16,17 +16,16 @@ export default function Maintenance() {
                 alert('Error while Fetching Maintenance Requests');
             });
     }, []);
-    
 
     return (
         <div className="container mt-5">
             <ul class="list-group">
-                {maintenance.map((main)=>(
+                {maintenance.map((main) => (
                     <li class="list-group-item">
-                        <Link to ="/">{main.maintenanceIssue}</Link>
+                        <Link to="/">{main.maintenanceIssue}</Link>
                     </li>
                 ))}
             </ul>
         </div>
-    )
+    );
 }

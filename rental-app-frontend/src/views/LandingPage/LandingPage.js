@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PostCard from '../../components/PostCard/PostCard';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
@@ -28,53 +28,51 @@ export default function LandingPage() {
             height: '150px',
             padding: '20px',
         },
-        box : {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "50vh",
+        box: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '50vh',
         },
-        topBox : {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "50vh",
-            color: "white",
+        topBox: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '50vh',
+            color: 'white',
         },
-        inputStyles:{
-            width: "250px",
-            border:"none",
-            outline: "none"
+        inputStyles: {
+            width: '250px',
+            border: 'none',
+            outline: 'none',
         },
-        buttonColoring:{
-            color: "white", 
-            backgroundColor: "#242582",
+        buttonColoring: {
+            color: 'white',
+            backgroundColor: '#242582',
         },
         centeringBoxes: {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
         },
         testing: {
-            width: "100px",
-            height: "100px",
-            backgroundColor: "black",
-            margin: "10px",
+            width: '100px',
+            height: '100px',
+            backgroundColor: 'black',
+            margin: '10px',
         },
-        emailJumboTron:{
-            padding: "20px",  
+        emailJumboTron: {
+            padding: '20px',
             backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://picsum.photos/1600/800)`,
         },
-        JumboTron:{
-            padding: "20px",  
+        JumboTron: {
+            padding: '20px',
             backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://picsum.photos/1650/800)`,
-            marginBottom: "5vh",
+            marginBottom: '5vh',
         },
-        mainTitle:{
-
-        }
+        mainTitle: {},
     }));
 
     const classes = useStyles();
@@ -82,36 +80,36 @@ export default function LandingPage() {
 
     useEffect(() => {
         axios
-        .get('http://localhost:5000/rentals/rentals')
-        .then((res) => { 
-            setRentals(res.data)
-        })
-        .catch((err) => {
-            console.error(err);
-            alert('Error Sending Data to Backend');
-        })
+            .get('http://localhost:5000/rentals/rentals')
+            .then((res) => {
+                setRentals(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+                alert('Error Sending Data to Backend');
+            });
     }, []);
 
     return (
         <div>
-             <div className={classes.JumboTron}>
+            <div className={classes.JumboTron}>
                 <div className={classes.topBox}>
                     <Typography className={classes.mainTitle}>Vroom</Typography>
                     <Typography>The Worlds First Digital Rental Company</Typography>
-                    <div className="container" style={{textAlign: "center"}}>
+                    <div className="container" style={{ textAlign: 'center' }}>
                         <p>A web application to help you find a new rental unit.</p>
                     </div>
                 </div>
             </div>
             <div className="container">
                 <div className="row d-flex justify-content-between">
-                    {rentals.map((i)=>(
-                        <PostCard key={i._id} rentals={i}/>
+                    {rentals.map((i) => (
+                        <PostCard key={i._id} rentals={i} />
                     ))}
                 </div>
             </div>
             {/* DELETE THESE BUTTONS AFTER EVERYTHING IS HOOKED UP */}
-            <div className={classes.centerItems} style={{marginTop: "5vh"}}>
+            <div className={classes.centerItems} style={{ marginTop: '5vh' }}>
                 <div class="col-3">
                     <Link to="/createRental">
                         <Button variant="primary">Rent Property</Button>{' '}
@@ -134,31 +132,109 @@ export default function LandingPage() {
                 </div>
             </div>
             {/* DELETE TO HERE */}
-            <Price/>
-            <div style={{display: "flex", margin: "50px"}}>
-                <div className={classes.centerText} style={{alignSelf: "center"}}>
+            <Price />
+            <div style={{ display: 'flex', margin: '50px' }}>
+                <div className={classes.centerText} style={{ alignSelf: 'center' }}>
                     <h2>Stakeholders</h2>
-                    <p>lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    <p>
+                        lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
                 </div>
                 <div>
-                    <div style={{display: "flex", flexWrap: "wrap"}}>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
-                        <div className="col-3" style={{backgroundColor: "black", width:"100px", height: "100px", margin: "10px"}}></div>
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
+                        <div
+                            className="col-3"
+                            style={{
+                                backgroundColor: 'black',
+                                width: '100px',
+                                height: '100px',
+                                margin: '10px',
+                            }}
+                        ></div>
                     </div>
                 </div>
             </div>
             <div className={classes.emailJumboTron}>
                 <div className={classes.box}>
-                    <h2  style={{color: "white"}}>STAY IN TOUCH!</h2>
-                    <form className="border" style={{padding: "5px",  backgroundColor: "white"}}>
-                        <input class={classes.inputStyles} type="text" placeholder="Email@gmail.com"/>
+                    <h2 style={{ color: 'white' }}>STAY IN TOUCH!</h2>
+                    <form className="border" style={{ padding: '5px', backgroundColor: 'white' }}>
+                        <input
+                            class={classes.inputStyles}
+                            type="text"
+                            placeholder="Email@gmail.com"
+                        />
                         <Button class={classes.buttonColoring}>Submit</Button>
                     </form>
                 </div>

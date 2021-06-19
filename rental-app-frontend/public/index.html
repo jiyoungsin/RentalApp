@@ -57,8 +57,8 @@
         .heading-title {
             position: relative;
             font-size: 30px;
-        } 
-        
+        }
+
         #navbar-main-logo {
             text-decoration: none;
             color: white;
@@ -69,37 +69,35 @@
         #navbar-sign-logo {
             text-decoration: none;
             color: white;
-            
         }
 
-        html * 
-        {
-            font-family: cursive, sans-serif, "Gill Sans";
+        html * {
+            font-family: cursive, sans-serif, 'Gill Sans';
         }
 
-        .about-section{
-            background: url(https://img4.goodfon.com/wallpaper/nbig/d/b1/abstract-dark-blue-polygonal-background-abstraktsiia-geometr.jpg) no-repeat left;
+        .about-section {
+            background: url(https://img4.goodfon.com/wallpaper/nbig/d/b1/abstract-dark-blue-polygonal-background-abstraktsiia-geometr.jpg)
+                no-repeat left;
             background-size: 120%;
             background-color: #fdfdfd;
             overflow: hidden;
             padding: 100px 0;
-           
         }
 
-        .inner-container-about{
+        .inner-container-about {
             width: 55%;
             float: right;
             background-color: #fdfdfd;
             padding: 150px;
         }
 
-        .inner-container-about h1{
+        .inner-container-about h1 {
             margin-bottom: 30px;
             font-size: 30px;
             font-weight: 900;
         }
 
-        .text-about{
+        .text-about {
             font-size: 16px;
             color: #545454;
             line-height: 30px;
@@ -107,110 +105,107 @@
             margin-bottom: 40px;
         }
 
-
-        @media screen and (max-width:1200px){
-            .inner-container-about{
+        @media screen and (max-width: 1200px) {
+            .inner-container-about {
                 padding: 80px;
             }
         }
 
-        @media screen and (max-width:1000px){
-            .about-section{
+        @media screen and (max-width: 1000px) {
+            .about-section {
                 background-size: 100%;
                 padding: 100px 40px;
             }
-            .inner-container{
+            .inner-container {
                 width: 100%;
             }
         }
 
-        @media screen and (max-width:600px){
-            .about-section{
+        @media screen and (max-width: 600px) {
+            .about-section {
                 padding: 0;
             }
-            .inner-container-about{
+            .inner-container-about {
                 padding: 60px;
             }
         }
 
         @import url(https://fonts.googleapis.com/css?family=Raleway);
 
+        .faq-header {
+            font-size: 42px;
+            border-bottom: 1px dotted #ccc;
+            padding: 24px;
+        }
 
+        .faq-content {
+            margin: 0 auto;
+        }
 
-.faq-header{
-  font-size: 42px;
-  border-bottom: 1px dotted #ccc;
-  padding: 24px;
-}
+        .faq-question {
+            padding: 20px 0;
+            border-bottom: 1px dotted #ccc;
+        }
 
-.faq-content {
-  margin: 0 auto;
-}
+        .panel-title {
+            font-size: 24px;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 10px 10px 0 48px;
+            display: block;
+            cursor: pointer;
+        }
 
-.faq-question {
-  padding: 20px 0;
-  border-bottom: 1px dotted #ccc;
-}
+        .panel-content {
+            font-size: 20px;
+            padding: 0px 14px;
+            margin: 0 40px;
+            height: 0;
+            overflow: hidden;
+            z-index: -1;
+            position: relative;
+            opacity: 0;
+            -webkit-transition: 0.4s ease;
+            -moz-transition: 0.4s ease;
+            -o-transition: 0.4s ease;
+            transition: 0.4s ease;
+        }
 
-.panel-title {
-  font-size: 24px;
-  width: 100%;
-  position: relative;
-  margin: 0;
-  padding: 10px 10px 0 48px;
-  display: block;
-  cursor: pointer;
-}
+        .panel:checked ~ .panel-content {
+            height: auto;
+            opacity: 1;
+            padding: 14px;
+        }
 
-.panel-content {
-  font-size: 20px;
-  padding: 0px 14px;
-  margin: 0 40px;
-  height: 0;
-  overflow: hidden;
-  z-index: -1;
-  position: relative;
-  opacity: 0;
-  -webkit-transition: .4s ease;
-  -moz-transition: .4s ease;
-  -o-transition: .4s ease;
-  transition: .4s ease;
-}
+        .plus {
+            position: absolute;
+            margin-left: 20px;
+            margin-top: 4px;
+            z-index: 5;
+            font-size: 42px;
+            line-height: 100%;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            -webkit-transition: 0.2s ease;
+            -moz-transition: 0.2s ease;
+            -o-transition: 0.2s ease;
+            transition: 0.2s ease;
+        }
 
-.panel:checked ~ .panel-content{
-  height: auto;
-  opacity: 1;
-  padding: 14px;
-}
+        .panel:checked ~ .plus {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
 
-.plus {
-  position: absolute;
-  margin-left: 20px;
-  margin-top: 4px;
-  z-index: 5;
-  font-size: 42px;
-  line-height: 100%;
-  -webkit-user-select: none;    
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-  -webkit-transition: .2s ease;
-  -moz-transition: .2s ease;
-  -o-transition: .2s ease;
-  transition: .2s ease;
-}
-
-.panel:checked ~ .plus {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.panel {
-  display: none;
-}
+        .panel {
+            display: none;
+        }
     </style>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>

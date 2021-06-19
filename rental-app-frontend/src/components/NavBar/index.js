@@ -10,7 +10,9 @@ function adminNavBar(user) {
     const profileLink = '/profile/' + users._id;
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Link to="/" id="navbar-main-logo">Vroom</Link>
+            <Link to="/" id="navbar-main-logo">
+                Vroom
+            </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -49,10 +51,14 @@ function adminNavBar(user) {
                 {/* Linking the routes using Link component */}
                 <Nav>
                     <Nav.Link>
-                        <Link id="navbar-sign-logo" to={profileLink}>Profile</Link>
+                        <Link id="navbar-sign-logo" to={profileLink}>
+                            Profile
+                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link  id="navbar-sign-logo" to="/logout">Log out</Link>
+                        <Link id="navbar-sign-logo" to="/logout">
+                            Log out
+                        </Link>
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
@@ -65,7 +71,9 @@ function loggedInUserNavBar(user) {
     const profileLink = '/profile/' + users._id;
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Link to="/" id="navbar-main-logo">Vroom</Link>
+            <Link to="/" id="navbar-main-logo">
+                Vroom
+            </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -78,7 +86,11 @@ function loggedInUserNavBar(user) {
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
-                    <Link id="navbar-sign-logo" to={profileLink} style={{ paddingTop: '10px', paddingRight: '10px' }}>
+                    <Link
+                        id="navbar-sign-logo"
+                        to={profileLink}
+                        style={{ paddingTop: '10px', paddingRight: '10px' }}
+                    >
                         Profile
                     </Link>
                     <Link id="navbar-sign-logo" to="/logout" style={{ paddingTop: '10px' }}>
@@ -93,7 +105,9 @@ function loggedInUserNavBar(user) {
 function notLoggedInUserNavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Link to="/" id="navbar-main-logo">Vroom</Link>
+            <Link to="/" id="navbar-main-logo">
+                Vroom
+            </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -106,10 +120,14 @@ function notLoggedInUserNavBar() {
                 {/* Linking the routes using Link component */}
                 <Nav>
                     <Nav.Link>
-                        <Link to="/signup" id="navbar-sign-logo">Sign Up</Link>
+                        <Link to="/signup" id="navbar-sign-logo">
+                            Sign Up
+                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/login" id="navbar-sign-logo">Log in</Link>
+                        <Link to="/login" id="navbar-sign-logo">
+                            Log in
+                        </Link>
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
