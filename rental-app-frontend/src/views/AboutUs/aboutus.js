@@ -73,7 +73,10 @@ export default function AboutUs() {
                        <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        Growing up in a small community that had a population of about 5000 people. This gave me the opportunity to understand how important one person can be in a community.
+                        As a recent graduate from Seneca College and with the Pandemic in full effect, my group and I thought It would be a great Idea to contribute to the growing role of online renting.
+                        We read articles about how people would view, rent, and even purchase their homes via Zoom call. This is when we knew that an application like Vroom was only a matter of time.
+                        Thank you for your support and we hope you enjoy our services.
                     </p>
                 </div>
                 <div className="col-3" style={{display: "flex", justifyContent: "center"}}>

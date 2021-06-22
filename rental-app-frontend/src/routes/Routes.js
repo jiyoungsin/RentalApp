@@ -44,7 +44,7 @@ function Routes() {
                         <Route exact path="/FAQ" component={FAQ} />
                         <Route exact path="/AboutUs" component={AboutUs} />
                         <Route exact path="/ContactUs" component={ContactUs} />
-                        <Route component={Page404} />
+                        <Route exact path="/404" component={Page404} />
                     </UserSessionContextProvider>
                 </Switch>
                 <Footer />

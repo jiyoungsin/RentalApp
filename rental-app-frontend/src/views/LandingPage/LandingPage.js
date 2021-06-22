@@ -89,7 +89,7 @@ export default function LandingPage() {
             })
             .catch((err) => {
                 console.error(err);
-                alert('Error Sending Data to Backend');
+                alert('Error Fetching Data from Backend. Check Server');
             });
     }, []);
 
