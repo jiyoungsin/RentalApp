@@ -5,90 +5,62 @@ import InputForm from '../../components/InputForm';
 export default function CreateRental({ handleChange, state }) {
     const classes = useStyles();
     return (
+
+        /*
+        type: '',
+        streetNumber: 0,
+        streetName:'',
+        postalCode: '',
+        price: 0.0,
+        parking: false,
+        room: 0,
+        bathroom: 0
+        */
         <div className={classes.container}>
             <form className={classes.formStyle}>
-                <h2>Create Rental</h2>
-                <label className={classes.labelText} for="title">
-                    Title
-                </label>
-                <InputForm
-                    onChange={handleChange}
-                    type="text"
-                    value={state.title}
-                    placeholder="Ad title"
-                    id="title"
-                    name="title"
-                />
-                <label className={classes.labelText}>Select a Category</label>
                 <div class="container">
-                    <label className={classes.labelText}>
-                        <InputForm
-                            style={{ margin: '10px' }}
-                            onChange={handleChange}
-                            type="radio"
-                            value="Condo"
-                            id="category"
-                            name="category"
-                            checked={state.category === 'Condo'}
-                        />
-                        Condo
-                    </label>
+                    <div className="row">
+                        <div className="col-6">
+                            <label className={classes.labelText}>Unit type: &ensp;</label>
+                            <select id="type" name="type" value={state.type} onChange={handleChange}> 
+                                <option value="" selected disabled hidden>Choose The Type</option>
+                                <option value="condo">Condo</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="house">House</option>
+                                <option value="studio">Studio</option>
+                                <option value="room">Room</option>
+                            </select>
+                        </div>
+                        <div className="col-6">
+
+                            <label className={classes.labelText}>Price/Month: &ensp;</label>
+                            <input onChange={handleChange} type="text" id="price" name="price" size="5" placeholder="$0"></input>
+                        </div>
+                    </div>
                 </div>
                 <div class="container">
-                    <label className={classes.labelText}>
-                        <InputForm
-                            style={{ margin: '10px' }}
-                            onChange={handleChange}
-                            type="radio"
-                            value="Homes"
-                            id="category"
-                            name="category"
-                            checked={state.category === 'Homes'}
-                        />
-                        Homes
-                    </label>
                 </div>
                 <div class="container">
-                    <label className={classes.labelText}>
-                        <InputForm
-                            style={{ margin: '10px' }}
-                            onChange={handleChange}
-                            type="radio"
-                            value="Luxury"
-                            id="category"
-                            name="category"
-                            checked={state.category === 'Luxury'}
-                        />
-                        Luxury
-                    </label>
+                <label className={classes.labelText}>Address: &ensp;</label>
+                            <input onChange={handleChange} type="text" id="streetNumber" name="streetNumber" size="6" placeholder="Street #"></input>&ensp;
+                            <input onChange={handleChange} type="text" id="streetName" name="streetName" size="30" placeholder="Street Name"></input>&ensp;
+                            <input onChange={handleChange} type="text" id="postalCode" name="postalCode" size="10" placeholder="Postal-Code"></input>
                 </div>
                 <div class="container">
-                    <label className={classes.labelText}>
-                        <InputForm
-                            style={{ margin: '10px' }}
-                            onChange={handleChange}
-                            type="radio"
-                            value="Apartment"
-                            id="category"
-                            name="category"
-                            checked={state.category === 'Apartment'}
-                        />
-                        Apartment
-                    </label>
+                    <div className="row">
+                        <div className="col-6">
+                            <label className={classes.labelText}>Room: &ensp;</label>
+                            <input onChange={handleChange} type="number" id="room" name="room" min="0" placeholder="0"></input>
+                        </div>
+                        <div className="col-6">
+                            <label className={classes.labelText}>Bathroom: &ensp;</label>
+                            <input onChange={handleChange} type="number" id="bathroom" name="bathroom" min="0" placeholder="0" value={state.bathroom}></input>
+                        </div>
+                    </div>
                 </div>
                 <div class="container">
-                    <label className={classes.labelText}>
-                        <InputForm
-                            style={{ margin: '10px' }}
-                            onChange={handleChange}
-                            type="radio"
-                            value="TownHomes"
-                            id="category"
-                            name="category"
-                            checked={state.category === 'TownHomes'}
-                        />
-                        TownHomes
-                    </label>
+                    <label className={classes.labelText}>Parking spot: &ensp;</label>
+                    <input onChange={handleChange} type="number" id="parking" name="parking" min="0" placeholder="0"></input>&ensp;
                 </div>
             </form>
         </div>
