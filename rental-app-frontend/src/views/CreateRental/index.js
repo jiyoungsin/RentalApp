@@ -93,10 +93,8 @@ export default function Checkout() {
             ...ps,
             [id]: checked,
         }));
-        console.log(id, checked);
     };
 
-    console.log(state);
     const getStepContent = (step) => {
         switch (step) {
             case 0:

@@ -7,6 +7,17 @@ import { Link } from 'react-router-dom';
 import Price from '../Price/Price';
 import axios from 'axios';
 
+// importing images
+import remax from '../../images/remax.jpeg';
+import sandBox from '../../images/sandBox.png';
+import msTeams from '../../images/msTeams.png';
+import discord from '../../images/discord.png';
+import realitor from '../../images/realitor.png';
+import reactLogo from '../../images/reactLogo.jpeg';
+import SenecaLogo from '../../images/SenecaLogo.jpeg';
+import githubBanner from '../../images/githubBanner.jpeg';
+import herokuBanner from '../../images/herokuBanner.jpeg';
+
 export default function LandingPage() {
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -76,6 +87,10 @@ export default function LandingPage() {
             fontFamily: "cursive",
             fontSize: "5vh"
         },
+        fitImage: {
+            maxWidth: "100%", 
+            maxHeight: "100%",
+        }
     }));
 
     const classes = useStyles();
@@ -136,11 +151,11 @@ export default function LandingPage() {
             </div>
             {/* DELETE TO HERE */}
             <Price />
-            <div style={{ display: 'flex', margin: '50px' }}>
+            <div style={{ display: 'flex', margin: '50px', backgroundColor: "white" }}>
                 <div className={classes.centerText} style={{ alignSelf: 'center' }}>
                     <h2>Stakeholders</h2>
                     <p>
-                        lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Thank you to some of our Sponsers and The Vroom Team thanks you for your never ending support!
                     </p>
                 </div>
                 <div>
@@ -148,84 +163,92 @@ export default function LandingPage() {
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
-                            }}
-                        ></div>
+                            }}>
+                            <img className={classes.fitImage} src={SenecaLogo} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={reactLogo} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={githubBanner} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={herokuBanner} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={remax} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={sandBox} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={realitor} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={msTeams} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                         <img className={classes.fitImage} src={discord} alt="Sponsor" />   
+                        </div>
                     </div>
                 </div>
             </div>

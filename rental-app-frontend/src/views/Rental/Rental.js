@@ -14,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Rental() {
     const { user, setUser } = useContext(userSessionContext);
-    const { rentals } = user;
+    const { rental } = user;
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState();
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/profile/` + rentals)
+            .get(`http://localhost:5000/profile/` + rental)
             .then((res) => {
                 setRentalPost(res.data[0]);
                 setLoaded(true);
@@ -30,8 +30,6 @@ export default function Rental() {
                 alert('Error while Fetching Rental Units');
             });
     }, []);
-    console.log(rentalPost);
-
     return (
         <>
             {' '}
@@ -39,7 +37,7 @@ export default function Rental() {
                 <div className="container border borderSecondary p-5 mt-5">
                     <span>{user.userName}</span>
                     <span> > </span>
-                    <span>{rentalPost.category}</span>
+                    <span>{rentalPost.type}</span>
                     <span> > </span>
                     <span>{rentalPost._id}</span>
                     <div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Founders from "../../images/founders.jpeg";
 import Paul from "../../images/Paul.jpeg";
+import Niaz from "../../images/Niaz.jpg";
 
 export default function AboutUs() {
     const useStyles = makeStyles((theme) => ({
@@ -99,16 +100,18 @@ export default function AboutUs() {
             </div>
             <div className={classes.divBoarder}>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2>Name HERE</h2>
+                    <h2>Niaz Haque</h2>
                     <blockquote>
-                       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        Since 2010, I have dreamed of becoming a successful Web Developer. From 2018 to 2021 I have embarked on the journey of obtaining more knowledge from studying @ Seneca College.
+                        I love seeking a challenging that allows me to further develop my technical skills while contributing to the goals of organizations.
+                        I really enjoyed working with this team making our dreams come true. Thank you for being apart of the Vroom Community.
                     </p>
                 </div>
                 <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
-                    <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
+                    <img className={classes.displayPhoto} src={Niaz} atl="Image of Creators" />
                 </div>
             </div>
             <div style={{ display: 'flex', margin: '50px' }}>

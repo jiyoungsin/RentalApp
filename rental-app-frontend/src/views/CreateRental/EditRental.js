@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from 'react-bootstrap/Button';
+import {Redirect} from 'react-router-dom';
 import axios from 'axios';
 
 export default function EditRental({ match }) {
@@ -46,7 +47,7 @@ export default function EditRental({ match }) {
         bathroom: '',
         pet: '',
     });
-    const [loading, setLoading] = useState(false);
+    const [edited, setEdited] = useState(false);
 
     useEffect(() => {
         axios
@@ -58,14 +59,13 @@ export default function EditRental({ match }) {
             .then((res) => {
                 console.log('Fetching Data from Database');
                 setState(res.data);
-                setLoading(true);
             })
             .catch((err) => {
                 console.error(err);
                 alert('Error fetching Data from Backend ');
             });
         // eslint-disable-next-line
-    }, [loading]);
+    }, []);
 
     // updating user input.
     const handleChange = (e) => {
@@ -79,6 +79,7 @@ export default function EditRental({ match }) {
     const onSubmit = () => {
         // updates data to the backend
         const payload = { ...state };
+        console.log("@@@@@@@@")
         axios
             .put(`http://localhost:5000/rentalUnit/editRental/${id}`, {
                 data: payload,
@@ -87,19 +88,20 @@ export default function EditRental({ match }) {
                 },
             })
             .then((res) => {
-                console.log(res);
                 console.log('Updated Rental Successfully');
+                setEdited(true)
+                console.log("edited")
+                console.log(edited)
             })
             .catch((err) => {
-                console.error(err);
                 alert('ERROR: Updating Rental');
             });
     };
 
-    return loading === true ? (
+    return ( 
         <div className={classes.container}>
             <h1>Edit Profile</h1>
-            <form className={classes.formStyle} onSubmit={onSubmit}>
+            <form className={classes.formStyle}>
                 <label className={classes.labelText} for="title">
                     title
                 </label>
@@ -193,10 +195,11 @@ export default function EditRental({ match }) {
                         name="pet"
                     />
                 </div>
-                <Button type="submit" variant="primary" className={classes.buttonPadding}>
+                <Button onClick={onSubmit} variant="primary" className={classes.buttonPadding}>
                     Submit
                 </Button>
             </form>
+            {edited ? <Redirect to="/" /> : null}
         </div>
-    ) : null;
+    ) 
 }

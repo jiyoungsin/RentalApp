@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStyles } from './styles';
-import InputForm from '../../components/InputForm';
 
 export default function CreateRentalTwo({ handleChange, state }) {
     const classes = useStyles();
@@ -14,8 +13,6 @@ export default function CreateRentalTwo({ handleChange, state }) {
                     <label for="images">Select Images: </label>&ensp;
                     <input type="file" id="images" name="images"></input>
                 </div>
-                
-
             </form>
         </div>
     );

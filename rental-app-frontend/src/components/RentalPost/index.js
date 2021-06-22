@@ -53,17 +53,28 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
         background: 'none',
     },
+    greenPriceTag: {
+        color: '#37a864',
+        fontSize: '30px',
+    },
 }));
 
 export default function RentalPost({
-    title,
+    type,
     src,
     address,
-    desc,
+    description,
     sendersName,
     profilePic,
     lastMsg,
     _id,
+    price,
+    parking,
+    room,
+    bathroom,
+    pet,
+    Review,
+    unitPictures,
 }) {
     const classes = useStyles();
     const EditLink = `/rentalUnit/${_id}`;
@@ -75,7 +86,6 @@ export default function RentalPost({
             .delete(`http://localhost:5000/rentalUnit/delete/${_id}`)
             .then((res) => {
                 console.log('Deleting Data from Database');
-                console.log(res.data);
                 Window.location.reload();
                 //const rentals = res.arryOfRentals;
             })
@@ -91,9 +101,11 @@ export default function RentalPost({
                 <div className={classes.container}>
                     <img src={src} alt="Picture Of Rental" />
                     <div className={classes.rentalCard}>
-                        <h5>{title}</h5>
-                        <div>{address}</div>
-                        <div>{desc}</div>
+                        <span className={classes.greenPriceTag}>
+                            $ {price}
+                        </span>
+                        <div className="font-italic">{address}</div>
+                        <div>{description}</div>
                         <div style={{ padding: '10px' }}>
                             <img
                                 className={classes.messagedProfilePicture}

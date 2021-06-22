@@ -26,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Profile(req, res) {
     const { user, setUser } = useContext(userSessionContext);
-    const { rentals } = user;
+    const { rental } = user;
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState({});
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/profile/` + rentals)
+            .get(`http://localhost:5000/profile/` + rental)
             .then((res) => {
                 setRentalPost(res.data[0]);
             })
@@ -54,12 +54,19 @@ export default function Profile(req, res) {
             <RentalPost
                 src="https://picsum.photos/100/125"
                 address="800 Sunmount Road Basement Apt"
-                title={rentalPost.title}
-                desc={rentalPost.description}
+                type={rentalPost.type}
+                description={rentalPost.description}
                 profilePic="https://picsum.photos/10/10"
                 sendersName="Michael Won"
                 lastMsg="2W"
-                _id={rentalPost._id}
+                price={rentalPost.price}
+                parking={rentalPost.parking}
+                room={rentalPost.room}
+                bathroom={rentalPost.bathroom}
+                pet={rentalPost.pet}
+                Review={rentalPost.Review}
+                unitPictures={rentalPost.unitPictures}
+                _id={rental}
             />
         </div>
     );

@@ -19,14 +19,12 @@ app.delete('/delete/:id', async (req, res) => {
 
 app.put('/editRental/:id', async (req, res) => {
     let id = req.params.id;
-    console.log(req.body.data);
     const payload = await Rental.updateOne({ _id: id }, req.body.data)
-        .then((res) => {
-            console.log(res);
+        .then((response) => {
             console.log('Successfully Updated Rental');
+            res.send(response)
         })
         .catch((err) => {
-            console.log(err);
             console.log('ERROR: while Updating Rental');
         });
     res.status(204);
