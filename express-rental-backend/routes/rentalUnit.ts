@@ -19,9 +19,6 @@ app.delete('/delete/:id', async (req, res) => {
 
 app.put('/editRental/:id', async (req, res) => {
     let id = req.params.id;
-    console.log('id');
-    console.log(id);
-    console.log('req.body.data');
     console.log(req.body.data);
     const payload = await Rental.updateOne({ _id: id }, req.body.data)
         .then((res) => {

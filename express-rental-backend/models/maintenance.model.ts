@@ -26,7 +26,7 @@ const maintenanceSchema = new mongoose.Schema(
         },
     },
     {
-        collection: 'contact',
+        collection: 'maintenance',
         timestamps: {
             currentTime: () => Date.now(),
             createdAt: 'timeCreated',
