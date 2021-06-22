@@ -16,6 +16,7 @@ import Rental from '../views/Rental/Rental';
 import FAQ from '../views/FAQ/faq';
 import AboutUs from '../views/AboutUs/aboutus';
 import ContactUs from '../views/ContactUs/contactus';
+import Page404 from '../views/PageNotFound/PageNotFound';
 
 import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
 import { UserSessionContextProvider } from '../contextFile';
@@ -43,6 +44,7 @@ function Routes() {
                         <Route exact path="/FAQ" component={FAQ} />
                         <Route exact path="/AboutUs" component={AboutUs} />
                         <Route exact path="/ContactUs" component={ContactUs} />
+                        <Route component={Page404} />
                     </UserSessionContextProvider>
                 </Switch>
                 <Footer />
