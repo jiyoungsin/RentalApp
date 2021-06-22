@@ -27,7 +27,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                             <label className={classes.labelText} for="gym">
                                 Gym: 
                             </label> &ensp;
-                            <input onChange={checkHandleChange} type="checkbox" id="gym" name="gym" value={state.gym}>
+                            <input onChange={checkHandleChange} type="checkbox" id="gym" name="gym" checked={state.gym}>
                             </input>
                           
                         </div>
@@ -35,7 +35,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                         <label className={classes.labelText} for="water">
                                 Water:  
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="water" name="water" value={state.water}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="water" name="water" checked={state.water}>
                             </input>
                          
                         </div>
@@ -43,7 +43,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                         <label className={classes.labelText} for="hydro">
                                 Hydro: 
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="hydro" name="hydro" value={state.hydro}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="hydro" name="hydro" checked={state.hydro}>
                             </input>
                            
                         </div>
@@ -55,21 +55,21 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                            <label className={classes.labelText} for="internet">
                                 Internet: 
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="internet" name="internet" value={state.internet}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="internet" name="internet" checked={state.internet}>
                             </input>
                         </div>
                         <div className="col-4">
                         <label className={classes.labelText} for="balcony">
                                 Balcony:  
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="balcony" name="balcony" value={state.balcony}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="balcony" name="balcony" checked={state.balcony}>
                             </input>
                         </div>
                         <div className="col-4">
                            <label className={classes.labelText} for="roommate">
                                 Roommate: 
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="roommate" name="roommate" value={state.roommate}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="roommate" name="roommate" checked={state.roommate}>
                             </input>
                         </div>
                     </div>
@@ -80,21 +80,21 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                         <label className={classes.labelText} for="petFriendly">
                                 Pet-Friendly: 
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="petFriendly" name="petFriendly" value={state.petFriendly}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="petFriendly" name="petFriendly" checked={state.petFriendly}>
                             </input>
                         </div>
                         <div className="col-4">
                            <label className={classes.labelText} for="dishWasher">
                                 Dish-Washer:  
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="dishWasher" name="dishWasher" value={state.dishWasher}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="dishWasher" name="dishWasher" checked={state.dishWasher}>
                             </input>
                         </div>
                         <div className="col-4">
                         <label className={classes.labelText} for="airConditional">
                                 Air-Conditional: 
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="airConditional" name="Air-Conditional" value={state.airConditional}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="airConditional" name="Air-Conditional" checked={state.airConditional}>
                             </input>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                     </label>
                 </div>
                 <div class="container">
-                    <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50" placeholder="Please provide us any additional info" value={state.additionalInfo}>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50" placeholder="Please provide us any additional info" checked={state.additionalInfo}>
         
                     </textarea>
                 </div>
