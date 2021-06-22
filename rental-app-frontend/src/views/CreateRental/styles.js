@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '20px',
     },
     labelText: {
-        fontSize: '24px',
+        fontSize: '15px',
     },
     checkbox: {
         display: 'flex',

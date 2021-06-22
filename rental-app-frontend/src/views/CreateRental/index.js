@@ -55,17 +55,28 @@ export default function Checkout() {
     const [uploadComplete, setUploadComplete] = useState(false);
 
     const [state, setState] = useState({
-        title: '',
-        price: '',
-        address: '',
-        category: '',
-        description: '',
-        unitPictures: '',
-        parking: '',
-        // data fields exist, however added in handlechange()
-        // room: '',
-        // bathroom: '',
-        pet: 'false',
+        type: null,
+        streetNumber: null,
+        streetName: null,
+        postalCode: null,
+        price: null,
+        parking: false,
+        room: null,
+        bathroom: null,
+        petFriendly: false,
+        balcony: false,
+        airConditional: false,
+        gym: false,
+        dishWasher: false,
+        hydro: false,
+        internet: false,
+        water: false,
+        roommate: false,
+        availability: true,
+        additionalInfo: null,
+        Reviews:[],
+        Landlord: '',
+        images:[]
     });
 
     const handleChange = (e) => {
@@ -74,14 +85,24 @@ export default function Checkout() {
             ...ps,
             [id]: value,
         }));
+        console.log(id, value);
     };
+    const checkHandleChange = (e) => {
+        const { id, checked } = e.target;
+        setState((ps) => ({
+            ...ps,
+            [id]: checked,
+        }));
+        console.log(id, checked);
+    };
+
     console.log(state);
     const getStepContent = (step) => {
         switch (step) {
             case 0:
                 return <CreateRental handleChange={handleChange} state={state} />;
             case 1:
-                return <CreateRentalTwo handleChange={handleChange} state={state} />;
+                return <CreateRentalTwo handleChange={handleChange} checkHandleChange={checkHandleChange} state={state} />;
             case 2:
                 return <CreateRentalThree handleChange={handleChange} state={state} />;
             default:
