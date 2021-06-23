@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema(
         rentals: {
             type: String,
         },
+        role: {
+            type: String,
+        },
     },
     {
         collection: 'user',
