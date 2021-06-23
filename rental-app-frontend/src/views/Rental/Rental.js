@@ -1,8 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { userSessionContext } from '../../contextFile';
 import { makeStyles } from '@material-ui/core/styles';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+// Importing Icons needed for UI
+import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import BathtubIcon from '@material-ui/icons/Bathtub';
+import PetsIcon from '@material-ui/icons/Pets';
 
 //CSS Styles
 const useStyles = makeStyles((theme) => ({
@@ -10,13 +16,19 @@ const useStyles = makeStyles((theme) => ({
         color: '#37a864',
         fontSize: '30px',
     },
+    iconPadding: {
+        margin: "5px",
+    },
+    iconFlex: {
+        margin: "0px 10px 0 10px",
+    }
 }));
 
 export default function Rental() {
     const { user, setUser } = useContext(userSessionContext);
     const { rental } = user;
     const classes = useStyles();
-    const [rentalPost, setRentalPost] = useState();
+    const [rentalPost, setRentalPost] = useState([]);
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
         axios
@@ -29,10 +41,9 @@ export default function Rental() {
                 console.log(err);
                 alert('Error while Fetching Rental Units');
             });
-    }, []);
+    }, [loaded]);
     return (
         <>
-            {' '}
             {loaded ? (
                 <div className="container border borderSecondary p-5 mt-5">
                     <span>{user.userName}</span>
@@ -66,6 +77,20 @@ export default function Rental() {
                                         </Link>
                                     </span>
                                 </div>
+                                <div >
+                                    <span className={classes.iconFlex}>
+                                        <DirectionsCarIcon className={classes.iconPadding}/> : {rentalPost.parking}
+                                    </span>
+                                    <span className={classes.iconFlex}>
+                                        <MeetingRoomIcon className={classes.iconPadding}/>: {rentalPost.room}
+                                    </span>
+                                    <span className={classes.iconFlex}>
+                                        <BathtubIcon className={classes.iconPadding}/> : {rentalPost.bathroom}
+                                    </span>
+                                    <span className={classes.iconFlex}>
+                                        <PetsIcon className={classes.iconPadding}/> : {rentalPost.pet ? "Allowed" : "Not Allowed"
+                                }</span>
+                                </div>
                                 <div>
                                     <span className={classes.greenPriceTag}>
                                         $ {rentalPost.price}
@@ -73,22 +98,16 @@ export default function Rental() {
                                 </div>
                             </div>
                             <p class="card-text">
-                                {rentalPost.description}s a long established fact that a reader will
-                                be distracted by the readable content of a page when looking at its
-                                layout. The point of using Lorem Ipsum is that it has a more-or-less
-                                normal distribution of letters, as opposed to using 'Content here,
-                                content here', making it look like readable English. Many desktop
-                                publishing packages and web page editors now use Lorem Ipsum as
-                                their default model text, and a search for 'lorem ipsum' will
-                                uncover many web sites still in their infancy. Various versions have
-                                evolved over the years, sometimes by accident, sometimes{' '}
+                                {rentalPost.description}
                             </p>
+                            <p>Updated at: {rentalPost.updatedAt}</p>
+
                         </div>
                     </div>
                 </div>
             ) : (
                 <h2> NOT loaded</h2>
-            )}{' '}
+            )}
         </>
     );
 }

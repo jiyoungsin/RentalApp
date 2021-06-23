@@ -17,4 +17,5 @@ app.get('/:rental', async (req, res) => {
         });
 });
 
+
 module.exports = app;

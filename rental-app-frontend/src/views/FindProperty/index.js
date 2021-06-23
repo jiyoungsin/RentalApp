@@ -11,7 +11,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
 const columns = [
-  { id: 'name', label: 'Price', minWidth: 170 },
+  { id: 'name', label: '$ Price', minWidth: 170 },
   { id: 'address', label: 'Address', minWidth: 100 },
   {
     id: 'bedrooms',
@@ -39,24 +39,6 @@ const columns = [
 function createData(name, address, bedrooms, size, bathroom) {
   return { name, address, bedrooms, size, bathroom };
 }
-
-// const rows = [
-//   createData('2 Bedroom house ', '123', 1, 1000, 1),
-//   createData('Basement Apt ', 'Burlington', 1, 1000, 1),
-//   createData('One Bedroom Condo ', 'Burlington', 1, 1000, 1),
-//   createData('3 Story house ', 'Burlington', 1, 1000, 1),
-//   createData('Broken Crack House ', 'Burlington', 1, 1000, 1),
-//   createData('Beautiful house', 'Burlington', 1, 1000, 1),
-//   createData('CHEAP! MUST GO ', 'Burlington', 1, 1000, 1),
-//   createData('Beautiful house ', 'Burlington', 1, 1000, 1),
-//   createData('Punjabi Girls Only ', 'Burlington', 1, 1000, 1),
-//   createData('Most Beautiful house ', 'Burlington', 1, 1000, 1),
-//   createData('Looking for Roommate', 'Burlington', 1, 1000, 1),
-//   createData('2 Bedroom Townhouse ', 'Burlington', 1, 1000, 1),
-//   createData('CHEAP CHEAP CHEAP house ', 'Burlington', 1, 1000, 1),
-//   createData('Working House', 'Burlington', 1, 1000, 1),
-//   createData('2 Rooms Available ', 'Burlington', 1, 1000, 1),
-// ];
 
 const useStyles = makeStyles({
     root: {
@@ -87,6 +69,7 @@ export default function StickyHeadTable() {
                 if (res.status === 200) {
                     const theSize = "1000";
                     const theArray = [];
+
                     for( let i=0; i< res.data.length-1; i++){
                         const {price, address, room, bathroom} = res.data[i];
                         theArray.push(createData(price, address, room, theSize, bathroom))

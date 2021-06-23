@@ -87,6 +87,10 @@ const rentalSchema = new mongoose.Schema(
         Review: {
             type: [],
         },
+        user: {
+            type: String,
+            required : true,
+        }
     },
     {
         collection: 'rentUnit',
