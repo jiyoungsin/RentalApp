@@ -9,6 +9,7 @@ app.get('/:rental', async (req, res) => {
     const { rental } = req.params;
     const payload = await Rental.find({ _id: rental })
         .then((pay) => {
+            console.log(pay)
             res.status(200).json(pay);
         })
         .catch((err) => {

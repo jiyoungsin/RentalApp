@@ -96,7 +96,7 @@ export default function RentalPost({
 
     return requestDelete === false ? (
         <>
-            <Link to={RentalLink} style={{ textDecoration: 'none', color: 'black' }}>
+            <Link to={RentalLink} _id={_id} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className={classes.container}>
                     <img src={src} alt="Picture Of Rental" />
                     <div className={classes.rentalCard}>

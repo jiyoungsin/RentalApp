@@ -49,9 +49,9 @@ app.get('/rentals', async (req, res) => {
     }
 });
 
-app.get('/all', async (req, res) => {
+app.get('/users-rental', async (req, res) => {
     try {
-        await Rental.find({}, (err: any, rental: any) => {
+        await Rental.find({landlord: "sins0113"}, (err: any, rental: any) => {
             if (err) {
                 res.send(err);
             } else {
