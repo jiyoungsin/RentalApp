@@ -5,7 +5,7 @@ import { userSessionContext } from '../../contextFile';
 
 // get the users role to determine navbar
 
-function adminNavBar(user) {
+function adminNavBar(user, signOut) {
     const users = user;
     const profileLink = '/profile/' + users._id;
     return (
@@ -65,7 +65,7 @@ function adminNavBar(user) {
                         </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/logout">
+                        <Link to="/" onClick={signOut}>
                             Log out
                         </Link>
                     </Nav.Link>
@@ -75,7 +75,7 @@ function adminNavBar(user) {
     );
 }
 
-function loggedInUserNavBar(user) {
+function loggedInUserNavBar(user, signOut) {
     const users = user;
     const profileLink = '/profile/' + users._id;
     return (
@@ -114,7 +114,7 @@ function loggedInUserNavBar(user) {
                     >
                         Profile
                     </Link>
-                    <Link id="navbar-sign-logo" to="/logout" style={{ paddingTop: '10px' }}>
+                    <Link id="navbar-sign-logo" to="/" style={{ paddingTop: '10px' }} onClick={signOut}>
                         Log out
                     </Link>
                 </Nav>
@@ -163,11 +163,11 @@ function notLoggedInUserNavBar() {
     );
 }
 export default function NavBar() {
-    const { user, setUser } = useContext(userSessionContext);
+    const { user, setUser, signOut } = useContext(userSessionContext);
     const role = user.role;
     return role === 'Admin'
-        ? adminNavBar(user)
+        ? adminNavBar(user, signOut)
         : role === 'user'
-        ? loggedInUserNavBar(user)
+        ? loggedInUserNavBar(user, signOut)
         : notLoggedInUserNavBar(user);
 }

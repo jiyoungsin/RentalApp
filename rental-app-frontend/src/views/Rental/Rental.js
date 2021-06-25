@@ -3,6 +3,7 @@ import { userSessionContext } from '../../contextFile';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import "./styles.css"
 
 // Importing Icons needed for UI
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
@@ -61,14 +62,17 @@ export default function Rental() {
                     <span>{rentalPost.type}</span>
                     <span> > </span>
                     <span>{rentalPost._id}</span>
-                    <div>
-                        <div>
-                            <img src="https://picsum.photos/571/322" alt="pictures of unit" />
+                    <div className="imageFlex">
+                        <div className="col-6 align-center justify-content-center">
+                            <img src="https://picsum.photos/571/322" alt="pictures of unit" style={{width: "100%"}}/>
+                            <div className="d-flex justify-content-between mt-2 mb-2" style={{width: "100%"}} >
+                                <img style={{width: "33%"}} src="https://picsum.photos/188/122" alt="pictures of unit" />
+                                <img style={{width: "33%"}} src="https://picsum.photos/188/122" alt="pictures of unit" />
+                                <img style={{width: "33%"}} src="https://picsum.photos/188/122" alt="pictures of unit" />
+                            </div>
                         </div>
-                        <div>
-                            <img src="https://picsum.photos/178/122" alt="pictures of unit" />
-                            <img src="https://picsum.photos/178/122" alt="pictures of unit" />
-                            <img src="https://picsum.photos/178/122" alt="pictures of unit" />
+                        <div className="col-6" >
+                            MAP
                         </div>
                     </div>
                     <div className="card">
