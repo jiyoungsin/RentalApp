@@ -7,6 +7,8 @@ import User from '../models/user.model';
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const app = express.Router();
+
+
 // route to sign up.
 app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;
