@@ -2,10 +2,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 import sgMail from '@sendgrid/mail';
 import  User from '../models/user.model';
+import Email from '../models/email.model';
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const app = express.Router();
+
+
 // route to sign up.
 app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;

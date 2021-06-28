@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.4",
     "@types/bcrypt": "^5.0.0",
     "@types/connect-mongodb-session": "^2.4.0",
     "@types/cors": "^2.8.10",
@@ -24,7 +25,7 @@
     "connect-mongodb-session": "^2.4.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "dotenv": "^9.0.0",
+    "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongoose": "^5.12.7",
