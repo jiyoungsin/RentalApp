@@ -4,6 +4,9 @@ import Maintenance from '../models/maintenance.model';
 import sgMail from '@sendgrid/mail';
 
 const app = express.Router();
+const API_KEY = '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';
+
+sgMail.setApiKey(API_KEY);
 app.get('/maintenance', async (req, res) => {
     try {
         await Maintenance.find({}, (err: any, mainReq: any) => {

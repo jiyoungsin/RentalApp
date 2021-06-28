@@ -4,7 +4,9 @@ import Rental from '../models/rental.model';
 import sgMail from '@sendgrid/mail';
 
 const app = express.Router(); 
+const API_KEY = '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';
 
+sgMail.setApiKey(API_KEY);
 // this route is used when creating a Rental.
 // we will need to append the new rentals to the users array of rentals.
 app.post('/createrental', async (req, res) => {
