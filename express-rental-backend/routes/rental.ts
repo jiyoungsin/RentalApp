@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import sgMail from '@sendgrid/mail';
 
 const app = express.Router(); 
 
@@ -20,6 +21,44 @@ app.post("/createrental", async (req, res) => {
             description: description,
             unitPictures: unitPictures,
         });
+
+    const message = 
+        {
+            to: email,
+            from: 'VroomInc@officalbase.com',
+            subject: 'New Rental Added',
+            text: 'Hello world',
+            html: 
+            `
+                <h1>${title} has been added</h1>
+                <p>Your unit has been added with the following details:</p>
+                <br/>
+                <p><strong>Address:</strong> ${address}</p>
+                <br/>
+                <p><strong>Description:</strong> ${description}</p>
+                <br/>
+                <p><strong>Category:</strong> ${category}</p>
+                <br/>
+                <p><strong>Listed Price:</strong> ${price}</p>
+                <br/>
+                <p><strong>Phone Number:</strong> ${phoneNum}</p>
+
+            `
+        };
+
+        (async () => {
+            try {
+              await sgMail.send(message);
+            } catch (error) {
+              console.error(error);
+          
+              if (error.response) {
+                console.error(error.response.body)
+              }
+            }
+          })();
+
+
     res.status(200).json("Saved to Database");
 });
 module.exports = app;
