@@ -2,6 +2,7 @@
     "dependencies": {
         "google-maps-react": "^2.0.6",
         "mongoose": "^5.12.13",
+        "node.js": "0.0.1-security",
         "react-icons": "^4.2.0",
         "react-places-autocomplete": "^7.3.0"
     },
