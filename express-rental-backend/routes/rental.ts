@@ -37,28 +37,28 @@ app.post('/createrental', async (req, res) => {
         pet: pet,
     });
 
-const message = 
-    {
-        to: 'vroomgrid@gmail.com',
-        from: 'VroomInc@officalbase.com',
-        subject: 'New Rental Added',
-        text: 'Hello world',
-        html: 
-        `
-            <h1>${title} has been added</h1>
-            <p>Your unit has been added with the following details:</p>
-            <br/>
-            <p><strong>Address:</strong> ${address}</p>
-            <br/>
-            <p><strong>Description:</strong> ${description}</p>
-            <br/>
-            <p><strong>Category:</strong> ${category}</p>
-            <br/>
-            <p><strong>Listed Price:</strong> ${price}</p>
-            <br/>
+    const message = 
+        {
+            to: 'vroomgrid@gmail.com',
+            from: 'VroomInc@officalbase.com',
+            subject: 'New Rental Added',
+            text: 'Hello world',
+            html: 
+            `
+                <h1>${title} has been added</h1>
+                <p>Your unit has been added with the following details:</p>
+                <br/>
+                <p><strong>Address:</strong> ${address}</p>
+                <br/>
+                <p><strong>Description:</strong> ${description}</p>
+                <br/>
+                <p><strong>Category:</strong> ${category}</p>
+                <br/>
+                <p><strong>Listed Price:</strong> ${price}</p>
+                <br/>
 
-        `
-    };
+            `
+        };
 
     (async () => {
         try {
@@ -84,11 +84,9 @@ app.get('/rentals', async (req, res) => {
             }
         }).limit(3);
     } catch {
-        console.log('Failed to load rental');
+        console.log('Failed to Fetching rental');
     }
-    console.log("Post Request to DB CreateRental");
-
-    res.status(200).json("Saved to Database");
+    console.log("Fetching data from DB");
 });
 
 app.get('/users-rental', async (req, res) => {
