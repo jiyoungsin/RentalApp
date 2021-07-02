@@ -11,30 +11,54 @@ sgMail.setApiKey(API_KEY);
 // we will need to append the new rentals to the users array of rentals.
 app.post('/createrental', async (req, res) => {
     const {
-        address,
-        unitPictures,
-        title,
+        type,
+        streetNumber,
+        streetName,
+        postalCode,
         price,
-        category,
-        description,
         parking,
         room,
         bathroom,
-        pet,
+        petFriendly,
+        balcony,
+        airConditional,
+        gym,
+        dishWasher,
+        hydro,
+        internet,
+        water,
+        roommate,
+        availability,
+        additionalInfo,
+        Reviews,
+        Landlord,
+        images,
     } = req.body;
     const database = mongoose.connection;
     console.log('Post Request to DB CreateRental');
     database.collection('rentUnit').insertOne({
-        title: title,
+        type: type,
+        streetNumber: streetNumber,
+        streetName: streetName,
+        postalCode: postalCode,
         price: price,
-        address: address,
-        category: category,
-        description: description,
-        unitPictures: unitPictures,
         parking: parking,
         room: room,
         bathroom: bathroom,
-        pet: pet,
+        petFriendly: petFriendly,
+        balcony: balcony,
+        airConditional: airConditional,
+        gym: gym,
+        dishWasher: dishWasher,
+        hydro: hydro,
+        internet: internet,
+        water: water,
+        roommate: roommate,
+        availability: availability,
+        additionalInfo: additionalInfo,
+        Reviews: Reviews,
+        Landlord: Landlord,
+        images: images,
     });
 
     const message = 
@@ -45,14 +69,14 @@ app.post('/createrental', async (req, res) => {
             text: 'Hello world',
             html: 
             `
-                <h1>${title} has been added</h1>
+                <h1>${type} has been added</h1>
                 <p>Your unit has been added with the following details:</p>
                 <br/>
-                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Address:</strong> ${streetNumber} ${streetName}</p>
                 <br/>
-                <p><strong>Description:</strong> ${description}</p>
+                <p><strong>Description:</strong> ${additionalInfo}</p>
                 <br/>
-                <p><strong>Category:</strong> ${category}</p>
+                <p><strong>Category:</strong> ${type}</p>
                 <br/>
                 <p><strong>Listed Price:</strong> ${price}</p>
                 <br/>
@@ -88,9 +112,12 @@ app.get('/rentals', async (req, res) => {
     }
 });
 
-app.get('/users-rental', async (req, res) => {
+app.post('/users-rental', async (req, res) => {
+    const {
+        userName
+    } = req.body.user;
     try {
-        await Rental.find({landlord: "sins0113"}, (err: any, rental: any) => {
+        await Rental.find({Landlord: userName}, (err: any, rental: any) => {
             if (err) {
                 res.send(err);
             } else {

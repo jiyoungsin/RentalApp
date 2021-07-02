@@ -6,71 +6,53 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Internal Error. Missing uid field.'],
         },
-        unitPictures: {
-            type: [],
-            required: true,
-        },
-        title: {
+        type: {
             type: String,
-            required: true,
+        },
+        streetNumber: {
+            type: String,
+        },
+        streetName: {
+            type: String,
+        },
+        postalCode: {
+            type: String,
         },
         price: {
-            type: Number,
-            required: true,
-        },
-        category: {
             type: String,
-            required: true,
-        },
-        address: {
-            type: String,
-            required: true,
-        },
-        description: {
-            type: String,
-            required: true,
         },
         parking: {
-            type: Number,
+            type: String,
         },
         room: {
-            type: Number,
+            type: String,
         },
         bathroom: {
-            type: Number,
+            type: String,
         },
-        pet: {
+        petFriendly: {
             type: Boolean,
         },
-        size: {
-            type: Number,
-        },
         balcony: {
-            type: Number,
+            type: Boolean,
         },
-        airConditioning: {
+        airConditional: {
             type: Boolean,
         },
         gym: {
             type: Boolean,
         },
-        dishwasher: {
+        dishWasher: {
             type: Boolean,
         },
         hydro: {
             type: Boolean,
         },
-        wifi: {
+        internet: {
             type: Boolean,
         },
         water: {
             type: Boolean,
-        },
-        nearFacility: {
-            type: String,
-        },
-        nearSubway: {
-            type: String,
         },
         roommate: {
             type: Boolean,
@@ -78,19 +60,13 @@ const rentalSchema = new mongoose.Schema(
         availability: {
             type: Boolean,
         },
-        floorNumber: {
-            type: Number,
-        },
         additionalInfo: {
             type: String,
         },
-        Review: {
-            type: [],
-        },
-        user: {
+        Landlord: {
             type: String,
-            required : true,
-        }
+        },
+        images:[]
     },
     {
         collection: 'rentUnit',

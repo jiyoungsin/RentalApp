@@ -105,8 +105,6 @@ export default function LandingPage() {
             [id]: value,
         }));
     }
-    console.log("formData")
-    console.log(formData)
     // sends sign up data to backend.
     const onSubmit = () =>{
         // saves data to Database Endpoint /signup

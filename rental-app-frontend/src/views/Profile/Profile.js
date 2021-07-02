@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
+import { userSessionContext } from '../../contextFile';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 //CSS Styles
@@ -39,14 +40,18 @@ export default function Profile(req, res) {
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState();
     const [loading, setLoading] = useState(false); 
+    const { user, setUser } = useContext(userSessionContext);
 
     useEffect(() => {
+        const payload = { user };
         axios
-            .get(`http://localhost:5000/rentals/users-rental`)
+            .post(`http://localhost:5000/rentals/users-rental`, payload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
             .then((res) => {
                 setRentalPost(res.data);
-                console.log("res.data")
-                console.log(res.data)
                 setLoading(true);
             })
             .catch((err) => {
@@ -55,9 +60,6 @@ export default function Profile(req, res) {
             });
     }, [loading]);
 
-    const data =()=>{ 
-    }
-    
     return (
         <>
             {loading ? 

@@ -85,6 +85,7 @@ export default function RentalPost({
             .delete(`http://localhost:5000/rentalUnit/delete/${_id}`)
             .then((res) => {
                 console.log('Deleting Data from Database');
+                alert('Successfully Deleted Rental Unit');
             })
             .catch((err) => {
                 alert('Error while Deleting Rental Unit');

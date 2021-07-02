@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router';
 import Step from '@material-ui/core/Step';
 import CreateRental from './CreateRental';
@@ -12,7 +12,9 @@ import sendDetailsToServer from './useCreateRental';
 import CreateRentalThree from './CreateRentalThree';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { userSessionContext } from '../../contextFile';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 export default function Checkout() {
     const useStyles = makeStyles((theme) => ({
@@ -51,6 +53,7 @@ export default function Checkout() {
     const classes = useStyles();
     const [loading, setLoading] = useState(true);
     const [activeStep, setActiveStep] = useState(0);
+    const { user, setUser } = useContext(userSessionContext);
     const steps = ['Create Title', 'Upload Photos', 'Add Details'];
     const [uploadComplete, setUploadComplete] = useState(false);
 
@@ -60,7 +63,7 @@ export default function Checkout() {
         streetName: null,
         postalCode: null,
         price: null,
-        parking: false,
+        parking: null,
         room: null,
         bathroom: null,
         petFriendly: false,
@@ -75,18 +78,18 @@ export default function Checkout() {
         availability: true,
         additionalInfo: null,
         Reviews:[],
-        Landlord: '',
+        Landlord: user.userName,
         images:[]
     });
-
+    // Updates user input.
     const handleChange = (e) => {
         const { id, value } = e.target;
         setState((ps) => ({
             ...ps,
             [id]: value,
         }));
-        console.log(id, value);
     };
+    // Updates the users input for Checkboxes
     const checkHandleChange = (e) => {
         const { id, checked } = e.target;
         setState((ps) => ({
