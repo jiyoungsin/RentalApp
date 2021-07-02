@@ -2,14 +2,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Rental from '../models/rental.model';
 import sgMail from '@sendgrid/mail';
+import uploadMiddleware from "../src/middleware/uploadDriver";
 
+const fs = require('fs')
 const app = express.Router(); 
 const API_KEY = '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';
 
 sgMail.setApiKey(API_KEY);
 // this route is used when creating a Rental.
 // we will need to append the new rentals to the users array of rentals.
-app.post('/createrental', async (req, res) => {
+app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
     const {
         type,
         streetNumber,
@@ -32,7 +34,7 @@ app.post('/createrental', async (req, res) => {
         additionalInfo,
         Reviews,
         Landlord,
-        images,
+        image,
     } = req.body;
     const database = mongoose.connection;
     console.log('Post Request to DB CreateRental');
@@ -58,7 +60,10 @@ app.post('/createrental', async (req, res) => {
         additionalInfo: additionalInfo,
         Reviews: Reviews,
         Landlord: Landlord,
-        images: images,
+        image: {
+            data: fs.readFileSync(req.file.path),
+            contentType: 'image/png'
+        }
     });
 
     const message = 

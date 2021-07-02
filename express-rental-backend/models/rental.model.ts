@@ -66,7 +66,10 @@ const rentalSchema = new mongoose.Schema(
         Landlord: {
             type: String,
         },
-        images:[]
+        images: {
+            data: Buffer,
+            contentType: String
+        },
     },
     {
         collection: 'rentUnit',
