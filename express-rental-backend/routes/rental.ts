@@ -112,6 +112,20 @@ app.get('/rentals', async (req, res) => {
     }
 });
 
+app.get('/all', async (req, res) => {
+    try {
+        await Rental.find({}, (err: any, rental: any) => {
+            if (err) {
+                res.send(err);
+            } else {
+                return res.json(rental);
+            }
+        })
+    } catch {
+        console.log('Failed to Fetching rental');
+    }
+});
+
 app.post('/users-rental', async (req, res) => {
     const {
         userName
