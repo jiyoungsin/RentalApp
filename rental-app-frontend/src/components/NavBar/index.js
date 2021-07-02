@@ -34,6 +34,9 @@ function adminNavBar(user, signOut) {
                     <Nav.Link> 
                         <Link to="/maintenance">Maintenance</Link>
                     </Nav.Link>
+                    <Nav.Link> 
+                        <Link to="/MapSearch">Map</Link>
+                    </Nav.Link>
                     <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
                         <NavDropdown.Item>
                             <Link to="/">View All Users</Link>

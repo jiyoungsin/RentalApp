@@ -21,8 +21,8 @@ const columns = [
     format: (value) => value.toLocaleString('en-US'),
   },
   {
-    id: 'size',
-    label: 'Size\u00a0(ft\u00b2)',
+    id: 'Landlord',
+    label: 'Landlord',
     minWidth: 170,
     align: 'right',
     format: (value) => value.toLocaleString('en-US'),
@@ -34,10 +34,17 @@ const columns = [
     align: 'right',
     format: (value) => value.toFixed(2),
   },
+  {
+    id: 'postalCode',
+    label: 'postalCode',
+    minWidth: 170,
+    align: 'right',
+    format: (value) => value.toLocaleString('en-US'),
+  },
 ];
 
-function createData(name, address, bedrooms, size, bathroom) {
-  return { name, address, bedrooms, size, bathroom };
+function createData(name, address, bedrooms, Landlord, bathroom, postalCode) {
+  return { name, address, bedrooms, Landlord, bathroom, postalCode };
 }
 
 const useStyles = makeStyles({
@@ -67,12 +74,13 @@ export default function StickyHeadTable() {
         axios.get('http://localhost:5000/rentals/all')
             .then((res) => {
                 if (res.status === 200) {
-                    const theSize = "1000";
+                    const theLandlord = "1000";
                     const theArray = [];
 
                     for( let i=0; i< res.data.length-1; i++){
-                        const {price, address, room, bathroom} = res.data[i];
-                        theArray.push(createData(price, address, room, theSize, bathroom))
+                        const {price, streetNumber, streetName, room, Landlord, bathroom, postalCode} = res.data[i];
+                        const fullAddress = streetNumber + " " + streetName;
+                        theArray.push(createData(price, fullAddress, room, Landlord, bathroom, postalCode))
                     }
                     setRows(theArray);
                 } else {

@@ -155,9 +155,7 @@ export default function LandingPage() {
             {/* DELETE THESE BUTTONS AFTER EVERYTHING IS HOOKED UP */}
             <div className={classes.centerItems} style={{ marginTop: '5vh' }}>
                 <div class="col-3">
-                    <Link to="/createRental">
-                        <Button variant="primary">Rent Property</Button>{' '}
-                    </Link>
+                    <a target="blank" rel="noopener noreferrer" variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" className="btn btn-primary">DocuSign</a>
                 </div>
                 <div class="col-3">
                     <Link to="/findProperty">
@@ -169,14 +167,6 @@ export default function LandingPage() {
                         <Button variant="primary">Maintenance</Button>{' '}
                     </Link>
                 </div>
-                <div class="col-3">
-                    <Link to="/MapSearch">
-                        <Button variant="primary">Map's Functionality</Button>{' '}
-                    </Link>
-                </div>
-            </div>
-            <div style={{marginLeft: '100px', marginTop: '50px'}}>
-                        <a target="blank" rel="noopener noreferrer" variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" className="btn btn-primary">DocuSign</a>
             </div>
             {/* DELETE TO HERE */}
             <Price />
