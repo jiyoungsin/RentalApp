@@ -5,7 +5,7 @@ import { Button } from '@material-ui/core';
 
 export default function Maintenance() {
     const [maintenance, setMaintenance] = useState([]);
-    const EditLink = "/edit/11111";
+    const EditLink = "/edit/";
     useEffect(() => {
         axios
             .get(`http://localhost:5000/maintenance/maintenance`)
@@ -20,7 +20,6 @@ export default function Maintenance() {
 
 
     const buttonPushed = (id) => {
-        console.log("@@@@@####")
         axios
             .delete(`http://localhost:5000/maintenance/delete/${id}`)
             .then((res) => {
@@ -40,9 +39,6 @@ export default function Maintenance() {
                     <li class="list-group-item">
                         <Link to="/">{main.maintenanceIssue}</Link>
                         <Button>
-                            <Link style={{ color: '#000' }} to={EditLink}>
-                                Edit
-                            </Link>
                         </Button>
                         <Button onClick={() => buttonPushed(main._id)} style={{ color: '#000' }}>
                             Delete
