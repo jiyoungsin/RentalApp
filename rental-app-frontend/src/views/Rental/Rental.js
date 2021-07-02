@@ -40,19 +40,43 @@ export default function Rental() {
     const { rental } = user;
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState([]);
+    const [rentalPostImage, setRentalPostImage] = useState('');
     const [loaded, setLoaded] = useState(false);
+    const theImage = ''
+
+    const arrayBufferTobase64 = (buffer) => {
+        let binary = '';
+        let base64Flag = 'data:image/jpeg;base64,';
+        let bytes = [].slice.call(new Uint8Array(buffer));
+    
+        bytes.forEach((b) => {
+          binary += String.fromCharCode(b);
+        });
+    
+        let binaryString = window.btoa(binary);
+    
+        return base64Flag + binaryString;
+    };
+
     useEffect(() => {
         axios
             .get(`http://localhost:5000/profile/` + rental_id)
             .then((res) => {
                 setRentalPost(res.data[0]);
                 setLoaded(true);
+                setRentalPostImage((res.data[0].image.data) )
             })
             .catch((err) => {
                 console.log(err);
                 alert('Error while Fetching Rental Unit');
             });
     }, [loaded]);
+    console.log("rentalPost")
+    console.log(rentalPost)
+
+   
+    console.log("rentalPostImage")
+    console.log(rentalPostImage)
     return (
         <>
             {loaded ? (
@@ -64,7 +88,7 @@ export default function Rental() {
                     <span>{rentalPost._id}</span>
                     <div className="imageFlex">
                         <div className="col-6 align-center justify-content-center">
-                            <img src="https://picsum.photos/571/322" alt="pictures of unit" style={{width: "100%"}}/>
+                            <img src={arrayBufferTobase64(rentalPostImage)} alt="pictures of unit" style={{width: "100%"}}/>
                             <div className="d-flex justify-content-between mt-2 mb-2" style={{width: "100%"}} >
                                 <img style={{width: "33%"}} src="https://picsum.photos/188/122" alt="pictures of unit" />
                                 <img style={{width: "33%"}} src="https://picsum.photos/188/122" alt="pictures of unit" />
