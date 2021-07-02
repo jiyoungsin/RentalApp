@@ -20,6 +20,21 @@ app.get('/maintenance', async (req, res) => {
         console.log('Failed to load Maintenance Request');
     }
 });
+
+// this route will remove the rental from users array
+app.delete('/delete/:id', async (req, res) => {
+    let id = req.params.id;
+    const payload = await Maintenance.deleteOne({ _id: req.params.id })
+        .then((response) => {
+            console.log('Successfully Deleted Rental');
+            res.json(response)
+        })
+        .catch((err) => {
+            console.log('ERROR: while Deleting Rental');
+        });;
+    res.status(200).json(payload);
+});
+
 // this route is used when creating a Rental.
 // we will need to append the new rentals to the users array of rentals.
 app.post('/create', async (req, res) => {
@@ -31,17 +46,7 @@ app.post('/create', async (req, res) => {
         tenantPhoneNumber,
         landlordPhoneNumber,
     } = req.body;
-    console.log('Post Request to DB Create Maintenance');
     const database = mongoose.connection;
-    database.collection('maintenance').insertOne({
-        email: email,
-        maintenanceIssue: maintenanceIssue,
-        tenantName: tenantName,
-        landlordName: landlordName,
-        tenantPhoneNumber: tenantPhoneNumber,
-        landlordPhoneNumber: landlordPhoneNumber,
-    });
-    res.status(200).json('Saved to Database');
     
     try{
         database.collection("maintenance").insertOne({

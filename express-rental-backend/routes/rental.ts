@@ -86,7 +86,6 @@ app.get('/rentals', async (req, res) => {
     } catch {
         console.log('Failed to Fetching rental');
     }
-    console.log("Fetching data from DB");
 });
 
 app.get('/users-rental', async (req, res) => {
