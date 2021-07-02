@@ -95,6 +95,34 @@ export default function LandingPage() {
 
     const classes = useStyles();
     const [rentals, setRentals] = useState([]);
+    const [formData, setFormData] = useState({
+        email: '',
+    });
+    const handleChange = (e) => {
+        const {id, value} = e.target;
+        setFormData((ps)=>({
+            ...ps,
+            [id]: value,
+        }));
+    }
+    console.log("formData")
+    console.log(formData)
+    // sends sign up data to backend.
+    const onSubmit = () =>{
+        // saves data to Database Endpoint /signup
+        const payload = {...formData}
+        axios.post('http://localhost:5000/users/subscribe', payload, { 
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }).then(res => {
+            console.log("Adding Subscriber");
+            alert("Your Email has been Added.");
+        }).catch(err => {
+            console.error(err);
+            alert('Error: Adding Subscribers Email to Backend');
+        });
+    }
 
     useEffect(() => {
         axios
@@ -261,10 +289,14 @@ export default function LandingPage() {
                     <form className="border" style={{ padding: '5px', backgroundColor: 'white' }}>
                         <input
                             class={classes.inputStyles}
-                            type="text"
+                            onChange={handleChange}
                             placeholder="Email@gmail.com"
+                            value={formData.userName}
+                            type="text"
+                            id="email" 
+                            name="email"
                         />
-                        <Button class={classes.buttonColoring}>Submit</Button>
+                        <Button class={classes.buttonColoring} onClick={()=>{onSubmit()}}>Submit</Button>
                     </form>
                 </div>
             </div>

@@ -84,12 +84,9 @@ export default function RentalPost({
         axios
             .delete(`http://localhost:5000/rentalUnit/delete/${_id}`)
             .then((res) => {
-                console.log(res)
                 console.log('Deleting Data from Database');
-                //const rentals = res.arryOfRentals;
             })
             .catch((err) => {
-                console.log(err);
                 alert('Error while Deleting Rental Unit');
             });
     };

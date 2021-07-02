@@ -90,4 +90,16 @@ app.get('/usernames', async (req, res) => {
     }
 });
 
+app.post('/subscribe', async (req, res) => {
+    const { email } = req.body;
+    const database = mongoose.connection;
+    try {
+        database.collection('subscriber').insertOne({
+            email: email,
+        });
+        res.status(200).json('Saved to Database.');
+    } catch {
+        console.log('ERROR: Did Not Add Subscriber.');
+    }
+});
 module.exports = app;
