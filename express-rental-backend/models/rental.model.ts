@@ -6,11 +6,19 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Internal Error. Missing uid field.'],
         },
-        unitPictures: {
+        images: {
             type: [],
+           // required: true,
+        },
+        streetNumber: {
+            type: String,
             required: true,
         },
-        title: {
+        streetName: {
+            type: String,
+            required: true,
+        },
+        postalCode: {
             type: String,
             required: true,
         },
@@ -18,11 +26,7 @@ const rentalSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
-        category: {
-            type: String,
-            required: true,
-        },
-        address: {
+        type: {
             type: String,
             required: true,
         },
@@ -42,13 +46,10 @@ const rentalSchema = new mongoose.Schema(
         pet: {
             type: Boolean,
         },
-        size: {
-            type: Number,
-        },
         balcony: {
             type: Number,
         },
-        airConditioning: {
+        airConditional: {
             type: Boolean,
         },
         gym: {
@@ -66,32 +67,37 @@ const rentalSchema = new mongoose.Schema(
         water: {
             type: Boolean,
         },
-        nearFacility: {
-            type: String,
-        },
-        nearSubway: {
-            type: String,
-        },
         roommate: {
             type: Boolean,
         },
         availability: {
             type: Boolean,
         },
-        floorNumber: {
-            type: Number,
-        },
         additionalInfo: {
             type: String,
+        },
+        postDate: {
+            type: Date,
+        },
+        lastUpdate: {
+            type: Date,
         },
         Review: {
             type: [],
         },
+        Landlord: {
+            type: String,
+            required: true,
+        },
+        Tanant:{
+            type: String,
+        }
     },
     {
         collection: 'rentUnit',
         timestamps: {
             currentTime: () => Date.now(),
+        
             createdAt: 'timeCreated',
         },
     }

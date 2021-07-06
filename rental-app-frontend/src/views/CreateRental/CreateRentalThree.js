@@ -14,8 +14,6 @@ export default function CreateRentalTwo({ handleChange, state }) {
                     <label for="images">Select Images: </label>&ensp;
                     <input type="file" id="images" name="images"></input>
                 </div>
-                
-
             </form>
         </div>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Founders from "../../images/founders.jpeg";
 import Paul from "../../images/Paul.jpeg";
+import MichaelWon from "../../images/MichaelWon.jpeg";
 
 export default function AboutUs() {
     const useStyles = makeStyles((theme) => ({
@@ -85,15 +86,16 @@ export default function AboutUs() {
             </div>
             <div style={{ display: 'flex', margin: '50px' }}>
                 <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
-                    <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
+                    <img className={classes.displayPhoto} src={MichaelWon} atl="Image of Creators" />
                 </div>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2  className={classes.alignRight}>Name HERE</h2>
+                    <h2  className={classes.alignRight}>Michael Won</h2>
                     <blockquote className={classes.alignRight}>
-                       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                       <footer class="blockquote-footer">Backend Developer &amp; D.B. Manager <cite title="Source Title">@Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        I'm handsome. I'm cool. Thank you very much. 
+                        You want to hire me? Conact me at Michael.ys.won@gmail.com! 
                     </p>
                 </div>
             </div>
