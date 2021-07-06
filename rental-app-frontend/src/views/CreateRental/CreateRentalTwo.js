@@ -1,23 +1,9 @@
 import React from 'react';
 import { useStyles } from './styles';
-import InputForm from '../../components/InputForm';
 
 export default function CreateRentalTwo({ handleChange, checkHandleChange, state }) {
     const classes = useStyles();
     return (
-        /*
-        petFriendly: false,
-        balcony: false,
-        airConditional: false,
-        gym: false,
-        dishWasher: false,
-        hydro: false,
-        internet: false,
-        water: false,
-        roommate: false,
-        availability: true,
-        additionalInfo: null,
-        */
         <div className={classes.container}>
             <form className={classes.formStyle}>
                 <div class="container"><p>*** Help us find right tenants for you by answering following options! ***</p></div>

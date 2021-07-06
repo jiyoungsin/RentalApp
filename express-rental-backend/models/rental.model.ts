@@ -6,48 +6,37 @@ const rentalSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Internal Error. Missing uid field.'],
         },
-        images: {
-            type: [],
-           // required: true,
-        },
-        streetNumber: {
+        type: {
             type: String,
-            required: true,
         },
         streetName: {
             type: String,
             required: true,
         },
-        postalCode: {
+        streetNumber: {
             type: String,
-            required: true,
         },
         price: {
             type: Number,
             required: true,
         },
-        type: {
+        postalCode: {
             type: String,
-            required: true,
-        },
-        description: {
-            type: String,
-            required: true,
         },
         parking: {
-            type: Number,
+            type: String,
         },
         room: {
-            type: Number,
+            type: String,
         },
         bathroom: {
-            type: Number,
+            type: String,
         },
-        pet: {
+        petFriendly: {
             type: Boolean,
         },
         balcony: {
-            type: Number,
+            type: Boolean,
         },
         airConditional: {
             type: Boolean,
@@ -55,13 +44,13 @@ const rentalSchema = new mongoose.Schema(
         gym: {
             type: Boolean,
         },
-        dishwasher: {
+        dishWasher: {
             type: Boolean,
         },
         hydro: {
             type: Boolean,
         },
-        wifi: {
+        internet: {
             type: Boolean,
         },
         water: {
@@ -79,18 +68,19 @@ const rentalSchema = new mongoose.Schema(
         postDate: {
             type: Date,
         },
-        lastUpdate: {
-            type: Date,
-        },
-        Review: {
+        Reviews: {
             type: [],
         },
-        Landlord: {
+        images: {
+            data: Buffer,
+            contentType: String
+        },
+        landlord: {
             type: String,
             required: true,
         },
-        Tanant:{
-            type: String,
+        tanant:{
+            type: [],
         }
     },
     {

@@ -16,14 +16,18 @@ import Rental from '../views/Rental/Rental';
 import FAQ from '../views/FAQ/faq';
 import AboutUs from '../views/AboutUs/aboutus';
 import ContactUs from '../views/ContactUs/contactus';
+import Payment from '../views/Payment/Payment';
 import Page404 from '../views/PageNotFound/PageNotFound';
 
-import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
+
+import { BrowserRouter, Router, Route, Switch, Redirect} from 'react-router-dom';
 import { UserSessionContextProvider } from '../contextFile';
 
 const history = createBrowserHistory();
 
 function Routes() {
+    // const { user, setUser } = useContext(userSessionContext);
+    //render={(props)=>{ user.role === "Admin" ? <Payment {...props}/> : <Redirect to="/404"/>}}
     return (
         <BrowserRouter>
             <Router history={history}>
@@ -44,6 +48,7 @@ function Routes() {
                         <Route exact path="/FAQ" component={FAQ} />
                         <Route exact path="/AboutUs" component={AboutUs} />
                         <Route exact path="/ContactUs" component={ContactUs} />
+                        <Route exact path="/Payment" component={Payment}/>
                         <Route exact path="/404" component={Page404} />
                     </UserSessionContextProvider>
                 </Switch>

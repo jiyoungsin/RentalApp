@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStyles } from './styles';
-import InputForm from '../../components/InputForm';
 
 export default function CreateRentalTwo({ handleChange, state }) {
     const classes = useStyles();
@@ -11,8 +10,8 @@ export default function CreateRentalTwo({ handleChange, state }) {
                 <p>Upload Pictures of Your House!</p>
                 </div>
                 <div class="container">
-                    <label for="images">Select Images: </label>&ensp;
-                    <input type="file" id="images" name="images"></input>
+                    <label for="image">Select Images: </label>&ensp;
+                    <input type="file" id="image" name="image" onChange={handleChange}></input>
                 </div>
             </form>
         </div>

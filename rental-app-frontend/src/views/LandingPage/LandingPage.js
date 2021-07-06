@@ -7,6 +7,17 @@ import { Link } from 'react-router-dom';
 import Price from '../Price/Price';
 import axios from 'axios';
 
+// importing images
+import remax from '../../images/remax.jpeg';
+import sandBox from '../../images/sandBox.png';
+import msTeams from '../../images/msTeams.png';
+import discord from '../../images/discord.png';
+import realitor from '../../images/realitor.png';
+import reactLogo from '../../images/reactLogo.jpeg';
+import SenecaLogo from '../../images/SenecaLogo.jpeg';
+import githubBanner from '../../images/githubBanner.jpeg';
+import herokuBanner from '../../images/herokuBanner.jpeg';
+
 export default function LandingPage() {
     const useStyles = makeStyles((theme) => ({
         root: {
@@ -76,10 +87,40 @@ export default function LandingPage() {
             fontFamily: "cursive",
             fontSize: "5vh"
         },
+        fitImage: {
+            maxWidth: "100%", 
+            maxHeight: "100%",
+        }
     }));
 
     const classes = useStyles();
     const [rentals, setRentals] = useState([]);
+    const [formData, setFormData] = useState({
+        email: '',
+    });
+    const handleChange = (e) => {
+        const {id, value} = e.target;
+        setFormData((ps)=>({
+            ...ps,
+            [id]: value,
+        }));
+    }
+    // sends sign up data to backend.
+    const onSubmit = () =>{
+        // saves data to Database Endpoint /signup
+        const payload = {...formData}
+        axios.post('http://localhost:5000/users/subscribe', payload, { 
+            headers: {
+                'Content-Type' : 'application/json',
+            }
+        }).then(res => {
+            console.log("Adding Subscriber");
+            alert("Your Email has been Added.");
+        }).catch(err => {
+            console.error(err);
+            alert('Error: Adding Subscribers Email to Backend');
+        });
+    }
 
     useEffect(() => {
         axios
@@ -114,9 +155,7 @@ export default function LandingPage() {
             {/* DELETE THESE BUTTONS AFTER EVERYTHING IS HOOKED UP */}
             <div className={classes.centerItems} style={{ marginTop: '5vh' }}>
                 <div class="col-3">
-                    <Link to="/createRental">
-                        <Button variant="primary">Rent Property</Button>{' '}
-                    </Link>
+                    <a target="blank" rel="noopener noreferrer" variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" className="btn btn-primary">DocuSign</a>
                 </div>
                 <div class="col-3">
                     <Link to="/findProperty">
@@ -134,13 +173,16 @@ export default function LandingPage() {
                     </Link>
                 </div>
             </div>
+            <div style={{marginLeft: '100px', marginTop: '50px'}}>
+                        <a variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=94933004-19e6-4da9-99e2-6e98c88ba7ae&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" target="_blank" rel="noopener noreferrer" className="btn btn-primary">DocuSign</a>
+            </div>
             {/* DELETE TO HERE */}
             <Price />
-            <div style={{ display: 'flex', margin: '50px' }}>
+            <div style={{ display: 'flex', margin: '50px', backgroundColor: "white" }}>
                 <div className={classes.centerText} style={{ alignSelf: 'center' }}>
                     <h2>Stakeholders</h2>
                     <p>
-                        lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Thank you to some of our Sponsers and The Vroom Team thanks you for your never ending support!
                     </p>
                 </div>
                 <div>
@@ -148,84 +190,92 @@ export default function LandingPage() {
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
-                            }}
-                        ></div>
+                            }}>
+                            <img className={classes.fitImage} src={SenecaLogo} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={reactLogo} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={githubBanner} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={herokuBanner} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={remax} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={sandBox} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={realitor} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                            <img className={classes.fitImage} src={msTeams} alt="Sponsor" />
+                        </div>
                         <div
                             className="col-3"
                             style={{
-                                backgroundColor: 'black',
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
                             }}
-                        ></div>
+                        >
+                         <img className={classes.fitImage} src={discord} alt="Sponsor" />   
+                        </div>
                     </div>
                 </div>
             </div>
@@ -235,10 +285,14 @@ export default function LandingPage() {
                     <form className="border" style={{ padding: '5px', backgroundColor: 'white' }}>
                         <input
                             class={classes.inputStyles}
-                            type="text"
+                            onChange={handleChange}
                             placeholder="Email@gmail.com"
+                            value={formData.userName}
+                            type="text"
+                            id="email" 
+                            name="email"
                         />
-                        <Button class={classes.buttonColoring}>Submit</Button>
+                        <Button class={classes.buttonColoring} onClick={()=>{onSubmit()}}>Submit</Button>
                     </form>
                 </div>
             </div>

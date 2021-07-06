@@ -1,6 +1,7 @@
 import React from 'react';
 import { TiSocialTwitter, TiSocialInstagram, TiSocialFacebook } from 'react-icons/ti';
-
+import {Link} from 'react-router-dom';
+ 
 export default function Footer() {
     return (
         <footer class="container border-top pt-5 mt-5">
@@ -9,25 +10,16 @@ export default function Footer() {
                     <span class="h3 d-block primary-color">Resources</span>
                     <ul>
                         <li>
-                            <a href="/">About</a>
+                            <Link to="/aboutus">About</Link>
                         </li>
                         <li>
-                            <a href="/">FAQ</a>
+                            <Link to="/faq">FAQ</Link>
                         </li>
                         <li>
                             <a href="/">Legal</a>
                         </li>
                         <li>
-                            <a href="/">User levels</a>
-                        </li>
-                        <li>
-                            <a href="/">Community Rules</a>
-                        </li>
-                        <li>
-                            <a href="/">Moderator Team</a>
-                        </li>
-                        <li>
-                            <a href="mailto:sins0113@gmail.com">Contact Us</a>
+                            <Link to="/contactus">Contact Us</Link>
                         </li>
                     </ul>
                     <span class="h3 d-block primary-color">Search</span>
@@ -39,7 +31,7 @@ export default function Footer() {
                             <a href="/">Sites</a>
                         </li>
                         <li>
-                            <a href="/">Map</a>
+                            <Link to="/MapSearch">Map</Link>
                         </li>
                     </ul>
                 </div>

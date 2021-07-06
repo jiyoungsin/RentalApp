@@ -5,10 +5,11 @@ const app = express.Router();
 
 app.post('/Update', (req, res) => {});
 
-app.get('/:rentals', async (req, res) => {
-    const { rentals } = req.params;
-    const payload = await Rental.find({ _id: rentals })
+app.get('/:rental', async (req, res) => {
+    const { rental } = req.params;
+    const payload = await Rental.find({ _id: rental })
         .then((pay) => {
+            console.log(pay)
             res.status(200).json(pay);
         })
         .catch((err) => {
@@ -16,5 +17,6 @@ app.get('/:rentals', async (req, res) => {
             res.send(err);
         });
 });
+
 
 module.exports = app;
