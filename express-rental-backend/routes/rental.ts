@@ -34,7 +34,7 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
         dishWasher,
         hydro,
         wifi,
-        Review,
+        Reviews,
     } = req.body;
     const database = mongoose.connection;
     console.log('Post Request to DB CreateRental');
@@ -50,7 +50,7 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
         petFriendly: petFriendly,
         balcony: balcony,
         airConditional: airConditional,
-        images: images,
+        images: image,
         gym: gym,
         dishWasher: dishWasher,
         hydro: hydro,

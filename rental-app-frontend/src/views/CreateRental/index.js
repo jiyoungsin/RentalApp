@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,  } from 'react';
 import { Redirect } from 'react-router';
 import Step from '@material-ui/core/Step';
 import CreateRental from './CreateRental';
@@ -12,7 +12,6 @@ import sendDetailsToServer from './useCreateRental';
 import CreateRentalThree from './CreateRentalThree';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { userSessionContext } from '../../contextFile';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { userSessionContext } from '../../contextFile';
 
@@ -57,7 +56,6 @@ export default function Checkout() {
     const classes = useStyles();
     const [loading, setLoading] = useState(true);
     const [activeStep, setActiveStep] = useState(0);
-    const { user, setUser } = useContext(userSessionContext);
     const steps = ['Create Title', 'Upload Photos', 'Add Details'];
     const [uploadComplete, setUploadComplete] = useState(false);
 
