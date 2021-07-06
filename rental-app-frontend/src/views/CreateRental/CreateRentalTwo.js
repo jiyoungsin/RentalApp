@@ -92,7 +92,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                     </label>
                 </div>
                 <div class="container">
-                    <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50" placeholder="Please provide us any additional info" checked={state.additionalInfo}>
+                    <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50" placeholder="Please provide us any additional info" onChange={handleChange} value={state.additionalInfo}>
         
                     </textarea>
                 </div>

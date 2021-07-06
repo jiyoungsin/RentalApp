@@ -41,7 +41,7 @@ export default function CreateRental({ handleChange, state }) {
                 </div>
                 <div class="container">
                 <label className={classes.labelText}>Address: &ensp;</label>
-                            <input onChange={handleChange} type="text" id="streetNumber" name="streetNumber" size="6" placeholder="Street #"></input>&ensp;
+                            <input onChange={handleChange} type="text" id="streetNumber" name="streetNumber" size="6" value={state.streetNumber} placeholder="Street #"></input>&ensp;
                             <input onChange={handleChange} type="text" id="streetName" name="streetName" size="30" placeholder="Street Name"></input>&ensp;
                             <input onChange={handleChange} type="text" id="postalCode" name="postalCode" size="10" placeholder="Postal-Code"></input>
                 </div>
