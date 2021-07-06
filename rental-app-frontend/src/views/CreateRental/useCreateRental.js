@@ -3,11 +3,10 @@ import axios from 'axios';
 // modulating axios call.
 // index was too crowded.
 const sendDetailsToServer = (state) => {
-    const payload = { ...state };
     axios
-        .post('http://localhost:5000/rentals/createRental', payload, {
+        .post('http://localhost:5000/rentals/createRental', state, {
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'multipart/form-data',
             },
         })
         .then((res) => {

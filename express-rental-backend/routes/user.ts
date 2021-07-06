@@ -7,6 +7,8 @@ import User from '../models/user.model';
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const app = express.Router();
+
+
 // route to sign up.
 app.post('/signup', async (req, res) => {
     const { password, firstName, lastName, email, phoneNumber, userName } = req.body;
@@ -88,4 +90,16 @@ app.get('/usernames', async (req, res) => {
     }
 });
 
+app.post('/subscribe', async (req, res) => {
+    const { email } = req.body;
+    const database = mongoose.connection;
+    try {
+        database.collection('subscriber').insertOne({
+            email: email,
+        });
+        res.status(200).json('Saved to Database.');
+    } catch {
+        console.log('ERROR: Did Not Add Subscriber.');
+    }
+});
 module.exports = app;

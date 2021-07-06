@@ -85,42 +85,41 @@ export default function RentalPost({
             .delete(`http://localhost:5000/rentalUnit/delete/${_id}`)
             .then((res) => {
                 console.log('Deleting Data from Database');
-                Window.location.reload();
-                //const rentals = res.arryOfRentals;
+                alert('Successfully Deleted Rental Unit');
             })
             .catch((err) => {
-                console.log(err);
                 alert('Error while Deleting Rental Unit');
             });
     };
 
     return requestDelete === false ? (
         <>
-            <Link to={RentalLink} _id={_id} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className={classes.container}>
-                    <img src={src} alt="Picture Of Rental" />
-                    <div className={classes.rentalCard}>
-                        <span className={classes.greenPriceTag}>
-                            $ {price}
-                        </span>
-                        <div className="font-italic">{address}</div>
-                        <div>{description}</div>
-                        <div style={{ padding: '10px' }}>
-                            <img
-                                className={classes.messagedProfilePicture}
-                                src={profilePic}
-                                alt="Person that messaged Profile Picture"
-                            />
-                            {sendersName}
+                        <img src={src} alt="Picture Of Rental" />
+                        <div className={classes.rentalCard}>
+                            <Link to={RentalLink} _id={_id} style={{ textDecoration: 'none', color: 'black' }}>
+                                <span className={classes.greenPriceTag}>
+                                    $ {price}
+                                </span>
+                                <div className="font-italic">{address}</div>
+                                <div>{description}</div>
+                                <div style={{ padding: '10px' }}>
+                                    <img
+                                        className={classes.messagedProfilePicture}
+                                        src={profilePic}
+                                        alt="Person that messaged Profile Picture"
+                                    />
+                                    {sendersName}
+                                </div>
+                            </Link>
                         </div>
-                    </div>
                     <div className={classes.lastTalked}>
                         <Button>
                             <Link style={{ color: '#000' }} to={EditLink}>
                                 Edit
                             </Link>
                         </Button>
-                        <Button onClick={() => buttonPushed} style={{ color: '#000' }}>
+                        <Button onClick={() => buttonPushed()} style={{ color: '#000' }}>
                             Delete
                         </Button>
                         <Button style={{ color: '#000' }} disabled>
@@ -128,7 +127,6 @@ export default function RentalPost({
                         </Button>
                     </div>
                 </div>
-            </Link>
         </>
     ) : (
         <Redirect to="/" />

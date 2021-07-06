@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const contractSchema = new mongoose.Schema(
     {
-        _id: {
+        uid: {
             type: String,
             required: [true, 'Internal Error. Missing uid field.'],
         },

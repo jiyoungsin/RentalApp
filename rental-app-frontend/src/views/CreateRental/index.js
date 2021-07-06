@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router';
 import Step from '@material-ui/core/Step';
 import CreateRental from './CreateRental';
@@ -12,7 +12,9 @@ import sendDetailsToServer from './useCreateRental';
 import CreateRentalThree from './CreateRentalThree';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { userSessionContext } from '../../contextFile';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 export default function Checkout() {
     const useStyles = makeStyles((theme) => ({
@@ -51,6 +53,7 @@ export default function Checkout() {
     const classes = useStyles();
     const [loading, setLoading] = useState(true);
     const [activeStep, setActiveStep] = useState(0);
+    const { user, setUser } = useContext(userSessionContext);
     const steps = ['Create Title', 'Upload Photos', 'Add Details'];
     const [uploadComplete, setUploadComplete] = useState(false);
 
@@ -60,7 +63,7 @@ export default function Checkout() {
         streetName: null,
         postalCode: null,
         price: null,
-        parking: false,
+        parking: null,
         room: null,
         bathroom: null,
         petFriendly: false,
@@ -75,18 +78,27 @@ export default function Checkout() {
         availability: true,
         additionalInfo: null,
         Reviews:[],
-        Landlord: '',
-        images:[]
+        Landlord: user.userName,
+        image:[]
     });
-
+    console.log("state")
+    console.log(state)
+    // Updates user input.
     const handleChange = (e) => {
         const { id, value } = e.target;
         setState((ps) => ({
             ...ps,
             [id]: value,
         }));
-        console.log(id, value);
     };
+    const fileHandleChange = (e) => {
+        setState((ps) => ({
+            ...ps,
+            image: e.target.files[0],
+        }));
+    };
+
+    // Updates the users input for Checkboxes
     const checkHandleChange = (e) => {
         const { id, checked } = e.target;
         setState((ps) => ({
@@ -102,7 +114,7 @@ export default function Checkout() {
             case 1:
                 return <CreateRentalTwo handleChange={handleChange} checkHandleChange={checkHandleChange} state={state} />;
             case 2:
-                return <CreateRentalThree handleChange={handleChange} state={state} />;
+                return <CreateRentalThree handleChange={fileHandleChange} state={state} />;
             default:
                 throw new Error('Unknown step');
         }
@@ -112,7 +124,32 @@ export default function Checkout() {
         setActiveStep(activeStep + 1);
         // send data to backend and redirect to root.
         if (activeStep === steps.length - 1) {
-            sendDetailsToServer(state);
+            
+
+            const newPayload = new FormData()
+            newPayload.append('type', state.type);
+            newPayload.append('streetNumber', state.streetNumber);
+            newPayload.append('streetName', state.streetName);
+            newPayload.append('postalCode', state.postalCode);
+            newPayload.append('price', state.price);
+            newPayload.append('parking', state.parking);
+            newPayload.append('room', state.room);
+            newPayload.append('bathroom', state.bathroom);
+            newPayload.append('petFriendly', state.petFriendly);
+            newPayload.append('balcony', state.balcony);
+            newPayload.append('airConditional', state.airConditional);
+            newPayload.append('gym', state.gym);
+            newPayload.append('dishWasher', state.dishWasher);
+            newPayload.append('hydro', state.hydro);
+            newPayload.append('internet', state.internet);
+            newPayload.append('water', state.water);
+            newPayload.append('roommate', state.roommate);
+            newPayload.append('availability', state.availability);
+            newPayload.append('additionalInfo', state.additionalInfo);
+            newPayload.append('Landlord', state.Landlord);
+            newPayload.append('image', state.image);
+            newPayload.append('Reviews', state.Reviews);
+            sendDetailsToServer(newPayload);
             setUploadComplete(true);
         }
     };

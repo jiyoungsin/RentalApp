@@ -89,12 +89,15 @@ export default function AboutUs() {
                     <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
                 </div>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2  className={classes.alignRight}>Name HERE</h2>
+                    <h2  className={classes.alignRight}>Royston Ng</h2>
                     <blockquote className={classes.alignRight}>
-                       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        There's really not much to say about me. I'm a puzzle addict, which has translated to a love of programming. It's funny how easily a love of puzzles translates into
+                        a drive to start learning programming. Both can be incredibly frustrating at times, but rewarding when you find a solution. The only major difference is that
+                        programming is a team-effort which presents a new and more difficult set of challenges. I'm looking forward to growing with this team and seeing how the
+                        pieces of the Vroom puzzle fit together.
                     </p>
                 </div>
             </div>

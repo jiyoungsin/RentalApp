@@ -42,8 +42,6 @@ const useStyles = makeStyles((theme) => ({
 export default function PostCard({ rentals }) {
     const classes = useStyles();
     const [expanded, setExpanded] = useState(false);
-    console.log('rentals');
-    console.log(rentals);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
