@@ -150,7 +150,7 @@ export default function LandingPage() {
                 </div>
             </div>
             <div style={{marginLeft: '100px', marginTop: '50px'}}>
-                        <a variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" className="btn btn-primary">DocuSign</a>
+                        <a variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=94933004-19e6-4da9-99e2-6e98c88ba7ae&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" target="_blank" rel="noopener noreferrer" className="btn btn-primary">DocuSign</a>
             </div>
             {/* DELETE TO HERE */}
             <Price />

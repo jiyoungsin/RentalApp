@@ -130,12 +130,12 @@ export default function AboutUs() {
             </div>
             <div className={classes.divBoarder}>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2>Name HERE</h2>
+                    <h2>Saumya Vasa</h2>
                     <blockquote>
-                       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        As I am moving back to Canada I have experienced first-hand lack of a proper app for long-term rentals. So, along with my group we are trying to create an app where both landlords and tenants can have details about the place and knowledge about each other's reliablity. Also, our goal is to integrate all the features in our app for ease of users.
                     </p>
                 </div>
                 <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
