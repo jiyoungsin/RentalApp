@@ -141,7 +141,7 @@ export default function Checkout() {
             newPayload.append('gym', state.gym);
             newPayload.append('dishWasher', state.dishWasher);
             newPayload.append('hydro', state.hydro);
-            newPayload.append('internet', state.internet);
+            newPayload.append('wifi', state.wifi);
             newPayload.append('water', state.water);
             newPayload.append('roommate', state.roommate);
             newPayload.append('availability', state.availability);

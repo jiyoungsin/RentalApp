@@ -50,7 +50,7 @@ const rentalSchema = new mongoose.Schema(
         hydro: {
             type: Boolean,
         },
-        internet: {
+        wifi: {
             type: Boolean,
         },
         water: {
@@ -71,7 +71,7 @@ const rentalSchema = new mongoose.Schema(
         Reviews: {
             type: [],
         },
-        images: {
+        image: {
             data: Buffer,
             contentType: String
         },

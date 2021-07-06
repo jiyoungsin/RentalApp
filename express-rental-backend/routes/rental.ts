@@ -29,7 +29,6 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
         availability,
         additionalInfo,
         Landlord,
-        image,
         gym,
         dishWasher,
         hydro,
@@ -50,7 +49,6 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
         petFriendly: petFriendly,
         balcony: balcony,
         airConditional: airConditional,
-        images: image,
         gym: gym,
         dishWasher: dishWasher,
         hydro: hydro,
@@ -139,7 +137,7 @@ app.post('/users-rental', async (req, res) => {
         userName
     } = req.body.user;
     try {
-        await Rental.find({Landlord: userName}, (err: any, rental: any) => {
+        await Rental.find({landlord: userName}, (err: any, rental: any) => {
             if (err) {
                 res.send(err);
             } else {

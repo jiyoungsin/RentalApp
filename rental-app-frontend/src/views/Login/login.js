@@ -96,7 +96,7 @@ export default function Login() {
                         </label>
                         <InputForm
                             onChange={handleChange}
-                            type="password"
+                            type="text"
                             value={formData.password}
                             placeholder=""
                             id="password"
