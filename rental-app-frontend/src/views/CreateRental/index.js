@@ -128,8 +128,6 @@ export default function Checkout() {
         setActiveStep(activeStep + 1);
         // send data to backend and redirect to root.
         if (activeStep === steps.length - 1) {
-            
-
             const newPayload = new FormData()
             newPayload.append('type', state.type);
             newPayload.append('streetNumber', state.streetNumber);
