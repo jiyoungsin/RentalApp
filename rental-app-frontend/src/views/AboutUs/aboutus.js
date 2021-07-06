@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Founders from "../../images/founders.jpeg";
 import Paul from "../../images/Paul.jpeg";
+import MichaelWon from "../../images/MichaelWon.jpeg";
 import Niaz from "../../images/Niaz.jpg";
 
 export default function AboutUs() {
@@ -86,18 +87,16 @@ export default function AboutUs() {
             </div>
             <div style={{ display: 'flex', margin: '50px' }}>
                 <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
-                    <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
+                    <img className={classes.displayPhoto} src={MichaelWon} atl="Image of Creators" />
                 </div>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2  className={classes.alignRight}>Royston Ng</h2>
+                    <h2  className={classes.alignRight}>Michael Won</h2>
                     <blockquote className={classes.alignRight}>
-                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
+                       <footer class="blockquote-footer">Backend Developer &amp; D.B. Manager <cite title="Source Title">@Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        There's really not much to say about me. I'm a puzzle addict, which has translated to a love of programming. It's funny how easily a love of puzzles translates into
-                        a drive to start learning programming. Both can be incredibly frustrating at times, but rewarding when you find a solution. The only major difference is that
-                        programming is a team-effort which presents a new and more difficult set of challenges. I'm looking forward to growing with this team and seeing how the
-                        pieces of the Vroom puzzle fit together.
+                        I'm handsome. I'm cool. Thank you very much. 
+                        You want to hire me? Conact me at Michael.ys.won@gmail.com! 
                     </p>
                 </div>
             </div>
@@ -142,6 +141,23 @@ export default function AboutUs() {
                     </p>
                 </div>
                 <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
+                    <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
+                </div>
+            </div>
+            <div className={classes.divBoarder}>
+                <div className={classes.centerText, "col-9"} style={{ alignSelf: 'center' }}>
+                    <h2>Royston Ng</h2>
+                    <blockquote>
+                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
+                    </blockquote>
+                    <p className={classes.justifyText}>
+                         There's really not much to say about me. I'm a puzzle addict, which has translated to a love of programming. It's funny how easily a love of puzzles translates into
+                        a drive to start learning programming. Both can be incredibly frustrating at times, but rewarding when you find a solution. The only major difference is that
+                        programming is a team-effort which presents a new and more difficult set of challenges. I'm looking forward to growing with this team and seeing how the
+                        pieces of the Vroom puzzle fit together.
+                    </p>
+                </div>
+                <div className="col-3" style={{display: "flex", justifyContent: "center"}}>
                     <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
                 </div>
             </div>

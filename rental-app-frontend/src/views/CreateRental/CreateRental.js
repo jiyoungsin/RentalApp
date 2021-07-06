@@ -33,7 +33,7 @@ export default function CreateRental({ handleChange, state }) {
                         <div className="col-6">
 
                             <label className={classes.labelText}>Price/Month: &ensp;</label>
-                            <input onChange={handleChange} type="text" id="price" name="price" size="5" placeholder="$0"></input>
+                            <input onChange={handleChange} type="number" id="price" name="price"  placeholder="$0" value={state.price}></input>
                         </div>
                     </div>
                 </div>
@@ -41,15 +41,21 @@ export default function CreateRental({ handleChange, state }) {
                 </div>
                 <div class="container">
                 <label className={classes.labelText}>Address: &ensp;</label>
+<<<<<<< HEAD
                             <input onChange={handleChange} type="text" id="streetNumber" name="streetNumber" size="6" value={state.streetNumber} placeholder="Street #"></input>&ensp;
                             <input onChange={handleChange} type="text" id="streetName" name="streetName" size="30" placeholder="Street Name"></input>&ensp;
                             <input onChange={handleChange} type="text" id="postalCode" name="postalCode" size="10" placeholder="Postal-Code"></input>
+=======
+                            <input onChange={handleChange} type="text" id="streetNumber" name="streetNumber" size="6" placeholder="Street #" value={state.streetNumber}></input>&ensp;
+                            <input onChange={handleChange} type="text" id="streetName" name="streetName" size="30" placeholder="Street Name" value={state.streetName}></input>&ensp;
+                            <input onChange={handleChange} type="text" id="postalCode" name="postalCode" size="10" placeholder="Postal-Code" value={state.postalCode}></input>
+>>>>>>> About_us_Rental_Form
                 </div>
                 <div class="container">
                     <div className="row">
                         <div className="col-6">
                             <label className={classes.labelText}>Room: &ensp;</label>
-                            <input onChange={handleChange} type="number" id="room" name="room" min="0" placeholder="0"></input>
+                            <input onChange={handleChange} type="number" id="room" name="room" min="0" placeholder="0" value={state.room}></input>
                         </div>
                         <div className="col-6">
                             <label className={classes.labelText}>Bathroom: &ensp;</label>
@@ -59,7 +65,7 @@ export default function CreateRental({ handleChange, state }) {
                 </div>
                 <div class="container">
                     <label className={classes.labelText}>Parking spot: &ensp;</label>
-                    <input onChange={handleChange} type="number" id="parking" name="parking" min="0" placeholder="0"></input>&ensp;
+                    <input onChange={handleChange} type="number" id="parking" name="parking" min="0" placeholder="0" value={state.parking}></input>&ensp;
                 </div>
             </form>
         </div>

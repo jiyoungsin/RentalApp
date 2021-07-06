@@ -9,16 +9,18 @@ const rentalSchema = new mongoose.Schema(
         type: {
             type: String,
         },
+        streetName: {
+            type: String,
+            required: true,
+        },
         streetNumber: {
             type: String,
         },
-        streetName: {
-            type: String,
+        price: {
+            type: Number,
+            required: true,
         },
         postalCode: {
-            type: String,
-        },
-        price: {
             type: String,
         },
         parking: {
@@ -63,18 +65,29 @@ const rentalSchema = new mongoose.Schema(
         additionalInfo: {
             type: String,
         },
-        Landlord: {
-            type: String,
+        postDate: {
+            type: Date,
+        },
+        Reviews: {
+            type: [],
         },
         images: {
             data: Buffer,
             contentType: String
         },
+        landlord: {
+            type: String,
+            required: true,
+        },
+        tanant:{
+            type: [],
+        }
     },
     {
         collection: 'rentUnit',
         timestamps: {
             currentTime: () => Date.now(),
+        
             createdAt: 'timeCreated',
         },
     }

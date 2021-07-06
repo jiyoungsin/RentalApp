@@ -14,9 +14,13 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { userSessionContext } from '../../contextFile';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { userSessionContext } from '../../contextFile';
 
 
 export default function Checkout() {
+    const { user, setUser } = useContext(userSessionContext);
+    console.log(user.userName)
+
     const useStyles = makeStyles((theme) => ({
         appBar: {
             position: 'relative',
@@ -72,7 +76,7 @@ export default function Checkout() {
         gym: false,
         dishWasher: false,
         hydro: false,
-        internet: false,
+        wifi: false,
         water: false,
         roommate: false,
         availability: true,

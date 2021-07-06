@@ -38,10 +38,10 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                 <div class="container">
                     <div className="row">
                         <div className="col-4">
-                           <label className={classes.labelText} for="internet">
+                           <label className={classes.labelText} for="wifi">
                                 Internet: 
                             </label> &ensp;
-                            <input  onChange={checkHandleChange} type="checkbox" id="internet" name="internet" checked={state.internet}>
+                            <input  onChange={checkHandleChange} type="checkbox" id="wifi" name="wifi" checked={state.wifi}>
                             </input>
                         </div>
                         <div className="col-4">
@@ -92,7 +92,11 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                     </label>
                 </div>
                 <div class="container">
+<<<<<<< HEAD
                     <textarea id="additionalInfo" name="additionalInfo" rows="4" cols="50" placeholder="Please provide us any additional info" onChange={handleChange} value={state.additionalInfo}>
+=======
+                    <textarea onChange={handleChange} id="additionalInfo" name="additionalInfo" rows="4" cols="50" placeholder="Please provide us any additional info" value={state.additionalInfo}>
+>>>>>>> About_us_Rental_Form
         
                     </textarea>
                 </div>
