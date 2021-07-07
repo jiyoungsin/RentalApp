@@ -175,7 +175,7 @@ export default function Checkout() {
                                 <React.Fragment>
                                     <div style={{ textAlign: 'center' }}>
                                         {loading === false ? (
-                                            <>
+                                            <React.Fragment>
                                                 <Typography variant="h5" gutterBottom>
                                                     File was successfully saved
                                                 </Typography>
@@ -189,7 +189,7 @@ export default function Checkout() {
                                                 {setTimeout(() => {
                                                     return <Redirect to="/" />;
                                                 }, 5000)}
-                                            </>
+                                            </React.Fragment>
                                         ) : (
                                             <h3>Loading...</h3>
                                         )}

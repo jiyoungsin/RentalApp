@@ -46,7 +46,7 @@ export default function AboutUs() {
     const classes = useStyles();
 
     return (
-        <>
+        <React.Fragment>
             <div className="container d-flex flex-row" style={{ marginTop: "5vh"}}>
                 <div className="col-5">
                     <img className={classes.fitImage} src={Founders} alt="Founders"/>
@@ -145,6 +145,6 @@ export default function AboutUs() {
                     <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
                 </div>
             </div>
-        </>
+        </React.Fragment>
     );
 }

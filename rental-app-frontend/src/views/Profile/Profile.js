@@ -61,7 +61,7 @@ export default function Profile(req, res) {
     }, [loading]);
 
     return (
-        <>
+        <React.Fragment>
             {loading ? 
             <div className={classes.fillPage}>
                 <div className={classes.profileHeader}>
@@ -98,6 +98,6 @@ export default function Profile(req, res) {
                 </Link>
             </div>
             : null };
-        </>
+       </React.Fragment>
     );
 }

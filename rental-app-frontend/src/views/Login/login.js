@@ -73,7 +73,7 @@ export default function Login() {
     };
 
     return (
-        <>
+        <React.Fragment>
             {signInSuccessful ? (
                 <Redirect to="/" />
             ) : (
@@ -123,6 +123,6 @@ export default function Login() {
                     </form>
                 </div>
             )}
-        </>
+        </React.Fragment>
     );
 }

@@ -93,7 +93,7 @@ export default function RentalPost({
     };
 
     return requestDelete === false ? (
-        <>
+        <React.Fragment>
                 <div className={classes.container}>
                         <img src={src} alt="Picture Of Rental" />
                         <div className={classes.rentalCard}>
@@ -127,7 +127,7 @@ export default function RentalPost({
                         </Button>
                     </div>
                 </div>
-        </>
+                </React.Fragment>
     ) : (
         <Redirect to="/" />
     );

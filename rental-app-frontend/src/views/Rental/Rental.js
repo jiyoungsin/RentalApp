@@ -78,7 +78,7 @@ export default function Rental() {
     console.log("rentalPostImage")
     console.log(rentalPostImage)
     return (
-        <>
+        <React.Fragment>
             {loaded ? (
                 <div className="container border borderSecondary p-5 mt-5">
                     <span>{user.userName}</span>
@@ -171,6 +171,6 @@ export default function Rental() {
             ) : (
                 <h2> NOT loaded</h2>
             )}
-        </>
+        </React.Fragment>
     );
 }
