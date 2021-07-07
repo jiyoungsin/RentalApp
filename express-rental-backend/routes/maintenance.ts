@@ -27,11 +27,11 @@ app.delete('/delete/:id', async (req, res) => {
     const payload = await Maintenance.deleteOne({ _id: req.params.id })
         .then((response) => {
             console.log('Successfully Deleted Rental');
-            res.json(response)
+            res.json(response);
         })
         .catch((err) => {
             console.log('ERROR: while Deleting Rental');
-        });;
+        });
     res.status(200).json(payload);
 });
 
@@ -47,50 +47,48 @@ app.post('/create', async (req, res) => {
         landlordPhoneNumber,
     } = req.body;
     const database = mongoose.connection;
-    
-    try{
-        database.collection("maintenance").insertOne({
+
+    try {
+        database.collection('maintenance').insertOne({
             email: email,
             maintenanceIssue: maintenanceIssue,
             tenantName: tenantName,
             landlordName: landlordName,
             tenantPhoneNumber: tenantPhoneNumber,
             landlordPhoneNumber: landlordPhoneNumber,
-        })
-        
+        });
+
         //This is the structure of the email maeesage to be sent
-        const message = 
-        {
+        const message = {
             to: email,
             from: 'VroomInc@officalbase.com',
             subject: 'Maintenance Request',
             text: 'Hello world',
-            html: 
-            `
+            html: `
                 <h1>Maintenance Request</h1>
                 <p>${tenantName} is requesting maintenance for their unit.</p>
                 <p>${maintenanceIssue}</p>
 
                 <p>Phone Number: ${tenantPhoneNumber}</p>
-            `
+            `,
         };
 
         //this function sends the above message to the landlord in order to alert them to a maintenance request
         (async () => {
             try {
-              await sgMail.send(message);
+                await sgMail.send(message);
             } catch (error) {
-              console.error(error);
-          
-              if (error.response) {
-                console.error(error.response.body)
-              }
-            }
-          })();
+                console.error(error);
 
-        res.status(200).json("Saved to Database");
-    }catch{
-        console.log("ERROR: Did not Create maintenance.")
+                if (error.response) {
+                    console.error(error.response.body);
+                }
+            }
+        })();
+
+        res.status(200).json('Saved to Database');
+    } catch {
+        console.log('ERROR: Did not Create maintenance.');
     }
 });
 

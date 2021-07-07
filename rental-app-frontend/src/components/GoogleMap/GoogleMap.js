@@ -38,7 +38,6 @@ export class MapContainer extends Component {
         return (
             <div style={({ position: 'relative' }, { height: '300px' })}>
                 {/* This is not thhe correct way, but answeers whats needed for now. */}
-                
 
                 <PlacesAutocomplete
                     value={this.state.address}

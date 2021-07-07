@@ -84,13 +84,13 @@ export default function LandingPage() {
             marginBottom: '5vh',
         },
         mainTitle: {
-            fontFamily: "cursive",
-            fontSize: "5vh"
+            fontFamily: 'cursive',
+            fontSize: '5vh',
         },
         fitImage: {
-            maxWidth: "100%", 
-            maxHeight: "100%",
-        }
+            maxWidth: '100%',
+            maxHeight: '100%',
+        },
     }));
 
     const classes = useStyles();
@@ -99,28 +99,31 @@ export default function LandingPage() {
         email: '',
     });
     const handleChange = (e) => {
-        const {id, value} = e.target;
-        setFormData((ps)=>({
+        const { id, value } = e.target;
+        setFormData((ps) => ({
             ...ps,
             [id]: value,
         }));
-    }
+    };
     // sends sign up data to backend.
-    const onSubmit = () =>{
+    const onSubmit = () => {
         // saves data to Database Endpoint /signup
-        const payload = {...formData}
-        axios.post('http://localhost:5000/users/subscribe', payload, { 
-            headers: {
-                'Content-Type' : 'application/json',
-            }
-        }).then(res => {
-            console.log("Adding Subscriber");
-            alert("Your Email has been Added.");
-        }).catch(err => {
-            console.error(err);
-            alert('Error: Adding Subscribers Email to Backend');
-        });
-    }
+        const payload = { ...formData };
+        axios
+            .post('http://localhost:5000/users/subscribe', payload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((res) => {
+                console.log('Adding Subscriber');
+                alert('Your Email has been Added.');
+            })
+            .catch((err) => {
+                console.error(err);
+                alert('Error: Adding Subscribers Email to Backend');
+            });
+    };
 
     useEffect(() => {
         axios
@@ -139,7 +142,9 @@ export default function LandingPage() {
             <div className={classes.JumboTron}>
                 <div className={classes.topBox}>
                     <Typography className={classes.mainTitle}>Vroom</Typography>
-                    <Typography className={classes.mainTitle}>The Worlds First Digital Rental Company</Typography>
+                    <Typography className={classes.mainTitle}>
+                        The Worlds First Digital Rental Company
+                    </Typography>
                     <div className="container" style={{ textAlign: 'center' }}>
                         <p>A web application to help you find a new rental unit.</p>
                     </div>
@@ -155,7 +160,15 @@ export default function LandingPage() {
             {/* DELETE THESE BUTTONS AFTER EVERYTHING IS HOOKED UP */}
             <div className={classes.centerItems} style={{ marginTop: '5vh' }}>
                 <div class="col-3">
-                    <a target="blank" rel="noopener noreferrer" variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" className="btn btn-primary">DocuSign</a>
+                    <a
+                        target="blank"
+                        rel="noopener noreferrer"
+                        variant="primary"
+                        href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2"
+                        className="btn btn-primary"
+                    >
+                        DocuSign
+                    </a>
                 </div>
                 <div class="col-3">
                     <Link to="/findProperty">
@@ -173,16 +186,25 @@ export default function LandingPage() {
                     </Link>
                 </div>
             </div>
-            <div style={{marginLeft: '100px', marginTop: '50px'}}>
-                        <a variant="primary" href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=94933004-19e6-4da9-99e2-6e98c88ba7ae&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2" target="_blank" rel="noopener noreferrer" className="btn btn-primary">DocuSign</a>
+            <div style={{ marginLeft: '100px', marginTop: '50px' }}>
+                <a
+                    variant="primary"
+                    href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=94933004-19e6-4da9-99e2-6e98c88ba7ae&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                >
+                    DocuSign
+                </a>
             </div>
             {/* DELETE TO HERE */}
             <Price />
-            <div style={{ display: 'flex', margin: '50px', backgroundColor: "white" }}>
+            <div style={{ display: 'flex', margin: '50px', backgroundColor: 'white' }}>
                 <div className={classes.centerText} style={{ alignSelf: 'center' }}>
                     <h2>Stakeholders</h2>
                     <p>
-                        Thank you to some of our Sponsers and The Vroom Team thanks you for your never ending support!
+                        Thank you to some of our Sponsers and The Vroom Team thanks you for your
+                        never ending support!
                     </p>
                 </div>
                 <div>
@@ -193,7 +215,8 @@ export default function LandingPage() {
                                 width: '100px',
                                 height: '100px',
                                 margin: '10px',
-                            }}>
+                            }}
+                        >
                             <img className={classes.fitImage} src={SenecaLogo} alt="Sponsor" />
                         </div>
                         <div
@@ -274,7 +297,7 @@ export default function LandingPage() {
                                 margin: '10px',
                             }}
                         >
-                         <img className={classes.fitImage} src={discord} alt="Sponsor" />   
+                            <img className={classes.fitImage} src={discord} alt="Sponsor" />
                         </div>
                     </div>
                 </div>
@@ -289,10 +312,17 @@ export default function LandingPage() {
                             placeholder="Email@gmail.com"
                             value={formData.userName}
                             type="text"
-                            id="email" 
+                            id="email"
                             name="email"
                         />
-                        <Button class={classes.buttonColoring} onClick={()=>{onSubmit()}}>Submit</Button>
+                        <Button
+                            class={classes.buttonColoring}
+                            onClick={() => {
+                                onSubmit();
+                            }}
+                        >
+                            Submit
+                        </Button>
                     </form>
                 </div>
             </div>

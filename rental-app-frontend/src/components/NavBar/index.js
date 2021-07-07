@@ -22,19 +22,19 @@ function adminNavBar(user, signOut) {
                     <Nav.Link>
                         <Link to="/">Pricing</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/aboutus">About</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/faq">FAQs</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/contactus">Contact Us</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/maintenance">Maintenance</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/MapSearch">Map</Link>
                     </Nav.Link>
                     <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
@@ -66,9 +66,7 @@ function adminNavBar(user, signOut) {
                 {/* Linking the routes using Link component */}
                 <Nav>
                     <Nav.Link>
-                        <Link to={profileLink}>
-                            Profile
-                        </Link>
+                        <Link to={profileLink}>Profile</Link>
                     </Nav.Link>
                     <Nav.Link>
                         <Link to="/" onClick={signOut}>
@@ -92,22 +90,22 @@ function loggedInUserNavBar(user, signOut) {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/findProperty">Find Rental</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="#Favorites">Favorites</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/">Pricing</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/aboutus">About</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/faq">FAQs</Link>
                     </Nav.Link>
-                    <Nav.Link> 
+                    <Nav.Link>
                         <Link to="/contactus">Contact Us</Link>
                     </Nav.Link>
                 </Nav>
@@ -120,7 +118,12 @@ function loggedInUserNavBar(user, signOut) {
                     >
                         Profile
                     </Link>
-                    <Link id="navbar-sign-logo" to="/" style={{ paddingTop: '10px' }} onClick={signOut}>
+                    <Link
+                        id="navbar-sign-logo"
+                        to="/"
+                        style={{ paddingTop: '10px' }}
+                        onClick={signOut}
+                    >
                         Log out
                     </Link>
                 </Nav>
