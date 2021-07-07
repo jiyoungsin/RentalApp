@@ -18,6 +18,7 @@ import AboutUs from '../views/AboutUs/aboutus';
 import ContactUs from '../views/ContactUs/contactus';
 import Payment from '../views/Payment/Payment';
 import Page404 from '../views/PageNotFound/PageNotFound';
+import StripePayment from '../views/StripePayment/StripePayment';
 
 
 import { BrowserRouter, Router, Route, Switch, Redirect} from 'react-router-dom';
@@ -50,6 +51,7 @@ function Routes() {
                         <Route exact path="/ContactUs" component={ContactUs} />
                         <Route exact path="/Payment" component={Payment}/>
                         <Route exact path="/404" component={Page404} />
+                        <Route exact path="/StripePayment" component={StripePayment} />
                     </UserSessionContextProvider>
                 </Switch>
                 <Footer />

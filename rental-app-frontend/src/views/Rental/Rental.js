@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect} from 'react';
 import { userSessionContext } from '../../contextFile';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./styles.css"
-
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 // Importing Icons needed for UI
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import OutdoorGrillIcon from '@material-ui/icons/OutdoorGrill';
@@ -172,6 +172,15 @@ export default function Rental() {
                                 <tr>
                                     <td></td>
                                     <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    <div class="col-3">
+                                    <Link to="/StripePayment">
+                                        <Button variant="primary">Pay Now</Button>{' '}
+                                    </Link>
+                                </div>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
