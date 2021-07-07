@@ -17,8 +17,6 @@ import { userSessionContext } from '../../contextFile';
 
 export default function Checkout() {
     const { user, setUser } = useContext(userSessionContext);
-    console.log(user.userName);
-
     const useStyles = makeStyles((theme) => ({
         appBar: {
             position: 'relative',

@@ -36,7 +36,7 @@ export class MapContainer extends Component {
 
     render() {
         return (
-            <div style={({ position: 'relative' }, { height: '300px' })}>
+            <div style={({ height: '325px'})}>
                 {/* This is not thhe correct way, but answeers whats needed for now. */}
 
                 <PlacesAutocomplete

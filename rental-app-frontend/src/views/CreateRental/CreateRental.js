@@ -1,19 +1,10 @@
 import React from 'react';
 import { useStyles } from './styles';
+import InputForm from "../../components/InputForm";
 
 export default function CreateRental({ handleChange, state }) {
     const classes = useStyles();
     return (
-        /*
-        type: '',
-        streetNumber: 0,
-        streetName:'',
-        postalCode: '',
-        price: 0.0,
-        parking: false,
-        room: 0,
-        bathroom: 0
-        */
         <div className={classes.container}>
             <form className={classes.formStyle}>
                 <div class="container">
@@ -38,21 +29,21 @@ export default function CreateRental({ handleChange, state }) {
                         </div>
                         <div className="col-6">
                             <label className={classes.labelText}>Price/Month: &ensp;</label>
-                            <input
+                            <InputForm
                                 onChange={handleChange}
                                 type="number"
                                 id="price"
                                 name="price"
                                 placeholder="$0"
                                 value={state.price}
-                            ></input>
+                            ></InputForm>
                         </div>
                     </div>
                 </div>
                 <div class="container"></div>
                 <div class="container">
                     <label className={classes.labelText}>Address: &ensp;</label>
-                    <input
+                    <InputForm
                         onChange={handleChange}
                         type="text"
                         id="streetNumber"
@@ -60,9 +51,9 @@ export default function CreateRental({ handleChange, state }) {
                         size="6"
                         placeholder="Street #"
                         value={state.streetNumber}
-                    ></input>
+                    ></InputForm>
                     &ensp;
-                    <input
+                    <InputForm
                         onChange={handleChange}
                         type="text"
                         id="streetName"
@@ -70,9 +61,9 @@ export default function CreateRental({ handleChange, state }) {
                         size="30"
                         placeholder="Street Name"
                         value={state.streetName}
-                    ></input>
+                    ></InputForm>
                     &ensp;
-                    <input
+                    <InputForm
                         onChange={handleChange}
                         type="text"
                         id="postalCode"
@@ -80,13 +71,13 @@ export default function CreateRental({ handleChange, state }) {
                         size="10"
                         placeholder="Postal-Code"
                         value={state.postalCode}
-                    ></input>
+                    ></InputForm>
                 </div>
                 <div class="container">
                     <div className="row">
                         <div className="col-6">
                             <label className={classes.labelText}>Room: &ensp;</label>
-                            <input
+                            <InputForm
                                 onChange={handleChange}
                                 type="number"
                                 id="room"
@@ -94,11 +85,11 @@ export default function CreateRental({ handleChange, state }) {
                                 min="0"
                                 placeholder="0"
                                 value={state.room}
-                            ></input>
+                            ></InputForm>
                         </div>
                         <div className="col-6">
                             <label className={classes.labelText}>Bathroom: &ensp;</label>
-                            <input
+                            <InputForm
                                 onChange={handleChange}
                                 type="number"
                                 id="bathroom"
@@ -106,13 +97,13 @@ export default function CreateRental({ handleChange, state }) {
                                 min="0"
                                 placeholder="0"
                                 value={state.bathroom}
-                            ></input>
+                            ></InputForm>
                         </div>
                     </div>
                 </div>
                 <div class="container">
                     <label className={classes.labelText}>Parking spot: &ensp;</label>
-                    <input
+                    <InputForm
                         onChange={handleChange}
                         type="number"
                         id="parking"
@@ -120,7 +111,7 @@ export default function CreateRental({ handleChange, state }) {
                         min="0"
                         placeholder="0"
                         value={state.parking}
-                    ></input>
+                    ></InputForm>
                     &ensp;
                 </div>
             </form>

@@ -8,7 +8,7 @@ export default function Payment() {
         <div>
             <img src={BTC} alt="a" />
             <img src={USDT_TRC20} alt="b" />
-            <img src="USDT_ERC20" alt="c" />
+            <img src={USDT_ERC20} alt="c" />
         </div>
     );
 }

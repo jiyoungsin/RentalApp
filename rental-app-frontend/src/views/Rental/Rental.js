@@ -47,8 +47,7 @@ export default function Rental() {
     const arrayBufferTobase64 = (buffer) => {
         let binary = '';
         let base64Flag = 'data:image/jpeg;base64,';
-        let bytes = [].slice.call(new Uint8Array(buffer));
-
+        let bytes = [].slice.call(new Uint8Array(buffer.data));
         bytes.forEach((b) => {
             binary += String.fromCharCode(b);
         });
@@ -62,7 +61,6 @@ export default function Rental() {
         width: '10%',
         height: '10%',
     };
-
     useEffect(() => {
         axios
             .get(`http://localhost:5000/profile/` + rental_id)
@@ -76,11 +74,7 @@ export default function Rental() {
                 alert('Error while Fetching Rental Unit');
             });
     }, [loaded]);
-    console.log('rentalPost');
-    console.log(rentalPost);
 
-    console.log('rentalPostImage');
-    console.log(rentalPostImage);
     return (
         <React.Fragment>
             {loaded ? (
@@ -118,7 +112,7 @@ export default function Rental() {
                                 />
                             </div>
                         </div>
-                        <div className="col-6" id="rent-google-maps">
+                        <div className="col-6" id="rent-google-maps" style={{width:"100px"}}>
                             <GoogleMap />
                         </div>
                     </div>
