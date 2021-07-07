@@ -1,10 +1,15 @@
 .imageFlex  {
     display: flex;
-    width : "100%";
+    width : "40%";
     align-items: center;
     flex-direction: row;
+    height: "600px";
 }
 
 .splitDiv {
     width : "50%";  
+}
+
+#rent-google-maps {
+    height: 200px;
 }

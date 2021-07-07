@@ -36,7 +36,7 @@ export class MapContainer extends Component {
 
     render() {
         return (
-            <div style={({ position: 'relative' }, { height: '650px' })}>
+            <div style={({ position: 'relative' }, { height: '300px' })}>
                 {/* This is not thhe correct way, but answeers whats needed for now. */}
                 <div>
                     <h2>Map Integration</h2>

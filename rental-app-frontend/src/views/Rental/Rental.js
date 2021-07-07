@@ -17,7 +17,7 @@ import AcUnitIcon from '@material-ui/icons/AcUnit';
 import PeopleIcon from '@material-ui/icons/People';
 import WifiIcon from '@material-ui/icons/Wifi';
 import PetsIcon from '@material-ui/icons/Pets';
-
+import GoogleMap from '../../components/GoogleMap/GoogleMap';
 //CSS Styles
 const useStyles = makeStyles((theme) => ({
     greenPriceTag: {
@@ -58,6 +58,12 @@ export default function Rental() {
         return base64Flag + binaryString;
     };
 
+    const style = {
+        width: '10%',
+        height: '10%'
+      }
+
+
     useEffect(() => {
         axios
             .get(`http://localhost:5000/profile/` + rental_id)
@@ -95,14 +101,17 @@ export default function Rental() {
                                 <img style={{width: "33%"}} src="https://picsum.photos/188/122" alt="pictures of unit" />
                             </div>
                         </div>
-                        <div className="col-6" >
-                            MAP
+                        <div className="col-6" id="rent-google-maps">
+                        <GoogleMap 
+                        
+                        
+                            />
                         </div>
                     </div>
-                    <div className="card">
+                    <div className="card ">
                         <div className="card-body">
                             <div
-                                style={{ display: 'flex' }}
+                                style={{ display: 'flex'}}
                                 className="d-flex justify-content-between"
                             >
                                 <div>
