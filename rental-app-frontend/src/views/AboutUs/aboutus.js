@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Founders from "../../images/founders.jpeg";
 import Paul from "../../images/Paul.jpeg";
+import MichaelWon from "../../images/MichaelWon.jpeg";
 import Niaz from "../../images/Niaz.jpg";
 
 export default function AboutUs() {
@@ -52,7 +53,7 @@ export default function AboutUs() {
                     <img className={classes.fitImage} src={Founders} alt="Founders"/>
                 </div>
                 <div className="col-7">
-                    <h2>Our story</h2>
+                    <h2>Main Developers</h2>
                     <div className={classes.justifyText}>
                         In the early stages of 2020 the global pandemic had arose, we as five college graduates decided to start a small business — after some planning we started to code, thus the starting of a new generation of renting.
                         At first we spent some time exploring other rental sites, being a college student we all knew the struggles of finding a new home.
@@ -86,18 +87,16 @@ export default function AboutUs() {
             </div>
             <div style={{ display: 'flex', margin: '50px' }}>
                 <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
-                    <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
+                    <img className={classes.displayPhoto} src={MichaelWon} atl="Image of Creators" />
                 </div>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2  className={classes.alignRight}>Royston Ng</h2>
+                    <h2  className={classes.alignRight}>Michael Won</h2>
                     <blockquote className={classes.alignRight}>
-                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
+                       <footer class="blockquote-footer">Backend Developer &amp; D.B. Manager <cite title="Source Title">@Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        There's really not much to say about me. I'm a puzzle addict, which has translated to a love of programming. It's funny how easily a love of puzzles translates into
-                        a drive to start learning programming. Both can be incredibly frustrating at times, but rewarding when you find a solution. The only major difference is that
-                        programming is a team-effort which presents a new and more difficult set of challenges. I'm looking forward to growing with this team and seeing how the
-                        pieces of the Vroom puzzle fit together.
+                        I'm handsome. I'm cool. Thank you very much. 
+                        You want to hire me? Conact me at Michael.ys.won@gmail.com! 
                     </p>
                 </div>
             </div>
@@ -122,23 +121,26 @@ export default function AboutUs() {
                     <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
                 </div>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2  className={classes.alignRight}>Name HERE</h2>
+                    <h2  className={classes.alignRight}>Royston Ng</h2>
                     <blockquote className={classes.alignRight}>
-                       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                    There's really not much to say about me. I'm a puzzle addict, which has translated to a love of programming. It's funny how easily a love of puzzles translates into
+                    a drive to start learning programming. Both can be incredibly frustrating at times, but rewarding when you find a solution. The only major difference is that
+                    programming is a team-effort which presents a new and more difficult set of challenges. I'm looking forward to growing with this team and seeing how the
+                    pieces of the Vroom puzzle fit together.
                     </p>
                 </div>
             </div>
             <div className={classes.divBoarder}>
                 <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2>Name HERE</h2>
+                    <h2>Saumya Vasa</h2>
                     <blockquote>
-                       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@Vroom</cite></footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        As I am moving back to Canada I have experienced first-hand lack of a proper app for long-term rentals. So, along with my group we are trying to create an app where both landlords and tenants can have details about the place and knowledge about each other's reliablity. Also, our goal is to integrate all the features in our app for ease of users.
                     </p>
                 </div>
                 <div className="col-4" style={{display: "flex", justifyContent: "center"}}>

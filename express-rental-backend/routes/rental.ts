@@ -24,17 +24,16 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
         petFriendly,
         balcony,
         airConditional,
-        gym,
-        dishWasher,
-        hydro,
-        internet,
         water,
         roommate,
         availability,
         additionalInfo,
-        Reviews,
         Landlord,
-        image,
+        gym,
+        dishWasher,
+        hydro,
+        wifi,
+        Reviews,
     } = req.body;
     const database = mongoose.connection;
     console.log('Post Request to DB CreateRental');
@@ -53,13 +52,15 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
         gym: gym,
         dishWasher: dishWasher,
         hydro: hydro,
-        internet: internet,
+        wifi: wifi,
         water: water,
         roommate: roommate,
         availability: availability,
         additionalInfo: additionalInfo,
+        postDate: new Date(),
+        tanant: [],
         Reviews: Reviews,
-        Landlord: Landlord,
+        landlord: Landlord,
         image: {
             data: fs.readFileSync(req.file.path),
             contentType: 'image/png'
@@ -136,7 +137,7 @@ app.post('/users-rental', async (req, res) => {
         userName
     } = req.body.user;
     try {
-        await Rental.find({Landlord: userName}, (err: any, rental: any) => {
+        await Rental.find({landlord: userName}, (err: any, rental: any) => {
             if (err) {
                 res.send(err);
             } else {

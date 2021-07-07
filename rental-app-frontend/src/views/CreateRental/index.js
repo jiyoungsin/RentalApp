@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,  } from 'react';
 import { Redirect } from 'react-router';
 import Step from '@material-ui/core/Step';
 import CreateRental from './CreateRental';
@@ -12,11 +12,14 @@ import sendDetailsToServer from './useCreateRental';
 import CreateRentalThree from './CreateRentalThree';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { userSessionContext } from '../../contextFile';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { userSessionContext } from '../../contextFile';
 
 
 export default function Checkout() {
+    const { user, setUser } = useContext(userSessionContext);
+    console.log(user.userName)
+
     const useStyles = makeStyles((theme) => ({
         appBar: {
             position: 'relative',
@@ -53,7 +56,6 @@ export default function Checkout() {
     const classes = useStyles();
     const [loading, setLoading] = useState(true);
     const [activeStep, setActiveStep] = useState(0);
-    const { user, setUser } = useContext(userSessionContext);
     const steps = ['Create Title', 'Upload Photos', 'Add Details'];
     const [uploadComplete, setUploadComplete] = useState(false);
 
@@ -72,7 +74,7 @@ export default function Checkout() {
         gym: false,
         dishWasher: false,
         hydro: false,
-        internet: false,
+        wifi: false,
         water: false,
         roommate: false,
         availability: true,
@@ -124,8 +126,6 @@ export default function Checkout() {
         setActiveStep(activeStep + 1);
         // send data to backend and redirect to root.
         if (activeStep === steps.length - 1) {
-            
-
             const newPayload = new FormData()
             newPayload.append('type', state.type);
             newPayload.append('streetNumber', state.streetNumber);
@@ -141,7 +141,7 @@ export default function Checkout() {
             newPayload.append('gym', state.gym);
             newPayload.append('dishWasher', state.dishWasher);
             newPayload.append('hydro', state.hydro);
-            newPayload.append('internet', state.internet);
+            newPayload.append('wifi', state.wifi);
             newPayload.append('water', state.water);
             newPayload.append('roommate', state.roommate);
             newPayload.append('availability', state.availability);

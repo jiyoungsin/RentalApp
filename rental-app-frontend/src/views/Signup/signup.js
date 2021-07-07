@@ -41,6 +41,11 @@ export default function Signup() {
         rePassword: '',
         firstName: '',
         phoneNumber: '',
+        role: 'customer',
+        rentals: [],
+        viewRentals: [],
+        favoriteRentals: [],
+        reviews: []
     });
     // boolean to stop page from rendering every 1 second.
     const [signUpSuccessful, setSignUpSuccessful] = useState(false);
@@ -89,10 +94,10 @@ export default function Signup() {
         let { id, value } = e.target;
         let error;
         if (isNaN(value)) error = 'PHONE NUMBER SHOULD ONLY CONTAIN NUMBERS';
-        else if (value.length != 9) error = 'PHONE NUMBER SHOULD BE 9 DIGITS';
+        else if (value.length != 10) error = 'PHONE NUMBER SHOULD BE 10 DIGITS';
         else error = '';
 
-        document.getElementById(`${id}Error`).innerText = error;
+        document.getElementById(`${id}Error`).innerHTML = error;
 
         setFormData((ps) => ({
             ...ps,
@@ -108,17 +113,18 @@ export default function Signup() {
             .get('http://localhost:5000/users/usernames')
             .then((res) => {
                 userNames = res.data;
+                console.log("i come in");
                 for (let i = 0; i < userNames.length; i++) {
-                    console.log(userNames[i].userName);
+                    console.log(userNames[i]);
                     if (userNames[i].userName == value) {
                         error = 'USER NAME IS BEING USED';
-                        document.getElementById(`${id}Error`).innerText = error;
+                        document.getElementById("userNameError").innerHTML = error;
                     }
                 }
             })
             .catch((err) => {
                 console.error(err);
-                alert('Error Sending Data to Backend');
+                alert('Error Sending Data to Backend from ValidateUserName');
             });
     };
 
@@ -153,29 +159,58 @@ export default function Signup() {
         }));
     };
 
-    const validateSubmit = () => {
+    const validateSubmit = (value) => {
         let isOkay = true;
+        let isUsed = false;
+        let count = 0;
+        let userNames;
+        let error = '';
         const payload = { ...formData };
-        //   validateUserName(payload.email);
-        validateUserName('userName', payload.userName);
-        for (const i in payload) {
-            if (`${payload[i]}` == '') {
+
+        for (const i in payload && count < 7) {
+            if (`${payload[i]}` == '' ) {
                 isOkay = false;
                 document.getElementById(`${i}Error`).innerHTML = 'THIS FIELD IS REQUIRED';
-            } else {
-                if (document.getElementById(`${i}Error`).innerHTML == 'THIS FIELD IS REQUIRED') {
+            }else{
+                if(document.getElementById(`${i}Error`).innerHTML == 'THIS FIELD IS REQUIRED')
                     document.getElementById(`${i}Error`).innerHTML = '';
+            } 
+            count++
+        }
+        axios
+            .get('http://localhost:5000/users/usernames')
+            .then((res) => {
+                userNames = res.data;
+                console.log("i come in");
+                for (let i = 0; i < userNames.length; i++) {
+                    console.log(userNames[i]);
+                    if (userNames[i].userName == value) {
+                        isUsed = true;
+                        error = 'USER NAME IS BEING USED';
+                        document.getElementById("userNameError").innerHTML = error;
+                    }
                 }
-            }
-            if (document.getElementById(`${i}Error`).innerHTML != '') {
-                isOkay = false;
-            }
-        }
-
-        if (isOkay == true) {
-            onSubmit();
-        }
+                if(isUsed == false){
+                    document.getElementById("userNameError").innerHTML = '';
+                }
+                count = 0;
+                for (const i in payload && count < 7) {
+                    if (document.getElementById(`${i}Error`).innerHTML != '') {
+                        isOkay = false;
+                    }
+                }
+                if (isOkay == true) {
+                    onSubmit();
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                alert('Error Sending Data to Backend from ValidateUserName');
+            });
+       
     };
+
+
 
     // sends sign up data to backend.
     const onSubmit = () => {
@@ -193,7 +228,7 @@ export default function Signup() {
             })
             .catch((err) => {
                 console.error(err);
-                alert('Error Sending Data to Backend');
+                alert('Error Sending Data to Backend on Submit');
             });
     };
 
@@ -202,6 +237,7 @@ export default function Signup() {
         <div className={classes.container}>
             <form className={classes.formStyle}>
                 <h2>Sign Up</h2>
+
                 <label className={classes.labelText} for="userName">
                     User Name
                 </label>
@@ -290,7 +326,7 @@ export default function Signup() {
                     variant="primary"
                     className={classes.buttonPadding}
                     onClick={() => {
-                        validateSubmit();
+                        validateSubmit(`${formData.userName}`);
                     }}
                 >
                     Submit
