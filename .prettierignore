@@ -2,3 +2,6 @@
 build
 coverage
 node_modules/
+./rental-app-frontend/package-lock.json
+package-lock.json
+./express-rental-backend/package-lock.json

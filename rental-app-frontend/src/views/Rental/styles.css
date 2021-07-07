@@ -1,13 +1,13 @@
-.imageFlex  {
+.imageFlex {
     display: flex;
-    width : "40%";
+    width: '40%';
     align-items: center;
     flex-direction: row;
-    height: "600px";
+    height: '600px';
 }
 
 .splitDiv {
-    width : "50%";  
+    width: '50%';
 }
 
 #rent-google-maps {

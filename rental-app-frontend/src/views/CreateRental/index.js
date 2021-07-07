@@ -1,4 +1,4 @@
-import React, { useContext, useState,  } from 'react';
+import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router';
 import Step from '@material-ui/core/Step';
 import CreateRental from './CreateRental';
@@ -15,10 +15,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { userSessionContext } from '../../contextFile';
 
-
 export default function Checkout() {
     const { user, setUser } = useContext(userSessionContext);
-    console.log(user.userName)
+    console.log(user.userName);
 
     const useStyles = makeStyles((theme) => ({
         appBar: {
@@ -79,12 +78,12 @@ export default function Checkout() {
         roommate: false,
         availability: true,
         additionalInfo: null,
-        Reviews:[],
+        Reviews: [],
         Landlord: user.userName,
-        image:[]
+        image: [],
     });
-    console.log("state")
-    console.log(state)
+    console.log('state');
+    console.log(state);
     // Updates user input.
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -114,7 +113,13 @@ export default function Checkout() {
             case 0:
                 return <CreateRental handleChange={handleChange} state={state} />;
             case 1:
-                return <CreateRentalTwo handleChange={handleChange} checkHandleChange={checkHandleChange} state={state} />;
+                return (
+                    <CreateRentalTwo
+                        handleChange={handleChange}
+                        checkHandleChange={checkHandleChange}
+                        state={state}
+                    />
+                );
             case 2:
                 return <CreateRentalThree handleChange={fileHandleChange} state={state} />;
             default:
@@ -126,7 +131,7 @@ export default function Checkout() {
         setActiveStep(activeStep + 1);
         // send data to backend and redirect to root.
         if (activeStep === steps.length - 1) {
-            const newPayload = new FormData()
+            const newPayload = new FormData();
             newPayload.append('type', state.type);
             newPayload.append('streetNumber', state.streetNumber);
             newPayload.append('streetName', state.streetName);

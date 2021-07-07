@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Founders from "../../images/founders.jpeg";
-import Paul from "../../images/Paul.jpeg";
-import MichaelWon from "../../images/MichaelWon.jpeg";
-import Niaz from "../../images/Niaz.jpg";
+import Founders from '../../images/founders.jpeg';
+import Paul from '../../images/Paul.jpeg';
+import MichaelWon from '../../images/MichaelWon.jpeg';
+import Niaz from '../../images/Niaz.jpg';
 
 export default function AboutUs() {
     const useStyles = makeStyles((theme) => ({
@@ -11,17 +11,17 @@ export default function AboutUs() {
             textAlign: 'center',
         },
         justifyText: {
-            textAlign: "justify",
+            textAlign: 'justify',
         },
         alignRight: {
-            textAlign: "right",
+            textAlign: 'right',
         },
-        divBoarder:{ 
-            display: 'flex', 
+        divBoarder: {
+            display: 'flex',
             margin: '50px',
-            border: "1px solid black",
-            padding: "50px",
-            backgroundColor: "#659DBD",
+            border: '1px solid black',
+            padding: '50px',
+            backgroundColor: '#659DBD',
         },
         emailJumboTron: {
             padding: '20px',
@@ -35,116 +35,163 @@ export default function AboutUs() {
             height: '20vh',
         },
         fitImage: {
-            maxWidth: "100%",
-            maxHeight: "100%",
+            maxWidth: '100%',
+            maxHeight: '100%',
         },
         displayPhoto: {
-            maxWidth: "75%",
-            maxHeight: "75%",
-        }
+            maxWidth: '75%',
+            maxHeight: '75%',
+        },
     }));
 
     const classes = useStyles();
 
     return (
         <React.Fragment>
-            <div className="container d-flex flex-row" style={{ marginTop: "5vh"}}>
+            <div className="container d-flex flex-row" style={{ marginTop: '5vh' }}>
                 <div className="col-5">
-                    <img className={classes.fitImage} src={Founders} alt="Founders"/>
+                    <img className={classes.fitImage} src={Founders} alt="Founders" />
                 </div>
                 <div className="col-7">
                     <h2>Main Developers</h2>
                     <div className={classes.justifyText}>
-                        In the early stages of 2020 the global pandemic had arose, we as five college graduates decided to start a small business — after some planning we started to code, thus the starting of a new generation of renting.
-                        At first we spent some time exploring other rental sites, being a college student we all knew the struggles of finding a new home.
-                        With a vision of building the most trusted rental platform in the world, we all decided to put our time and effort into this project. Paul quit his job, partnered with CTO Niaz and started Vroom in 2020.
-                        By 2021, Vroom was admitted to Top Projects of 2021, propelling Vroom into the tech-world spotlight and allowing Vroom to raise thousands of dollars in venture capital funding from Seneca Capital, Donations Capital and many other high-profile investors.
-                        Today, Vroom operates on a multinational level, serving thousands of landlords and renters across North America.
+                        In the early stages of 2020 the global pandemic had arose, we as five
+                        college graduates decided to start a small business — after some planning we
+                        started to code, thus the starting of a new generation of renting. At first
+                        we spent some time exploring other rental sites, being a college student we
+                        all knew the struggles of finding a new home. With a vision of building the
+                        most trusted rental platform in the world, we all decided to put our time
+                        and effort into this project. Paul quit his job, partnered with CTO Niaz and
+                        started Vroom in 2020. By 2021, Vroom was admitted to Top Projects of 2021,
+                        propelling Vroom into the tech-world spotlight and allowing Vroom to raise
+                        thousands of dollars in venture capital funding from Seneca Capital,
+                        Donations Capital and many other high-profile investors. Today, Vroom
+                        operates on a multinational level, serving thousands of landlords and
+                        renters across North America.
                     </div>
                 </div>
             </div>
-            <div className={classes.emailJumboTron} style={{ marginTop: "5vh"}}>
+            <div className={classes.emailJumboTron} style={{ marginTop: '5vh' }}>
                 <div className={classes.box}>
-                    <h2 style={{ color: 'black'}}>Vroom is already trusted by hundreds of landlords</h2>
+                    <h2 style={{ color: 'black' }}>
+                        Vroom is already trusted by hundreds of landlords
+                    </h2>
                 </div>
             </div>
-           <div className={classes.divBoarder}>
-                <div className={classes.centerText, "col-9"} style={{ alignSelf: 'center' }}>
+            <div className={classes.divBoarder}>
+                <div className={(classes.centerText, 'col-9')} style={{ alignSelf: 'center' }}>
                     <h2>Paul Sin</h2>
                     <blockquote>
-                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
+                        <footer class="blockquote-footer">
+                            Full Stack Developer <cite title="Source Title">@ Vroom</cite>
+                        </footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Growing up in a small community that had a population of about 5000 people. This gave me the opportunity to understand how important one person can be in a community.
-                        As a recent graduate from Seneca College and with the Pandemic in full effect, my group and I thought It would be a great Idea to contribute to the growing role of online renting.
-                        We read articles about how people would view, rent, and even purchase their homes via Zoom call. This is when we knew that an application like Vroom was only a matter of time.
+                        Growing up in a small community that had a population of about 5000 people.
+                        This gave me the opportunity to understand how important one person can be
+                        in a community. As a recent graduate from Seneca College and with the
+                        Pandemic in full effect, my group and I thought It would be a great Idea to
+                        contribute to the growing role of online renting. We read articles about how
+                        people would view, rent, and even purchase their homes via Zoom call. This
+                        is when we knew that an application like Vroom was only a matter of time.
                         Thank you for your support and we hope you enjoy our services.
                     </p>
                 </div>
-                <div className="col-3" style={{display: "flex", justifyContent: "center"}}>
+                <div className="col-3" style={{ display: 'flex', justifyContent: 'center' }}>
                     <img className={classes.displayPhoto} src={Paul} atl="Image of Creators" />
                 </div>
             </div>
             <div style={{ display: 'flex', margin: '50px' }}>
-                <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
-                    <img className={classes.displayPhoto} src={MichaelWon} atl="Image of Creators" />
+                <div className="col-4" style={{ display: 'flex', justifyContent: 'center' }}>
+                    <img
+                        className={classes.displayPhoto}
+                        src={MichaelWon}
+                        atl="Image of Creators"
+                    />
                 </div>
-                <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2  className={classes.alignRight}>Michael Won</h2>
+                <div className={(classes.centerText, 'col-8')} style={{ alignSelf: 'center' }}>
+                    <h2 className={classes.alignRight}>Michael Won</h2>
                     <blockquote className={classes.alignRight}>
-                       <footer class="blockquote-footer">Backend Developer &amp; D.B. Manager <cite title="Source Title">@Vroom</cite></footer>
+                        <footer class="blockquote-footer">
+                            Backend Developer &amp; D.B. Manager{' '}
+                            <cite title="Source Title">@Vroom</cite>
+                        </footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        I'm handsome. I'm cool. Thank you very much. 
-                        You want to hire me? Conact me at Michael.ys.won@gmail.com! 
+                        I'm handsome. I'm cool. Thank you very much. You want to hire me? Conact me
+                        at Michael.ys.won@gmail.com!
                     </p>
                 </div>
             </div>
             <div className={classes.divBoarder}>
-                <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
+                <div className={(classes.centerText, 'col-8')} style={{ alignSelf: 'center' }}>
                     <h2>Niaz Haque</h2>
                     <blockquote>
-                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
+                        <footer class="blockquote-footer">
+                            Full Stack Developer <cite title="Source Title">@ Vroom</cite>
+                        </footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        Since 2010, I have dreamed of becoming a successful Web Developer. From 2018 to 2021 I have embarked on the journey of obtaining more knowledge from studying @ Seneca College.
-                        I love seeking a challenging that allows me to further develop my technical skills while contributing to the goals of organizations.
-                        I really enjoyed working with this team making our dreams come true. Thank you for being apart of the Vroom Community.
+                        Since 2010, I have dreamed of becoming a successful Web Developer. From 2018
+                        to 2021 I have embarked on the journey of obtaining more knowledge from
+                        studying @ Seneca College. I love seeking a challenging that allows me to
+                        further develop my technical skills while contributing to the goals of
+                        organizations. I really enjoyed working with this team making our dreams
+                        come true. Thank you for being apart of the Vroom Community.
                     </p>
                 </div>
-                <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
+                <div className="col-4" style={{ display: 'flex', justifyContent: 'center' }}>
                     <img className={classes.displayPhoto} src={Niaz} atl="Image of Creators" />
                 </div>
             </div>
             <div style={{ display: 'flex', margin: '50px' }}>
-                <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
-                    <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
+                <div className="col-4" style={{ display: 'flex', justifyContent: 'center' }}>
+                    <img
+                        className={classes.displayPhoto}
+                        src="https://picsum.photos/300/200"
+                        atl="Image of Creators"
+                    />
                 </div>
-                <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
-                    <h2  className={classes.alignRight}>Royston Ng</h2>
+                <div className={(classes.centerText, 'col-8')} style={{ alignSelf: 'center' }}>
+                    <h2 className={classes.alignRight}>Royston Ng</h2>
                     <blockquote className={classes.alignRight}>
-                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@ Vroom</cite></footer>
+                        <footer class="blockquote-footer">
+                            Full Stack Developer <cite title="Source Title">@ Vroom</cite>
+                        </footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                    There's really not much to say about me. I'm a puzzle addict, which has translated to a love of programming. It's funny how easily a love of puzzles translates into
-                    a drive to start learning programming. Both can be incredibly frustrating at times, but rewarding when you find a solution. The only major difference is that
-                    programming is a team-effort which presents a new and more difficult set of challenges. I'm looking forward to growing with this team and seeing how the
-                    pieces of the Vroom puzzle fit together.
+                        There's really not much to say about me. I'm a puzzle addict, which has
+                        translated to a love of programming. It's funny how easily a love of puzzles
+                        translates into a drive to start learning programming. Both can be
+                        incredibly frustrating at times, but rewarding when you find a solution. The
+                        only major difference is that programming is a team-effort which presents a
+                        new and more difficult set of challenges. I'm looking forward to growing
+                        with this team and seeing how the pieces of the Vroom puzzle fit together.
                     </p>
                 </div>
             </div>
             <div className={classes.divBoarder}>
-                <div className={classes.centerText, "col-8"} style={{ alignSelf: 'center' }}>
+                <div className={(classes.centerText, 'col-8')} style={{ alignSelf: 'center' }}>
                     <h2>Saumya Vasa</h2>
                     <blockquote>
-                       <footer class="blockquote-footer">Full Stack Developer <cite title="Source Title">@Vroom</cite></footer>
+                        <footer class="blockquote-footer">
+                            Full Stack Developer <cite title="Source Title">@Vroom</cite>
+                        </footer>
                     </blockquote>
                     <p className={classes.justifyText}>
-                        As I am moving back to Canada I have experienced first-hand lack of a proper app for long-term rentals. So, along with my group we are trying to create an app where both landlords and tenants can have details about the place and knowledge about each other's reliablity. Also, our goal is to integrate all the features in our app for ease of users.
+                        As I am moving back to Canada I have experienced first-hand lack of a proper
+                        app for long-term rentals. So, along with my group we are trying to create
+                        an app where both landlords and tenants can have details about the place and
+                        knowledge about each other's reliablity. Also, our goal is to integrate all
+                        the features in our app for ease of users.
                     </p>
                 </div>
-                <div className="col-4" style={{display: "flex", justifyContent: "center"}}>
-                    <img className={classes.displayPhoto} src="https://picsum.photos/300/200" atl="Image of Creators" />
+                <div className="col-4" style={{ display: 'flex', justifyContent: 'center' }}>
+                    <img
+                        className={classes.displayPhoto}
+                        src="https://picsum.photos/300/200"
+                        atl="Image of Creators"
+                    />
                 </div>
             </div>
         </React.Fragment>

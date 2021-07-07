@@ -1,7 +1,7 @@
 import React from 'react';
 import { TiSocialTwitter, TiSocialInstagram, TiSocialFacebook } from 'react-icons/ti';
-import {Link} from 'react-router-dom';
- 
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
     return (
         <footer class="container border-top pt-5 mt-5">

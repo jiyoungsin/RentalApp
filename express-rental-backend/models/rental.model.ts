@@ -73,21 +73,21 @@ const rentalSchema = new mongoose.Schema(
         },
         image: {
             data: Buffer,
-            contentType: String
+            contentType: String,
         },
         landlord: {
             type: String,
             required: true,
         },
-        tanant:{
+        tanant: {
             type: [],
-        }
+        },
     },
     {
         collection: 'rentUnit',
         timestamps: {
             currentTime: () => Date.now(),
-        
+
             createdAt: 'timeCreated',
         },
     }

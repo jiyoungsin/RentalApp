@@ -45,7 +45,7 @@ export default function Signup() {
         rentals: [],
         viewRentals: [],
         favoriteRentals: [],
-        reviews: []
+        reviews: [],
     });
     // boolean to stop page from rendering every 1 second.
     const [signUpSuccessful, setSignUpSuccessful] = useState(false);
@@ -113,12 +113,12 @@ export default function Signup() {
             .get('http://localhost:5000/users/usernames')
             .then((res) => {
                 userNames = res.data;
-                console.log("i come in");
+                console.log('i come in');
                 for (let i = 0; i < userNames.length; i++) {
                     console.log(userNames[i]);
                     if (userNames[i].userName == value) {
                         error = 'USER NAME IS BEING USED';
-                        document.getElementById("userNameError").innerHTML = error;
+                        document.getElementById('userNameError').innerHTML = error;
                     }
                 }
             })
@@ -168,30 +168,30 @@ export default function Signup() {
         const payload = { ...formData };
 
         for (const i in payload && count < 7) {
-            if (`${payload[i]}` == '' ) {
+            if (`${payload[i]}` == '') {
                 isOkay = false;
                 document.getElementById(`${i}Error`).innerHTML = 'THIS FIELD IS REQUIRED';
-            }else{
-                if(document.getElementById(`${i}Error`).innerHTML == 'THIS FIELD IS REQUIRED')
+            } else {
+                if (document.getElementById(`${i}Error`).innerHTML == 'THIS FIELD IS REQUIRED')
                     document.getElementById(`${i}Error`).innerHTML = '';
-            } 
-            count++
+            }
+            count++;
         }
         axios
             .get('http://localhost:5000/users/usernames')
             .then((res) => {
                 userNames = res.data;
-                console.log("i come in");
+                console.log('i come in');
                 for (let i = 0; i < userNames.length; i++) {
                     console.log(userNames[i]);
                     if (userNames[i].userName == value) {
                         isUsed = true;
                         error = 'USER NAME IS BEING USED';
-                        document.getElementById("userNameError").innerHTML = error;
+                        document.getElementById('userNameError').innerHTML = error;
                     }
                 }
-                if(isUsed == false){
-                    document.getElementById("userNameError").innerHTML = '';
+                if (isUsed == false) {
+                    document.getElementById('userNameError').innerHTML = '';
                 }
                 count = 0;
                 for (const i in payload && count < 7) {
@@ -207,10 +207,7 @@ export default function Signup() {
                 console.error(err);
                 alert('Error Sending Data to Backend from ValidateUserName');
             });
-       
     };
-
-
 
     // sends sign up data to backend.
     const onSubmit = () => {

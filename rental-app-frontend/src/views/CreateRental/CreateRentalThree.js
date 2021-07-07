@@ -7,7 +7,7 @@ export default function CreateRentalTwo({ handleChange, state }) {
         <div className={classes.container}>
             <form className={classes.formStyle}>
                 <div class="container">
-                <p>Upload Pictures of Your House!</p>
+                    <p>Upload Pictures of Your House!</p>
                 </div>
                 <div class="container">
                     <label for="image">Select Images: </label>&ensp;

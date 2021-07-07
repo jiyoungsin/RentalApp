@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import InputForm from '../../components/InputForm';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from 'react-bootstrap/Button';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 export default function EditRental({ match }) {
@@ -43,14 +43,14 @@ export default function EditRental({ match }) {
 
     const classes = UseStyles();
     const [state, setState] = useState({
-        type: "",
-        streetNumber: "",
-        streetName: "",
-        postalCode: "",
-        price: "",
-        parking: "",
-        room: "",
-        bathroom: "",
+        type: '',
+        streetNumber: '',
+        streetName: '',
+        postalCode: '',
+        price: '',
+        parking: '',
+        room: '',
+        bathroom: '',
         petFriendly: false,
         balcony: false,
         airConditional: false,
@@ -61,10 +61,10 @@ export default function EditRental({ match }) {
         water: false,
         roommate: false,
         availability: true,
-        additionalInfo: "",
-        Reviews:[],
-        Landlord: "",
-        images:[]
+        additionalInfo: '',
+        Reviews: [],
+        Landlord: '',
+        images: [],
     });
     const [edited, setEdited] = useState(false);
 
@@ -115,14 +115,14 @@ export default function EditRental({ match }) {
             })
             .then((res) => {
                 console.log('Updated Rental Successfully');
-                setEdited(true)
+                setEdited(true);
             })
             .catch((err) => {
                 alert('ERROR: Updating Rental');
             });
     };
 
-    return ( 
+    return (
         <div className={classes.container}>
             <h1>Edit Rental</h1>
             <form className={classes.formStyle}>
@@ -205,7 +205,7 @@ export default function EditRental({ match }) {
                     id="bathroom"
                     name="bathroom"
                     value={state.bathroom}
-                />      
+                />
                 <label className={classes.labelText} for="additionalInfo">
                     additionalInfo
                 </label>
@@ -345,5 +345,5 @@ export default function EditRental({ match }) {
             </form>
             {edited ? <Redirect to="/" /> : null}
         </div>
-    ) 
+    );
 }

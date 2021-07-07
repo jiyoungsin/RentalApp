@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Profile(req, res) {
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState();
-    const [loading, setLoading] = useState(false); 
+    const [loading, setLoading] = useState(false);
     const { user, setUser } = useContext(userSessionContext);
 
     useEffect(() => {
@@ -62,42 +62,44 @@ export default function Profile(req, res) {
 
     return (
         <React.Fragment>
-            {loading ? 
-            <div className={classes.fillPage}>
-                <div className={classes.profileHeader}>
-                    <img
-                        className={classes.profilePicture}
-                        src="https://picsum.photos/100/125"
-                        alt="profile photo of user"
-                    />
-                    <h2 style={{ marginLeft: '40px', color: 'white' }}>Paul Sin</h2>
+            {loading ? (
+                <div className={classes.fillPage}>
+                    <div className={classes.profileHeader}>
+                        <img
+                            className={classes.profilePicture}
+                            src="https://picsum.photos/100/125"
+                            alt="profile photo of user"
+                        />
+                        <h2 style={{ marginLeft: '40px', color: 'white' }}>Paul Sin</h2>
+                    </div>
+                    {loading
+                        ? rentalPost.map((item) => (
+                              <RentalPost
+                                  key={item._id}
+                                  src="https://picsum.photos/100/125"
+                                  address="800 Sunmount Road Basement Apt"
+                                  type={item.type}
+                                  description={item.description}
+                                  profilePic="https://picsum.photos/10/10"
+                                  sendersName="Michael Won"
+                                  lastMsg="2W"
+                                  price={item.price}
+                                  parking={item.parking}
+                                  room={item.room}
+                                  bathroom={item.bathroom}
+                                  pet={item.pet}
+                                  Review={item.Review}
+                                  unitPictures={item.unitPictures}
+                                  _id={item._id}
+                              />
+                          ))
+                        : null}
+                    <Link className={classes.addLink} to="/createRental">
+                        <AddCircleIcon />
+                    </Link>
                 </div>
-                { loading ? (rentalPost.map((item)=>(
-                    <RentalPost
-                        key={item._id}
-                        src="https://picsum.photos/100/125"
-                        address="800 Sunmount Road Basement Apt"
-                        type={item.type}
-                        description={item.description}
-                        profilePic="https://picsum.photos/10/10"
-                        sendersName="Michael Won"
-                        lastMsg="2W"
-                        price={item.price}
-                        parking={item.parking}
-                        room={item.room}
-                        bathroom={item.bathroom}
-                        pet={item.pet}
-                        Review={item.Review}
-                        unitPictures={item.unitPictures}
-                        _id={item._id}
-                    />
-                ))) : null
-                }
-                <Link className={classes.addLink} to="/createRental">
-                    <AddCircleIcon />
-                </Link>
-            </div>
-            : null };
-       </React.Fragment>
+            ) : null}
+            ;
+        </React.Fragment>
     );
 }

@@ -8,10 +8,21 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const app = express.Router();
 
-
 // route to sign up.
 app.post('/signup', async (req, res) => {
-    const { password, firstName, lastName, email, phoneNumber, userName, role, rentals, viewRentals, favoriteRentals, reviews } = req.body;
+    const {
+        password,
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        userName,
+        role,
+        rentals,
+        viewRentals,
+        favoriteRentals,
+        reviews,
+    } = req.body;
     const database = mongoose.connection;
     const hash = bcrypt.hashSync(password, saltRounds);
 
@@ -29,7 +40,7 @@ app.post('/signup', async (req, res) => {
             rentals: rentals,
             viewRentals: viewRentals,
             favoriteRentals: favoriteRentals,
-            reviews: reviews
+            reviews: reviews,
         });
 
         const message = {

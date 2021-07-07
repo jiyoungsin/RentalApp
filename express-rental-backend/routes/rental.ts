@@ -2,16 +2,16 @@ import express from 'express';
 import mongoose from 'mongoose';
 import Rental from '../models/rental.model';
 import sgMail from '@sendgrid/mail';
-import uploadMiddleware from "../src/middleware/uploadDriver";
+import uploadMiddleware from '../src/middleware/uploadDriver';
 
-const fs = require('fs')
-const app = express.Router(); 
+const fs = require('fs');
+const app = express.Router();
 const API_KEY = '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';
 
 sgMail.setApiKey(API_KEY);
 // this route is used when creating a Rental.
 // we will need to append the new rentals to the users array of rentals.
-app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
+app.post('/createrental', uploadMiddleware.single('image'), async (req, res) => {
     const {
         type,
         streetNumber,
@@ -63,18 +63,16 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
         landlord: Landlord,
         image: {
             data: fs.readFileSync(req.file.path),
-            contentType: 'image/png'
-        }
+            contentType: 'image/png',
+        },
     });
 
-    const message = 
-        {
-            to: 'vroomgrid@gmail.com',
-            from: 'VroomInc@officalbase.com',
-            subject: 'New Rental Added',
-            text: 'Hello world',
-            html: 
-            `
+    const message = {
+        to: 'vroomgrid@gmail.com',
+        from: 'VroomInc@officalbase.com',
+        subject: 'New Rental Added',
+        text: 'Hello world',
+        html: `
                 <h1>${type} has been added</h1>
                 <p>Your unit has been added with the following details:</p>
                 <br/>
@@ -87,20 +85,20 @@ app.post('/createrental',uploadMiddleware.single('image'), async (req, res) => {
                 <p><strong>Listed Price:</strong> ${price}</p>
                 <br/>
 
-            `
-        };
+            `,
+    };
 
     (async () => {
         try {
-          await sgMail.send(message);
+            await sgMail.send(message);
         } catch (error) {
-          console.error(error);
-      
-          if (error.response) {
-            console.error(error.response.body)
-          }
+            console.error(error);
+
+            if (error.response) {
+                console.error(error.response.body);
+            }
         }
-      })();
+    })();
     res.status(200).json('Saved to Database');
 });
 
@@ -126,24 +124,22 @@ app.get('/all', async (req, res) => {
             } else {
                 return res.json(rental);
             }
-        })
+        });
     } catch {
         console.log('Failed to Fetching rental');
     }
 });
 
 app.post('/users-rental', async (req, res) => {
-    const {
-        userName
-    } = req.body.user;
+    const { userName } = req.body.user;
     try {
-        await Rental.find({landlord: userName}, (err: any, rental: any) => {
+        await Rental.find({ landlord: userName }, (err: any, rental: any) => {
             if (err) {
                 res.send(err);
             } else {
                 return res.json(rental);
             }
-        })
+        });
     } catch {
         console.log('Failed to load rental');
     }
