@@ -153,8 +153,7 @@ const CheckoutForm = () => {
                 Payment successful
             </div>
             <div className="ResultMessage">
-                Thanks for trying Stripe Elements. No money was charged, but we generated a
-                PaymentMethod: {paymentMethod.id}
+                Thanks for trying our "secured" payment service.We recieved your payment successfully. We will reach out to you with details in 2-3 working days.: {paymentMethod.id}
             </div>
             <ResetButton onClick={reset} />
         </div>
