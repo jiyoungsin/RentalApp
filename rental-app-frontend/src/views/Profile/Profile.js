@@ -41,6 +41,8 @@ export default function Profile(req, res) {
     const [rentalPost, setRentalPost] = useState();
     const [loading, setLoading] = useState(false);
     const { user, setUser } = useContext(userSessionContext);
+    const usersFirstName = user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
+    const usersLastName = user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1);
 
     useEffect(() => {
         const payload = { user };
@@ -70,7 +72,7 @@ export default function Profile(req, res) {
                             src="https://picsum.photos/100/125"
                             alt="profile photo of user"
                         />
-                        <h2 style={{ marginLeft: '40px', color: 'white' }}>Paul Sin</h2>
+                        <h2 style={{ marginLeft: '40px', color: 'white' }}>{usersFirstName} {usersLastName}</h2>
                     </div>
                     {loading
                         ? rentalPost.map((item) => (
