@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '20px',
         marginBottom: '20px',
     },
-    labelText: {
-        fontSize: '15px',
-    },
     checkbox: {
         display: 'flex',
         marginTop: '10px',
@@ -36,6 +33,18 @@ const useStyles = makeStyles((theme) => ({
         height: '30px',
         width: '30px',
     },
+    label:{
+        display: "inline-block",
+        float: "left",
+        clear: "left",
+        width: "150px",
+        textAlign: "right",
+        fontSize: '15px',
+    },
+    textBoxStyling :{
+        fontSize: '15px',
+        fontWeight: "bold",
+    }
 }));
 
 export { useStyles };

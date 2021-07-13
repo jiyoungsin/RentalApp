@@ -8,13 +8,15 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
             <form className={classes.formStyle}>
                 <div class="container">
                     <p>
-                        *** Help us find right tenants for you by answering following options! ***
+                        <strong>
+                            *** Help us find right tenants for you by answering following options! ***
+                        </strong>
                     </p>
                 </div>
                 <div class="container">
                     <div className="row">
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.gym ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="gym" >
+                            <label  for="gym" >
                                 Gym
                             </label>{' '}
                             &ensp;
@@ -27,7 +29,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                             />
                         </div>
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.water ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="water">
+                            <label  for="water">
                                 Water
                             </label>{' '}
                             &ensp;
@@ -40,7 +42,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                             />
                         </div>
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.hydro ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="hydro">
+                            <label  for="hydro">
                                 Hydro
                             </label>{' '}
                             &ensp;
@@ -57,7 +59,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                 <div class="container">
                     <div className="row">
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.wifi ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="wifi">
+                            <label  for="wifi">
                                 Internet
                             </label>{' '}
                             &ensp;
@@ -70,7 +72,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                             />
                         </div>
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.balcony ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="balcony">
+                            <label  for="balcony">
                                 Balcony
                             </label>{' '}
                             &ensp;
@@ -83,7 +85,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                             />
                         </div>
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.roommate ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="roommate">
+                            <label  for="roommate">
                                 Roommate
                             </label>{' '}
                             &ensp;
@@ -100,7 +102,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                 <div class="container">
                     <div className="row">
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.petFriendly ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="petFriendly">
+                            <label  for="petFriendly">
                                 Pet-Friendly
                             </label>{' '}
                             &ensp;
@@ -113,7 +115,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                             />
                         </div>
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.dishWasher ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="dishWasher">
+                            <label  for="dishWasher">
                                 Dish-Washer
                             </label>{' '}
                             &ensp;
@@ -126,7 +128,7 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                             />
                         </div>
                         <div className="col-4" style={{border: "1px solid black", backgroundColor: state.airConditional ? "yellow" : "white"}}>
-                            <label className={classes.labelText} for="airConditional">
+                            <label  for="airConditional">
                                 Air-Conditional
                             </label>{' '}
                             &ensp;
@@ -140,23 +142,18 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                         </div>
                     </div>
                 </div>
-
-                <div class="container">
-                    <label className={classes.labelText} for="additionalInfo">
-                        Additional Info:
-                    </label>
-                </div>
-                <div class="container">
-                    <textarea
-                        onChange={handleChange}
-                        id="additionalInfo"
-                        name="additionalInfo"
-                        rows="4"
-                        cols="50"
-                        placeholder="Please provide us any additional info"
-                        value={state.additionalInfo}
-                    ></textarea>
-                </div>
+                <label className={classes.textBoxStyling} for="additionalInfo">
+                    Additional Info:
+                </label>
+                <textarea
+                    onChange={handleChange}
+                    id="additionalInfo"
+                    name="additionalInfo"
+                    rows="4"
+                    cols="50"
+                    placeholder="Please provide us any additional info"
+                    value={state.additionalInfo}
+                ></textarea>
             </form>
         </div>
     );
