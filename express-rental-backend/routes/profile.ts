@@ -1,9 +1,28 @@
 import express from 'express';
 import Rental from '../models/rental.model';
+import User from '../models/user.model';
+import uploadMiddleware from '../src/middleware/uploadDriver';
 
 const app = express.Router();
 
-app.post('/Update', (req, res) => {});
+app.put('/:id', uploadMiddleware.single('image'), async (req, res) => {
+    let id = req.params.id;
+    console.log("id")
+    console.log(id)
+    console.log("req.body")
+    console.log(req.body)
+    const payload = await User.updateOne({ _id: id }, req.body)
+    .then((response) => {
+        console.log('Successfully Updated Profile Picture');
+        console.log("response")
+        console.log(response)
+        res.send(response);
+    })
+    .catch((err) => {
+        console.log('ERROR: while Updating Profile Picture');
+    });
+    res.status(204);
+});
 
 app.get('/:rental', async (req, res) => {
     const { rental } = req.params;

@@ -42,6 +42,7 @@ export default function Signup() {
         firstName: '',
         phoneNumber: '',
         role: 'customer',
+        image: [],
         rentals: [],
         viewRentals: [],
         favoriteRentals: [],
@@ -124,7 +125,7 @@ export default function Signup() {
             })
             .catch((err) => {
                 console.error(err);
-                alert('Error Sending Data to Backend from ValidateUserName');
+                alert('USER NAME IS BEING USED');
             });
     };
 

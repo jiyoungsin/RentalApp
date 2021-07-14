@@ -78,7 +78,6 @@ export default function RentalPost({
     const classes = useStyles();
     const EditLink = `/rentalUnit/${_id}`;
     const RentalLink = `/rental/${_id}`;
-
     const [requestDelete, setRequestDelete] = useState(false);
     const buttonPushed = () => {
         axios
@@ -95,7 +94,7 @@ export default function RentalPost({
     return requestDelete === false ? (
         <React.Fragment>
             <div className={classes.container}>
-                <img src={src} alt="Picture Of Rental" />
+                <img className="rounded border border-dark" src={src} alt="Picture Of Rental" style={{width: "200px", height: "135px"}}/>
                 <div className={classes.rentalCard}>
                     <Link
                         to={RentalLink}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
@@ -62,23 +63,35 @@ export default function Profile(req, res) {
             });
     }, [loading]);
 
+    const arrayBufferTobase64 = (buffer) => {
+        let binary = '';
+        let base64Flag = 'data:image/jpeg;base64,';
+        let bytes = [].slice.call(new Uint8Array(buffer.data));
+        bytes.forEach((b) => {
+            binary += String.fromCharCode(b);
+        });
+
+        let binaryString = window.btoa(binary);
+
+        return base64Flag + binaryString;
+    };
     return (
         <React.Fragment>
             {loading ? (
                 <div className={classes.fillPage}>
                     <div className={classes.profileHeader}>
-                        <img
-                            className={classes.profilePicture}
-                            src="https://picsum.photos/100/125"
-                            alt="profile photo of user"
-                        />
-                        <h2 style={{ marginLeft: '40px', color: 'white' }}>{usersFirstName} {usersLastName}</h2>
+                            <img
+                                className={classes.profilePicture}
+                                src="https://picsum.photos/100/125"
+                                alt="profile photo of user"
+                            />
+                        <h2 style={{ marginLeft: '40px', color: 'white' }}>{user.firstName} {user.lastName}</h2>
                     </div>
                     {loading
                         ? rentalPost.map((item) => (
                               <RentalPost
                                   key={item._id}
-                                  src="https://picsum.photos/100/125"
+                                  src={arrayBufferTobase64(item.image.data)}
                                   address="800 Sunmount Road Basement Apt"
                                   type={item.type}
                                   description={item.description}

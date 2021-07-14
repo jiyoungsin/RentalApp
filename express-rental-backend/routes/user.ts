@@ -22,10 +22,12 @@ app.post('/signup', async (req, res) => {
         viewRentals,
         favoriteRentals,
         reviews,
+        image,
     } = req.body;
     const database = mongoose.connection;
     const hash = bcrypt.hashSync(password, saltRounds);
 
+    // Move This to Process .env
     sgMail.setApiKey('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');
 
     try {
@@ -41,6 +43,7 @@ app.post('/signup', async (req, res) => {
             viewRentals: viewRentals,
             favoriteRentals: favoriteRentals,
             reviews: reviews,
+            image: image,
         });
 
         const message = {

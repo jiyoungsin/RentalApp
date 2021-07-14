@@ -80,8 +80,6 @@ export default function Checkout() {
         Landlord: user.userName,
         image: [],
     });
-    console.log('state');
-    console.log(state);
     // Updates user input.
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -105,7 +103,7 @@ export default function Checkout() {
             [id]: checked,
         }));
     };
-
+    console.log(state)
     const getStepContent = (step) => {
         switch (step) {
             case 0:

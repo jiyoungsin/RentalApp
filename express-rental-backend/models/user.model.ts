@@ -45,6 +45,10 @@ const userSchema = new mongoose.Schema(
         reviews: {
             type: Array,
         },
+        image: {
+            data: Buffer,
+            contentType: String,
+        },
     },
     {
         collection: 'user',

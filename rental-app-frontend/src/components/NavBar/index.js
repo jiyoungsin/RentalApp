@@ -176,7 +176,7 @@ export default function NavBar() {
     const role = user.role;
     return role === 'Admin'
         ? adminNavBar(user, signOut)
-        : role === 'user'
+        : role === 'customer'
         ? loggedInUserNavBar(user, signOut)
         : notLoggedInUserNavBar(user);
 }

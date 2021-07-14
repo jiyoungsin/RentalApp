@@ -37,12 +37,10 @@ export default function Rental() {
     let rental_id = pathname[2];
 
     const { user, setUser } = useContext(userSessionContext);
-    const { rental } = user;
     const classes = useStyles();
     const [rentalPost, setRentalPost] = useState([]);
     const [rentalPostImage, setRentalPostImage] = useState('');
     const [loaded, setLoaded] = useState(false);
-    const theImage = '';
 
     const arrayBufferTobase64 = (buffer) => {
         let binary = '';
@@ -57,10 +55,6 @@ export default function Rental() {
         return base64Flag + binaryString;
     };
 
-    const style = {
-        width: '10%',
-        height: '10%',
-    };
     useEffect(() => {
         axios
             .get(`http://localhost:5000/profile/` + rental_id)
