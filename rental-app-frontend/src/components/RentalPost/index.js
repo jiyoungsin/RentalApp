@@ -124,7 +124,7 @@ export default function RentalPost({
                     >
                         <span className={classes.greenPriceTag}>$ {price}</span>
                         <div className="font-italic" style={{color :"#808080"}}>{streetNumber} {streetName} {postalCode}</div>
-                        <div>{additionalInfo}</div>
+                        <div style={{width : "150px", overflow: "hidden", whiteSpace: "nowrap",textOverflow: "ellipsis"}}>{additionalInfo}</div>
                         <div style={{ padding: '10px' }}>
                             <img
                                 className={classes.messagedProfilePicture}
