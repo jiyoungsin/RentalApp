@@ -84,7 +84,7 @@ export default function Rental() {
                                 src={arrayBufferTobase64(rentalPostImage)}
                                 alt="pictures of unit"
                                 style={{ width: '100%' }}
-                            />
+                            />  
                             <div
                                 className="d-flex justify-content-between mt-2 mb-2"
                                 style={{ width: '100%' }}

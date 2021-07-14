@@ -4,6 +4,17 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import OutdoorGrillIcon from '@material-ui/icons/OutdoorGrill';
+import LocalParkingIcon from '@material-ui/icons/LocalParking';
+import LocalHotelIcon from '@material-ui/icons/LocalHotel';
+import OpacityIcon from '@material-ui/icons/Opacity';
+import BathtubIcon from '@material-ui/icons/Bathtub';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
+import PeopleIcon from '@material-ui/icons/People';
+import WifiIcon from '@material-ui/icons/Wifi';
+import PetsIcon from '@material-ui/icons/Pets';
 
 const useStyles = makeStyles((theme) => ({
     messagedProfilePicture: {
@@ -59,21 +70,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RentalPost({
-    type,
     src,
-    address,
-    description,
-    sendersName,
-    profilePic,
-    lastMsg,
+    key,
     _id,
+    type,
+    streetNumber,
+    streetName,
+    postalCode,
     price,
     parking,
     room,
     bathroom,
-    pet,
-    Review,
-    unitPictures,
+    petFriendly,
+    balcony,
+    airConditional,
+    gym,
+    hydro,
+    water,
+    roommate,
+    Availability,
+    WiFi,
+    additionalInfo,
+    postDate,
+    Reviews,
+    Landlord,
+    profilePic,
 }) {
     const classes = useStyles();
     const EditLink = `/rentalUnit/${_id}`;
@@ -102,17 +123,82 @@ export default function RentalPost({
                         style={{ textDecoration: 'none', color: 'black' }}
                     >
                         <span className={classes.greenPriceTag}>$ {price}</span>
-                        <div className="font-italic">{address}</div>
-                        <div>{description}</div>
+                        <div className="font-italic" style={{color :"#808080"}}>{streetNumber} {streetName} {postalCode}</div>
+                        <div>{additionalInfo}</div>
                         <div style={{ padding: '10px' }}>
                             <img
                                 className={classes.messagedProfilePicture}
                                 src={profilePic}
                                 alt="Person that messaged Profile Picture"
                             />
-                            {sendersName}
+                            {Landlord}
                         </div>
                     </Link>
+                </div>
+                <div>
+                    <span className={classes.iconFlex}>
+                        <LocalParkingIcon className={classes.iconPadding} /> :{' '}
+                        {parking}&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span className={classes.iconFlex}>
+                        <LocalHotelIcon className={classes.iconPadding} />:{' '}
+                        {room}&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span className={classes.iconFlex}>
+                        <BathtubIcon className={classes.iconPadding} /> :{' '}
+                        {bathroom}&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <span className={classes.iconFlex}>
+                        <PetsIcon className={classes.iconPadding} /> :{' '}
+                        {petFriendly ? 'Allowed' : 'Not Allowed'}&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <table className="mt-2">
+                        <tr style={{ textAlign: 'center' }}>
+                            <th>Utilities</th>
+                            <th>Amenities</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <AcUnitIcon />
+                                {airConditional ? ' Included' : ' Not Included'}
+                            </td>
+                            <td>
+                                <FitnessCenterIcon className="ml-2" /> Gym :
+                                {gym ? ' Included' : ' Not Included'}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <OpacityIcon />
+                                {water ? ' Included' : ' Not Included'}
+                            </td>
+                            <td>
+                                <PeopleIcon className="ml-2" /> Roommates :
+                                {roommate ? ' Included' : ' Not Included'}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <WifiIcon />
+                                {balcony ? ' Included' : ' Not Included'}
+                            </td>
+                            <td>
+                                <OutdoorGrillIcon className="ml-2" /> Outdoor Area :
+                                {balcony ? ' Included' : ' Not Included'}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <FlashOnIcon />
+                                {hydro ? ' Included' : ' Not Included'}
+                            </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
                 </div>
                 <div className={classes.lastTalked}>
                     <Button>
@@ -124,7 +210,7 @@ export default function RentalPost({
                         Delete
                     </Button>
                     <Button style={{ color: '#000' }} disabled>
-                        {lastMsg}
+                        {postDate}
                     </Button>
                 </div>
             </div>

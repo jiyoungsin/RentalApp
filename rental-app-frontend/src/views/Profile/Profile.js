@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
@@ -70,9 +69,7 @@ export default function Profile(req, res) {
         bytes.forEach((b) => {
             binary += String.fromCharCode(b);
         });
-
         let binaryString = window.btoa(binary);
-
         return base64Flag + binaryString;
     };
     return (
@@ -90,22 +87,32 @@ export default function Profile(req, res) {
                     {loading
                         ? rentalPost.map((item) => (
                               <RentalPost
-                                  key={item._id}
-                                  src={arrayBufferTobase64(item.image.data)}
-                                  address="800 Sunmount Road Basement Apt"
-                                  type={item.type}
-                                  description={item.description}
-                                  profilePic="https://picsum.photos/10/10"
-                                  sendersName="Michael Won"
-                                  lastMsg="2W"
-                                  price={item.price}
-                                  parking={item.parking}
-                                  room={item.room}
-                                  bathroom={item.bathroom}
-                                  pet={item.pet}
-                                  Review={item.Review}
-                                  unitPictures={item.unitPictures}
-                                  _id={item._id}
+                                src={arrayBufferTobase64(item.image.data)}
+                                key={item._id}
+                                _id={item._id}
+                                type={item.type}
+                                streetNumber={item.streetNumber}
+                                streetName={item.streetName}
+                                postalCode={item.postalCode}
+                                price={item.price}
+                                parking={item.parking}
+                                room={item.room}
+                                bathroom={item.bathroom}
+                                petFriendly={item.petFriendly}
+                                balcony={item.balcony}
+                                airConditional={item.airConditional}
+                                gym={item.gym}
+                                hydro={item.hydro}
+                                water={item.water}
+                                roommate={item.roommate}
+                                Availability={item.availability}
+                                WiFi={item.wifi}
+                                additionalInfo={item.additionalInfo}
+                                postDate={item.postDate}
+                                //     // tanant ?
+                                Reviews={item.Reviews}
+                                Landlord={item.landlord}
+                                profilePic="https://picsum.photos/10/10"
                               />
                           ))
                         : null}
