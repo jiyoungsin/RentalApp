@@ -47,6 +47,17 @@ export default function PostCard({ rentals }) {
         setExpanded(!expanded);
     };
 
+    const arrayBufferTobase64 = (buffer) => {
+        let binary = '';
+        let base64Flag = 'data:image/jpeg;base64,';
+        let bytes = [].slice.call(new Uint8Array(buffer.data));
+        bytes.forEach((b) => {
+            binary += String.fromCharCode(b);
+        });
+        let binaryString = window.btoa(binary);
+        return base64Flag + binaryString;
+    };
+
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -65,7 +76,7 @@ export default function PostCard({ rentals }) {
             />
             <CardMedia
                 className={classes.media}
-                image="https://picsum.photos/100/100"
+                image={arrayBufferTobase64(rentals.image.data)}
                 title="Paella dish"
             />
             <CardContent>
