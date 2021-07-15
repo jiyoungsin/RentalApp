@@ -13,3 +13,10 @@
 #rent-google-maps {
     height: 100%;
 }
+.star:hover {
+    background-color: yellow;
+}
+
+form input[type="radio"]:checked + label {
+    background-color: yellow;
+}
