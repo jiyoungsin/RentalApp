@@ -58,6 +58,14 @@ export default function Signup() {
             [id]: value,
         }));
     };
+    const fileHandleChange = (e) => {
+        setFormData((ps) => ({
+            ...ps,
+            image: e.target.files[0],
+        }));
+    };
+    console.log("formData")
+    console.log(formData)
     const validateText = (e) => {
         const { id, value } = e.target;
         let error;
@@ -213,9 +221,23 @@ export default function Signup() {
     // sends sign up data to backend.
     const onSubmit = () => {
         // saves data to Database Endpoint /signup
-        const payload = { ...formData };
+        const newPayload = new FormData();
+        newPayload.append('email', formData.email);
+        newPayload.append('userName', formData.userName);
+        newPayload.append('lastName', formData.lastName);
+        newPayload.append('password', formData.password);
+        newPayload.append('rePassword', formData.rePassword);
+        newPayload.append('firstName', formData.firstName);
+        newPayload.append('phoneNumber', formData.phoneNumber);
+        newPayload.append('role', formData.role);
+        newPayload.append('image', formData.image);
+        newPayload.append('rentals', formData.rentals);
+        newPayload.append('viewRentals', formData.viewRentals);
+        newPayload.append('favoriteRentals', formData.favoriteRentals);
+        newPayload.append('reviews', formData.reviews);
+        
         axios
-            .post('http://localhost:5000/users/signup', payload, {
+            .post('http://localhost:5000/users/signup', newPayload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -319,7 +341,10 @@ export default function Signup() {
                     name="phoneNumber"
                 />
                 <p id="phoneNumberError" style={{ color: 'red' }}></p>
-
+                <div>
+                    <label className={classes.labelText} for="image">Select Profile Picture: </label>&ensp;
+                    <input type="file" id="image" name="image" onChange={fileHandleChange}></input>
+                </div>
                 <Button
                     variant="primary"
                     className={classes.buttonPadding}

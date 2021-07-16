@@ -5,6 +5,7 @@ import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
 import { userSessionContext } from '../../contextFile';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import arrayBufferToBase64 from "../../utilities/arrayBufferToBase64";
 
 //CSS Styles
 const useStyles = makeStyles((theme) => ({
@@ -62,32 +63,22 @@ export default function Profile(req, res) {
             });
     }, [loading]);
 
-    const arrayBufferTobase64 = (buffer) => {
-        let binary = '';
-        let base64Flag = 'data:image/jpeg;base64,';
-        let bytes = [].slice.call(new Uint8Array(buffer.data));
-        bytes.forEach((b) => {
-            binary += String.fromCharCode(b);
-        });
-        let binaryString = window.btoa(binary);
-        return base64Flag + binaryString;
-    };
     return (
         <React.Fragment>
             {loading ? (
                 <div className={classes.fillPage}>
                     <div className={classes.profileHeader}>
-                            <img
-                                className={classes.profilePicture}
-                                src="https://picsum.photos/100/125"
-                                alt="profile photo of user"
-                            />
+                        <img
+                            className={classes.profilePicture}
+                            src={user.image.data ? arrayBufferToBase64(user.image.data): "https://picsum.photos/100/125"}
+                            alt="profile photo of user"
+                        />
                         <h2 style={{ marginLeft: '40px', color: 'white' }}>{user.firstName} {user.lastName}</h2>
                     </div>
                     {loading
                         ? rentalPost.map((item) => (
                               <RentalPost
-                                src={arrayBufferTobase64(item.image.data)}
+                                src={arrayBufferToBase64(item.image.data)}
                                 key={item._id}
                                 _id={item._id}
                                 type={item.type}

@@ -1,9 +1,9 @@
+import arrayBufferToBase64 from "../../utilities/arrayBufferToBase64";
 import React, { useContext, useState, useEffect } from 'react';
 import { userSessionContext } from '../../contextFile';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import './styles.css';
-import InputForm from "../../components/InputForm";
+import './styles.css';  
 
 
 import Button from 'react-bootstrap/Button';
@@ -46,19 +46,6 @@ export default function Rental() {
     const [rentalPostImage, setRentalPostImage] = useState('');
     const [loaded, setLoaded] = useState(false);
 
-    const arrayBufferTobase64 = (buffer) => {
-        let binary = '';
-        let base64Flag = 'data:image/jpeg;base64,';
-        let bytes = [].slice.call(new Uint8Array(buffer.data));
-        bytes.forEach((b) => {
-            binary += String.fromCharCode(b);
-        });
-
-        let binaryString = window.btoa(binary);
-
-        return base64Flag + binaryString;
-    };
-
     useEffect(() => {
         axios
             .get(`http://localhost:5000/profile/` + rental_id)
@@ -85,7 +72,7 @@ export default function Rental() {
                     <div className="imageFlex">
                         <div className="col-6 align-center justify-content-center">
                             <img
-                                src={arrayBufferTobase64(rentalPostImage)}
+                                src={arrayBufferToBase64(rentalPostImage)}
                                 alt="pictures of unit"
                                 style={{ width: '100%' }}
                             />

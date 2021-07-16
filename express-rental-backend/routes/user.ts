@@ -3,13 +3,16 @@ import mongoose from 'mongoose';
 
 import sgMail from '@sendgrid/mail';
 import User from '../models/user.model';
+import uploadMiddleware from '../src/middleware/uploadDriver';
 
+const fs = require('fs');
 const bcrypt = require('bcrypt');
+
 const saltRounds = 10;
 const app = express.Router();
 
 // route to sign up.
-app.post('/signup', async (req, res) => {
+app.post('/signup', uploadMiddleware.single('image'), async (req, res) => {
     const {
         password,
         firstName,
@@ -24,6 +27,8 @@ app.post('/signup', async (req, res) => {
         reviews,
         image,
     } = req.body;
+    console.log("req.body")
+    console.log(req.body)
     const database = mongoose.connection;
     const hash = bcrypt.hashSync(password, saltRounds);
 
@@ -43,7 +48,10 @@ app.post('/signup', async (req, res) => {
             viewRentals: viewRentals,
             favoriteRentals: favoriteRentals,
             reviews: reviews,
-            image: image,
+            image: {
+                data: fs.readFileSync(req.file.path),
+                contentType: 'image/png',
+            },
         });
 
         const message = {

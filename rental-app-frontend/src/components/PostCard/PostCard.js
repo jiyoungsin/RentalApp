@@ -15,6 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import arrayBufferToBase64 from "../../utilities/arrayBufferToBase64";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,17 +48,6 @@ export default function PostCard({ rentals }) {
         setExpanded(!expanded);
     };
 
-    const arrayBufferTobase64 = (buffer) => {
-        let binary = '';
-        let base64Flag = 'data:image/jpeg;base64,';
-        let bytes = [].slice.call(new Uint8Array(buffer.data));
-        bytes.forEach((b) => {
-            binary += String.fromCharCode(b);
-        });
-        let binaryString = window.btoa(binary);
-        return base64Flag + binaryString;
-    };
-
     return (
         <Card className={classes.root}>
             <CardHeader
@@ -76,7 +66,7 @@ export default function PostCard({ rentals }) {
             />
             <CardMedia
                 className={classes.media}
-                image={arrayBufferTobase64(rentals.image.data)}
+                image={arrayBufferToBase64(rentals.image.data)}
                 title="Paella dish"
             />
             <CardContent>
