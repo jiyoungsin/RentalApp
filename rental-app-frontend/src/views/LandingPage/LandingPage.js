@@ -76,11 +76,11 @@ export default function LandingPage() {
         },
         emailJumboTron: {
             padding: '20px',
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://picsum.photos/1600/800)`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://i.picsum.photos/id/307/1600/800.jpg?hmac=TSTIXBYJwXiMklQWE2YX-VvdQHSqCpFG5iOAeWQe7pk)`,
         },
         JumboTron: {
             padding: '20px',
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://picsum.photos/1600/800)`,
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url(https://i.picsum.photos/id/307/1600/800.jpg?hmac=TSTIXBYJwXiMklQWE2YX-VvdQHSqCpFG5iOAeWQe7pk)`,
             marginBottom: '5vh',
         },
         mainTitle: {
@@ -130,6 +130,8 @@ export default function LandingPage() {
             .get('http://localhost:5000/rentals/rentals')
             .then((res) => {
                 setRentals(res.data);
+                console.log("res.data")
+                console.log(res.data)
             })
             .catch((err) => {
                 console.error(err);
@@ -152,36 +154,15 @@ export default function LandingPage() {
             </div>
             <div className="container">
                 <div className="row d-flex justify-content-between">
-                    {rentals.map((i) => (
-                        <PostCard key={i._id} rentals={i} />
-                    ))}
+                    {rentals.map((i) => {
+                        console.log("Rentals being Sent")
+                        console.log(i)
+                        return(
+                            <PostCard key={i._id} rentals={i} />
+                        )
+                    })}
                 </div>
             </div>
-            {/* DELETE THESE BUTTONS AFTER EVERYTHING IS HOOKED UP */}
-            <div className={classes.centerItems} style={{ marginTop: '5vh' }}>
-                <div class="col-3">
-                    <a
-                        target="blank"
-                        rel="noopener noreferrer"
-                        variant="primary"
-                        href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2"
-                        className="btn btn-primary"
-                    >
-                        DocuSign
-                    </a>
-                </div>
-                <div class="col-3">
-                    <Link to="/findProperty">
-                        <Button variant="primary">Find Property</Button>{' '}
-                    </Link>
-                </div>
-                <div class="col-3">
-                    <Link to="/CreateMaintenance">
-                        <Button variant="primary">Maintenance</Button>{' '}
-                    </Link>
-                </div>
-            </div>
-            {/* DELETE TO HERE */}
             <Price />
             <div style={{ display: 'flex', margin: '50px', backgroundColor: 'white' }}>
                 <div className={classes.centerText} style={{ alignSelf: 'center' }}>

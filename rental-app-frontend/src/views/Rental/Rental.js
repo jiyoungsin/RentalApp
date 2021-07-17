@@ -64,7 +64,7 @@ export default function Rental() {
         <React.Fragment>
             {loaded ? (
                 <div className="container border borderSecondary p-5 mt-5">
-                    <span>{user.userName}</span>
+                    <span>{rentalPost.landlord}</span>
                     <span> > </span>
                     <span>{rentalPost.type}</span>
                     <span> > </span>
@@ -189,16 +189,24 @@ export default function Rental() {
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="col-3">
-                                            <Link to="/StripePayment">
-                                                <Button variant="primary">Pay Now</Button>{' '}
-                                            </Link>
-                                        </div>
-                                    </td>
-                                </tr>
                             </table>
+                            <div>
+                                <a
+                                    target="blank"
+                                    rel="noopener noreferrer"
+                                    variant="primary"
+                                    href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2"
+                                    className="btn btn-primary mr-1"
+                                >
+                                    DocuSign
+                                </a>
+                                <Link to="/StripePayment">
+                                    <Button variant="primary">Pay Now</Button>{' '}
+                                </Link>
+                                <Link to="/CreateMaintenance">
+                                    <Button variant="primary">Maintenance</Button>{' '}
+                                </Link>
+                            </div>
                         </div>
                         <div class="container">
                             <h4>Post comments</h4>

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableContainer from '@material-ui/core/TableContainer';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import {Link} from 'react-router-dom';
 
 const columns = [
     { id: 'name', label: '$ Price', minWidth: 170 },
@@ -21,8 +22,8 @@ const columns = [
         format: (value) => value.toLocaleString('en-US'),
     },
     {
-        id: 'Landlord',
-        label: 'Landlord',
+        id: 'landlord',
+        label: 'landlord',
         minWidth: 170,
         align: 'right',
         format: (value) => value.toLocaleString('en-US'),
@@ -43,8 +44,8 @@ const columns = [
     },
 ];
 
-function createData(name, address, bedrooms, Landlord, bathroom, postalCode) {
-    return { name, address, bedrooms, Landlord, bathroom, postalCode };
+function createData(_id, name, address, bedrooms, landlord, bathroom, postalCode) {
+    return { _id, name, address, bedrooms, landlord, bathroom, postalCode };
 }
 
 const useStyles = makeStyles({
@@ -75,22 +76,22 @@ export default function StickyHeadTable() {
             .get('http://localhost:5000/rentals/all')
             .then((res) => {
                 if (res.status === 200) {
-                    const theLandlord = '1000';
+                    const thelandlord = '1000';
                     const theArray = [];
-
                     for (let i = 0; i < res.data.length - 1; i++) {
                         const {
+                            _id,
                             price,
                             streetNumber,
                             streetName,
                             room,
-                            Landlord,
+                            landlord,
                             bathroom,
                             postalCode,
                         } = res.data[i];
                         const fullAddress = streetNumber + ' ' + streetName;
                         theArray.push(
-                            createData(price, fullAddress, room, Landlord, bathroom, postalCode)
+                            createData(_id, price, fullAddress, room, landlord, bathroom, postalCode)
                         );
                     }
                     setRows(theArray);
@@ -169,10 +170,12 @@ export default function StickyHeadTable() {
                                             {columns.map((column) => {
                                                 const value = row[column.id];
                                                 return (
-                                                    <TableCell key={column.id} align={column.align}>
+                                                    <TableCell key={column.id} align={column.align} >
+                                                        <Link to={"/rental/" + row._id} style={{color:"black"}}>
                                                         {column.format && typeof value === 'number'
                                                             ? column.format(value)
                                                             : value}
+                                                        </Link>
                                                     </TableCell>
                                                 );
                                             })}
