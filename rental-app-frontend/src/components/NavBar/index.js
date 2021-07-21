@@ -37,6 +37,9 @@ function adminNavBar(user, signOut) {
                     <Nav.Link>
                         <Link to="/MapSearch">Map</Link>
                     </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/message" style={{color: "white"}}>Message</Link>
+                    </Nav.Link>
                     <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
                         <NavDropdown.Item>
                             <Link to="/">View All Users</Link>
@@ -101,6 +104,9 @@ function loggedInUserNavBar(user, signOut) {
                     </Nav.Link>
                     <Nav.Link>
                         <Link to="/ContactUs" style={{color: "white"}}>Contact Us</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to="/message" style={{color: "white"}}>Message</Link>
                     </Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
