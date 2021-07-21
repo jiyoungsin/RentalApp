@@ -23,14 +23,18 @@ const reviewSchema = new mongoose.Schema(
             createdAt: 'timeCreated',
             currentTime: () => Date.now(),
         },
+        rental:{
+            type: String,
+            required: true,
+        }
     },
     {
-        collection: 'rental',
+        collection: 'review',
         timestamps: {
             currentTime: () => Date.now(),
             createdAt: 'timeCreated',
         },
     }
 );
-const Review = mongoose.model('rental', reviewSchema);
+const Review = mongoose.model('review', reviewSchema);
 export default Review;
