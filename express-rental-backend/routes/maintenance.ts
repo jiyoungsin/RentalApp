@@ -33,15 +33,6 @@ app.post('/create', async (req, res) => {
     } = req.body;
     console.log('Post Request to DB Create Maintenance');
     const database = mongoose.connection;
-    database.collection('maintenance').insertOne({
-        email: email,
-        maintenanceIssue: maintenanceIssue,
-        tenantName: tenantName,
-        landlordName: landlordName,
-        tenantPhoneNumber: tenantPhoneNumber,
-        landlordPhoneNumber: landlordPhoneNumber,
-    });
-    res.status(200).json('Saved to Database');
     
     try{
         database.collection("maintenance").insertOne({
