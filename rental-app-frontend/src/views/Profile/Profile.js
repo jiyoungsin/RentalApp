@@ -70,7 +70,7 @@ export default function Profile(req, res) {
                     <div className={classes.profileHeader}>
                         <img
                             className={classes.profilePicture}
-                            src={user.image.data ? arrayBufferToBase64(user.image.data): "https://picsum.photos/100/125"}
+                            src="https://picsum.photos/100/125"
                             alt="profile photo of user"
                         />
                         <h2 style={{ marginLeft: '40px', color: 'white' }}>{user.firstName} {user.lastName}</h2>
