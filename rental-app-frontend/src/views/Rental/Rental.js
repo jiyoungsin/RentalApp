@@ -242,7 +242,7 @@ export default function Rental() {
                                         <textarea name="description" id="description" placeholder="Leave your comment about the Rent unit" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group col-md-12 text-right">
-                                        <button type="submit" class="btn btn-secondary">Sumbit Comment</button>
+                                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
                                     </div>
                                 </div>
                             </form>
