@@ -100,6 +100,16 @@ export default function RentalPost({
     const EditLink = `/rentalUnit/${_id}`;
     const RentalLink = `/rental/${_id}`;
     const [requestDelete, setRequestDelete] = useState(false);
+
+    let date = postDate
+    date.toString()
+    date = date.substr(2, 8)
+    let year = date.substr(0, 2)
+    let month = date.substr(3, 2)
+    let day = date.substr(6, 2)
+  
+    
+
     const buttonPushed = () => {
         axios
             .delete(`http://localhost:5000/rentalUnit/delete/${_id}`)
@@ -210,7 +220,7 @@ export default function RentalPost({
                         Delete
                     </Button>
                     <Button style={{ color: '#000' }} disabled>
-                        {postDate}
+                        {year + "/" + month + "/" + day}
                     </Button>
                 </div>
             </div>
