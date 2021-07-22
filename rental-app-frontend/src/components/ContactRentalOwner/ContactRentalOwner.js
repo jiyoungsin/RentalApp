@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { userSessionContext } from '../../contextFile';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
-export default function Messaging() {
+export default function ContactRentalOwner(Landlord) {
+    const [loaded, setLoaded] = useState(false);
+    const [landlordEmail, setLandlordEmail] = useState(false);
     const UseStyles = makeStyles((theme) => ({
         formStyle: {
-            width: '100%',
-            height: '100vh',
+            width: '30vw',
+            height: '45vh',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -29,12 +32,26 @@ export default function Messaging() {
         },
     }));
 
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5000/profile/username/` + Landlord.landlord)
+            .then((res) => {
+                setLandlordEmail(res.data[0].email);
+                setLoaded(true);
+            })
+            .catch((err) => {
+                console.log(err);
+                alert('Error while Fetching Landlord  email');
+            });
+    }, [loaded]);
+    
     const classes = UseStyles();
-
+    const { user, setUser } = useContext(userSessionContext);
     const [formData, setFormData] = useState({
         email: '',
         subject: '',
         message: '',
+        cc: user.email,
     });
 
     const handleChange = (e) => {
@@ -44,7 +61,6 @@ export default function Messaging() {
             [id]: value,
         }));
     };
-
     const validateEmail = (e) => {
         const { id, value } = e.target;
         const re =
@@ -66,10 +82,11 @@ export default function Messaging() {
             [id]: value,
         }));
     };
-    console.log(formData);
+
     const onSubmit = (e) =>
     {
-        const payload = { ...formData };
+        let payload = { ...formData };
+        payload.email = landlordEmail;
         axios
         .post('http://localhost:5000/message/send', payload, {
             headers: {
@@ -88,22 +105,22 @@ export default function Messaging() {
             alert('ERROR: Logging in');
         });
     }
-
+    console.log(formData)
     return(
         <>
-            <div className={classes.container}>
+            <div>
                 <form className={classes.formStyle}>
-                    <h2>Contact Renter</h2>
+                    <h2>Contact Landlord</h2>
                     <label className={classes.labelText} for="email">
                         Send to:
                     </label>
                     <input
                         type="text"
-                        onChange={validateEmail}
-                        value = {formData.email}
                         id="email"
                         name="email"
                         className="border border-dark"
+                        placeholder="Landlord"
+                        disabled="true"
                     ></input>
                     <p id="emailError" style={{ color: 'red' }}></p>
 
