@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const userController = require('../routes/user');
 const rentalController = require('../routes/rental');
+const messageController = require('../routes/message');
 const profileController = require('../routes/profile');
 const rentalUnitController = require('../routes/rentalUnit');
 const maintenanceController = require('../routes/maintenance');
@@ -51,6 +52,7 @@ mongoose
 app.use('/users', userController);
 app.use('/rentals', rentalController);
 app.use('/profile', profileController);
+app.use('/message', messageController);
 app.use('/rentalUnit', rentalUnitController);
 app.use('/maintenance', maintenanceController);
 app.listen(PORT, () => {

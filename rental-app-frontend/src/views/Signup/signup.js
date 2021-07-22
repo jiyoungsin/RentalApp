@@ -58,14 +58,12 @@ export default function Signup() {
             [id]: value,
         }));
     };
-    const fileHandleChange = (e) => {
-        setFormData((ps) => ({
-            ...ps,
-            image: e.target.files[0],
-        }));
-    };
-    console.log("formData")
-    console.log(formData)
+    // const fileHandleChange = (e) => {
+    //     setFormData((ps) => ({
+    //         ...ps,
+    //         image: e.target.files[0],
+    //     }));
+    // };
     const validateText = (e) => {
         const { id, value } = e.target;
         let error;
@@ -230,7 +228,7 @@ export default function Signup() {
         newPayload.append('firstName', formData.firstName);
         newPayload.append('phoneNumber', formData.phoneNumber);
         newPayload.append('role', formData.role);
-        newPayload.append('image', formData.image);
+        // newPayload.append('image', formData.image);
         newPayload.append('rentals', formData.rentals);
         newPayload.append('viewRentals', formData.viewRentals);
         newPayload.append('favoriteRentals', formData.favoriteRentals);
@@ -341,10 +339,10 @@ export default function Signup() {
                     name="phoneNumber"
                 />
                 <p id="phoneNumberError" style={{ color: 'red' }}></p>
-                <div>
+                {/* <div>
                     <label className={classes.labelText} for="image">Select Profile Picture: </label>&ensp;
                     <input type="file" id="image" name="image" onChange={fileHandleChange}></input>
-                </div>
+                </div> */}
                 <Button
                     variant="primary"
                     className={classes.buttonPadding}
