@@ -59,7 +59,7 @@ export default function Rental() {
                 alert('Error while Fetching Rental Unit');
             });
     }, [loaded]);
-
+    const addr = rentalPost.streetNumber + ' ' + rentalPost.streetName + ' ' + rentalPost.postalCode;
     return (
         <React.Fragment>
             {loaded ? (
@@ -102,7 +102,7 @@ export default function Rental() {
                         </div>
                     </div>
                     <div id="rent-google-maps">
-                        <GoogleMap/>
+                        <GoogleMap address={addr}/>
                     </div>
                     <div className="card ">
                         <div className="card-body">
