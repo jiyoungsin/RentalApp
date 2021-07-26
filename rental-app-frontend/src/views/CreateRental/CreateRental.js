@@ -1,10 +1,8 @@
 import React from 'react';
 import { useStyles } from './styles';
-import InputForm from "../../components/InputForm";
+import InputForm from '../../components/InputForm';
 
 export default function CreateRental({ handleChange, state }) {
-    
-
     const classes = useStyles();
     return (
         <div className={classes.container}>
@@ -12,12 +10,7 @@ export default function CreateRental({ handleChange, state }) {
                 <div class="container">
                     <div className="flex">
                         <label className={classes.label}>Unit type: &ensp;</label>
-                        <select
-                            id="type"
-                            name="type"
-                            value={state.type}
-                            onChange={handleChange}
-                        >
+                        <select id="type" name="type" value={state.type} onChange={handleChange}>
                             <option value="" selected disabled hidden>
                                 Choose The Type
                             </option>

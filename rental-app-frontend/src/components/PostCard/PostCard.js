@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import arrayBufferToBase64 from "../../utilities/arrayBufferToBase64";
+import arrayBufferToBase64 from '../../utilities/arrayBufferToBase64';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -48,9 +48,9 @@ export default function PostCard({ rentals }) {
                 }
                 title={`$ ${rentals.price}`}
                 subheader={rentals.type}
-                style={{color: "#37a864"}}
+                style={{ color: '#37a864' }}
             />
-            <Link to={"/rental/" + rentals._id}>
+            <Link to={'/rental/' + rentals._id}>
                 <CardMedia
                     className={classes.media}
                     image={arrayBufferToBase64(rentals.image.data)}
@@ -58,7 +58,12 @@ export default function PostCard({ rentals }) {
                 />
             </Link>
             <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p" style={{textAlign: "justify"}}>
+                <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                    style={{ textAlign: 'justify' }}
+                >
                     This impressive paella is a perfect party dish and a fun meal to cook together
                     with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
                 </Typography>

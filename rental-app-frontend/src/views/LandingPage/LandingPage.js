@@ -130,8 +130,8 @@ export default function LandingPage() {
             .get('http://localhost:5000/rentals/rentals')
             .then((res) => {
                 setRentals(res.data);
-                console.log("res.data")
-                console.log(res.data)
+                console.log('res.data');
+                console.log(res.data);
             })
             .catch((err) => {
                 console.error(err);
@@ -155,11 +155,9 @@ export default function LandingPage() {
             <div className="container">
                 <div className="row d-flex justify-content-between">
                     {rentals.map((i) => {
-                        console.log("Rentals being Sent")
-                        console.log(i)
-                        return(
-                            <PostCard key={i._id} rentals={i} />
-                        )
+                        console.log('Rentals being Sent');
+                        console.log(i);
+                        return <PostCard key={i._id} rentals={i} />;
                     })}
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { userSessionContext } from '../../contextFile';
 import Button from 'react-bootstrap/Button';
@@ -44,7 +44,7 @@ export default function ContactRentalOwner(Landlord) {
                 alert('Error while Fetching Landlord  email');
             });
     }, [loaded]);
-    
+
     const classes = UseStyles();
     const { user, setUser } = useContext(userSessionContext);
     const [formData, setFormData] = useState({
@@ -72,8 +72,7 @@ export default function ContactRentalOwner(Landlord) {
             error = '';
         }
 
-        if (id == 'email')
-        {
+        if (id == 'email') {
             document.getElementById('emailError').innerHTML = error;
         }
 
@@ -83,30 +82,29 @@ export default function ContactRentalOwner(Landlord) {
         }));
     };
 
-    const onSubmit = (e) =>
-    {
+    const onSubmit = (e) => {
         let payload = { ...formData };
         payload.email = landlordEmail;
         axios
-        .post('http://localhost:5000/message/send', payload, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then((res) => {
-            console.log('Email Sent Successfully');
-            const mailStatus = res.data;
-            console.log(mailStatus);
-            // set something here.
-            // then redirect to the new maintence
-        })
-        .catch((err) => {
-            console.error(err);
-            alert('ERROR: Logging in');
-        });
-    }
-    console.log(formData)
-    return(
+            .post('http://localhost:5000/message/send', payload, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((res) => {
+                console.log('Email Sent Successfully');
+                const mailStatus = res.data;
+                console.log(mailStatus);
+                // set something here.
+                // then redirect to the new maintence
+            })
+            .catch((err) => {
+                console.error(err);
+                alert('ERROR: Logging in');
+            });
+    };
+    console.log(formData);
+    return (
         <>
             <div>
                 <form className={classes.formStyle}>
@@ -130,7 +128,7 @@ export default function ContactRentalOwner(Landlord) {
                     <input
                         type="text"
                         onChange={handleChange}
-                        value = {formData.subject}
+                        value={formData.subject}
                         id="subject"
                         name="subject"
                         className="border border-dark"
@@ -142,20 +140,20 @@ export default function ContactRentalOwner(Landlord) {
                     <textarea
                         id="message"
                         onChange={handleChange}
-                        value = {formData.message}
+                        value={formData.message}
                         name="message"
-                        rows = "10"
+                        rows="10"
                     ></textarea>
 
                     <Button
-                    variant="primary"
-                    className={classes.buttonPadding}
-                    onClick={()=> onSubmit()}
+                        variant="primary"
+                        className={classes.buttonPadding}
+                        onClick={() => onSubmit()}
                     >
                         Submit
                     </Button>
                 </form>
             </div>
         </>
-    )
+    );
 }

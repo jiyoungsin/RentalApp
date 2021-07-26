@@ -103,7 +103,7 @@ export default function Checkout() {
             [id]: checked,
         }));
     };
-    console.log(state)
+    console.log(state);
     const getStepContent = (step) => {
         switch (step) {
             case 0:

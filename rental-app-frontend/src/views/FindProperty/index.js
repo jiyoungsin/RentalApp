@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const columns = [
     { id: 'name', label: '$ Price', minWidth: 170 },
@@ -91,7 +91,15 @@ export default function StickyHeadTable() {
                         } = res.data[i];
                         const fullAddress = streetNumber + ' ' + streetName;
                         theArray.push(
-                            createData(_id, price, fullAddress, room, landlord, bathroom, postalCode)
+                            createData(
+                                _id,
+                                price,
+                                fullAddress,
+                                room,
+                                landlord,
+                                bathroom,
+                                postalCode
+                            )
                         );
                     }
                     setRows(theArray);
@@ -170,11 +178,15 @@ export default function StickyHeadTable() {
                                             {columns.map((column) => {
                                                 const value = row[column.id];
                                                 return (
-                                                    <TableCell key={column.id} align={column.align} >
-                                                        <Link to={"/rental/" + row._id} style={{color:"black"}}>
-                                                        {column.format && typeof value === 'number'
-                                                            ? column.format(value)
-                                                            : value}
+                                                    <TableCell key={column.id} align={column.align}>
+                                                        <Link
+                                                            to={'/rental/' + row._id}
+                                                            style={{ color: 'black' }}
+                                                        >
+                                                            {column.format &&
+                                                            typeof value === 'number'
+                                                                ? column.format(value)
+                                                                : value}
                                                         </Link>
                                                     </TableCell>
                                                 );

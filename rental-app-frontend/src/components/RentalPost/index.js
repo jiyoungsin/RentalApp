@@ -101,14 +101,12 @@ export default function RentalPost({
     const RentalLink = `/rental/${_id}`;
     const [requestDelete, setRequestDelete] = useState(false);
 
-    let date = postDate
-    date.toString()
-    date = date.substr(2, 8)
-    let year = date.substr(0, 2)
-    let month = date.substr(3, 2)
-    let day = date.substr(6, 2)
-  
-    
+    let date = postDate;
+    date.toString();
+    date = date.substr(2, 8);
+    let year = date.substr(0, 2);
+    let month = date.substr(3, 2);
+    let day = date.substr(6, 2);
 
     const buttonPushed = () => {
         axios
@@ -125,7 +123,12 @@ export default function RentalPost({
     return requestDelete === false ? (
         <React.Fragment>
             <div className={classes.container}>
-                <img className="rounded border border-dark" src={src} alt="Picture Of Rental" style={{width: "200px", height: "135px"}}/>
+                <img
+                    className="rounded border border-dark"
+                    src={src}
+                    alt="Picture Of Rental"
+                    style={{ width: '200px', height: '135px' }}
+                />
                 <div className={classes.rentalCard}>
                     <Link
                         to={RentalLink}
@@ -133,8 +136,19 @@ export default function RentalPost({
                         style={{ textDecoration: 'none', color: 'black' }}
                     >
                         <span className={classes.greenPriceTag}>$ {price}</span>
-                        <div className="font-italic" style={{color :"#808080"}}>{streetNumber} {streetName} {postalCode}</div>
-                        <div style={{width : "150px", overflow: "hidden", whiteSpace: "nowrap",textOverflow: "ellipsis"}}>{additionalInfo}</div>
+                        <div className="font-italic" style={{ color: '#808080' }}>
+                            {streetNumber} {streetName} {postalCode}
+                        </div>
+                        <div
+                            style={{
+                                width: '150px',
+                                overflow: 'hidden',
+                                whiteSpace: 'nowrap',
+                                textOverflow: 'ellipsis',
+                            }}
+                        >
+                            {additionalInfo}
+                        </div>
                         <div style={{ padding: '10px' }}>
                             <img
                                 className={classes.messagedProfilePicture}
@@ -147,16 +161,15 @@ export default function RentalPost({
                 </div>
                 <div>
                     <span className={classes.iconFlex}>
-                        <LocalParkingIcon className={classes.iconPadding} /> :{' '}
-                        {parking}&nbsp;&nbsp;&nbsp;
+                        <LocalParkingIcon className={classes.iconPadding} /> : {parking}
+                        &nbsp;&nbsp;&nbsp;
                     </span>
                     <span className={classes.iconFlex}>
-                        <LocalHotelIcon className={classes.iconPadding} />:{' '}
-                        {room}&nbsp;&nbsp;&nbsp;
+                        <LocalHotelIcon className={classes.iconPadding} />: {room}&nbsp;&nbsp;&nbsp;
                     </span>
                     <span className={classes.iconFlex}>
-                        <BathtubIcon className={classes.iconPadding} /> :{' '}
-                        {bathroom}&nbsp;&nbsp;&nbsp;
+                        <BathtubIcon className={classes.iconPadding} /> : {bathroom}
+                        &nbsp;&nbsp;&nbsp;
                     </span>
                     <span className={classes.iconFlex}>
                         <PetsIcon className={classes.iconPadding} /> :{' '}
@@ -220,7 +233,7 @@ export default function RentalPost({
                         Delete
                     </Button>
                     <Button style={{ color: '#000' }} disabled>
-                        {year + "/" + month + "/" + day}
+                        {year + '/' + month + '/' + day}
                     </Button>
                 </div>
             </div>

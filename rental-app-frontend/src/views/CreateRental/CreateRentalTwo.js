@@ -9,17 +9,21 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                 <div class="container">
                     <p>
                         <strong>
-                            *** Help us find right tenants for you by answering following options! ***
+                            *** Help us find right tenants for you by answering following options!
+                            ***
                         </strong>
                     </p>
                 </div>
                 <div class="container">
                     <div className="row">
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.gym ? "yellow" : "white"}}>
-                            <label  for="gym" >
-                                Gym
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.gym ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="gym">Gym</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -28,11 +32,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                                 checked={state.gym}
                             />
                         </div>
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.water ? "yellow" : "white"}}>
-                            <label  for="water">
-                                Water
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.water ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="water">Water</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -41,11 +48,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                                 checked={state.water}
                             />
                         </div>
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.hydro ? "yellow" : "white"}}>
-                            <label  for="hydro">
-                                Hydro
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.hydro ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="hydro">Hydro</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -58,11 +68,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                 </div>
                 <div class="container">
                     <div className="row">
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.wifi ? "yellow" : "white"}}>
-                            <label  for="wifi">
-                                Internet
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.wifi ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="wifi">Internet</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -71,11 +84,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                                 checked={state.wifi}
                             />
                         </div>
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.balcony ? "yellow" : "white"}}>
-                            <label  for="balcony">
-                                Balcony
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.balcony ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="balcony">Balcony</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -84,11 +100,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                                 checked={state.balcony}
                             />
                         </div>
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.roommate ? "yellow" : "white"}}>
-                            <label  for="roommate">
-                                Roommate
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.roommate ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="roommate">Roommate</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -101,11 +120,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                 </div>
                 <div class="container">
                     <div className="row">
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.petFriendly ? "yellow" : "white"}}>
-                            <label  for="petFriendly">
-                                Pet-Friendly
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.petFriendly ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="petFriendly">Pet-Friendly</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -114,11 +136,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                                 checked={state.petFriendly}
                             />
                         </div>
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.dishWasher ? "yellow" : "white"}}>
-                            <label  for="dishWasher">
-                                Dish-Washer
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.dishWasher ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="dishWasher">Dish-Washer</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"
@@ -127,11 +152,14 @@ export default function CreateRentalTwo({ handleChange, checkHandleChange, state
                                 checked={state.dishWasher}
                             />
                         </div>
-                        <div className="col-4" style={{border: "1px solid black", backgroundColor: state.airConditional ? "yellow" : "white"}}>
-                            <label  for="airConditional">
-                                Air-Conditional
-                            </label>{' '}
-                            &ensp;
+                        <div
+                            className="col-4"
+                            style={{
+                                border: '1px solid black',
+                                backgroundColor: state.airConditional ? 'yellow' : 'white',
+                            }}
+                        >
+                            <label for="airConditional">Air-Conditional</label> &ensp;
                             <input
                                 onChange={checkHandleChange}
                                 type="checkbox"

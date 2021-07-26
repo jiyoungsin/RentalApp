@@ -8,13 +8,13 @@ const app = express.Router();
 app.put('/:id', uploadMiddleware.single('image'), async (req, res) => {
     let id = req.params.id;
     const payload = await User.updateOne({ _id: id }, req.body)
-    .then((response) => {
-        console.log('Successfully Updated Profile Picture');
-        res.send(response);
-    })
-    .catch((err) => {
-        console.log('ERROR: while Updating Profile Picture');
-    });
+        .then((response) => {
+            console.log('Successfully Updated Profile Picture');
+            res.send(response);
+        })
+        .catch((err) => {
+            console.log('ERROR: while Updating Profile Picture');
+        });
     res.status(204);
 });
 
@@ -41,6 +41,5 @@ app.get('/username/:username', async (req, res) => {
             res.send(err);
         });
 });
-
 
 module.exports = app;
