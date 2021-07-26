@@ -27,8 +27,6 @@ import { UserSessionContextProvider } from '../contextFile';
 const history = createBrowserHistory();
 
 function Routes() {
-    // const { user, setUser } = useContext(userSessionContext);
-    //render={(props)=>{ user.role === "Admin" ? <Payment {...props}/> : <Redirect to="/404"/>}}
     return (
         <BrowserRouter>
             <Router history={history}>
@@ -36,6 +34,7 @@ function Routes() {
                     <UserSessionContextProvider>
                         <NavBar />
                         <Route exact path="/" component={LandingPage} />
+                        <Route exact path="/signup" component={Signup} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/Profile/:id" component={Profile} />
                         <Route exact path="/createRental" component={CreateRental} />
@@ -49,7 +48,6 @@ function Routes() {
                         <Route exact path="/AboutUs" component={AboutUs} />
                         <Route exact path="/ContactUs" component={ContactUs} />
                         <Route exact path="/Payment" component={Payment} />
-                        <Route exact path="/message" component={Messaging}/>
                         <Route exact path="/404" component={Page404} />
                         <Route exact path="/StripePayment" component={StripePayment} />
                         <Route exact path="/signup" component={Signup} />

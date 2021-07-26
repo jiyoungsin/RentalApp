@@ -87,6 +87,8 @@ export class MapContainer extends Component {
                         lat: this.state.mapCenter.lat,
                         lng: this.state.mapCenter.lng,
                     }}
+                    style={{width: "1040px", height: "300px"}}
+
                 >
                     <Marker
                         position={{

@@ -7,15 +7,9 @@ const app = express.Router();
 
 app.put('/:id', uploadMiddleware.single('image'), async (req, res) => {
     let id = req.params.id;
-    console.log("id")
-    console.log(id)
-    console.log("req.body")
-    console.log(req.body)
     const payload = await User.updateOne({ _id: id }, req.body)
     .then((response) => {
         console.log('Successfully Updated Profile Picture');
-        console.log("response")
-        console.log(response)
         res.send(response);
     })
     .catch((err) => {
@@ -35,5 +29,18 @@ app.get('/:rental', async (req, res) => {
             res.send(err);
         });
 });
+
+app.get('/username/:username', async (req, res) => {
+    const { username } = req.params;
+    const payload = await User.find({ userName: username })
+        .then((pay) => {
+            res.status(200).json(pay);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send(err);
+        });
+});
+
 
 module.exports = app;

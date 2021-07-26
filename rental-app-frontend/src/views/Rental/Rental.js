@@ -4,7 +4,7 @@ import { userSessionContext } from '../../contextFile';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import './styles.css';  
-
+import ContactRentalOwner from "../../components/ContactRentalOwner/ContactRentalOwner"
 
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
@@ -97,9 +97,12 @@ export default function Rental() {
                                 />
                             </div>
                         </div>
-                        <div className="col-6" id="rent-google-maps" style={{ width: "100px" }}>
-                            <GoogleMap />
+                        <div className="container">
+                            <ContactRentalOwner landlord={rentalPost.landlord}/>
                         </div>
+                    </div>
+                    <div id="rent-google-maps">
+                        <GoogleMap/>
                     </div>
                     <div className="card ">
                         <div className="card-body">
@@ -239,12 +242,13 @@ export default function Rental() {
                                         <textarea name="description" id="description" placeholder="Leave your comment about the Rent unit" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group col-md-12 text-right">
-                                        <button type="submit" class="btn btn-secondary">Sumbit Comment</button>
+                                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+
                 </div>
             ) : (
                 <h2> NOT loaded</h2>
