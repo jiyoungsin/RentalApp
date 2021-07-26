@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+//import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import dotenv from 'dotenv';
+import axios from 'axios';
+
+import Geocode from "react-geocode";
+
+Geocode.setApiKey("AIzaSyB9vQOdH8h64XBi-s1kCAVhZ1kgNpnlWUs");
 
 dotenv.config();
 export class MapContainer extends Component {
     constructor(props) {
         super(props);
+        ///ggg();
         this.state = {
             address: '',
             showingInfoWindow: false,
             activeMarker: {},
             selectedPlace: {},
             mapCenter: {
-                lat: 43.6532,
-                lng: -79.3832,
+                lat: '',
+                lng: '',
             },
         };
     }
@@ -23,23 +29,23 @@ export class MapContainer extends Component {
         this.setState({ address });
     };
 
-    handleSelect = (address) => {
-        geocodeByAddress(address)
-            .then((results) => getLatLng(results[0]))
-            .then((latLng) => {
-                console.log('Success', latLng);
-                this.setState({ address });
-                this.setState({ mapCenter: latLng });
-            })
-            .catch((error) => console.error('Error', error));
-    };
+    componentDidMount() {
+        Geocode.fromAddress("1223 king street M1H2S7").then(
+          (response) => {
+            const  formattedFullAddress = response.results[0].formatted_address;
+            const { lat, lng } = response.results[0].geometry.location;
+            this.setState({address: formattedFullAddress, mapCenter: {lat, lng}});
+          },
+          (error) => {
+            console.error(error);
+          }
+        )
+      }
 
     render() {
         return (
             <div style={({ height: '325px'})}>
-                {/* This is not thhe correct way, but answeers whats needed for now. */}
-
-                <PlacesAutocomplete
+                {/* <PlacesAutocomplete
                     value={this.state.address}
                     onChange={this.handleChange}
                     onSelect={this.handleSelect}
@@ -75,7 +81,7 @@ export class MapContainer extends Component {
                             </div>
                         </div>
                     )}
-                </PlacesAutocomplete>
+                </PlacesAutocomplete> */}
 
                 <Map
                     google={this.props.google}
@@ -97,7 +103,9 @@ export class MapContainer extends Component {
                         }}
                     />
                 </Map>
+               
             </div>
+           
         );
     }
 }
