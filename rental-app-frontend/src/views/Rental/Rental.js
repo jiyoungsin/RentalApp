@@ -204,6 +204,15 @@ export default function Rental() {
                                 >
                                     DocuSign
                                 </a>
+                                <a
+                                    target="blank"
+                                    rel="noopener noreferrer"
+                                    variant="primary"
+                                    href="https://utsc.utoronto.ca/residences/sites/utsc.utoronto.ca.residences/files/images/Residential%20Tenancy%20Agreement%20%28Standard%20Form%20of%20Lease%29.pdf"
+                                    className="btn btn-primary mr-1"
+                                >
+                                    Ontario Rental Agreement
+                                </a>
                                 <Link to="/StripePayment">
                                     <Button variant="primary">Pay Now</Button>{' '}
                                 </Link>
