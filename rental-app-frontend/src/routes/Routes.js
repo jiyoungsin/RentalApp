@@ -19,7 +19,6 @@ import ContactUs from '../views/ContactUs/contactus';
 import Payment from '../views/Payment/Payment';
 import Page404 from '../views/PageNotFound/PageNotFound';
 import StripePayment from '../views/StripePayment/StripePayment';
-//import Messaging from '../views/Messaging/messaging';
 
 import { BrowserRouter, Router, Route, Switch, Redirect } from 'react-router-dom';
 import { UserSessionContextProvider } from '../contextFile';
