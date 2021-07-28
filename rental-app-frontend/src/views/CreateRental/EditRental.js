@@ -64,7 +64,6 @@ export default function EditRental({ match }) {
         additionalInfo: '',
         Reviews: [],
         Landlord: '',
-        images: [],
     });
     const [edited, setEdited] = useState(false);
 
@@ -77,8 +76,6 @@ export default function EditRental({ match }) {
             })
             .then((res) => {
                 console.log('Fetching Data from Database');
-                console.log("res.data");
-                console.log(res.data)
                 setState(res.data);
             })
             .catch((err) => {
@@ -87,8 +84,6 @@ export default function EditRental({ match }) {
             });
         // eslint-disable-next-line
     }, []);
-    console.log("state")
-    console.log(state)
     // Updates user input.
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -109,6 +104,9 @@ export default function EditRental({ match }) {
     const onSubmit = () => {
         // updates data to the backend
         const payload = { ...state };
+        console.log("payload")
+        console.log(payload)
+        delete payload.image;
         axios
             .put(`http://localhost:5000/rentalUnit/editRental/${id}`, {
                 data: payload,
