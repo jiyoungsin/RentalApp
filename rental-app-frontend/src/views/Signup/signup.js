@@ -254,7 +254,10 @@ export default function Signup() {
     return (
         <div className={classes.container}>
             <form className={classes.formStyle}>
-                <h2>Sign Up</h2>
+                <div className={classes.container}>
+                    <h2>Sign Up</h2>
+                </div>
+                
 
                 <label className={classes.labelText} for="userName">
                     User Name
