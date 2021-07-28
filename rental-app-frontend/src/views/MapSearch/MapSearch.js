@@ -3,8 +3,8 @@ import GoogleMap from '../../components/GoogleMap/GoogleMap';
 
 export default function MapSearch() {
     return (
-        <div>
-            <div>
+        <div className="container">
+            <div className="mt-5">
                 <h2>Map Integration</h2>
             </div>
             <GoogleMap />

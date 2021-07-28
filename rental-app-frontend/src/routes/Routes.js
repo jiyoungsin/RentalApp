@@ -19,7 +19,6 @@ import ContactUs from '../views/ContactUs/contactus';
 import Payment from '../views/Payment/Payment';
 import Page404 from '../views/PageNotFound/PageNotFound';
 import StripePayment from '../views/StripePayment/StripePayment';
-import Messaging from '../views/Messaging/messaging';
 
 import { BrowserRouter, Router, Route, Switch, Redirect } from 'react-router-dom';
 import { UserSessionContextProvider } from '../contextFile';
@@ -27,16 +26,14 @@ import { UserSessionContextProvider } from '../contextFile';
 const history = createBrowserHistory();
 
 function Routes() {
-    // const { user, setUser } = useContext(userSessionContext);
-    //render={(props)=>{ user.role === "Admin" ? <Payment {...props}/> : <Redirect to="/404"/>}}
     return (
         <BrowserRouter>
             <Router history={history}>
                 <Switch>
-                    <Route exact path="/signup" component={Signup} />
                     <UserSessionContextProvider>
                         <NavBar />
                         <Route exact path="/" component={LandingPage} />
+                        <Route exact path="/signup" component={Signup} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/Profile/:id" component={Profile} />
                         <Route exact path="/createRental" component={CreateRental} />
@@ -50,9 +47,9 @@ function Routes() {
                         <Route exact path="/AboutUs" component={AboutUs} />
                         <Route exact path="/ContactUs" component={ContactUs} />
                         <Route exact path="/Payment" component={Payment} />
-                        <Route exact path="/message" component={Messaging}/>
                         <Route exact path="/404" component={Page404} />
                         <Route exact path="/StripePayment" component={StripePayment} />
+                        <Route exact path="/signup" component={Signup} />
                     </UserSessionContextProvider>
                 </Switch>
                 <Footer />

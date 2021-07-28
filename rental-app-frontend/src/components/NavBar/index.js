@@ -38,7 +38,9 @@ function adminNavBar(user, signOut) {
                         <Link to="/MapSearch">Map</Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/message" style={{color: "white"}}>Message</Link>
+                        <Link to="/message" style={{ color: 'white' }}>
+                            Message
+                        </Link>
                     </Nav.Link>
                     <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
                         <NavDropdown.Item>
@@ -87,26 +89,36 @@ function loggedInUserNavBar(user, signOut) {
     const profileLink = '/profile/' + users._id;
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Link to="/" id="navbar-main-logo" style={{color: "white"}}>
+            <Link to="/" id="navbar-main-logo" style={{ color: 'white' }}>
                 Vroom
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link>
-                        <Link to="/findProperty" style={{color: "white"}}>Find Rental</Link>
+                        <Link to="/findProperty" style={{ color: 'white' }}>
+                            Find Rental
+                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/aboutus" style={{color: "white"}}>About</Link>
+                        <Link to="/aboutus" style={{ color: 'white' }}>
+                            About
+                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/faq" style={{color: "white"}}>FAQs</Link>
+                        <Link to="/faq" style={{ color: 'white' }}>
+                            FAQs
+                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/ContactUs" style={{color: "white"}}>Contact Us</Link>
+                        <Link to="/ContactUs" style={{ color: 'white' }}>
+                            Contact Us
+                        </Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/message" style={{color: "white"}}>Message</Link>
+                        <Link to="/message" style={{ color: 'white' }}>
+                            Message
+                        </Link>
                     </Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}

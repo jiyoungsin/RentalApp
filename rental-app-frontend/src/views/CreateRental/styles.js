@@ -33,18 +33,18 @@ const useStyles = makeStyles((theme) => ({
         height: '30px',
         width: '30px',
     },
-    label:{
-        display: "inline-block",
-        float: "left",
-        clear: "left",
-        width: "150px",
-        textAlign: "right",
+    label: {
+        display: 'inline-block',
+        float: 'left',
+        clear: 'left',
+        width: '150px',
+        textAlign: 'right',
         fontSize: '15px',
     },
-    textBoxStyling :{
+    textBoxStyling: {
         fontSize: '15px',
-        fontWeight: "bold",
-    }
+        fontWeight: 'bold',
+    },
 }));
 
 export { useStyles };

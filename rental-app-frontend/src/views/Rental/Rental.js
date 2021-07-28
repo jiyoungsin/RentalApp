@@ -1,10 +1,10 @@
-import arrayBufferToBase64 from "../../utilities/arrayBufferToBase64";
+import arrayBufferToBase64 from '../../utilities/arrayBufferToBase64';
 import React, { useContext, useState, useEffect } from 'react';
 import { userSessionContext } from '../../contextFile';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import './styles.css';  
-
+import './styles.css';
+import ContactRentalOwner from '../../components/ContactRentalOwner/ContactRentalOwner';
 
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
@@ -59,7 +59,8 @@ export default function Rental() {
                 alert('Error while Fetching Rental Unit');
             });
     }, [loaded]);
-
+    const addr =
+        rentalPost.streetNumber + ' ' + rentalPost.streetName + ' ' + rentalPost.postalCode;
     return (
         <React.Fragment>
             {loaded ? (
@@ -69,7 +70,7 @@ export default function Rental() {
                     <span>{rentalPost.type}</span>
                     <span> > </span>
                     <span>{rentalPost._id}</span>
-                    <div className="imageFlex">
+                    <div className="imageFlex mb-4">
                         <div className="col-6 align-center justify-content-center">
                             <img
                                 src={arrayBufferToBase64(rentalPostImage)}
@@ -97,9 +98,12 @@ export default function Rental() {
                                 />
                             </div>
                         </div>
-                        <div className="col-6" id="rent-google-maps" style={{ width: "100px" }}>
-                            <GoogleMap />
+                        <div className="container border border-primary p-3">
+                            <ContactRentalOwner landlord={rentalPost.landlord} />
                         </div>
+                    </div>
+                    <div id="rent-google-maps">
+                        <GoogleMap address={addr} />
                     </div>
                     <div className="card ">
                         <div className="card-body">
@@ -200,6 +204,15 @@ export default function Rental() {
                                 >
                                     DocuSign
                                 </a>
+                                <a
+                                    target="blank"
+                                    rel="noopener noreferrer"
+                                    variant="primary"
+                                    href="https://utsc.utoronto.ca/residences/sites/utsc.utoronto.ca.residences/files/images/Residential%20Tenancy%20Agreement%20%28Standard%20Form%20of%20Lease%29.pdf"
+                                    className="btn btn-primary mr-1"
+                                >
+                                    Ontario Rental Agreement
+                                </a>
                                 <Link to="/StripePayment">
                                     <Button variant="primary">Pay Now</Button>{' '}
                                 </Link>
@@ -213,33 +226,110 @@ export default function Rental() {
                             <form>
                                 <div class="row">
                                     <div class="container">
-                                    <input type="radio" name="score" id="score1" value="1"></input>
-                                    <label for="score1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star star" viewBox="0 0 16 16">
-                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                    </svg></label>
-                                    <input type="radio" name="score" id="score2" value="2"></input>
-                                    <label for="score2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star star" viewBox="0 0 16 16">
-                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                    </svg></label>
-                                    <input type="radio" name="score" id="score3" value="3"></input>
-                                    <label for="score3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star star" viewBox="0 0 16 16">
-                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                    </svg></label>
-                                    <input type="radio" name="score" id="score4" value="4"></input>
-                                    <label for="score4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star star" viewBox="0 0 16 16">
-                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                    </svg></label>
-                                    <input type="radio" name="score" id="score5" value="5"></input>
-                                    <label for="score5"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star star" viewBox="0 0 16 16">
-                                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                    </svg></label>
+                                        <input
+                                            type="radio"
+                                            name="score"
+                                            id="score1"
+                                            value="1"
+                                        ></input>
+                                        <label for="score1">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                class="bi bi-star star"
+                                                viewBox="0 0 16 16"
+                                            >
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </label>
+                                        <input
+                                            type="radio"
+                                            name="score"
+                                            id="score2"
+                                            value="2"
+                                        ></input>
+                                        <label for="score2">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                class="bi bi-star star"
+                                                viewBox="0 0 16 16"
+                                            >
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </label>
+                                        <input
+                                            type="radio"
+                                            name="score"
+                                            id="score3"
+                                            value="3"
+                                        ></input>
+                                        <label for="score3">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                class="bi bi-star star"
+                                                viewBox="0 0 16 16"
+                                            >
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </label>
+                                        <input
+                                            type="radio"
+                                            name="score"
+                                            id="score4"
+                                            value="4"
+                                        ></input>
+                                        <label for="score4">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                class="bi bi-star star"
+                                                viewBox="0 0 16 16"
+                                            >
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </label>
+                                        <input
+                                            type="radio"
+                                            name="score"
+                                            id="score5"
+                                            value="5"
+                                        ></input>
+                                        <label for="score5">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                width="16"
+                                                height="16"
+                                                fill="currentColor"
+                                                class="bi bi-star star"
+                                                viewBox="0 0 16 16"
+                                            >
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+                                            </svg>
+                                        </label>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <textarea name="description" id="description" placeholder="Leave your comment about the Rent unit" class="form-control"></textarea>
+                                        <textarea
+                                            name="description"
+                                            id="description"
+                                            placeholder="Leave your comment about the Rent unit"
+                                            class="form-control"
+                                        ></textarea>
                                     </div>
                                     <div class="form-group col-md-12 text-right">
-                                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
+                                        <button type="submit" class="btn btn-secondary">
+                                            Submit Comment
+                                        </button>
                                     </div>
                                 </div>
                             </form>

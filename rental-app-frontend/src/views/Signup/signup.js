@@ -237,7 +237,7 @@ export default function Signup() {
         newPayload.append('viewRentals', formData.viewRentals);
         newPayload.append('favoriteRentals', formData.favoriteRentals);
         newPayload.append('reviews', formData.reviews);
-        
+
         axios
             .post('http://localhost:5000/users/signup', newPayload, {
                 headers: {

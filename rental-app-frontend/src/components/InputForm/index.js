@@ -17,7 +17,7 @@ export default function InputForm({
             id={id}
             type={type}
             name={name}
-            style={{border: '2px solid black'}}
+            style={{ border: '2px solid black' }}
             value={value}
             checked={checked}
             onChange={onChange}

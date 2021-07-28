@@ -27,8 +27,8 @@ app.post('/signup', uploadMiddleware.single('image'), async (req, res) => {
         reviews,
         image,
     } = req.body;
-    console.log("req.body")
-    console.log(req.body)
+    console.log('req.body');
+    console.log(req.body);
     const database = mongoose.connection;
     const hash = bcrypt.hashSync(password, saltRounds);
 

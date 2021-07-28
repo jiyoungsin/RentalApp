@@ -5,7 +5,7 @@ import RentalPost from '../../components/RentalPost';
 import { makeStyles } from '@material-ui/core/styles';
 import { userSessionContext } from '../../contextFile';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
-import arrayBufferToBase64 from "../../utilities/arrayBufferToBase64";
+import arrayBufferToBase64 from '../../utilities/arrayBufferToBase64';
 
 //CSS Styles
 const useStyles = makeStyles((theme) => ({
@@ -73,37 +73,39 @@ export default function Profile(req, res) {
                             src="https://picsum.photos/100/125"
                             alt="profile photo of user"
                         />
-                        <h2 style={{ marginLeft: '40px', color: 'white' }}>{user.firstName} {user.lastName}</h2>
+                        <h2 style={{ marginLeft: '40px', color: 'white' }}>
+                            {user.firstName} {user.lastName}
+                        </h2>
                     </div>
                     {loading
                         ? rentalPost.map((item) => (
                               <RentalPost
-                                src={arrayBufferToBase64(item.image.data)}
-                                key={item._id}
-                                _id={item._id}
-                                type={item.type}
-                                streetNumber={item.streetNumber}
-                                streetName={item.streetName}
-                                postalCode={item.postalCode}
-                                price={item.price}
-                                parking={item.parking}
-                                room={item.room}
-                                bathroom={item.bathroom}
-                                petFriendly={item.petFriendly}
-                                balcony={item.balcony}
-                                airConditional={item.airConditional}
-                                gym={item.gym}
-                                hydro={item.hydro}
-                                water={item.water}
-                                roommate={item.roommate}
-                                Availability={item.availability}
-                                WiFi={item.wifi}
-                                additionalInfo={item.additionalInfo}
-                                postDate={item.postDate}
-                                //     // tanant ?
-                                Reviews={item.Reviews}
-                                Landlord={item.landlord}
-                                profilePic="https://picsum.photos/10/10"
+                                  src={arrayBufferToBase64(item.image.data)}
+                                  key={item._id}
+                                  _id={item._id}
+                                  type={item.type}
+                                  streetNumber={item.streetNumber}
+                                  streetName={item.streetName}
+                                  postalCode={item.postalCode}
+                                  price={item.price}
+                                  parking={item.parking}
+                                  room={item.room}
+                                  bathroom={item.bathroom}
+                                  petFriendly={item.petFriendly}
+                                  balcony={item.balcony}
+                                  airConditional={item.airConditional}
+                                  gym={item.gym}
+                                  hydro={item.hydro}
+                                  water={item.water}
+                                  roommate={item.roommate}
+                                  Availability={item.availability}
+                                  WiFi={item.wifi}
+                                  additionalInfo={item.additionalInfo}
+                                  postDate={item.postDate}
+                                  //     // tanant ?
+                                  Reviews={item.Reviews}
+                                  Landlord={item.landlord}
+                                  profilePic="https://picsum.photos/10/10"
                               />
                           ))
                         : null}

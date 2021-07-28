@@ -22,18 +22,6 @@ export default function Footer() {
                             <Link to="/contactus">Contact Us</Link>
                         </li>
                     </ul>
-                    <span class="h3 d-block primary-color">Search</span>
-                    <ul>
-                        <li>
-                            <a href="/">Users</a>
-                        </li>
-                        <li>
-                            <a href="/">Sites</a>
-                        </li>
-                        <li>
-                            <Link to="/MapSearch">Map</Link>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-12 col-lg-4 mb-5 px-5">
                     <span class="h3 d-block primary-color">Social Media</span>
@@ -79,25 +67,26 @@ export default function Footer() {
                     <span class="h3 d-block primary-color">Browse</span>
                     <ul>
                         <li>
-                            <a href="/">Cheap Rentals</a>
+                            <Link to="/findProperty"> Find Property </Link>
                         </li>
                         <li>
-                            <a href="/">Unique Rentals</a>
-                        </li>
-                        <li>
-                            <a href="/">Luxurious Rentals</a>
-                        </li>
-                        <li>
-                            <a href="https://drive.google.com/file/d/1JSrdlWUPT_HR88jOU1J9lKApJLVLHxVh/view?usp=sharing">
+                            <a 
+                             target="blank"
+                             rel="noopener noreferrer"
+                             variant="primary"
+                             href="https://drive.google.com/file/d/1JSrdlWUPT_HR88jOU1J9lKApJLVLHxVh/view?usp=sharing">
                                 Tenant-Landlord Term Agreement by Vroom
                             </a>
+                        </li>
+                        <li>
+                            <Link to="/MapSearch">Map</Link>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <p>VroomVroom &copy; 2021. All Rights Reserved.</p>
+                    <p>All Rights Reserved. VroomVroom &copy; 2021</p>
                 </div>
             </div>
         </footer>

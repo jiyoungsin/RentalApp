@@ -17,6 +17,6 @@
     background-color: yellow;
 }
 
-form input[type="radio"]:checked + label {
+form input[type='radio']:checked + label {
     background-color: yellow;
 }
