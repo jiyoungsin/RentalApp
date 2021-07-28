@@ -70,7 +70,7 @@ export default function Rental() {
                     <span>{rentalPost.type}</span>
                     <span> > </span>
                     <span>{rentalPost._id}</span>
-                    <div className="imageFlex">
+                    <div className="imageFlex mb-4">
                         <div className="col-6 align-center justify-content-center">
                             <img
                                 src={arrayBufferToBase64(rentalPostImage)}
@@ -98,7 +98,7 @@ export default function Rental() {
                                 />
                             </div>
                         </div>
-                        <div className="container">
+                        <div className="container border border-primary p-3">
                             <ContactRentalOwner landlord={rentalPost.landlord} />
                         </div>
                     </div>

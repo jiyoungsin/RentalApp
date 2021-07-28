@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import { Link } from 'react-router-dom';
+import arrayBufferToBase64 from '../../utilities/arrayBufferToBase64';
 
 const columns = [
     { id: 'name', label: '$ Price', minWidth: 170 },
@@ -29,8 +30,8 @@ const columns = [
         format: (value) => value.toLocaleString('en-US'),
     },
     {
-        id: 'bathroom',
-        label: 'bathroom',
+        id: 'image',
+        label: 'image',
         minWidth: 170,
         align: 'right',
         format: (value) => value.toFixed(2),
@@ -44,8 +45,8 @@ const columns = [
     },
 ];
 
-function createData(_id, name, address, bedrooms, landlord, bathroom, postalCode) {
-    return { _id, name, address, bedrooms, landlord, bathroom, postalCode };
+function createData(_id, name, address, bedrooms, landlord, image, postalCode) {
+    return { _id, name, address, bedrooms, landlord, image, postalCode };
 }
 
 const useStyles = makeStyles({
@@ -53,16 +54,17 @@ const useStyles = makeStyles({
         width: '100%',
     },
     container: {
-        maxHeight: 440,
+        maxHeight: "80vh",
     },
     myContainer: {
-        width: '80%',
-        height: '80%',
+        width: '80vw',
+        height: '80vh',
         margin: 'auto',
         display: 'flex',
         marginTop: '5vh',
         display: 'flex',
         flexDirection: 'column',
+        marginBottom: "20vh",
     },
 });
 
@@ -79,6 +81,8 @@ export default function StickyHeadTable() {
                     const thelandlord = '1000';
                     const theArray = [];
                     for (let i = 0; i < res.data.length - 1; i++) {
+                        console.log("res.data[i]")
+                        console.log(res.data[i])
                         const {
                             _id,
                             price,
@@ -86,7 +90,7 @@ export default function StickyHeadTable() {
                             streetName,
                             room,
                             landlord,
-                            bathroom,
+                            image,
                             postalCode,
                         } = res.data[i];
                         const fullAddress = streetNumber + ' ' + streetName;
@@ -97,7 +101,7 @@ export default function StickyHeadTable() {
                                 fullAddress,
                                 room,
                                 landlord,
-                                bathroom,
+                                image,
                                 postalCode
                             )
                         );
@@ -176,6 +180,20 @@ export default function StickyHeadTable() {
                                             key={row.address}
                                         >
                                             {columns.map((column) => {
+                                                if(column.id == "image"){
+                                                    const value = row[column.id];
+                                                    console.log("image")
+                                                    return (
+                                                        <TableCell key={column.id} align={column.align}>
+                                                            <Link
+                                                                to={'/rental/' + row._id}
+                                                                style={{ color: 'black' }}
+                                                            >
+                                                                <img thumbnail src={arrayBufferToBase64(row.image.data)} alt="Image of House" style={{"height": "100px"}}/>
+                                                            </Link>
+                                                        </TableCell>
+                                                    );
+                                                }
                                                 const value = row[column.id];
                                                 return (
                                                     <TableCell key={column.id} align={column.align}>
