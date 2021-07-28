@@ -30,6 +30,10 @@ export default function Signup() {
         labelText: {
             fontSize: '24px',
         },
+        lineFormat: {
+            color: 'black',
+            height: '10px'
+        }
     }));
 
     const classes = UseStyles();
@@ -254,11 +258,11 @@ export default function Signup() {
     return (
         <div className={classes.container}>
             <form className={classes.formStyle}>
-                <div className={classes.container}>
-                    <h2>Sign Up</h2>
+                <div style={{textAlign: 'center', backgroundColor: 'lightblue', paddingTop:'30px'}}>
+                    <h1 style={{color:'gray'}}>Sign Up</h1>
+                    <hr className={classes.lineFormat}/>
                 </div>
-                
-
+                    
                 <label className={classes.labelText} for="userName">
                     User Name
                 </label>
