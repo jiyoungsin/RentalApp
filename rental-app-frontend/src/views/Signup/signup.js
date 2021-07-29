@@ -258,7 +258,7 @@ export default function Signup() {
     return (
         <div className={classes.container}>
             <form className={classes.formStyle}>
-                <div style={{textAlign: 'center', backgroundColor: 'lightblue', paddingTop:'30px'}}>
+                <div style={{textAlign: 'center', paddingTop:'30px'}}>
                     <h1 style={{color:'gray'}}>Sign Up</h1>
                     <hr className={classes.lineFormat}/>
                 </div>

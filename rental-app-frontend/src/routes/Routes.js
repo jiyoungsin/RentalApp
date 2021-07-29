@@ -49,7 +49,6 @@ function Routes() {
                         <Route exact path="/Payment" component={Payment} />
                         <Route exact path="/404" component={Page404} />
                         <Route exact path="/StripePayment" component={StripePayment} />
-                        <Route exact path="/signup" component={Signup} />
                     </UserSessionContextProvider>
                 </Switch>
                 <Footer />
