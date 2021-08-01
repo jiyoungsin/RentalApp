@@ -59,7 +59,7 @@ app.post('/createrental', uploadMiddleware.single('image'), async (req, res) => 
         additionalInfo: additionalInfo,
         postDate: new Date(),
         tanant: [],
-        Reviews: Reviews,
+        Reviews: [Reviews],
         landlord: Landlord,
         image: {
             data: fs.readFileSync(req.file.path),

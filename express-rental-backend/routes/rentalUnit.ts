@@ -36,4 +36,5 @@ app.put('/editRental/:id', async (req, res) => {
         });
     res.status(204);
 });
+
 module.exports = app;
