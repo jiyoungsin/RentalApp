@@ -55,6 +55,8 @@ app.use('/profile', profileController);
 app.use('/message', messageController);
 app.use('/rentalUnit', rentalUnitController);
 app.use('/maintenance', maintenanceController);
+app.use('/review', maintenanceController);
+
 app.listen(PORT, () => {
     console.log('backend is running on Port :', PORT);
 });
