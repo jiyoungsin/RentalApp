@@ -10,19 +10,17 @@ const reviewSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        score: {
-            type: Number,
-            required: true,
-        },
         description: {
             type: String,
             required: true,
         },
         timeCreated: {
             type: Date,
-            createdAt: 'timeCreated',
-            currentTime: () => Date.now(),
         },
+        rental_id:{
+            type: String,
+            required: true,
+        }
     },
     {
         collection: 'review',
