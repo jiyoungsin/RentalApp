@@ -27,8 +27,6 @@ app.post('/signup', uploadMiddleware.single('image'), async (req, res) => {
         reviews,
         image,
     } = req.body;
-    console.log('req.body');
-    console.log(req.body);
     const database = mongoose.connection;
     const hash = bcrypt.hashSync(password, saltRounds);
 
@@ -94,7 +92,6 @@ app.post('/login', async (req, res) => {
                     req.cookies.user = user;
                     return res.status(200).json(user);
                 } else {
-                    console.log(err);
                     res.send('Incorrect Password');
                 }
             }

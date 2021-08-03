@@ -61,17 +61,22 @@ export default function Login() {
                 },
             })
             .then((res) => {
-                console.log('Logging in user');
                 const the_User = res.data;
-                setUser(the_User);
-                setSignInSuccessful(true);
+                if (res.data.toString() === "Incorrect Password")
+                {
+                    const error = 'Incorrect Username or Password';
+                    document.getElementById('wrongPwOrId').innerHTML = error;
+                } else{
+                    setUser(the_User);
+                    setSignInSuccessful(true);
+                }
             })
             .catch((err) => {
                 console.error(err);
                 alert('ERROR: Logging in');
             });
     };
-
+    console.log(formData)
     return (
         <React.Fragment>
             {signInSuccessful ? (
@@ -80,6 +85,7 @@ export default function Login() {
                 <div className={classes.container}>
                     <form className={classes.formStyle}>
                         <h2>Log in</h2>
+                        <p id="wrongPwOrId" style={{ color: 'red' }}></p>
                         <label className={classes.labelText} for="email">
                             Email
                         </label>
@@ -112,12 +118,6 @@ export default function Login() {
                         <div class="container">
                             <span class="psw">
                                 Don't have an account?<a href="/signup"> Sign Up.</a>
-                            </span>
-                        </div>
-                        <div class="container">
-                            <span class="psw">
-                                If you have forgotten your password, you can reset it by clicking{' '}
-                                <a href="/"> Reset Password.</a>
                             </span>
                         </div>
                     </form>
