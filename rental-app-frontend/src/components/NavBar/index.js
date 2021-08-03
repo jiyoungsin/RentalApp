@@ -20,9 +20,6 @@ function adminNavBar(user, signOut) {
                         <Link to="/findProperty">Find Rental</Link>
                     </Nav.Link>
                     <Nav.Link>
-                        <Link to="/">Pricing</Link>
-                    </Nav.Link>
-                    <Nav.Link>
                         <Link to="/aboutus">About</Link>
                     </Nav.Link>
                     <Nav.Link>
@@ -36,11 +33,6 @@ function adminNavBar(user, signOut) {
                     </Nav.Link>
                     <Nav.Link>
                         <Link to="/MapSearch">Map</Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                        <Link to="/message" style={{ color: 'white' }}>
-                            Message
-                        </Link>
                     </Nav.Link>
                     <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
                         <NavDropdown.Item>
@@ -115,11 +107,6 @@ function loggedInUserNavBar(user, signOut) {
                             Contact Us
                         </Link>
                     </Nav.Link>
-                    <Nav.Link>
-                        <Link to="/message" style={{ color: 'white' }}>
-                            Message
-                        </Link>
-                    </Nav.Link>
                 </Nav>
                 {/* Linking the routes using Link component */}
                 <Nav>
@@ -166,7 +153,6 @@ function notLoggedInUserNavBar() {
                         <Link to="/contactus">Contact Us</Link>
                     </Nav.Link>
                 </Nav>
-                {/* Linking the routes using Link component */}
                 <Nav>
                     <Nav.Link>
                         <Link to="/signup" id="navbar-sign-logo">
