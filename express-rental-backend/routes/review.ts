@@ -17,17 +17,6 @@ app.get('/:rental_id', async (req, res) => {
             console.log(err);
             res.send(err);
         });
-    // try {
-    //     await Review.find({}, (err: any, mainReq: any) => {
-    //         if (err) {
-    //             res.send(err);
-    //         } else {
-    //             return res.json(mainReq);
-    //         }
-    //     });
-    // } catch {
-    //     console.log('Failed to load Review Request');
-    // }
 });
 
 // this route will remove the rental from users array
