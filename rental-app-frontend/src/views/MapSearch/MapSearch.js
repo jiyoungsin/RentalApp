@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleMap from '../../components/GoogleMap/GoogleMap';
+import BigGoogleMap from '../../components/BigGoogleMap/BigGoogleMap';
 
 export default function MapSearch() {
     return (
@@ -7,7 +7,7 @@ export default function MapSearch() {
             <div className="mt-5">
                 <h2>Map Integration</h2>
             </div>
-            <GoogleMap />
+            <BigGoogleMap address={"100 Yonge St M5C2W1"}/>
         </div>
     );
 }
