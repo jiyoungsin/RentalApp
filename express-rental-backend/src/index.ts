@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const userController = require('../routes/user');
 const rentalController = require('../routes/rental');
+const reviewController = require('../routes/review');
 const messageController = require('../routes/message');
 const profileController = require('../routes/profile');
 const rentalUnitController = require('../routes/rentalUnit');
@@ -50,12 +51,12 @@ mongoose
 // Modulating routes
 // MAPs EXPRESS TO ALL OUR  ROUTER OBJECTS
 app.use('/users', userController);
+app.use('/review', reviewController);
 app.use('/rentals', rentalController);
 app.use('/profile', profileController);
 app.use('/message', messageController);
 app.use('/rentalUnit', rentalUnitController);
 app.use('/maintenance', maintenanceController);
-app.use('/review', maintenanceController);
 
 app.listen(PORT, () => {
     console.log('backend is running on Port :', PORT);

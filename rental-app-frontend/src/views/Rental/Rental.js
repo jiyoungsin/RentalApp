@@ -21,6 +21,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import WifiIcon from '@material-ui/icons/Wifi';
 import PetsIcon from '@material-ui/icons/Pets';
 import GoogleMap from '../../components/GoogleMap/GoogleMap';
+import ReviewsPost from '../../components/ReviewsPost/ReviewsPost';
 
 //CSS Styles
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +46,8 @@ export default function Rental() {
     const [rentalPost, setRentalPost] = useState([]);
     const [rentalPostImage, setRentalPostImage] = useState('');
     const [loaded, setLoaded] = useState(false);
+    const [reviews, setReviews] = useState([]);
+    const [reviewsLoaded, setReviewsLoaded] = useState(false);
 
 
     useEffect(() => {
@@ -60,13 +63,24 @@ export default function Rental() {
                 alert('Error while Fetching Rental Unit');
             });
     }, [loaded]);
-    const addr =
-        rentalPost.streetNumber + ' ' + rentalPost.streetName + ' ' + rentalPost.postalCode;
+
+    useEffect(() => {
+        axios.get(`http://localhost:5000/review/` + rental_id)
+            .then((res) => {
+                setReviews(res.data)
+                setReviewsLoaded(true);
+            })
+            .catch((err) => {
+                console.log(err);
+                alert('Error while Fetching Rental Units Reviews');
+            });
+    }, [reviewsLoaded]);
+
+    const addr = rentalPost.streetNumber + ' ' + rentalPost.streetName + ' ' + rentalPost.postalCode;
     const [reviewForm, setReviewForm] = useState({
         user: user.userName,
-        score: '1',
         description: '',
-        rental: rental_id,
+        rental_id: rental_id,
     });
 
     const handleChangeReview = (e) => {
@@ -75,7 +89,6 @@ export default function Rental() {
             ...ps,
             [id]: value,
         }));
-        console.log(reviewForm)
     };
     const onSubmitReview = () => {
         const submitReview = { ...reviewForm };
@@ -86,11 +99,9 @@ export default function Rental() {
                 },
             })
             .then((res) => {
-                console.log('Creating new Review');
-                const the_User = res.data;
-                console.log(the_User);
-                // set something here.
-                // then redirect to the new maintence
+                setReviewForm({description: ''})
+                document.getElementById("description").value = "";
+                alert("Review Submitted!")
             })
             .catch((err) => {
                 console.error(err);
@@ -273,6 +284,14 @@ export default function Rental() {
                                     </div>
                                 </div>
                             </form>
+                            {reviewsLoaded ? reviews.map((item) => ( 
+                                <ReviewsPost
+                                    user={item.user}
+                                    timeCreated={item.timeCreated}
+                                    description={item.description}
+                                />
+                                )) 
+                            : null }
                         </div>
                     </div>
                 </div>
