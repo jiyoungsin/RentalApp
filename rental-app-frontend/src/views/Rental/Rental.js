@@ -22,6 +22,8 @@ import WifiIcon from '@material-ui/icons/Wifi';
 import PetsIcon from '@material-ui/icons/Pets';
 import GoogleMap from '../../components/GoogleMap/GoogleMap';
 import ReviewsPost from '../../components/ReviewsPost/ReviewsPost';
+import contactLandlord from '../../images/contactLandlord.png';
+import CreateReviewLogin from '../../images/CreateReviewLogin.png';
 
 //CSS Styles
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
     },
     iconFlex: {
         margin: '0px 10px 0 10px',
+    },
+    contactLandlordImage: {
+        opacity:"0.5"
     },
 }));
 
@@ -147,7 +152,15 @@ export default function Rental() {
                             </div>
                         </div>
                         <div className="container border border-primary p-3">
-                            <ContactRentalOwner landlord={rentalPost.landlord} />
+                            {user.userName ? 
+                            <ContactRentalOwner landlord={rentalPost.landlord}/>
+                            :
+                            <Link to="/login" >
+                                <div className={classes.contactLandlordImage}>
+                                    <img src={contactLandlord} alt="" />
+                                </div>
+                            </Link>
+                            }
                         </div>
                     </div>
                     <div id="rent-google-maps">
@@ -270,20 +283,31 @@ export default function Rental() {
                             </div>
                         </div>
                         <div class="container">
-                            <h4>Post comments</h4>
-                            <form>
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <textarea onChange={handleChangeReview} name="description" id="description" placeholder="Leave your comment about the Rent unit" class="form-control"></textarea>
+                            {user.userName ? 
+                            <>
+                                <h4>Post comments</h4>
+                                <form>
+                                    <div class="row">
+                                        <div class="form-group col-md-12">
+                                            <textarea onChange={handleChangeReview} name="description" id="description" placeholder="Leave your comment about the Rent unit" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group col-md-12 text-right">
+                                        <Button onClick={onSubmitReview} variant="primary" className={classes.buttonPadding}>
+                                            Submit
+                                        </Button>
+                                            
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-12 text-right">
-                                    <Button onClick={onSubmitReview} variant="primary" className={classes.buttonPadding}>
-                                        Submit
-                                    </Button>
-                                        
-                                    </div>
+                                </form>
+                            </>
+                            :
+                            <Link to="/login" >
+                                <div className={classes.contactLandlordImage}>
+                                    <img src={CreateReviewLogin} alt="" style={{ "width": "62vw"}}/>
                                 </div>
-                            </form>
+                            </Link>
+                            }
+                            
                             {reviewsLoaded ? reviews.map((item) => ( 
                                 <ReviewsPost
                                     user={item.user}

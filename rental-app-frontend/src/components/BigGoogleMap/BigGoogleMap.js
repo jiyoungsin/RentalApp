@@ -37,8 +37,6 @@ export class MapContainer extends Component {
     render() {
         return (
             <div style={({ position: 'relative' }, { height: '1000px' })}>
-                {/* This is not thhe correct way, but answeers whats needed for now. */}
-
                 <PlacesAutocomplete
                     value={this.state.address}
                     onChange={this.handleChange}

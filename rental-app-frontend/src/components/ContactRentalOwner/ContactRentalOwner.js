@@ -4,7 +4,7 @@ import { userSessionContext } from '../../contextFile';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
-export default function ContactRentalOwner(Landlord) {
+export default function ContactRentalOwner(Landlord, theCurrentUser) {
     const [loaded, setLoaded] = useState(false);
     const [landlordEmail, setLandlordEmail] = useState(false);
     const UseStyles = makeStyles((theme) => ({
@@ -31,7 +31,8 @@ export default function ContactRentalOwner(Landlord) {
             fontSize: '24px',
         },
     }));
-
+    console.log("theCurrentUser")
+    console.log(theCurrentUser)
     useEffect(() => {
         axios
             .get(`http://localhost:5000/profile/username/` + Landlord.landlord)
@@ -106,6 +107,7 @@ export default function ContactRentalOwner(Landlord) {
     console.log(formData);
     return (
         <>
+        {theCurrentUser ?
             <div>
                 <form className={classes.formStyle}>
                     <h2>Contact Landlord</h2>
@@ -154,6 +156,7 @@ export default function ContactRentalOwner(Landlord) {
                     </Button>
                 </form>
             </div>
+            : <div></div>}
         </>
     );
 }
