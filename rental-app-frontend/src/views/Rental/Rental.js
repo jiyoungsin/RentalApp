@@ -255,6 +255,7 @@ export default function Rental() {
                                     <td></td>
                                 </tr>
                             </table>
+                            {user.userName ? 
                             <div>
                                 <a
                                     target="blank"
@@ -281,6 +282,7 @@ export default function Rental() {
                                     <Button variant="primary">Maintenance</Button>{' '}
                                 </Link>
                             </div>
+                            : <div></div> }
                         </div>
                         <div class="container">
                             {user.userName ? 
