@@ -139,7 +139,7 @@ export default function StickyHeadTable() {
 
     return (
         <div className={classes.myContainer}>
-            <div className={classes.findHeader}><h2>Find your freaking rental</h2></div>
+            <div className={classes.findHeader}><h2>Find your rental/s</h2></div>
             {/* <div className="input-group mt-5 mb-5">
                 <input
                     onChange={handleChange}
