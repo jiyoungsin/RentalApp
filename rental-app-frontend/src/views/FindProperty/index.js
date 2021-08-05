@@ -11,7 +11,6 @@ import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import { Link } from 'react-router-dom';
 import arrayBufferToBase64 from '../../utilities/arrayBufferToBase64';
-
 const columns = [
     { id: 'name', label: '$ Price', minWidth: 170 },
     { id: 'address', label: 'Address', minWidth: 100 },
@@ -65,6 +64,10 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         marginBottom: "20vh",
+    },
+    findHeader: {
+        justifiyContent: 'center',
+        alignItems: 'center',
     },
 });
 
@@ -136,7 +139,8 @@ export default function StickyHeadTable() {
 
     return (
         <div className={classes.myContainer}>
-            <div className="input-group mt-5 mb-5">
+            <div className={classes.findHeader}><h2>Find your freaking rental</h2></div>
+            {/* <div className="input-group mt-5 mb-5">
                 <input
                     onChange={handleChange}
                     type="text"
@@ -151,7 +155,7 @@ export default function StickyHeadTable() {
                         Search
                     </button>
                 </div>
-            </div>
+            </div> */}
             <Paper className={classes.root}>
                 <TableContainer className={classes.container}>
                     <Table stickyHeader aria-label="sticky table">
