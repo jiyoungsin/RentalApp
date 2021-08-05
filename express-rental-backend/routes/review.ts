@@ -36,11 +36,7 @@ app.get('/:rental_id', async (req, res) => {
 // this route is used when creating a Review.
 // we will need to append the new rentals to the users array of rentals.
 app.post('/create', async (req, res) => {
-    const {
-        user,
-        description,
-        rental_id
-    } = req.body;
+    const { user, description, rental_id } = req.body;
     const database = mongoose.connection;
     try {
         database.collection('review').insertOne({

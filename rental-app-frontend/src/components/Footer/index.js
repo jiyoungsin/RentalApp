@@ -70,11 +70,12 @@ export default function Footer() {
                             <Link to="/findProperty"> Find Property </Link>
                         </li>
                         <li>
-                            <a 
-                             target="blank"
-                             rel="noopener noreferrer"
-                             variant="primary"
-                             href="https://drive.google.com/file/d/1JSrdlWUPT_HR88jOU1J9lKApJLVLHxVh/view?usp=sharing">
+                            <a
+                                target="blank"
+                                rel="noopener noreferrer"
+                                variant="primary"
+                                href="https://drive.google.com/file/d/1JSrdlWUPT_HR88jOU1J9lKApJLVLHxVh/view?usp=sharing"
+                            >
                                 Tenant-Landlord Term Agreement by Vroom
                             </a>
                         </li>

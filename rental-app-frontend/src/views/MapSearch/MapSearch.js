@@ -7,7 +7,7 @@ export default function MapSearch() {
             <div className="mt-5">
                 <h2>Map Integration</h2>
             </div>
-            <BigGoogleMap address={"100 Yonge St M5C2W1"}/>
+            <BigGoogleMap address={'100 Yonge St M5C2W1'} />
         </div>
     );
 }

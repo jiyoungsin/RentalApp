@@ -31,8 +31,8 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
             fontSize: '24px',
         },
     }));
-    console.log("theCurrentUser")
-    console.log(theCurrentUser)
+    console.log('theCurrentUser');
+    console.log(theCurrentUser);
     useEffect(() => {
         axios
             .get(`http://localhost:5000/profile/username/` + Landlord.landlord)
@@ -107,56 +107,58 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
     console.log(formData);
     return (
         <>
-        {theCurrentUser ?
-            <div>
-                <form className={classes.formStyle}>
-                    <h2>Contact Landlord</h2>
-                    <label className={classes.labelText} for="email">
-                        Send to:
-                    </label>
-                    <input
-                        type="text"
-                        id="email"
-                        name="email"
-                        className="border border-dark"
-                        placeholder="Landlord"
-                        disabled="true"
-                    ></input>
-                    <p id="emailError" style={{ color: 'red' }}></p>
+            {theCurrentUser ? (
+                <div>
+                    <form className={classes.formStyle}>
+                        <h2>Contact Landlord</h2>
+                        <label className={classes.labelText} for="email">
+                            Send to:
+                        </label>
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            className="border border-dark"
+                            placeholder="Landlord"
+                            disabled="true"
+                        ></input>
+                        <p id="emailError" style={{ color: 'red' }}></p>
 
-                    <label className={classes.labelText} for="subject">
-                        Subject:
-                    </label>
-                    <input
-                        type="text"
-                        onChange={handleChange}
-                        value={formData.subject}
-                        id="subject"
-                        name="subject"
-                        className="border border-dark"
-                    ></input>
+                        <label className={classes.labelText} for="subject">
+                            Subject:
+                        </label>
+                        <input
+                            type="text"
+                            onChange={handleChange}
+                            value={formData.subject}
+                            id="subject"
+                            name="subject"
+                            className="border border-dark"
+                        ></input>
 
-                    <label className={classes.labelText} for="message">
-                        Message:
-                    </label>
-                    <textarea
-                        id="message"
-                        onChange={handleChange}
-                        value={formData.message}
-                        name="message"
-                        rows="10"
-                    ></textarea>
+                        <label className={classes.labelText} for="message">
+                            Message:
+                        </label>
+                        <textarea
+                            id="message"
+                            onChange={handleChange}
+                            value={formData.message}
+                            name="message"
+                            rows="10"
+                        ></textarea>
 
-                    <Button
-                        variant="primary"
-                        className={classes.buttonPadding}
-                        onClick={() => onSubmit()}
-                    >
-                        Submit
-                    </Button>
-                </form>
-            </div>
-            : <div></div>}
+                        <Button
+                            variant="primary"
+                            className={classes.buttonPadding}
+                            onClick={() => onSubmit()}
+                        >
+                            Submit
+                        </Button>
+                    </form>
+                </div>
+            ) : (
+                <div></div>
+            )}
         </>
     );
 }

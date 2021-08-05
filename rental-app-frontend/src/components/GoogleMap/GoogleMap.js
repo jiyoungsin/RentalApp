@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import dotenv from 'dotenv';
 import Geocode from 'react-geocode';
-Geocode.setApiKey('AIzaSyB9vQOdH8h64XBi-s1kCAVhZ1kgNpnlWUs'); 
+Geocode.setApiKey('AIzaSyB9vQOdH8h64XBi-s1kCAVhZ1kgNpnlWUs');
 
 dotenv.config();
 export class MapContainer extends Component {

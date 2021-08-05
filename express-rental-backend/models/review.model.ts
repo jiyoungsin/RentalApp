@@ -17,10 +17,10 @@ const reviewSchema = new mongoose.Schema(
         timeCreated: {
             type: Date,
         },
-        rental_id:{
+        rental_id: {
             type: String,
             required: true,
-        }
+        },
     },
     {
         collection: 'review',

@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '0px 10px 0 10px',
     },
     contactLandlordImage: {
-        opacity:"0.5"
+        opacity: '0.5',
     },
 }));
 
@@ -53,7 +53,6 @@ export default function Rental() {
     const [loaded, setLoaded] = useState(false);
     const [reviews, setReviews] = useState([]);
     const [reviewsLoaded, setReviewsLoaded] = useState(false);
-
 
     useEffect(() => {
         axios
@@ -70,9 +69,10 @@ export default function Rental() {
     }, [loaded]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/review/` + rental_id)
+        axios
+            .get(`http://localhost:5000/review/` + rental_id)
             .then((res) => {
-                setReviews(res.data)
+                setReviews(res.data);
                 setReviewsLoaded(true);
             })
             .catch((err) => {
@@ -81,7 +81,8 @@ export default function Rental() {
             });
     }, [reviewsLoaded]);
 
-    const addr = rentalPost.streetNumber + ' ' + rentalPost.streetName + ' ' + rentalPost.postalCode;
+    const addr =
+        rentalPost.streetNumber + ' ' + rentalPost.streetName + ' ' + rentalPost.postalCode;
     const [reviewForm, setReviewForm] = useState({
         user: user.userName,
         description: '',
@@ -104,13 +105,13 @@ export default function Rental() {
                 },
             })
             .then((res) => {
-                setReviewForm({description: ''})
-                document.getElementById("description").value = "";
-                alert("Review Submitted!")
+                setReviewForm({ description: '' });
+                document.getElementById('description').value = '';
+                alert('Review Submitted!');
             })
             .catch((err) => {
                 console.error(err);
-                console.log("error creating review")
+                console.log('error creating review');
             });
     };
 
@@ -152,15 +153,15 @@ export default function Rental() {
                             </div>
                         </div>
                         <div className="container border border-primary p-3">
-                            {user.userName ? 
-                            <ContactRentalOwner landlord={rentalPost.landlord}/>
-                            :
-                            <Link to="/login" >
-                                <div className={classes.contactLandlordImage}>
-                                    <img src={contactLandlord} alt="" />
-                                </div>
-                            </Link>
-                            }
+                            {user.userName ? (
+                                <ContactRentalOwner landlord={rentalPost.landlord} />
+                            ) : (
+                                <Link to="/login">
+                                    <div className={classes.contactLandlordImage}>
+                                        <img src={contactLandlord} alt="" />
+                                    </div>
+                                </Link>
+                            )}
                         </div>
                     </div>
                     <div id="rent-google-maps">
@@ -255,69 +256,85 @@ export default function Rental() {
                                     <td></td>
                                 </tr>
                             </table>
-                            {user.userName ? 
-                            <div>
-                                <a
-                                    target="blank"
-                                    rel="noopener noreferrer"
-                                    variant="primary"
-                                    href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2"
-                                    className="btn btn-primary mr-1"
-                                >
-                                    DocuSign
-                                </a>
-                                <a
-                                    target="blank"
-                                    rel="noopener noreferrer"
-                                    variant="primary"
-                                    href="https://utsc.utoronto.ca/residences/sites/utsc.utoronto.ca.residences/files/images/Residential%20Tenancy%20Agreement%20%28Standard%20Form%20of%20Lease%29.pdf"
-                                    className="btn btn-primary mr-1"
-                                >
-                                    Ontario Rental Agreement
-                                </a>
-                                <Link to="/StripePayment">
-                                    <Button variant="primary">Pay Now</Button>{' '}
-                                </Link>
-                                <Link to="/CreateMaintenance">
-                                    <Button variant="primary">Maintenance</Button>{' '}
-                                </Link>
-                            </div>
-                            : <div></div> }
+                            {user.userName ? (
+                                <div>
+                                    <a
+                                        target="blank"
+                                        rel="noopener noreferrer"
+                                        variant="primary"
+                                        href="https://demo.docusign.net/Member/PowerFormSigning.aspx?PowerFormId=6c7e010f-6c7c-4de4-9679-4388aa581d47&env=demo&acct=14c96305-310a-40e4-9925-66f8abc7c383&v=2"
+                                        className="btn btn-primary mr-1"
+                                    >
+                                        DocuSign
+                                    </a>
+                                    <a
+                                        target="blank"
+                                        rel="noopener noreferrer"
+                                        variant="primary"
+                                        href="https://utsc.utoronto.ca/residences/sites/utsc.utoronto.ca.residences/files/images/Residential%20Tenancy%20Agreement%20%28Standard%20Form%20of%20Lease%29.pdf"
+                                        className="btn btn-primary mr-1"
+                                    >
+                                        Ontario Rental Agreement
+                                    </a>
+                                    <Link to="/StripePayment">
+                                        <Button variant="primary">Pay Now</Button>{' '}
+                                    </Link>
+                                    <Link to="/CreateMaintenance">
+                                        <Button variant="primary">Maintenance</Button>{' '}
+                                    </Link>
+                                </div>
+                            ) : (
+                                <div></div>
+                            )}
                         </div>
                         <div class="container">
-                            {user.userName ? 
-                            <>
-                                <h4>Post comments</h4>
-                                <form>
-                                    <div class="row">
-                                        <div class="form-group col-md-12">
-                                            <textarea onChange={handleChangeReview} name="description" id="description" placeholder="Leave your comment about the Rent unit" class="form-control"></textarea>
+                            {user.userName ? (
+                                <>
+                                    <h4>Post comments</h4>
+                                    <form>
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <textarea
+                                                    onChange={handleChangeReview}
+                                                    name="description"
+                                                    id="description"
+                                                    placeholder="Leave your comment about the Rent unit"
+                                                    class="form-control"
+                                                ></textarea>
+                                            </div>
+                                            <div class="form-group col-md-12 text-right">
+                                                <Button
+                                                    onClick={onSubmitReview}
+                                                    variant="primary"
+                                                    className={classes.buttonPadding}
+                                                >
+                                                    Submit
+                                                </Button>
+                                            </div>
                                         </div>
-                                        <div class="form-group col-md-12 text-right">
-                                        <Button onClick={onSubmitReview} variant="primary" className={classes.buttonPadding}>
-                                            Submit
-                                        </Button>
-                                            
-                                        </div>
+                                    </form>
+                                </>
+                            ) : (
+                                <Link to="/login">
+                                    <div className={classes.contactLandlordImage}>
+                                        <img
+                                            src={CreateReviewLogin}
+                                            alt=""
+                                            style={{ width: '62vw' }}
+                                        />
                                     </div>
-                                </form>
-                            </>
-                            :
-                            <Link to="/login" >
-                                <div className={classes.contactLandlordImage}>
-                                    <img src={CreateReviewLogin} alt="" style={{ "width": "62vw"}}/>
-                                </div>
-                            </Link>
-                            }
-                            
-                            {reviewsLoaded ? reviews.map((item) => ( 
-                                <ReviewsPost
-                                    user={item.user}
-                                    timeCreated={item.timeCreated}
-                                    description={item.description}
-                                />
-                                )) 
-                            : null }
+                                </Link>
+                            )}
+
+                            {reviewsLoaded
+                                ? reviews.map((item) => (
+                                      <ReviewsPost
+                                          user={item.user}
+                                          timeCreated={item.timeCreated}
+                                          description={item.description}
+                                      />
+                                  ))
+                                : null}
                         </div>
                     </div>
                 </div>

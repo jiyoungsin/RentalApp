@@ -62,11 +62,10 @@ export default function Login() {
             })
             .then((res) => {
                 const the_User = res.data;
-                if (res.data.toString() === "Incorrect Password")
-                {
+                if (res.data.toString() === 'Incorrect Password') {
                     const error = 'Incorrect Username or Password';
                     document.getElementById('wrongPwOrId').innerHTML = error;
-                } else{
+                } else {
                     setUser(the_User);
                     setSignInSuccessful(true);
                 }
@@ -76,7 +75,7 @@ export default function Login() {
                 alert('ERROR: Logging in');
             });
     };
-    console.log(formData)
+    console.log(formData);
     return (
         <React.Fragment>
             {signInSuccessful ? (

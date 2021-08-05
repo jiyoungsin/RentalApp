@@ -104,8 +104,8 @@ export default function EditRental({ match }) {
     const onSubmit = () => {
         // updates data to the backend
         const payload = { ...state };
-        console.log("payload")
-        console.log(payload)
+        console.log('payload');
+        console.log(payload);
         delete payload.image;
         axios
             .put(`http://localhost:5000/rentalUnit/editRental/${id}`, {
@@ -219,7 +219,11 @@ export default function EditRental({ match }) {
                     value={state.additionalInfo}
                 />
                 <div className={classes.checkbox}>
-                    <label className={classes.text} for="availability" style={state.availability ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="availability"
+                        style={state.availability ? { backgroundColor: 'yellow' } : {}}
+                    >
                         availability
                     </label>
                     <input
@@ -230,7 +234,11 @@ export default function EditRental({ match }) {
                         id="availability"
                         name="availability"
                     />
-                    <label className={classes.text} for="water" style={state.water ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="water"
+                        style={state.water ? { backgroundColor: 'yellow' } : {}}
+                    >
                         water
                     </label>
                     <input
@@ -241,7 +249,11 @@ export default function EditRental({ match }) {
                         id="water"
                         name="water"
                     />
-                    <label className={classes.text} for="roommate" style={state.roommate ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="roommate"
+                        style={state.roommate ? { backgroundColor: 'yellow' } : {}}
+                    >
                         roommate
                     </label>
                     <input
@@ -252,7 +264,11 @@ export default function EditRental({ match }) {
                         id="roommate"
                         name="roommate"
                     />
-                    <label className={classes.text} for="internet" style={state.internet ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="internet"
+                        style={state.internet ? { backgroundColor: 'yellow' } : {}}
+                    >
                         internet
                     </label>
                     <input
@@ -263,7 +279,11 @@ export default function EditRental({ match }) {
                         id="internet"
                         name="internet"
                     />
-                    <label className={classes.text} for="internet" style={state.petFriendly ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="internet"
+                        style={state.petFriendly ? { backgroundColor: 'yellow' } : {}}
+                    >
                         petFriendly
                     </label>
                     <input
@@ -274,7 +294,11 @@ export default function EditRental({ match }) {
                         id="petFriendly"
                         name="petFriendly"
                     />
-                    <label className={classes.text} for="hydro" style={state.hydro ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="hydro"
+                        style={state.hydro ? { backgroundColor: 'yellow' } : {}}
+                    >
                         hydro
                     </label>
                     <input
@@ -285,7 +309,11 @@ export default function EditRental({ match }) {
                         id="hydro"
                         name="hydro"
                     />
-                    <label className={classes.text} for="dishWasher" style={state.dishWasher ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="dishWasher"
+                        style={state.dishWasher ? { backgroundColor: 'yellow' } : {}}
+                    >
                         dishWasher
                     </label>
                     <input
@@ -296,7 +324,11 @@ export default function EditRental({ match }) {
                         id="dishWasher"
                         name="dishWasher"
                     />
-                    <label className={classes.text} for="gym" style={state.gym ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="gym"
+                        style={state.gym ? { backgroundColor: 'yellow' } : {}}
+                    >
                         gym
                     </label>
                     <input
@@ -307,7 +339,11 @@ export default function EditRental({ match }) {
                         id="gym"
                         name="gym"
                     />
-                    <label className={classes.text} for="airConditional" style={state.airConditional ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="airConditional"
+                        style={state.airConditional ? { backgroundColor: 'yellow' } : {}}
+                    >
                         airConditioning
                     </label>
                     <input
@@ -318,7 +354,11 @@ export default function EditRental({ match }) {
                         id="airConditional"
                         name="airConditional"
                     />
-                    <label className={classes.text} for="balcony" style={state.balcony ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="balcony"
+                        style={state.balcony ? { backgroundColor: 'yellow' } : {}}
+                    >
                         balcony
                     </label>
                     <input
@@ -329,7 +369,11 @@ export default function EditRental({ match }) {
                         id="balcony"
                         name="balcony"
                     />
-                    <label className={classes.text} for="petFriendly" style={state.petFriendly ? {backgroundColor: "yellow"}: {}}>
+                    <label
+                        className={classes.text}
+                        for="petFriendly"
+                        style={state.petFriendly ? { backgroundColor: 'yellow' } : {}}
+                    >
                         petFriendly
                     </label>
                     <input

@@ -53,7 +53,7 @@ const useStyles = makeStyles({
         width: '100%',
     },
     container: {
-        maxHeight: "80vh",
+        maxHeight: '80vh',
     },
     myContainer: {
         width: '80vw',
@@ -63,7 +63,7 @@ const useStyles = makeStyles({
         marginTop: '5vh',
         display: 'flex',
         flexDirection: 'column',
-        marginBottom: "20vh",
+        marginBottom: '20vh',
     },
     findHeader: {
         justifiyContent: 'center',
@@ -84,8 +84,8 @@ export default function StickyHeadTable() {
                     const thelandlord = '1000';
                     const theArray = [];
                     for (let i = 0; i < res.data.length - 1; i++) {
-                        console.log("res.data[i]")
-                        console.log(res.data[i])
+                        console.log('res.data[i]');
+                        console.log(res.data[i]);
                         const {
                             _id,
                             price,
@@ -98,15 +98,7 @@ export default function StickyHeadTable() {
                         } = res.data[i];
                         const fullAddress = streetNumber + ' ' + streetName;
                         theArray.push(
-                            createData(
-                                _id,
-                                price,
-                                fullAddress,
-                                room,
-                                landlord,
-                                image,
-                                postalCode
-                            )
+                            createData(_id, price, fullAddress, room, landlord, image, postalCode)
                         );
                     }
                     setRows(theArray);
@@ -139,7 +131,9 @@ export default function StickyHeadTable() {
 
     return (
         <div className={classes.myContainer}>
-            <div className={classes.findHeader}><h2>Find your rental/s</h2></div>
+            <div className={classes.findHeader}>
+                <h2>Find your rental/s</h2>
+            </div>
             {/* <div className="input-group mt-5 mb-5">
                 <input
                     onChange={handleChange}
@@ -184,16 +178,26 @@ export default function StickyHeadTable() {
                                             key={row.address}
                                         >
                                             {columns.map((column) => {
-                                                if(column.id == "image"){
+                                                if (column.id == 'image') {
                                                     const value = row[column.id];
-                                                    console.log("image")
+                                                    console.log('image');
                                                     return (
-                                                        <TableCell key={column.id} align={column.align}>
+                                                        <TableCell
+                                                            key={column.id}
+                                                            align={column.align}
+                                                        >
                                                             <Link
                                                                 to={'/rental/' + row._id}
                                                                 style={{ color: 'black' }}
                                                             >
-                                                                <img thumbnail src={arrayBufferToBase64(row.image.data)} alt="Image of House" style={{"height": "100px"}}/>
+                                                                <img
+                                                                    thumbnail
+                                                                    src={arrayBufferToBase64(
+                                                                        row.image.data
+                                                                    )}
+                                                                    alt="Image of House"
+                                                                    style={{ height: '100px' }}
+                                                                />
                                                             </Link>
                                                         </TableCell>
                                                     );
