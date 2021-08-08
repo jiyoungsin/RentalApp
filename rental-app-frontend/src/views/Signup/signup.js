@@ -192,9 +192,7 @@ export default function Signup() {
             .get('http://localhost:5000/users/usernames')
             .then((res) => {
                 userNames = res.data;
-                console.log('i come in');
                 for (let i = 0; i < userNames.length; i++) {
-                    console.log(userNames[i]);
                     if (userNames[i].userName == value) {
                         isUsed = true;
                         error = 'USER NAME IS BEING USED';
@@ -219,7 +217,7 @@ export default function Signup() {
                 alert('Error Sending Data to Backend from ValidateUserName');
             });
     };
-
+    console.log(formData)
     // sends sign up data to backend.
     const onSubmit = () => {
         // saves data to Database Endpoint /signup

@@ -29,9 +29,8 @@ app.post('/signup', uploadMiddleware.single('image'), async (req, res) => {
     } = req.body;
     const database = mongoose.connection;
     const hash = bcrypt.hashSync(password, saltRounds);
-
     // Move This to Process .env
-    sgMail.setApiKey('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');
+    // sgMail.setApiKey('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');
 
     try {
         database.collection('user').insertOne({
@@ -46,34 +45,31 @@ app.post('/signup', uploadMiddleware.single('image'), async (req, res) => {
             viewRentals: viewRentals,
             favoriteRentals: favoriteRentals,
             reviews: reviews,
-            image: {
-                data: fs.readFileSync(req.file.path),
-                contentType: 'image/png',
-            },
+            image: image,
         });
 
-        const message = {
-            to: email,
-            from: 'VroomInc@officalbase.com',
-            subject: 'Welcome to Vroom',
-            text: 'Hello world',
-            html: `
-                <h1>Welcome to Vroom</h1>
-                <p> Thanks for Signing Up! Now let's find you a home!</p>
-            `,
-        };
+    //     const message = {
+    //         to: email,
+    //         from: 'VroomInc@officalbase.com',
+    //         subject: 'Welcome to Vroom',
+    //         text: 'Hello world',
+    //         html: `
+    //             <h1>Welcome to Vroom</h1>
+    //             <p> Thanks for Signing Up! Now let's find you a home!</p>
+    //         `,
+    //     };
 
-        (async () => {
-            try {
-                await sgMail.send(message);
-            } catch (error) {
-                console.error(error);
+    //     (async () => {
+    //         try {
+    //             await sgMail.send(message);
+    //         } catch (error) {
+    //             console.error(error);
 
-                if (error.response) {
-                    console.error(error.response.body);
-                }
-            }
-        })();
+    //             if (error.response) {
+    //                 console.error(error.response.body);
+    //             }
+    //         }
+    //     })();
         res.status(200).json('Saved to Database');
     } catch {
         console.log('ERROR: Did not Create User.');
