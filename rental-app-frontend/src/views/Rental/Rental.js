@@ -256,7 +256,7 @@ export default function Rental() {
                                     <td></td>
                                 </tr>
                             </table>
-                            {user.userName ? (
+                            {user.userName ==  rentalPost.landlord ? (
                                 <div>
                                     <a
                                         target="blank"
