@@ -93,9 +93,14 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
                 },
             })
             .then((res) => {
-                console.log('Email Sent Successfully');
+                alert('Email Sent Successfully');
                 const mailStatus = res.data;
-                console.log(mailStatus);
+                setFormData({
+                    email: '',
+                    subject: '',
+                    message: '',
+                    cc: user.email,
+                })
                 // set something here.
                 // then redirect to the new maintence
             })
@@ -104,7 +109,6 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
                 alert('ERROR: Logging in');
             });
     };
-    console.log(formData);
     return (
         <>
             {theCurrentUser ? (
@@ -119,7 +123,7 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
                             id="email"
                             name="email"
                             className="border border-dark"
-                            placeholder="Landlord"
+                            placeholder={landlordEmail}
                             disabled="true"
                         ></input>
                         <p id="emailError" style={{ color: 'red' }}></p>

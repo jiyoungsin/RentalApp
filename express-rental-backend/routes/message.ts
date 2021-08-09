@@ -8,12 +8,12 @@ const API_KEY = 'SG.HAgdrvleSUectdS4gz7BsA.RqHIttMKc2BfhGiHULgTQevthYmTjTdpfv9AI
 sgMail.setApiKey(API_KEY);
 
 app.post('/send', async (req, res) => {
-    const { email, subject, message } = req.body;
+    const { email, subject, message, cc } = req.body;
 
     const mail = {
         to: email,
         from: 'VroomInc@officalbase.com',
-        cc: 'sins0113@gmail.com',
+        cc: cc,
         subject: subject,
         text: message,
     };

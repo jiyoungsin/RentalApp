@@ -137,9 +137,9 @@ export default function CreateMaintenance() {
         <div className={classes.container}>
             <br />
             <form className={classes.formStyle}>
-                <h2>Maintenance Report</h2>
+                <h2>Maintenance Request</h2>
                 <label className={classes.labelText} for="tenantName">
-                    Tenant FullName
+                    Tenant Full Name
                 </label>
                 <InputForm
                     onChange={handleChange}
@@ -151,7 +151,7 @@ export default function CreateMaintenance() {
                 <p id="tenantNameError" style={{ color: 'red' }}></p>
 
                 <label className={classes.labelText} for="landlordName">
-                    Landlord FullName
+                    Landlord Full Name
                 </label>
                 <InputForm
                     onChange={handleChange}
@@ -165,59 +165,53 @@ export default function CreateMaintenance() {
                 <label className={classes.labelText} for="email">
                     Landlord's Email
                 </label>
-                <input
+                <InputForm
                     onChange={validateEmail}
                     type="text"
                     value={formData.email}
                     id="email"
                     name="email"
-                ></input>
+                />
                 <p id="emailError" style={{ color: 'red' }}></p>
 
                 <label className={classes.labelText} for="tenantPhoneNumber">
                     Tenant's Phone Number
                 </label>
-                <input
+                <InputForm
                     onChange={validatePhone}
                     type="text"
                     value={formData.tenantPhoneNumber}
                     id="tenantPhoneNumber"
                     name="tenantPhoneNumber"
-                ></input>
+                />
                 <p id="tenantPhoneNumberError" style={{ color: 'red' }}></p>
 
                 <label className={classes.labelText} for="landlordPhoneNumber">
                     Landlord's Phone Number
                 </label>
-                <input
+                <InputForm
                     onChange={validatePhone}
                     type="text"
                     value={formData.landlordPhoneNumber}
                     id="landlordPhoneNumber"
                     name="landlordPhoneNumber"
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
-                ></input>
+                />
                 <p id="landlordPhoneNumberError" style={{ color: 'red' }}></p>
 
                 <label className={classes.labelText} for="maintenanceIssue">
                     Maintenance Issue Details
                 </label>
-                <input
+                <InputForm
                     onChange={handleChange}
                     type="text"
                     value={formData.maintenanceIssue}
                     id="maintenanceIssue"
                     name="maintenanceIssue"
                     required
-                ></input>
+                />
                 <p id="maintenanceIssueError" style={{ color: 'red' }}></p>
-
-                {/* ADD FILE UPLOAD BOX HERE FOR PICTURES  */}
                 <br />
-                <label className={classes.labelText} for="fileUpload">
-                    -----File Upload need to be added here------
-                </label>
-
                 <Button
                     variant="primary"
                     className={classes.buttonPadding}

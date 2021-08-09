@@ -48,28 +48,28 @@ app.post('/signup', uploadMiddleware.single('image'), async (req, res) => {
             image: image,
         });
 
-    //     const message = {
-    //         to: email,
-    //         from: 'VroomInc@officalbase.com',
-    //         subject: 'Welcome to Vroom',
-    //         text: 'Hello world',
-    //         html: `
-    //             <h1>Welcome to Vroom</h1>
-    //             <p> Thanks for Signing Up! Now let's find you a home!</p>
-    //         `,
-    //     };
+        const message = {
+            to: email,
+            from: 'VroomInc@officalbase.com',
+            subject: 'Welcome to Vroom',
+            text: 'Hello world',
+            html: `
+                <h1>Welcome to Vroom</h1>
+                <p> Thanks for Signing Up! Now let's find you a home!</p>
+            `,
+        };
 
-    //     (async () => {
-    //         try {
-    //             await sgMail.send(message);
-    //         } catch (error) {
-    //             console.error(error);
+        (async () => {
+            try {
+                await sgMail.send(message);
+            } catch (error) {
+                console.error(error);
 
-    //             if (error.response) {
-    //                 console.error(error.response.body);
-    //             }
-    //         }
-    //     })();
+                if (error.response) {
+                    console.error(error.response.body);
+                }
+            }
+        })();
         res.status(200).json('Saved to Database');
     } catch {
         console.log('ERROR: Did not Create User.');
