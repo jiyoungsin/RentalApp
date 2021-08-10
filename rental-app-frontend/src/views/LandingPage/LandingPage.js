@@ -127,7 +127,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         axios
-            .get('/rentals/rentals')
+            .get('http://www.aidatastructures.com:5000/rentals/rentals')
             .then((res) => {
                 setRentals(res.data);
                 console.log('res.data');
