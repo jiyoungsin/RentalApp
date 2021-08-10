@@ -125,19 +125,19 @@ export default function LandingPage() {
             });
     };
 
-    useEffect(() => {
-        axios
-            .get('/rentals/rentals')
-            .then((res) => {
-                setRentals(res.data);
-                console.log('res.data');
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.error(err);
-                alert('Error Fetching Data from Backend. Check Server');
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get('/rentals/rentals')
+    //         .then((res) => {
+    //             setRentals(res.data);
+    //             console.log('res.data');
+    //             console.log(res.data);
+    //         })
+    //         .catch((err) => {
+    //             console.error(err);
+    //             alert('Error Fetching Data from Backend. Check Server');
+    //         });
+    // }, []);
 
     return (
         <div>
