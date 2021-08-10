@@ -58,7 +58,7 @@ export default function Maintenance() {
         console.log('payload');
         console.log(payload);
         axios
-            .post('http://localhost:5000/maintenance/create', {
+            .post('/maintenance/create', {
                 data: payload,
                 headers: {
                     'Content-Type': 'application/json',

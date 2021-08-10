@@ -48,8 +48,16 @@ mongoose
         console.log('Error occurred connecting to Database');
     });
 
+
+
+//public assets
+app.use(express.static('public'));
+
 // Modulating routes
 // MAPs EXPRESS TO ALL OUR  ROUTER OBJECTS
+app.get('/', function (req, res) {
+    res.sendFile('public/index.html');
+})
 app.use('/users', userController);
 app.use('/review', reviewController);
 app.use('/rentals', rentalController);

@@ -110,7 +110,7 @@ export default function LandingPage() {
         // saves data to Database Endpoint /signup
         const payload = { ...formData };
         axios
-            .post('http://localhost:5000/users/subscribe', payload, {
+            .post('/users/subscribe', payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -127,7 +127,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         axios
-            .get('http://www.aidatastructures.com:5000/rentals/rentals')
+            .get('/rentals/rentals')
             .then((res) => {
                 setRentals(res.data);
                 console.log('res.data');

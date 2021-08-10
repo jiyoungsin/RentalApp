@@ -35,7 +35,7 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
     console.log(theCurrentUser);
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/profile/username/` + Landlord.landlord)
+            .get(`/profile/username/` + Landlord.landlord)
             .then((res) => {
                 setLandlordEmail(res.data[0].email);
                 setLoaded(true);
@@ -87,7 +87,7 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
         let payload = { ...formData };
         payload.email = landlordEmail;
         axios
-            .post('http://localhost:5000/message/send', payload, {
+            .post('/message/send', payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

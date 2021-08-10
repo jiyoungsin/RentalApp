@@ -69,7 +69,7 @@ export default function EditRental({ match }) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/rentalUnit/${id}`, {
+            .get(`/rentalUnit/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -108,7 +108,7 @@ export default function EditRental({ match }) {
         console.log(payload);
         delete payload.image;
         axios
-            .put(`http://localhost:5000/rentalUnit/editRental/${id}`, {
+            .put(`/rentalUnit/editRental/${id}`, {
                 data: payload,
                 headers: {
                     'Content-Type': 'application/json',

@@ -113,7 +113,7 @@ export default function CreateMaintenance() {
     const onSubmit = () => {
         const payload = { ...formData };
         axios
-            .post('http://localhost:5000/maintenance/create', payload, {
+            .post('/maintenance/create', payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

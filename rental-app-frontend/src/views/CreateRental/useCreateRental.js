@@ -4,7 +4,7 @@ import axios from 'axios';
 // index was too crowded.
 const sendDetailsToServer = (state) => {
     axios
-        .post('http://localhost:5000/rentals/createRental', state, {
+        .post('/rentals/createRental', state, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

@@ -48,7 +48,7 @@ export default function Profile(req, res) {
     useEffect(() => {
         const payload = { user };
         axios
-            .post(`http://localhost:5000/rentals/users-rental`, payload, {
+            .post(`/rentals/users-rental`, payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

@@ -8,7 +8,7 @@ export default function Maintenance() {
     const EditLink = '/edit/';
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/maintenance/maintenance`)
+            .get(`/maintenance/maintenance`)
             .then((res) => {
                 setMaintenance(res.data);
             })
@@ -20,7 +20,7 @@ export default function Maintenance() {
 
     const buttonPushed = (id) => {
         axios
-            .delete(`http://localhost:5000/maintenance/delete/${id}`)
+            .delete(`/maintenance/delete/${id}`)
             .then((res) => {
                 console.log('Deleting Maintenance from Database');
                 console.log(res);

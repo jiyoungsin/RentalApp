@@ -121,7 +121,7 @@ export default function Signup() {
         let userNames;
         let error = '';
         axios
-            .get('http://localhost:5000/users/usernames')
+            .get('/users/usernames')
             .then((res) => {
                 userNames = res.data;
                 console.log('i come in');
@@ -189,7 +189,7 @@ export default function Signup() {
             count++;
         }
         axios
-            .get('http://localhost:5000/users/usernames')
+            .get('/users/usernames')
             .then((res) => {
                 userNames = res.data;
                 for (let i = 0; i < userNames.length; i++) {
@@ -237,7 +237,7 @@ export default function Signup() {
         newPayload.append('reviews', formData.reviews);
 
         axios
-            .post('http://localhost:5000/users/signup', newPayload, {
+            .post('/users/signup', newPayload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
