@@ -1,4 +1,3 @@
-import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -18,11 +17,6 @@ const maintenanceController = require('../routes/maintenance');
 const session = require('express-session');
 // const MongoStore = require('connect-mongo');
 
-app.use(
-    cors({
-        origin: 'http://localhost:3000',
-    })
-);
 app.use(cookieParser());
 app.use(
     express.urlencoded({
