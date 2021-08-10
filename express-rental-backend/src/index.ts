@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
+var cors = require('cors')
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,7 +17,7 @@ const rentalUnitController = require('../routes/rentalUnit');
 const maintenanceController = require('../routes/maintenance');
 const session = require('express-session');
 // const MongoStore = require('connect-mongo');
-
+app.use(cors())
 app.use(cookieParser());
 app.use(
     express.urlencoded({
