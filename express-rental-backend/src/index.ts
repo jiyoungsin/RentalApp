@@ -34,7 +34,7 @@ app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true, parameterLimit: 50000 }));
 
 mongoose
-    .connect(process.env.MONGO_DB_URI, {
+    .connect("mongodb+srv://admin:admin@cluster0.icaj7.mongodb.net/rentalapp?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useFindAndModify: true,
         useUnifiedTopology: true,
