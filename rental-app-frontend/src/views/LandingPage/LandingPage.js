@@ -152,7 +152,7 @@ export default function LandingPage() {
                     </div>
                 </div>
             </div>
-            <div className="container">
+            {/* <div className="container">
                 <div className="row d-flex justify-content-between">
                     {rentals.map((i) => {
                         console.log('Rentals being Sent');
@@ -160,7 +160,7 @@ export default function LandingPage() {
                         return <PostCard key={i._id} rentals={i} />;
                     })}
                 </div>
-            </div>
+            </div> */}
             <Price />
             <div style={{ display: 'flex', margin: '50px', backgroundColor: 'white' }}>
                 <div className={classes.centerText} style={{ alignSelf: 'center' }}>
