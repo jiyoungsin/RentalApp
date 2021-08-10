@@ -127,7 +127,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/rentals/rentals')
+            .get('/rentals/rentals')
             .then((res) => {
                 setRentals(res.data);
                 console.log('res.data');
