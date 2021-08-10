@@ -54,7 +54,7 @@ export default function Login() {
         // checks data by using Database Endpoint /login
         const payload = { ...formData };
         axios
-            .post('/users/login', {
+            .post('http://www.aidatastructures.com:5000/users/login', {
                 data: payload,
                 headers: {
                     'Content-Type': 'application/json',

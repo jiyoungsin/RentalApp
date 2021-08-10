@@ -121,7 +121,7 @@ export default function Signup() {
         let userNames;
         let error = '';
         axios
-            .get('/users/usernames')
+            .get('http://www.aidatastructures.com:5000/users/usernames')
             .then((res) => {
                 userNames = res.data;
                 console.log('i come in');
@@ -237,7 +237,7 @@ export default function Signup() {
         newPayload.append('reviews', formData.reviews);
 
         axios
-            .post('/users/signup', newPayload, {
+            .post('http://www.aidatastructures.com:5000/users/signup', newPayload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

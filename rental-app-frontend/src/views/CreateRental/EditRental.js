@@ -69,7 +69,7 @@ export default function EditRental({ match }) {
 
     useEffect(() => {
         axios
-            .get(`/rentalUnit/${id}`, {
+            .get(`http://www.aidatastructures.com:5000/rentalUnit/${id}`, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -108,7 +108,7 @@ export default function EditRental({ match }) {
         console.log(payload);
         delete payload.image;
         axios
-            .put(`/rentalUnit/editRental/${id}`, {
+            .put(`http://www.aidatastructures.com:5000/rentalUnit/editRental/${id}`, {
                 data: payload,
                 headers: {
                     'Content-Type': 'application/json',

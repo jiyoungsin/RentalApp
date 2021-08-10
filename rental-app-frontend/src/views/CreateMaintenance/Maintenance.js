@@ -58,7 +58,7 @@ export default function Maintenance() {
         console.log('payload');
         console.log(payload);
         axios
-            .post('/maintenance/create', {
+            .post('http://www.aidatastructures.com:5000/maintenance/create', {
                 data: payload,
                 headers: {
                     'Content-Type': 'application/json',

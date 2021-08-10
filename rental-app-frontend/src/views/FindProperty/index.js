@@ -78,7 +78,7 @@ export default function StickyHeadTable() {
     const [rows, setRows] = useState([]);
     useEffect(() => {
         axios
-            .get('/rentals/all')
+            .get('http://www.aidatastructures.com:5000/rentals/all')
             .then((res) => {
                 if (res.status === 200) {
                     const thelandlord = '1000';

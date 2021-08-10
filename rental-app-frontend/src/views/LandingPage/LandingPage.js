@@ -110,7 +110,7 @@ export default function LandingPage() {
         // saves data to Database Endpoint /signup
         const payload = { ...formData };
         axios
-            .post('/users/subscribe', payload, {
+            .post('http://www.aidatastructures.com:5000/users/subscribe', payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -125,19 +125,19 @@ export default function LandingPage() {
             });
     };
 
-    // useEffect(() => {
-    //     axios
-    //         .get('/rentals/rentals')
-    //         .then((res) => {
-    //             setRentals(res.data);
-    //             console.log('res.data');
-    //             console.log(res.data);
-    //         })
-    //         .catch((err) => {
-    //             console.error(err);
-    //             alert('Error Fetching Data from Backend. Check Server');
-    //         });
-    // }, []);
+    useEffect(() => {
+        axios
+            .get('http://www.aidatastructures.com:5000/rentals/rentals')
+            .then((res) => {
+                setRentals(res.data);
+                console.log('res.data');
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.error(err);
+                alert('Error Fetching Data from Backend. Check Server');
+            });
+    }, []);
 
     return (
         <div>
@@ -152,7 +152,7 @@ export default function LandingPage() {
                     </div>
                 </div>
             </div>
-            {/* <div className="container">
+            <div className="container">
                 <div className="row d-flex justify-content-between">
                     {rentals.map((i) => {
                         console.log('Rentals being Sent');
@@ -160,7 +160,7 @@ export default function LandingPage() {
                         return <PostCard key={i._id} rentals={i} />;
                     })}
                 </div>
-            </div> */}
+            </div>
             <Price />
             <div style={{ display: 'flex', margin: '50px', backgroundColor: 'white' }}>
                 <div className={classes.centerText} style={{ alignSelf: 'center' }}>

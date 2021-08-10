@@ -110,7 +110,7 @@ export default function RentalPost({
 
     const buttonPushed = () => {
         axios
-            .delete(`/rentalUnit/delete/${_id}`)
+            .delete(`http://www.aidatastructures.com:5000/rentalUnit/delete/${_id}`)
             .then((res) => {
                 console.log('Deleting Data from Database');
                 alert('Successfully Deleted Rental Unit');

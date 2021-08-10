@@ -35,7 +35,7 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
     console.log(theCurrentUser);
     useEffect(() => {
         axios
-            .get(`/profile/username/` + Landlord.landlord)
+            .get(`http://www.aidatastructures.com:5000/profile/username/` + Landlord.landlord)
             .then((res) => {
                 setLandlordEmail(res.data[0].email);
                 setLoaded(true);
@@ -87,7 +87,7 @@ export default function ContactRentalOwner(Landlord, theCurrentUser) {
         let payload = { ...formData };
         payload.email = landlordEmail;
         axios
-            .post('/message/send', payload, {
+            .post('http://www.aidatastructures.com:5000/message/send', payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

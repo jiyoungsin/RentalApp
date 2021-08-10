@@ -56,7 +56,7 @@ export default function Rental() {
 
     useEffect(() => {
         axios
-            .get(`/profile/` + rental_id)
+            .get(`http://www.aidatastructures.com:5000/profile/` + rental_id)
             .then((res) => {
                 setRentalPost(res.data[0]);
                 setLoaded(true);
@@ -70,7 +70,7 @@ export default function Rental() {
 
     useEffect(() => {
         axios
-            .get(`/review/` + rental_id)
+            .get(`http://www.aidatastructures.com:5000/review/` + rental_id)
             .then((res) => {
                 setReviews(res.data);
                 setReviewsLoaded(true);
@@ -99,7 +99,7 @@ export default function Rental() {
     const onSubmitReview = () => {
         const submitReview = { ...reviewForm };
         axios
-            .post('/review/create', submitReview, {
+            .post('http://www.aidatastructures.com:5000/review/create', submitReview, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
